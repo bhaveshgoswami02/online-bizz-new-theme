@@ -6,12 +6,12 @@ export const environment = {
   orderApi:"https://us-central1-splixcube-website-builder.cloudfunctions.net/createOrder",
   razorpay_id:"rzp_live_wPI8gVdAApVq4t",
   hostdomain:[
-  // "onlinebizz.site",
-  // "website.splixcube.com",
-  // "localhost",
-  // "localhost:4200",
-  // "localhost:4201",
-  // "localhost:4000" 
+  "onlinebizz.site",
+  "website.splixcube.com",
+  "localhost",
+  "localhost:4200",
+  "localhost:4201",
+  "localhost:4000" 
 ],
   superadmin:"splixcube@gmail.com",
   twoFactorApi: 'e7ab6256-105b-11eb-9fa5-0200cd936042',  
