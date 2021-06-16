@@ -1,0 +1,14 @@
+<div class="services-post">
+    <div class="services-gal">
+        <img [src]="service?.imgUrl" alt="">
+    </div>
+    <div class="content-post">
+        <h2><a
+                >{{service?.title}}</a>
+        </h2>
+        <p [innerHTML]="service?.desc"></p>
+        <a *ngIf="service.content"
+            routerLink="{{_themeService.customDomain? '/services/'+service.slug : '/'+_themeService.domainName+'/services/'+service.slug}}"
+            class="btn btn-primary px-3 py-1">VIEW DETAILS</a>
+    </div>
+</div>

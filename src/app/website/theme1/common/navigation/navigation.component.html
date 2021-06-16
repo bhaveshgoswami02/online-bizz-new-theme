@@ -1,0 +1,134 @@
+<div class="bg-primary py-3 d-none d-md-block" *ngIf="_themeService?.data?.phoneNo && _themeService?.data?.email">
+    <div class="container d-flex justify-content-between">
+        <div class="contact__info my-auto">
+            <span class="mr-3" *ngIf="_themeService?.data?.email">
+                <span class="mx-2">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <b class="paragraph__language">Email: </b>
+                <a href="mailto:{{_themeService?.data?.email}}" class="top__nav">{{_themeService?.data?.email}}</a>
+            </span>
+            <span class="mr-3" *ngIf="_themeService?.data?.phoneNo">
+                <span class="mx-2">
+                    <i class="fa fa-phone"></i>
+                </span>
+                <b class="paragraph__language">Phone: </b>
+                <a href="tel:{{_themeService?.data?.phoneNo}}" class="top__nav">{{_themeService?.data?.phoneNo}}</a>
+            </span>
+        </div>
+        <div class="social__links my-auto">
+            <span class="mx-2" *ngIf="_themeService?.data?.socialMedia?.facebook">
+                <a href="{{_themeService?.data?.socialMedia?.facebook}}" class="top__nav">
+                    <i class="fa fa-facebook"></i>
+                </a>
+            </span>
+            <span class="mx-2" *ngIf="_themeService?.data?.socialMedia?.instagram">
+                <a href="{{_themeService?.data?.socialMedia?.instagram}}" class="top__nav">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </span>
+            <span class="mx-2" *ngIf="_themeService?.data?.socialMedia?.twitter">
+                <a href="{{_themeService?.data?.socialMedia?.twitter}}" class="top__nav">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </span>
+            <span class="mx-2" *ngIf="_themeService?.data?.socialMedia?.youtube">
+                <a href="{{_themeService?.data?.socialMedia?.youtube}}" class="top__nav">
+                    <i class="fa fa-youtube"></i>
+                </a>
+            </span>
+            <span class="mx-2" *ngIf="_themeService?.data?.socialMedia?.linkedin">
+                <a href="{{_themeService?.data?.socialMedia?.linkedin}}" class="top__nav">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+            </span>
+            <span class="mx-2" *ngIf="_themeService?.data?.socialMedia?.pinterest">
+                <a href="{{_themeService?.data?.socialMedia?.pinterest}}" class="top__nav">
+                    <i class="fa fa-pinterest"></i>
+                </a>
+            </span>
+            <span class="mx-2" *ngIf="_themeService?.data?.socialMedia?.tiktok">
+                <a href="{{_themeService?.data?.socialMedia?.tiktok}}" class="top__nav">
+                    <img src="https://img.icons8.com/fluent-systems-filled/24/000000/tiktok.png" />
+                </a>
+            </span>
+            <span class="mx-2" *ngIf="_themeService?.data?.socialMedia?.googleBusiness">
+                <a href="{{_themeService?.data?.socialMedia?.googleBusiness}}" class="top__nav">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </span>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container">
+        <div>
+            <button #toggle class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}" class="navbar-brand float-left"
+                *ngIf="!_themeService?.data?.brand_logo; else logoNotAvailable">{{_themeService?.data?.shopName}}</a>
+            <ng-template #logoNotAvailable>
+                <img routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}" class="navbar_brand_logo img-fluid p-1 p-md-0"
+                    [src]="_themeService?.data?.brand_logo" alt="">
+            </ng-template>
+        </div>
+        <a *ngIf="_themeService.data.enableEcommerce" style="text-decoration: none;" routerLink="{{_themeService.customDomain?'/cart':'/'+_themeService.domainName+'/cart'}}"
+            class="d-block d-md-none d-sm-block primary-contrast">
+            <span *ngIf="_themeService.products.length>0 && cartService.cart.length>0" class="font-20 paragraph__language border-right px-1 primary-contrast">{{cartService.cart.length}}</span>
+            <span *ngIf="_themeService.products.length>0" class="font-20 paragraph__language px-1">
+                <i class="fa fa-shopping-cart"></i>
+            </span>
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto" *ngIf="_themeService.data?.mainMenu && _themeService.data?.mainMenu?.length>0">
+                <li (click)="closeNav()" class="nav-item" *ngFor="let menu of _themeService.data?.mainMenu">
+                    <a *ngIf="!menu.url" class="nav-link navigation__link mx-1" routerLink="{{_themeService.customDomain?menu.link:'/'+_themeService.domainName+menu.link}}" routerLinkActive="active">{{menu.title}}</a>
+                    <a *ngIf="menu.url" class="nav-link navigation__link mx-1" href="{{menu?.url}}" target="_blank">{{menu.title}}</a>
+                    <div *ngIf="menu.subMenu">
+                        <div class="custom__dropdown p-3 shadow" *ngFor="let subMenu of menu.subMenu">
+                            <a *ngIf="!subMenu.url" [routerLink]="subMenu.link">{{subMenu.title}}</a>
+                            <a *ngIf="subMenu.url" href="{{subMenu.url}}" target="_blank">{{subMenu.title}}</a>
+                        </div>
+                    </div>
+                </li>
+                <ng-container *ngIf="_themeService.data.enableEcommerce">
+                    <li *ngIf="_themeService.products.length>0"  (click)="closeNav()" class="nav-item d-none d-md-block d-lg-block">
+                        <a routerLink="{{_themeService.customDomain?'/cart':'/'+_themeService.domainName+'/cart'}}" routerLinkActive="active" class="nav-link navigation__link mx-1"><span *ngIf="cartService.cart.length>0" class="font-20 paragraph__language border-right px-1">{{cartService.cart.length}}</span> <span class="font-20 paragraph__language px-1"> <i class="fa fa-shopping-cart"></i> </span></a>
+                    </li>
+                </ng-container>
+            </ul>
+            <ul class="navbar-nav ml-auto" *ngIf="!menu">
+                <li (click)="closeNav()" class="nav-item">
+                    <a class="nav-link navigation__link mx-1" routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}" routerLinkActive="active">Home</a>
+                </li>
+                <li  (click)="closeNav()" class="nav-item" *ngIf="_themeService?.services.length>0">
+                    <a class="nav-link navigation__link mx-1" routerLink="{{_themeService.customDomain?'/services':'/'+_themeService.domainName+'/services'}}" routerLinkActive="active">{{_themeService.data.serviceHeading ? _themeService.data.serviceHeading : "Services"}}</a>
+                </li>
+                <li  (click)="closeNav()" class="nav-item" *ngIf="_themeService?.products.length>0">
+                    <a class="nav-link navigation__link mx-1" routerLink="{{_themeService.customDomain?'/products':'/'+_themeService.domainName+'/products'}}" routerLinkActive="active">{{_themeService.data.productHeading ? _themeService.data.productHeading : "Products"}}</a>
+                </li>
+                <li  (click)="closeNav()" class="nav-item" *ngIf="_themeService?.gallery.length>0">
+                    <a class="nav-link navigation__link mx-1" routerLink="{{_themeService.customDomain?'/gallery':'/'+_themeService.domainName+'/gallery'}}" routerLinkActive="active">{{_themeService.data.galleryHeading ? _themeService.data.galleryHeading : "Gallery"}}</a>
+                </li>
+                <li *ngIf="_themeService?.data._themeService?.data.payments && _themeService?.data?.payments?.googlePay || _themeService?.data?.payments?.paytm || _themeService?.data?.payments?.razorPay  || _themeService?.data?.payments?.phonePay || _themeService?.data?.payments?.razorPay || _themeService?.data?.payments?.upi  || _themeService?.data.acNo" (click)="closeNav()" class="nav-item">
+                    <a class="nav-link navigation__link mx-1" routerLink="{{_themeService.customDomain?'/payments':'/'+_themeService.domainName+'/payments'}}" routerLinkActive="active">Payments</a>
+                </li>
+                <li (click)="closeNav()" class="nav-item" *ngIf="_themeService?.data.aboutUs.title || _themeService?.data.aboutUs.description">
+                    <a class="nav-link navigation__link mx-1" routerLink="{{_themeService.customDomain?'/about':'/'+_themeService.domainName+'/about'}}" routerLinkActive="active">{{_themeService.data.aboutHeading ? _themeService.data.aboutHeading : "About Us"}}</a>
+                </li>
+                <li (click)="closeNav()" class="nav-item">
+                    <a class="nav-link navigation__link mx-1" routerLink="{{_themeService.customDomain?'/contact':'/'+_themeService.domainName+'/contact'}}" routerLinkActive="active">Contact Us</a>
+                </li>
+                <ng-container *ngIf="_themeService.data.enableEcommerce">
+                    <li *ngIf="_themeService.products.length>0"  (click)="closeNav()" class="nav-item d-none d-md-block d-lg-block">
+                        <a routerLink="{{_themeService.customDomain?'/cart':'/'+_themeService.domainName+'/cart'}}" routerLinkActive="active" class="nav-link navigation__link mx-1"><span *ngIf="cartService.cart.length>0" class="font-20 paragraph__language border-right px-1">{{cartService.cart.length}}</span> <span class="font-20 paragraph__language px-1"> <i class="fa fa-shopping-cart"></i> </span></a>
+                    </li>
+                </ng-container>
+                
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,21 @@
+<!-- Cover Background -->
+<div class="jumbotron jumbotron-fluid my-0 cover__background" [ngStyle]="{'background-image': getCover()}" data-aos="fade-up">
+    <div class="container">
+        <div class="title__section">
+            <h1 class="text-warning">{{_themeService.data.serviceHeading ? _themeService.data.serviceHeading : "Our Services"}}</h1>
+        </div>
+    </div>
+</div>
+
+<!-- Our Service -->
+<section class="jumbotron jumbotron-fluid my-0 bg-transparent" data-aos="zoom-in" *ngIf="_themeService.data?.services && _themeService.data?.services?.length>0">
+    <div class="container mt-0 pt-0">
+        <div class="row text-center">
+            <ng-container *ngFor="let service of _themeService.data?.services; let i = index">
+                <div class="col-sm-6 col-lg-4 px-2 px-lg-3 mb-3 mb-lg-0 aos-init aos-animate" data-aos="fade-up">
+                    <app-service-card [service]="service"></app-service-card>
+                </div>
+            </ng-container>
+        </div> 
+    </div>
+</section>

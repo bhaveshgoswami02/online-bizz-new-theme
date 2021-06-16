@@ -1,0 +1,220 @@
+<app-navigation type=2 title="Checkout"></app-navigation>
+
+<div class="container">
+    <div class="container text-white pt-5 pb-3 text-center">
+        <h4>Complete Order</h4>
+    </div>
+    <div class="row">
+        <div class="col-lg-7 p-3 mx-auto">
+            <div class="shadow-sm p-3">
+                <h4>Order Summary</h4>
+                <div class="row" *ngFor="let item of cartService.cart">
+                    <div class="p-3 w-100 d-flex">
+                        <img [src]="item.product.imgUrl" (load)="item.loaded = true" [hidden]="!item.loaded" alt="" width="80" class="img-fluid rounded shadow-sm">
+                        <ng-container *ngIf="!item.loaded">
+                            <div style="width: 80px;height: 80px;">
+                                <div class="blank_img"></div>
+                            </div>
+                        </ng-container>
+                        <div class="ml-3 d-inline-block align-middle">
+                            <p class="mb-0">
+                                <a class="text-dark d-inline-block">{{item.product.itemName}}</a>
+                            </p>
+                            <span class="text-muted font-weight-normal font-italic"
+                                *ngIf="item.product.itemCategory">Category: {{item.product.itemCategory}}
+                            </span>
+                            <br>
+                            <span class="text-muted font-weight-normal font-italic">
+                                &#8377;{{item.product.itemPrice}} * {{item.qty}} units
+                            </span>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="!cartService.appliedCouponcode">
+                    <div class="col-lg-10 col-md-10 col-9 px-0">
+                        <input type="text" class="form-control rounded-0" placeholder="Enter Coupon Code"
+                            [(ngModel)]="couponCode">
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-3 px-0 mx-0">
+                        <button class="btn-primary apply" (click)="applyCoupon()"
+                            type="button">Apply</button>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="cartService.appliedCouponcode">
+                    <div class="col-md-12 p-0">
+                        <div class="alert alert-success w-100" role="alert">
+                            <div class="row">
+                                <div class="col-md-10 col-10">
+                                    <p>{{couponCode}} applied successfully!</p>
+                                </div>
+                                <div class="col-md-2 col-2 text-right">
+                                    <i class="fa fa-times" (click)="removeAppliedCoupon()"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row border-bottom my-2">
+                    <div class="col-md-8 col-8">Order Sub Total :</div>
+                    <div class="col-md-4 col-4 text-right">&#8377;{{cartService.getCartTotal()}}</div>
+                </div>
+                <div class="row border-bottom my-2">
+                    <div class="col-md-8 col-8">Order Discount :</div>
+                    <div class="col-md-4 col-4 text-right">&#8377;{{cartService.discount}}</div>
+                </div>
+                <div class="row border-bottom my-2">
+                    <div class="col-md-8 col-8">Order Total :</div>
+                    <div class="col-md-4 col-4 text-right">&#8377;{{cartService.getCartTotal() - cartService.discount}}
+                    </div>
+                </div>
+                <p class="text-success" *ngIf="cartService.appliedCouponcode">You get a discount of RS
+                    {{cartService.discount}}</p>
+                <div class="row border-bottom my-2">
+                    <div class="col-md-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="comment" (click)="onCommentCheck()">
+                            <label class="form-check-label" for="comment">
+                                Include Comment
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12" *ngIf="isCommentTextarea">
+                        <textarea class="form-control mb-2" [(ngModel)]="comment" placeholder="Write Comment..." cols="30" rows="5"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7 p-3 mx-auto">
+            <div class="shadow-sm p-3">
+                <h4>Select Address</h4>
+                <div class="row mb-2 pb-2 border-bottom cursor-pointer" *ngFor="let address of allAddress;" (click)="selectAddress(address)">
+                    <div class="col-10">
+                        <p class="text-muted m-0">
+                            <b>Street: </b>{{address?.street}}
+                        </p>
+                        <p class="text-muted m-0">
+                            <b>City: </b>{{address?.city}}
+                        </p>
+                        <p class="text-muted m-0">
+                            <b>Pincode: </b>{{address?.pincode}}
+                        </p>
+                        <p class="text-muted m-0" *ngIf="address?.landmark">
+                            <b>Landmark: </b>{{address?.landmark}}
+                        </p>
+                    </div>
+                    <div class="col-2 text-right my-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" [checked]="addressId == address.id" type="radio" name="address"
+                                (click)="selectAddress(address)">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="add-address-btn border-dotted w-100 mb-2 mx-auto" (click)="onAddAddress()">
+                    Add Address
+                </button>
+            </div>
+
+            <div class="row my-2" *ngIf="this.theme.data.enableOrder">
+                <div class="col-md-6 col-lg-6 col-6">
+                    <button class="btn-primary rounded-0 w-100" [ngClass]="{'btn-active': paymentMode == 'cash'}"
+                        (click)="changesPaymentMode('cash')">
+                        COD
+                    </button>
+                </div>
+                <div class="col-md-6 col-lg-6 col-6">
+                    <button class="btn-primary rounded-0 w-100" [ngClass]="{'btn-active': paymentMode == 'online'}"
+                        (click)="changesPaymentMode('online')">
+                        Online
+                    </button>
+                </div>
+            </div>
+            <div class="text-right my-3" *ngIf="this.theme.data.enableOrder">
+                <button *ngIf="this.theme.data.enableOrder && paymentMode && !submitted && address"
+                    class="btn-primary w-100 mx-auto" type="button" (click)="placeOrder()">Order Now</button>
+                <button *ngIf="this.theme.data.enableOrder && paymentMode && submitted" class="btn-primary w-100"
+                    type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Please Wait...
+                </button>
+            </div>
+            <div class="text-right my-3" *ngIf="!this.theme.data.enableOrder">
+                <button *ngIf="!this.theme.data.enableOrder && !submitted && address" class="btn-primary w-100 mx-auto"
+                    type="button" (click)="OrderNow()">Order On Whatsapp</button>
+                <button *ngIf="this.theme.data.enableOrder && paymentMode && submitted" class="btn-primary w-100"
+                    type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Please Wait...
+                </button>
+            </div>
+        </div>
+
+        <!-- <div class="col-lg-5 p-3 mx-auto" *ngIf="!this.theme.data.enableOrder">
+            <div class="shadow-sm p-3">
+                <h4>Enter your Personal Information</h4>
+                <form (ngSubmit)="OrderNow(orderForm)" #orderForm="ngForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="single-input-item">
+                                <label>
+                                    <input ngModel required type='text' id='card-name' name='name' placeholder='Name'>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="single-input-item">
+                                <label>
+                                    <input ngModel required type='email' id='card-number' name='email'
+                                        placeholder='abc@gmail.com'>
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <div class="single-input-item">
+                                <label>
+                                    <input ngModel required type='text' id='card-number' name='phoneNumber'
+                                        placeholder='+91XXXXXXXXXX'>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="single-input-item">
+                                <label>
+                                    <input ngModel required type='text' id='card-expiration' name='address'
+                                        placeholder='Address' class="card-expiration">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="single-input-item">
+                                <label>
+                                    <input ngModel type='text' id='comment' name='comment' placeholder='Comment'
+                                        class="card-expiration">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="text-center p-0 my-2">
+                                <button class="btn-primary w-100 mx-auto" type="submit"
+                                    [disabled]="!orderForm.valid">Order On Whatsapp</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+<app-tab></app-tab>

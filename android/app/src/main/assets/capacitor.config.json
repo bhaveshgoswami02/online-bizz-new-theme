@@ -1,0 +1,6 @@
+{
+	"appId": "com.diamentor.app",
+	"appName": "Blue Stone",
+	"webDir": "dist/digitalCard/browser",
+	"bundledWebRuntime": false
+}

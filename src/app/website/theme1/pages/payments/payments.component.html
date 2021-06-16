@@ -1,0 +1,40 @@
+<div class="jumbotron jumbotron-fluid my-0 bg-transparent"  data-aos="fade-up">
+    <div class="container" data-aos="zoom-in">
+        <div class="title__section" data-aos="fade-right">
+            <h1 class="text-warning">Payments Details</h1>
+        </div>
+          <nav data-aos="fade-up">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-link active tab" id="nav-bankDetails-tab" data-toggle="tab" href="#nav-bankDetails" role="tab" aria-controls="nav-bankDetails" aria-selected="true" *ngIf="_themeService?.data?.acHoldName || _themeService?.data?.acNo || _themeService?.data?.ifsc">Bank Details</a>
+              <a class="nav-link tab" id="nav-onlinePay-tab" data-toggle="tab" href="#nav-onlinePay" role="tab" aria-controls="nav-onlinePay" aria-selected="false" *ngIf="_themeService?.data._themeService?.data?.payments && _themeService?.data?.payments?.googlePay || _themeService?.data?.payments?.paytm || _themeService?.data?.payments?.razorPay  || _themeService?.data?.payments?.phonePay || _themeService?.data?.payments?.razorPay || _themeService?.data?.payments?.upi  || _themeService?.data?.acNo" >Online Pay</a>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent" data-aos="fade-up">
+            <div class="tab-pane fade show active" id="nav-bankDetails" role="tabpanel" aria-labelledby="nav-bankDetails-tab" *ngIf="_themeService?.data?.acHoldName || _themeService?.data?.acNo || _themeService?.data?.ifsc">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Bank Details</h5>
+                      <p class="card-text" *ngIf="_themeService?.data?.acHoldName"><b>Account Holder Name : </b>{{_themeService?.data?.acHoldName}}</p>
+                      <p class="card-text" *ngIf="_themeService?.data?.acNo"><b>Account No. : </b>{{_themeService?.data?.acNo}}</p>
+                      <p class="card-text" *ngIf="_themeService?.data?.ifsc"><b>IFSC Code : </b>{{_themeService?.data?.ifsc}}</p>
+                    </div>
+                  </div>
+            </div>
+            <div class="tab-pane fade" id="nav-onlinePay" role="tabpanel" aria-labelledby="nav-onlinePay-tab" *ngIf="_themeService?.data._themeService?.data.payments && _themeService?.data?.payments?.googlePay || _themeService?.data?.payments?.paytm || _themeService?.data?.payments?.razorPay  || _themeService?.data?.payments?.phonePay || _themeService?.data?.payments?.razorPay || _themeService?.data?.payments?.upi  || _themeService?.data.acNo" >
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Online Payments</h5>
+                      <p class="card-text" *ngIf="_themeService?.data?.payments?.googlePay"><b><span class="mr-3"><img src="../../../../../assets/Images/payments_Icons/Google-Pay.png" width="40" alt=""></span> Google Pay : </b> {{_themeService?.data?.payments?.googlePay}}</p>
+                      <p class="card-text" *ngIf="_themeService?.data?.payments?.paytm"><b><span class="mr-3"><img src="../../../../../assets/Images/payments_Icons/Paytm_logo.png" width="40" alt=""></span>Paytm : </b>{{_themeService?.data?.payments?.paytm}}</p>
+                      <p class="card-text" *ngIf="_themeService?.data?.payments?.phonePay"><b><span class="mr-3"><img src="../../../../../assets/Images/payments_Icons/phone-pe.png" width="40" alt=""></span>Phone Pay : </b>{{_themeService?.data?.payments?.phonePay}}</p>
+                      <p class="card-text" *ngIf="_themeService?.data?.payments?.upi"><b><span class="mr-3"><img src="../../../../../assets/Images/payments_Icons/bhim__UPI.webp" width="40" alt=""></span>UPI : </b>{{_themeService?.data?.payments?.upi}}</p>
+                    </div>
+                  </div>
+            </div>
+          </div>
+
+          <div class="text-center my-5" *ngIf="_themeService?.data?.payments?.razorPay" data-aos="fade-up">
+              <a href="{{_themeService?.data?.payments?.razorPay}}" target="_blank" class="btn btn-primary px-4">Pay Now</a>
+          </div>
+    </div>
+</div>

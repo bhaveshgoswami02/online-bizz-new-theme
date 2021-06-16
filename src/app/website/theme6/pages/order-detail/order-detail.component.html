@@ -1,0 +1,239 @@
+<app-navigation type=2 title="Order Detail"></app-navigation>
+
+<ng-container *ngIf="singleOrder">
+    <div class="p-2">
+        <div class="container mt-5 mb-4">
+            <div class="row border-bottom">
+                <div class="col-md-12 col-12">
+                    <h5><b>Order Id:</b> {{singleOrder?.orderId}}</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mb-5">
+            <div class="row border p-3 mb-3 d-none d-md-block d-lg-block">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="border-0 bg-light">
+                                        <div class="p-2 px-3 text-uppercase">Product</div>
+                                    </th>
+                                    <ng-container class="d-block d-md-none d-lg-none">
+                                        <th scope="col" class="border-0 bg-light">
+                                        </th>
+                                        <th scope="col" class="border-0 bg-light">
+                                        </th>
+                                    </ng-container>
+                                    <th scope="col" class="border-0 bg-light">
+                                        <div class="py-2 text-uppercase">Quantity</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light">
+                                        <div class="py-2 text-uppercase">Price</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container>
+                                    <tr *ngFor="let item of singleOrder?.items">
+                                        <th scope="row">
+                                            <div class="p-2 d-flex">
+                                                <img [src]="item.product.imgUrl" alt="" width="70"
+                                                    class="img-fluid rounded shadow-sm">
+                                                <div class="ml-3 d-inline-block align-middle my-auto">
+                                                    <h5 class="mb-0">
+                                                        <a
+                                                            class="text-dark d-inline-block">{{item.product.itemName}}</a>
+                                                    </h5>
+                                                    <span class="text-muted font-weight-normal font-italic"
+                                                        *ngIf="item.product.itemCategory">Category:
+                                                        {{item.product.itemCategory}}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <ng-container class="d-block d-md-none d-lg-none">
+                                            <td></td>
+                                            <td></td>
+                                        </ng-container>
+                                        <td class="align-middle">
+                                            <strong>
+                                                {{item.qty}}
+                                            </strong>
+                                        </td>
+                                        <td class="align-middle">
+                                            <strong>&#8377;{{item.product.itemPrice*item.qty}}</strong>
+                                        </td>
+                                    </tr>
+                                    <h5>Order Items ({{singleOrder?.items.length}})</h5>
+                                </ng-container>
+                                <tr *ngIf="singleOrder?.items.length==0">
+                                    <td>
+                                        No Orders, yet.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row border py-3 px-4 mb-3 d-block d-md-none d-lg-none">
+                <div class="col-12">
+                    <h5>Order Items ({{singleOrder?.items?.length}})</h5>
+                </div>
+                <div class="row border p-3" *ngFor="let item of singleOrder?.items">
+                    <div class="col-4 my-auto">
+                        <img [src]="item?.product.imgUrl" (load)="item.loaded = true" [hidden]="!item?.loaded"  class="w-100" alt="">
+                        <ng-container *ngIf="!item?.loaded">  
+                            <div style="width: 70px;height: 70px;">
+                                <div class="blank_img"></div>
+                            </div>                          
+                        </ng-container>
+                    </div>
+                    <div class="col-8 my-auto">
+                        <p class="text-muted my-0">
+                            <b>Name: </b>{{item?.product.itemName}}
+                        </p>
+                        <p class="text-muted my-0">
+                            <b>Quantity: </b>{{item?.qty}}
+                        </p>
+                        <p class="text-muted my-0">
+                            <b>Price: </b>&#8377;{{item.product?.itemPrice*item?.qty}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row border p-3 mb-3">
+                <div class="col-md-12 mb-3">
+                    <h5>Order Details</h5>
+                </div>
+                <div class="col-lg-6 col-md-6 col-6">
+                    <p>Date</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-6 text-right">
+                    <p>{{singleOrder?.timestamp?.toDate() | date}}</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-6">
+                    <p>Payment Mode</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-6 text-right">
+                    <p>{{singleOrder?.paymentMode}}</p>
+                </div>
+                <div class="col-md-12">
+                    <hr>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <h5>Order Total</h5>
+                </div>
+                <div class="col-lg-6 col-md-6 col-6">
+                    <p>Subtotal</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-6 text-right">
+                    <p>&#8377;{{singleOrder?.orderSummary?.subTotal}}</p>
+                </div>
+                <br>
+                <div class="col-lg-6 col-md-6 col-6">
+                    <p>Discount</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-6 text-right">
+                    <p>&#8377;{{singleOrder?.orderSummary?.discount}}</p>
+                </div>
+                <div class="col-md-12">
+                    <hr>
+                </div>
+                <div class="col-lg-6 col-md-6 col-6">
+                    <p>
+                        <b>Total</b>
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-6 text-right">
+                    <p>
+                        <b>&#8377;{{singleOrder?.orderSummary?.total}}</b>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row border p-3 mb-3">
+                <div class="col-md-12 mb-3">
+                    <h5>Billing & Shipping Details</h5>
+                </div>
+                <div class="col-md-4 my-2">
+                    <b class="mb-2">Contact Information:</b> <br>
+                    <b>Email Address:</b>
+                    <br>
+                    <p>{{singleOrder?.customer?.email}}</p>
+
+                    <b>Contact Number:</b>
+                    <br>
+                    <p>{{singleOrder?.customer?.mobileNumber}}</p>
+                </div>
+                <div class="col-md-4 my-2">
+                    <b class="mb-2">Shipping address:</b> <br>
+                    <p>{{singleOrder?.address?.street}}, {{singleOrder?.address?.city}},
+                        {{singleOrder?.address?.pincode}}</p>
+                    <p>{{singleOrder?.address?.landmark}}</p>
+                </div>
+                <div class="col-md-4 my-2">
+                    <b class="mb-2">Payment:</b> <br>
+                    <p class="capitalize">{{singleOrder?.paymentMode}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!singleOrder">
+    <div class="container">
+        <div class="row p-3 mb-3">
+            <div class="col-md-12">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-text">
+                                <div class="p-skeleton__body--r-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-3 mb-3">
+            <div class="col-md-12">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-banner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-3 mb-3">
+            <div class="col-md-12">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-banner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-3 mb-3">
+            <div class="col-md-12">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-banner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<app-tab></app-tab>

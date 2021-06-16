@@ -1,0 +1,33 @@
+
+.display {
+display: block !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+
+@media(max-width:768px) {
+    .card-height {
+        height:100%;
+        border-radius: 0px;
+    }
+
+    .price-size {
+      font-size:small;
+    }
+}
+
+
+
+@media(min-width:768px) {
+    .card-height {
+        height:100%;
+        border-radius: 0px;
+    }
+
+    .price-size {
+        font-size: medium;
+    }
+}

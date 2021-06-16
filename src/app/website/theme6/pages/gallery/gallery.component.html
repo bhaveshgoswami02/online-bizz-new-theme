@@ -1,0 +1,140 @@
+<app-navigation type=2 title="Gallery"></app-navigation>
+
+<div class="service-area-wrapper bg-secondary d-none d-md-block d-lg-block">
+    <div class="service-area-top parallax" [ngStyle]="{'background-image': getCover()}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xl-5 m-auto text-center">
+                    <div class="section-title section-title--light">
+                        <h4 class="text-white">{{_themeService.data.galleryHeading ? _themeService.data.galleryHeading :
+                            "Gallery"}}</h4>
+                        <h5 class="mb-0 text-white primary-font-size" *ngIf="_themeService.data.galleryTagLine">
+                            {{_themeService.data.galleryTagLine}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="!skeleton">
+    <div class="container text-center mt-5 mb-0" data-aos="fade-up" *ngIf="gallery.length>0">
+        <h4>{{_themeService.data.galleryHeading ? _themeService.data.galleryHeading : "Gallery"}}</h4>
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-6" *ngFor="let imgs of gallery;">
+                <div class="image__gallery__container mt-5 w-100" data-aos="zoom-in">
+                    <div class="gallery__img mb-2" data-aos="fade-up" (click)="openModal(imgs?.imgUrl)">
+                        <a href="#" data-toggle="modal" data-target="#imgModal">
+                            <img [src]="imgs?.imgUrl" (load)="imgs.loaded = true" [hidden]="!imgs.loaded" alt="">
+                            <ng-container *ngIf="!imgs.loaded">
+                                <div class="p-skeleton">
+                                    <div class="p-skeleton__body">
+                                        <div class="p-skeleton__body--r-image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </a>
+                        <h2 class="text-center w-80 mx-auto my-1">{{imgs?.title}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <br>
+    </div>
+</ng-container>
+<app-video></app-video>
+
+<ng-container *ngIf="skeleton">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-md-12 text-center mb-5">
+                <div class="p-skeleton-wrapper mx-auto">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-title mx-auto"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mx-auto my-3">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image"></div>
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-text">
+                                    <div class="p-skeleton__body--r-s"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mx-auto my-3">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image"></div>
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-text">
+                                    <div class="p-skeleton__body--r-s"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mx-auto my-3">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image"></div>
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-text">
+                                    <div class="p-skeleton__body--r-s"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+<div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="imgModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header p-0 pr-3">
+                <button type="button" class="close bg-white p-1 rounded-circle" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                            <path fill-rule="evenodd"
+                                d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body p-0 bg-transparent text-center">
+                <img [src]="openModalImg" width="100%" height="100%" class="img-fluid" id="modalImgOpen">
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-tab></app-tab>

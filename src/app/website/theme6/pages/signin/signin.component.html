@@ -1,0 +1,71 @@
+<app-navigation type=2 title="Signin"></app-navigation>
+
+<div class="container">
+    <div class="row mt-5 pt-5">
+        <div class="col-lg-4 text-center col-md-4 col-10 mx-auto mt-5 mb-0">
+            <a routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}" *ngIf="!_themeService?.data?.brand_logo; else logoNotAvailable">
+                {{_themeService?.data?.shopName}}
+            </a>
+            <ng-template #logoNotAvailable>
+                <img routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}" class="cursor-pointer outline-0"
+                    [src]="_themeService?.data?.brand_logo">
+            </ng-template>
+        </div>
+    </div>
+    
+    <div class="row mb-5 pb-5">
+        <div class="col-md-12 text-center mt-2" *ngIf="!isOtpSent">
+            <h4>Sign In</h4>
+        </div>
+        <!-- register Screen end -->
+        <div class="col-md-6 mx-auto mb-5" *ngIf="!isOtpSent">
+            <form #formData="ngForm" autocomplete="off" class="border p-3" (ngSubmit)="sendOtp(formData)">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="single-input-item">
+                            <label>
+                                <input type="number" #mobileNumber="ngModel" name="mobileNumber" placeholder="Enter Your Mobile Number" ngModel required>
+                                <p class="text-danger" *ngIf="mobileNumber.invalid && (mobileNumber.dirty || mobileNumber.touched)">Please Enter Mobile Number</p>
+                                <div class="text-center">
+                                    <span class="text-muted font-12">We'll never share your number with anyone else.</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary w-100" type="submit" *ngIf="!loader" [disabled]="formData.invalid">Send OTP</button>
+                <button class="btn-primary w-100" type="button" disabled *ngIf="loader">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                </button>
+            </form>
+        </div>
+        <!-- register Screen end -->
+
+        <!-- Verify Screen start -->
+        <div class="col-md-6 mx-auto mb-5" *ngIf="isOtpSent">
+            <div class="col-md-12 text-center">
+                <h4>Verify</h4>
+            </div>
+            <form #otpFormData="ngForm" class="border p-3" (ngSubmit)="vertifyOtp(otpFormData)">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="single-input-item">
+                            <label>
+                                <input type="number" #otp="ngModel" name="otp" placeholder="Enter OTP" ngModel required>
+                                <p class="text-danger" *ngIf="otp.invalid && (otp.dirty || otp.touched)">Please Enter OTP</p>
+                                <a (click)="changeNumber()" class="font-12 text-secondary cursor-pointer">Do you want to change number?</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary w-100" type="submit" [disabled]="otpFormData.invalid" *ngIf="!loader">Verify OTP</button>
+                <button class="btn-primary w-100" type="button" disabled *ngIf="loader">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                </button>
+            </form>
+        </div>
+        <!-- Verify Screen end -->
+    </div>
+</div>

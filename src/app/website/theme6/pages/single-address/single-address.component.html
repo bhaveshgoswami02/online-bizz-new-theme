@@ -1,0 +1,55 @@
+<app-navigation type=2 title="Add Address"></app-navigation>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto my-5">
+            <div class="col-md-12">
+                <h4>Add Address</h4>
+            </div>
+            <form #formData="ngForm" class="border p-3" (ngSubmit)="submit(formData)">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="single-input-item">
+                            <label>Enter Your Address*</label>
+                            <label>
+                                <input type="text" #street="ngModel" name="street" placeholder="Enter Your Address" ngModel required>
+                                <p class="text-danger" *ngIf="street.invalid && (street.dirty || street.touched)">Please Enter Your Street</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="single-input-item mt-3">
+                            <label>Enter Your City*</label>
+                            <label>
+                                <input type="text" #city="ngModel" name="city" placeholder="Enter Your City" ngModel required>
+                                <p class="text-danger" *ngIf="city.invalid && (city.dirty || city.touched)">Please Enter Your City</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="single-input-item mt-3">
+                            <label>Enter Your Pincode*</label>
+                            <label>
+                                <input type="number" #pincode="ngModel" name="pincode" placeholder="Enter Your Pincode" ngModel required>
+                                <p class="text-danger" *ngIf="pincode.invalid && (pincode.dirty || pincode.touched)">Please Enter Your Pincode</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="single-input-item mt-3">
+                            <label>Enter Your Landmark</label>
+                            <label>
+                                <input type="text" name="landmark" placeholder="Enter Your Landmark" ngModel>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary w-100" type="submit" [disabled]="formData.invalid" *ngIf="!loader">Save Address</button>
+                <button class="btn-primary w-100" type="button" disabled *ngIf="loader">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

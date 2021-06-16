@@ -1,0 +1,108 @@
+<app-navigation type=2 title="Products"></app-navigation>
+
+<ng-container *ngIf="!skeleton">
+    <div class="service-area-wrapper bg-secondary d-none d-md-block d-lg-block">
+        <div class="service-area-top parallax" [ngStyle]="{'background-image': getCover()}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-xl-5 m-auto text-center">
+                        <div class="section-title section-title--light">
+                            <h4 class="text-white">{{_themeService.data.productHeading ?
+                                _themeService.data.productHeading : "Our Best Products"}}</h4>
+                            <h5 class="mb-0 text-white primary-font-size" *ngIf="_themeService.data.productTagLine">
+                                {{_themeService.data.productTagLine}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="jumbotron jumbotron-fluid my-0 bg-transparent" data-aos="fade-up" *ngIf="products.length!=0">
+        <div class="container">
+            <div class="row" data-aos="zoom-in">
+                <div class="col-lg-3 col-md-3 col-6 products-sm my-2" *ngFor="let product of products;">
+                    <app-product-card [product]="product"></app-product-card>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>
+
+<ng-container *ngIf="products.length==0 && !skeleton">
+    <section class="jumbotron jumbotron-fluid bg-transparent mt-5" data-aos="fade-up">
+        <app-empty-view>
+            <img src="https://udaipurites.com/assets/imgs/price-tag.svg" width="100%" alt="">
+            <p class="font-weight-bold text-muted">No results found</p>
+        </app-empty-view>
+    </section>
+</ng-container>
+
+<ng-container *ngIf="skeleton">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-md-12 text-center mb-5">
+                <div class="p-skeleton-wrapper mx-auto">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-title mx-auto"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mx-auto my-3">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image"></div>
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-text">
+                                    <div class="p-skeleton__body--r-s"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mx-auto my-3">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image"></div>
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-text">
+                                    <div class="p-skeleton__body--r-s"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mx-auto my-3">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image"></div>
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-text">
+                                    <div class="p-skeleton__body--r-s"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<app-tab></app-tab>

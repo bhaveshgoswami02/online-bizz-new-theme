@@ -1,0 +1,49 @@
+{
+  "hosting": {
+    "public": "dist/digitalCard/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/admin",
+        "destination": "/index.original.html"
+      },
+      {
+        "source": "/auth",
+        "destination": "/index.original.html"
+      },
+      {
+        "source": "/admin/**",
+        "destination": "/index.original.html"
+      },
+      {
+        "source": "/auth/**",
+        "destination": "/index.original.html"
+      },
+      {
+        "source": "/assets/**",
+        "destination": "/index.original.html"
+      },
+      {
+        "source": "**",
+        "function": "ssr"
+      }
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint",
+      "npm --prefix \"$RESOURCE_DIR\" run build"
+    ]
+  }
+}
+

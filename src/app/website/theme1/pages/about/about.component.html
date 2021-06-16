@@ -1,0 +1,29 @@
+<!-- Cover Background -->
+<div class="jumbotron jumbotron-fluid my-0 cover__background" [ngStyle]="{'background-image': getCover()}" *ngIf="_themeService.data.aboutUs">
+    <div class="container">
+        <div class="title__section"> 
+            <h1 class="text-secondary">{{_themeService.data.aboutHeading ? _themeService.data.aboutHeading : "About Us"}}</h1>
+        </div>
+    </div>
+</div>
+<!-- About Section -->
+<section class="jumbotron jumbotron-fluid my-0 bg-transparent">
+    <div class="container">
+        <div class="row" data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom" data-aos-duration="100">
+            <div class="col-12 col-md-6 p-0 m-0">
+                <img [src]="_themeService?.data?.aboutUsImage" class="img-fluid " alt="" width="100%" heigth="100%">
+            </div>
+            <div class="col-12 col-md-6 px-md-5 m-0">
+                <h3 class="my-3"><b>{{_themeService?.data?.aboutUs?.title}}</b></h3>
+                <div [innerHTML]="_themeService?.data?.aboutUs?.description"></div>
+            </div>
+        </div>
+        <div class="row" data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom" data-aos-duration="100">
+            <div class="col-12">
+                <div [innerHTML]="_themeService?.data?.aboutUs?.detailDescription"></div>
+            </div>
+        </div>
+    </div>
+</section>

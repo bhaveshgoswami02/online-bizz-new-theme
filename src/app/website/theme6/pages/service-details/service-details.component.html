@@ -1,0 +1,61 @@
+<app-navigation type=2 title=""></app-navigation>
+
+<ng-container *ngIf="!skeleton">
+    <div class="page-header-area bg-img"
+        style="background-image: url(https://htmldemo.hasthemes.com/businex/businex/assets/img/page-header.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 m-auto text-center">
+                    <div class="page-header-content-inner">
+                        <div class="page-header-content">
+                            <h4 class="text-white">{{serviceDetails?.title}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-10 mx-auto" [innerHTML]="serviceDetails?.content"></div>
+            <div class="col-md-12 text-center mt-3">
+                <a routerLink="{{_themeService.customDomain?'/contact':'/'+_themeService.domainName+'/contact'}}"
+                    class="btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="skeleton">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 my-3">
+                <div class="p-skeleton">
+                    <div class="p-skeleton__body">
+                        <div class="p-skeleton__body--r-banner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 my-3">
+                <div class="p-skeleton">
+                    <div class="p-skeleton__body">
+                        <div class="p-skeleton__body--r-text">
+                            <div class="p-skeleton__body--r-full"></div>
+                            <div class="p-skeleton__body--r-s"></div>
+                            <div class="p-skeleton__body--r-full"></div>
+                            <div class="p-skeleton__body--r-full"></div>
+                            <div class="p-skeleton__body--r-m"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 my-3">
+                <div class="p-skeleton">
+                    <div class="p-skeleton__body">
+                        <div class="p-skeleton__body--r-banner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

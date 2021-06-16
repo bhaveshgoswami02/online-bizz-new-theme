@@ -1,0 +1,185 @@
+<app-navigation type=2 title="Orders"></app-navigation>
+
+<div class="container my-5">
+    <div class="row border-bottom">
+        <div class="col-md-6 col-6">
+            <h5>Recent Order</h5>
+        </div>
+        <div class="col-md-6 col-6 text-right">
+            <span class="dropdown">
+                <span>Filter</span>
+                <i class="fa fa-filter cursor-pointer" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"></i>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item cursor-pointer" (click)="onFilter('pending')">Pending</a>
+                    <a class="dropdown-item cursor-pointer" (click)="onFilter('processing')">Processing</a>
+                    <a class="dropdown-item cursor-pointer" (click)="onFilter('complete')">Complete</a>
+                    <a class="dropdown-item cursor-pointer" (click)="onFilter('cancel')">Cancel</a>
+                </div>
+            </span>
+        </div>
+    </div>
+
+    <ng-container *ngIf="allData.length>0 && !skeleton">
+        <div class="container p-2">
+            <div class="row border p-2 my-2 rounded order-list cursor-pointer outline-0" *ngFor="let data of allData"
+            (click)="goToOrderDetails(data.id)">
+            <div class="col-lg-1 col-md-1 col-3 p-1">
+                <img [src]="data.items[0].product.imgUrl" (load)="data.items[0].loaded = true" [hidden]="!data.items[0].loaded" width="100%" height="100%" alt="">
+                <ng-container *ngIf="!data.items[0].loaded">
+                    <!-- <div class="p-skeleton">
+                        <div class="p-skeleton__header">
+                            <div class="p-skeleton__header--circle"></div>
+                        </div>
+                    </div> -->
+                    <div class="blank_img"></div>
+                </ng-container>
+            </div>
+            <div class="col-lg-8 col-md-8 col-9 my-auto">
+                <p class="m-0"><b>Order ID: </b>{{data?.orderId}}</p>
+                <p class="m-0"><b>Status: </b>{{data.status}}</p>
+                <p class="m-0"><b>Date: </b>{{data.timestamp.toDate() | date}}</p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-3 my-auto d-none d-md-block d-lg-block">
+                <button class="btn-primary">View
+                    <i class="fa fa-angle-right"></i>
+                </button>
+            </div>
+        </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="skeleton">
+        <div class="container p-2">
+            <div class="row border p-2 my-2 rounded order-list cursor-pointer outline-0">
+                <div class="col-lg-1 col-md-1 col-3 p-1">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__header">
+                            <div class="p-skeleton__header--circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-9">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-text">
+                                <div class="p-skeleton__body--r-s"></div>
+                                <div class="p-skeleton__body--r-full"></div>
+                                <div class="p-skeleton__body--r-m"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 d-none d-md-block d-lg-block">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body--r-tags">
+                            <div class="p-skeleton__body--r-tags-outer">
+                                <div class="p-skeleton__body--r-tags-inner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row border p-2 my-2 rounded order-list cursor-pointer outline-0">
+                <div class="col-lg-1 col-md-1 col-3 p-1">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__header">
+                            <div class="p-skeleton__header--circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-9">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-text">
+                                <div class="p-skeleton__body--r-s"></div>
+                                <div class="p-skeleton__body--r-full"></div>
+                                <div class="p-skeleton__body--r-m"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 d-none d-md-block d-lg-block">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body--r-tags">
+                            <div class="p-skeleton__body--r-tags-outer">
+                                <div class="p-skeleton__body--r-tags-inner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row border p-2 my-2 rounded order-list cursor-pointer outline-0">
+                <div class="col-lg-1 col-md-1 col-3 p-1">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__header">
+                            <div class="p-skeleton__header--circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-9">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-text">
+                                <div class="p-skeleton__body--r-s"></div>
+                                <div class="p-skeleton__body--r-full"></div>
+                                <div class="p-skeleton__body--r-m"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 d-none d-md-block d-lg-block">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body--r-tags">
+                            <div class="p-skeleton__body--r-tags-outer">
+                                <div class="p-skeleton__body--r-tags-inner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row border p-2 my-2 rounded order-list cursor-pointer outline-0">
+                <div class="col-lg-1 col-md-1 col-3 p-1">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__header">
+                            <div class="p-skeleton__header--circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-9">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-text">
+                                <div class="p-skeleton__body--r-s"></div>
+                                <div class="p-skeleton__body--r-full"></div>
+                                <div class="p-skeleton__body--r-m"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 d-none d-md-block d-lg-block">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body--r-tags">
+                            <div class="p-skeleton__body--r-tags-outer">
+                                <div class="p-skeleton__body--r-tags-inner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="allData.length==0">
+        <div class="row">
+            <div class="col-md-12 text-center my-5">
+                <h5>No Orders Found</h5>
+                <a class="btn-primary cursor-pointer" (click)="onContinueShoping()">Continue Shopping</a>
+            </div>
+        </div>
+    </ng-container>
+
+    <app-tab></app-tab>

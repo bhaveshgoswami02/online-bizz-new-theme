@@ -1,0 +1,32 @@
+<div class="service-item">
+    <figure class="service-thumb">
+        <img [src]="service?.imgUrl" (load)="service.loaded = true" [hidden]="!service.loaded" class="w-100" alt="" />
+        <ng-container *ngIf="!service.loaded">
+            <div class="p-skeleton">
+                <div class="p-skeleton__body">
+                    <div class="p-skeleton__body--r-image">
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <figcaption class="service-txt">
+            <h5>{{service?.title}}</h5>
+        </figcaption>
+    </figure>
+    <div class="service-content" (click)="moreDetail()">
+        <div class="service-content-inner">
+            <h5 class="stretched-link text-center">{{service?.title}}</h5>
+            <p [innerHTML]="service?.desc"></p>
+            <!-- <a class="btn btn-primary px-3 py-1">VIEW DETAILS</a> -->
+            <a *ngIf="service.content"
+                routerLink="{{_themeService.customDomain? '/services/'+service.slug : '/'+_themeService.domainName+'/services/'+service.slug}}"
+                class="btn-about cursor-pointer text-primary-contrast">MORE DETAILS
+                <i class="fa fa-angle-double-right text-secondary"></i>
+            </a><br>
+            <!-- <a *ngIf="service.content"
+            routerLink="{{_themeService.customDomain? '/services/'+service.slug : '/'+_themeService.domainName+'/services/'+service.slug}}"
+            class="btn btn-primary px-3 py-1 w-100 mt-3">VIEW DETAILS</a> -->
+        </div>
+    </div>
+</div>

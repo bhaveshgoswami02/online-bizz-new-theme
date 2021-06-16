@@ -1,0 +1,225 @@
+<app-navigation type=2 title="Contact"></app-navigation>
+
+<!--== Start Page Header Area ==-->
+<div class="service-area-wrapper bg-secondary d-none d-md-block d-lg-block">
+    <div class="service-area-top parallax" [ngStyle]="{'background-image': getCover()}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xl-5 m-auto text-center">
+                    <div class="section-title section-title--light">
+                        <h4 class="text-white">CONTACT US</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--== End Page Header Area ==-->
+
+<!--== Start Contact Page Area Wrapper ==-->
+<div class="contact-page-area-wrapper my-5 py-4" data-aos="zoom-in">
+    <div class="container">
+        <div class="contact-content-wrap">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-form-area contact-method">
+                        <h3>Send us a Message</h3>
+
+                        <div class="contact-form-wrap">
+                            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="text" placeholder="Your Name" formControlName="fullName" />
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="email" placeholder="Your Email" formControlName="email" />
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="text" placeholder="Your Phone Number" formControlName="mobileNumber" />
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="single-input-item">
+                                            <label for="message" class="sr-only m-0"></label>
+                                            <textarea name="message" id="message" cols="30" rows="7" placeholder="Enter Your Message" formControlName="message"></textarea>
+                                        </div>
+
+                                        <div class="single-input-item mb-0 mt-40 text-center">
+                                            <button type="submit" class="btn-primary my-3">Send Message</button>
+                                        </div>
+
+                                        <div class="form-message"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="contact-information contact-method">
+                        <div class="contact-info-con" *ngIf="_themeService?.data?.address?.area">
+                            <h3>Contact Info</h3>
+
+                            <div class="widget-item m-0">
+                                <address>
+                                    <i class="fa fa-map-marker"></i>&nbsp; {{_themeService?.data?.address?.area}}
+                                    <br> {{_themeService?.data?.address?.city}}, {{_themeService?.data?.address?.state}} -
+                                    <br> ({{_themeService?.data?.address?.zipCode}}).
+                                    <br> {{_themeService?.data?.address?.country}}
+                                    <br>
+                                    <i class="fa fa-phone"></i>&nbsp;
+                                    <a class="text-primary-contrast" href="tel:{{_themeService?.data?.phoneNo}}">{{_themeService?.data?.phoneNo}}</a>
+                                    <br>
+                                    <i class="fa fa-envelope"></i>&nbsp;
+                                    <a class="text-primary-contrast" href="mailto:{{_themeService?.data?.email}}">{{_themeService?.data?.email}}</a>
+                                </address>
+                            </div>
+                            <div class="member-social-icons mt-30">
+                                <a *ngIf="_themeService?.data?.socialMedia?.facebook" href="{{_themeService?.data?.socialMedia?.facebook}}" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a *ngIf="_themeService?.data?.socialMedia?.twitter" href="{{_themeService?.data?.socialMedia?.twitter}}" target="_blank">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a *ngIf="_themeService?.data?.socialMedia?.instagram" href="{{_themeService?.data?.socialMedia?.instagram}}" target="_blank">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                                <a *ngIf="_themeService?.data?.socialMedia?.youtube" href="{{_themeService?.data?.socialMedia?.youtube}}">
+                                    <i class="fa fa-youtube"></i>
+                                </a>
+                                <a *ngIf="_themeService?.data?.socialMedia?.linkedin" href="{{_themeService?.data?.socialMedia?.linkedin}}" target="_blank">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a *ngIf="_themeService?.data?.socialMedia?.pinterest" href="{{_themeService?.data?.socialMedia?.pinterest}}" target="_blank">
+                                    <i class="fa fa-pinterest"></i>
+                                </a>
+                                <!-- <a *ngIf="_themeService?.data?.socialMedia?.tiktok" href="{{_themeService?.data?.socialMedia?.tiktok}}" target="_blank">
+                                    <img src="https://img.icons8.com/fluent-systems-filled/24/000000/tiktok.png" alt="">
+                                </a> -->
+                                <a *ngIf="_themeService?.data?.socialMedia?.googleBusiness" class="my-auto" href="{{_themeService?.data?.socialMedia?.googleBusiness}}"
+                                    target="_blank">
+                                    <svg with="17" height="17" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                        <g>
+                                            <g>
+                                                <path d="M511.627,193.441l-45.481-155.74c-1.158-3.966-4.794-6.691-8.925-6.691H54.779c-4.132,0-7.767,2.726-8.925,6.691
+                                               L0.373,193.441C0.125,194.287,0,195.165,0,196.046v4.473c0,23.511,11.729,44.321,29.632,56.929v185.384
+                                               c0,21.04,17.118,38.158,38.158,38.158h376.42c21.04,0,38.158-17.118,38.158-38.158V257.448C500.27,244.841,512,224.032,512,200.52
+                                               v-4.473C512,195.165,511.875,194.287,511.627,193.441z M265.298,49.606h88.591l17.346,142.324
+                                               c1.84,15.1-2.888,30.29-12.972,41.678c-10.084,11.388-24.591,17.919-39.801,17.919c-29.314,0-53.164-23.85-53.164-53.164V49.606z
+                                                M140.764,191.929L158.11,49.606h88.592v148.756c0,29.314-23.85,53.164-53.165,53.164c-15.211,0-29.717-6.531-39.801-17.919
+                                               C143.653,222.219,138.924,207.029,140.764,191.929z M18.596,200.52v-3.144L61.75,49.606h77.627l-19.145,157.085
+                                               c-3.115,25.56-24.881,44.835-50.631,44.835C41.477,251.526,18.596,228.645,18.596,200.52z M444.21,462.394H67.79
+                                               c-10.787,0-19.563-8.776-19.563-19.563V266.749c6.739,2.181,13.918,3.372,21.374,3.372c26.271,0,49.499-14.705,61.328-36.704
+                                               c2.486,4.442,5.455,8.644,8.885,12.519c13.611,15.37,33.192,24.185,53.723,24.185c26.758,0,50.125-14.731,62.463-36.498
+                                               c12.338,21.768,35.705,36.498,62.461,36.498c20.531,0,40.112-8.816,53.723-24.185c3.43-3.874,6.399-8.076,8.885-12.519
+                                               c11.828,21.999,35.058,36.704,61.328,36.704c7.456,0,14.635-1.191,21.374-3.372v176.082h0.001
+                                               C463.773,453.618,454.997,462.394,444.21,462.394z M493.404,200.52c0,28.125-22.881,51.005-51.007,51.005
+                                               c-25.75,0-47.516-19.275-50.631-44.835L372.623,49.606h77.627l43.154,147.771V200.52z"
+                                                />
+                                            </g>
+                                        </g>
+                                        <g>
+                                            <g>
+                                                <path d="M432.754,367.297H380.04c-5.135,0-9.298,4.163-9.298,9.298c0,5.135,4.163,9.298,9.298,9.298h42.414
+                                               c-4.267,19.488-21.664,34.118-42.414,34.118c-23.94,0-43.416-19.476-43.416-43.416c0-23.94,19.476-43.417,43.416-43.417
+                                               c11.597,0,22.499,4.516,30.7,12.717c3.632,3.631,9.518,3.63,13.15,0c3.631-3.631,3.631-9.518,0-13.15
+                                               c-11.713-11.713-27.285-18.163-43.85-18.163c-34.194,0-62.012,27.819-62.012,62.013c0,34.194,27.818,62.012,62.012,62.012
+                                               s62.011-27.818,62.011-62.012C442.052,371.46,437.889,367.297,432.754,367.297z"
+                                                />
+                                            </g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                        <g>
+                                        </g>
+                                    </svg>
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 map__container">
+            <google-map *ngIf="center" height="87%" width="100%" [center]="center" [zoom]="zoom">
+                <map-marker #marker="mapMarker" *ngFor="let markerPosition of markerPositions" [position]="markerPosition" [options]="markerOptions"></map-marker>
+            </google-map>
+        </div>
+    </div>
+</div>
+<!-- <div class="mapouter">
+    <div class="gmap_canvas">
+        <iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=splixube,india&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+        <a href="https://grantorrent-es.com">grantorrent</a>
+        <br>
+        <style>
+            .mapouter {
+                position: relative;
+                text-align: right;
+                height: 500px;
+                width: 100%;
+            }
+        </style>
+        <a href="https://google-map-generator.com">embed google map</a>
+        <style>
+            .gmap_canvas {
+                overflow: hidden;
+                background: none!important;
+                height: 500px;
+                width: 100%;
+            }
+        </style>
+    </div>
+</div> -->
+<!--== End Contact Page Area Wrapper ==-->
+
+<app-tab></app-tab>

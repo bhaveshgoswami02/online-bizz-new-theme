@@ -1,0 +1,16 @@
+<!-- Video Gallery -->
+<section class="jumbotron jumbotron-fluid my-0 bg-transparent" *ngIf="_themeService.secureVideoLinks.length>0">
+  <div class="container">
+    <div class="title__section" data-aos="fade-up">
+      <h1 class="text-secondary">Videos</h1>
+    </div>
+    <div class="d-flex justify-content-start flex-wrap mt-md-5" data-aos="zoom-in">
+      <ng-container *ngFor="let videos of _themeService?.secureVideoLinks;">
+        <div class="pr-2">
+          <iframe class="video-player img-fluid"
+           [width]="videoPlayerwidthSize" [height]="videoPlayerheightSize" [src]="videos" allowfullscreen></iframe>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>

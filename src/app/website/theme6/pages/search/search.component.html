@@ -1,0 +1,169 @@
+<app-navigation type=4 title="Search"></app-navigation>
+
+<div class="service-area-wrapper bg-secondary d-none d-md-block d-lg-block">
+    <div class="service-area-top parallax" [ngStyle]="{'background-image': getCover()}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xl-5 m-auto text-center">
+                    <div class="section-title section-title--light">
+                        <h4 class="text-white">Search</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="row mt-2 text-center">
+                        <div class="col-md-11 mx-0 px-0">
+                            <div class="row search">
+                                <div class="col-11 d-flex my-auto p-0">
+                                    <span class="fa fa-search my-auto search-icon"></span>
+                                    <input type="text" class="border-0 w-100" name="keyWords" #searchText
+                                        (keyup)="search($event)" placeholder="Search">
+                                </div>
+                                <div class="col-1 mx-auto text-right search-border-left cursor-pointer" *ngIf="searchText.value">
+                                    <!-- <span class="fa fa-times times my-auto"></span> -->
+                                    <svg width="20px" (click)="blankSearchField(searchText)" height="20px" version="1.1"
+                                        id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001"
+                                        style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
+                                        <g>
+                                            <g>
+                                                <path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+                            L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+                            c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+                            l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+                            L284.286,256.002z" />
+                                            </g>
+                                        </g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                        <g></g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 mx-0 px-0">
+                            <button class="btn-primary search-btn" (click)="search(searchText)">Search</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container">
+    <div class="row my-5">
+        <div class="col-md-6 text-center mx-auto">
+            <input type="text" class="form-control" [(ngModel)]="keyWords" placeholder="Search here">
+            <button class="btn-primary mt-3" (click)="search()">Search</button>
+        </div>
+    </div>
+</div> -->
+
+<ng-container *ngIf="!skeleton">
+    <section class="jumbotron-fluid py-5 bg-white" data-aos="fade-up">
+        <div class="col-md-12 text-center">
+            <h4 class="primary-color">Tranding Categories</h4>
+        </div>
+        <div class="container my-3">
+            <div class="row my-3" data-aos="zoom-in">
+                <div class="col-lg-3 col-md-3 col-6 text-center p-2 cursor-pointer" *ngFor="let data of allData"
+                    (click)="onSelectData(data.slug)">
+                    <img [src]="data.imgUrl" (load)="data.loaded = true" [hidden]="!data.loaded" class="w-100" alt="">
+                    <ng-container *ngIf="!data.loaded">
+                        <div class="p-skeleton">
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-image">
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <p>{{data.title}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>
+
+<ng-container *ngIf="skeleton">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-md-12 text-center mb-5">
+                <div class="p-skeleton-wrapper mx-auto">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-title mx-auto"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-6 mx-auto my-3">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image"></div>
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-text">
+                                    <div class="p-skeleton__body--r-s"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-6 mx-auto my-3">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image"></div>
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-text">
+                                    <div class="p-skeleton__body--r-s"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-6 mx-auto my-3">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image"></div>
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-text">
+                                    <div class="p-skeleton__body--r-s"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<app-tab></app-tab>

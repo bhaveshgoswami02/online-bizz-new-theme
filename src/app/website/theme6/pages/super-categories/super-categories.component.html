@@ -1,0 +1,98 @@
+<app-navigation type=2 title=""></app-navigation>
+
+<ng-container *ngIf="!skeleton">
+    <div class="p-2">
+        <div class="container mt-5 mb-4">
+            <div class="row border-bottom pb-3">
+                <div class="col-lg-6 col-md-6 col-6 my-auto">
+                    <h5>Super Categories</h5>
+                </div>
+                <div class="col-lg-6 col-md-6 col-6 text-right">
+                    <button class="btn-primary" (click)="viewAllProducts()">View All</button>
+                </div>
+            </div>
+    
+            <div class="row my-3">
+                <div class="col-lg-3 col-md-3 col-6 text-center p-2 cursor-pointer" *ngFor="let superCategory of allSuperCategories" (click)="onCategorySelect(superCategory.slug)">
+                    <img [src]="superCategory.imgUrl" (load)="superCategory.loaded = true" [hidden]="!superCategory.loaded" alt="">
+                        <ng-container *ngIf="!superCategory.loaded">
+                            <div class="p-skeleton">
+                                <div class="p-skeleton__body">
+                                    <div class="p-skeleton__body--r-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    <p>{{superCategory.title}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="skeleton">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-md-12 text-center mb-5">
+                <div class="p-skeleton-wrapper mx-auto">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-title mx-auto"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mx-auto my-3">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image"></div>
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-text">
+                                    <div class="p-skeleton__body--r-s"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mx-auto my-3">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image"></div>
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-text">
+                                    <div class="p-skeleton__body--r-s"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mx-auto my-3">
+                <div class="p-skeleton-wrapper">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image"></div>
+                            <div class="p-skeleton__body">
+                                <div class="p-skeleton__body--r-text">
+                                    <div class="p-skeleton__body--r-s"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-full"></div>
+                                    <div class="p-skeleton__body--r-s"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

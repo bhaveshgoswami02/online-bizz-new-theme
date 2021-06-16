@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "webbuilder081": {
+      "hosting": {
+        "digitalCard": [
+          "webbuilder081"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "splixcube-website-builder"
+  }
+}

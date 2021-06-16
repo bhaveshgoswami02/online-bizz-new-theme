@@ -1,0 +1,34 @@
+.testimonial-container {
+    min-height: 150px;
+    background-color: #F8F9FC;
+    width: 100%;
+}
+
+.testimonial-avtar {
+    border: 3px solid #000;
+    border-radius: 50%;
+}
+
+.quate-container {
+    position: relative;
+    min-height: 100px;
+}
+
+.quate {
+    position: absolute;
+    width: 30px;
+}
+
+.right-0 {
+    right: 0;
+}
+
+.left-0 {
+    left: 0;
+}
+ 
+.quate-text {
+    position: absolute;
+    top: 40px;
+    font-weight: 600;
+}

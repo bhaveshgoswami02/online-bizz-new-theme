@@ -1,0 +1,67 @@
+<app-navigation type=2 title="Profile Update"></app-navigation>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form #formData="ngForm" class="my-5" (ngSubmit)="submit(formData)">
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <h5>Update Profile</h5>
+                    </div>
+                </div>
+                <div class="row border m-1">
+                    <div class="col-md-12">
+                        <div class="single-input-item mt-3">
+                            <label>Enter Your Name</label>
+                            <label>
+                                <input type="text" #name="ngModel" name="name" placeholder="Enter Your Name"
+                                    [ngModel]="customerservice.customerData.name" required>
+                                <p class="text-danger" *ngIf="name.invalid && (name.dirty || name.touched)">Please Enter
+                                    Your Name</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="single-input-item mt-0">
+                            <label>Enter Your Email</label>
+                            <label>
+                                <input type="email" #email="ngModel" name="email" placeholder="Enter Your Email"
+                                    [ngModel]="customerservice.customerData.email" required>
+                                <p class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">Please
+                                    Enter Your Email</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="single-input-item mt-0">
+                            <label>Your Mobile Number</label>
+                            <label>
+                                <input type="number" name="mobileNumber" placeholder="Your Mobile Number"
+                                    [ngModel]="customerservice.customerData.mobileNumber" required readonly>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="single-input-item mt-0">
+                            <label>Enter Date Of Birth</label>
+                            <label>
+                                <input type="date" #dob="ngModel" name="dob" placeholder="MM/DD/YYYY"
+                                    [ngModel]="customerservice.customerData.dob" required>
+                                <p class="text-danger" *ngIf="dob.invalid && (dob.dirty || dob.touched)">Please Enter
+                                    Your Date Of Birth</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <button class="btn-primary w-100" type="submit" [disabled]="formData.invalid"
+                            *ngIf="!loader">Update</button>
+                        <button class="btn-primary w-100" type="button" disabled *ngIf="loader">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            Loading...
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

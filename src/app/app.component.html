@@ -1,0 +1,2 @@
+<router-outlet *ngIf="router.config.length!=1 && theme.isBrowser"></router-outlet>
+<app-website-loader *ngIf="!theme.isBrowser || !theme.data"></app-website-loader>

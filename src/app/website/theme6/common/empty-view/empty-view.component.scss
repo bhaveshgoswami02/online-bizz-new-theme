@@ -1,0 +1,24 @@
+.empty-view-container {
+    // position: absolute;
+    // left: 50%;
+    // top: 50%;
+    // -webkit-transform: translate(-50%,-50%);
+    // transform: translate(-50%,-50%);
+    // display: -webkit-box;
+    // display: flex;
+    // -webkit-box-align: center;
+    // align-items: center;
+    // -webkit-box-pack: center;
+    // justify-content: center;
+    // text-align: center;
+    // height: 100%;
+    position: absolute;
+    left: 52%;
+    top: 50%;
+    transform: translate(-52%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}

@@ -1,0 +1,30 @@
+<div class="col mb-3" data-aos="fade-up">
+    <div class="product__card" [ngClass]="{'border': product?.itemName || product?.itemDescription || _themeService.data.enableEnquiryButton || _themeService.data.enableCart && product.itemPrice}">
+      <div class="product__img">
+          <img [src]="product?.imgUrl" alt="" class="img-fluid">
+          <span class="product__cetagory" *ngIf="product?.itemCategory">{{product?.itemCategory}}</span>
+      </div>
+      <div class="product__details">
+          <div class="product__title"><span><h2>{{product?.itemName}}</h2></span></div>
+          <div class="product__desc" *ngIf="product?.itemDescription"><span [innerHTML]="readMore == false ? product?.itemDescription?.slice(0,80) : product?.itemDescription"></span> <a class="text-primary paragraph__language read__more" (click)="readMoreButton()"><p>{{readMore == false ? '...Read More' : 'Read Less'}}</p></a></div>
+
+          <div class="row" *ngIf="_themeService.data.enableEnquiryButton || _themeService.data.enableCart">
+            <div class="col-md-12 col-12">
+                <div class="product__price"><span *ngIf="product.itemPrice" class="price">&#8377;{{product?.itemPrice}}</span>&nbsp;&nbsp;<span class="text-muted MRPprice" *ngIf="product.itemMrpPrice">&#8377; {{product?.itemMrpPrice}}</span></div> 
+            </div>
+        </div>
+          <a *ngIf="!_themeService.data.enableCart && _themeService.data.enableEnquiryButton" target="_blank"
+              href="https://wa.me/{{_themeService?.data?.whatsappNo}}?text=I%20am%20interested%20in%20your%20product%20{{product?.itemName}}"
+              class="btn btn-sm btn-primary mt-1">{{_themeService.data?.productButton ? _themeService.data?.productButton : "Enquiry Now"}}</a> &nbsp;&nbsp;
+
+        <ng-container *ngIf="_themeService.data.enableCart && product.itemPrice">
+            <a *ngIf="!cartService.isProductInCart(product)" class="btn btn-sm btn-primary mt-3" (click)="addToCart(product)">Add To Cart</a>
+        </ng-container>
+        <ng-container *ngIf="cartService.isProductInCart(product)" >
+            <a class="btn btn-sm btn-primary mt-3" (click)="decrementProduct(product)">-</a>
+            <a class="btn btn-sm btn-primary mt-3">{{cartService.isProductInCart(product).qty}}</a>
+            <a class="btn btn-sm btn-primary mt-3" (click)="incrementProduct(product)">+</a>
+        </ng-container>
+      </div>
+  </div>
+</div>

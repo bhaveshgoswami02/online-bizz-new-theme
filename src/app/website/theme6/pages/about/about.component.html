@@ -1,0 +1,51 @@
+<app-navigation type=2 title="About"></app-navigation>
+
+<div class="service-area-wrapper bg-secondary d-none d-md-block d-lg-block">
+    <div class="service-area-top parallax" [ngStyle]="{'background-image': getCover()}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xl-5 m-auto text-center">
+                    <div class="section-title section-title--light">
+                        <h4 class="text-white">{{_themeService.data.aboutHeading ? _themeService.data.aboutHeading :
+                            "About Us"}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="home-two-about- area my-5" data-aos="zoom-in">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="about-content about-content--2">
+                    <h2>{{_themeService?.data?.aboutUs?.title}}</h2>
+                    <p [innerHTML]="_themeService?.data?.aboutUs?.description"></p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <figure class="about-thumb">
+                    <img [src]="_themeService?.data?.aboutUsImage" (load)="_themeService.data.aboutImgloaded = true"
+                        [hidden]="!_themeService?.data?.aboutImgloaded" />
+                    <ng-container *ngIf="!_themeService?.data?.aboutImgloaded">
+                        <div class="p-skeleton-wrapper">
+                            <div class="p-skeleton">
+                                <div class="p-skeleton__body">
+                                    <div class="p-skeleton__body--r-banner"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </figure>
+            </div>
+
+            <div class="col-md-12" *ngIf="_themeService.data?.aboutUs?.detailDescription">
+                <p [innerHTML]="_themeService.data?.aboutUs?.detailDescription"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-tab></app-tab>

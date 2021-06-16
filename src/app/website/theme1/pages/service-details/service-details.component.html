@@ -1,0 +1,18 @@
+<!-- Cover Background -->
+<div class="jumbotron jumbotron-fluid my-0 cover__background" [ngStyle]="{'background-image': getCover()}"
+    data-aos="fade-up">
+    <div class="container">
+        <div class="title__section">
+            <h1 class="text-warning">{{serviceDetails?.title}}</h1>
+        </div>
+    </div>
+</div>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-10 mx-auto" [innerHTML]="serviceDetails?.content"></div>
+        <div class="col-md-12 text-center">
+            <a routerLink="{{_themeService.customDomain?'/contact':'/'+_themeService.domainName+'/contact'}}"
+            class="btn btn-primary">Contact Us</a>
+        </div>
+    </div>
+</div>

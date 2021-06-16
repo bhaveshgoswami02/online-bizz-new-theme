@@ -1,0 +1,8 @@
+<div class="container text-center my-5" *ngIf="secureVideoLinks.length>0">
+    <h3>Videos</h3>
+    <div class="row my-3">
+        <div class="col-lg-4 my-2" *ngFor="let video of secureVideoLinks;">
+            <iframe class="video-player" [width]="videoPlayerwidthSize" [height]="videoPlayerheightSize" [src]="video" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>

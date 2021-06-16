@@ -1,0 +1,70 @@
+.tab-continue {
+    background-color: #fff;
+    width: 100%;
+    min-height: 50px;
+    color: #000;
+    position: fixed;
+    bottom: 0;
+    z-index: 111;
+    padding: 0;
+    margin: 0;
+}
+
+.tab-shadow {
+    // box-shadow: 1px 33px 5px 1px rgb(0 0 0 / 40%), 0 15px 5px 14px rgb(0 0 0 / 46%), 1px 1px 5px 1px rgb(0 0 0), 0 1px 2px 0 rgb(0 0 0 / 14%) !important
+    // box-shadow: 0 3px -1px -2px rgba(0, 0, 0, .2), 0 -2px 2px 0 rgba(0, 0, 0, .14), 0 -1px 5px 0 rgba(0, 0, 0, .12), 0 -2px 2px 0 rgba(0, 0, 0, .14) !important;
+    box-shadow: 0 0px 1px 1px rgb(0 0 0 / 20%), 0 2px 2px -5px rgb(0 0 0 / 14%), 0 1px 5px -1px rgb(0 0 0 / 12%), 0 -2px 2px 0 rgb(0 0 0 / 14%) !important;
+}
+
+.tab {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+
+    &:focus {
+        outline: none
+    }
+}
+
+.tab .tab-home {
+    font-size: 35px;
+}
+
+.tab-continue .active {
+    background-color: var(--primary);
+    color: var(--primary-contrast);
+    width: 100%;
+}
+
+
+.borderless div {
+    font-size: 0.9em;
+
+}
+
+svg:focus {
+    outline: none !important;
+}
+
+div:focus {
+    outline: none !important;
+}
+
+.active-rout {
+    fill: var(--primary);
+    color: var(--primary)!important;
+}
+
+.custom-badge {
+    font-size: 12px !important;
+    position: absolute;
+    padding: 3px 6px;
+    top: 1px;
+    right: 18px;
+}
+
+.tab-search {
+    color: #746F6D;
+    font-size: 22px;
+    padding: 8px;
+}

@@ -1,0 +1,14 @@
+<app-navigation type=2 title="Order Placed"></app-navigation>
+
+<div class="px-4 px-lg-0">
+    <!-- For demo purpose -->
+    <div class="container text-white pt-5 pb-3 text-center">
+        <img width="150px" src="assets/Images/success.gif" alt="">
+        <h3>Order Successful</h3>
+        <p class="text-muted">Order has been successfully placed <span *ngIf="!customerService.customerData"> on whatsapp</span></p>
+        <button class="btn-primary" (click)="goTo()">Go To Home</button>
+    </div>
+    <!-- End -->
+</div>
+
+<app-tab></app-tab>

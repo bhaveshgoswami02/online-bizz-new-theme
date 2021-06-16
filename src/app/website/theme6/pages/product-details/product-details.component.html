@@ -1,0 +1,138 @@
+<app-navigation type=2 [title]="data?.itemName?.substring(0, 25)"></app-navigation>
+
+<ng-container *ngIf="!skeleton">
+    <!-- Mobile view -->
+    <div class="container d-block d-md-none my-5">
+        <img [src]="data?.imgUrl" width="100%" (load)="data.loaded = true" [hidden]="!data.loaded" alt=""
+            class="shadow-sm" min-height="400px" style="background-color: rgb(158, 158, 158)">
+        <ng-container *ngIf="!data.loaded">
+            <div class="p-skeleton">
+                <div class="p-skeleton__body">
+                    <div class="p-skeleton__body--r-banner">
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <br><br>
+        <strong class="price-size cursor-pointer">{{data?.itemName}}</strong>
+        <br><br>
+        <div>
+            <div class="row">
+                <div class="col-4 my-auto">
+                    <span class="text-grey" *ngIf="_themeService.data.enableCart && data.itemPrice">
+                        <b class="price-size ">Rs. <del class="text-muted">{{data?.itemMrpPrice}} </del> &nbsp;
+                            {{data?.itemPrice}} </b>
+                    </span>
+                </div>
+                <div class="col-8 text-right">
+                    <span>
+                        <button *ngIf="!cartService.isProductInCart(params)" (click)="addToCart(data)"
+                            class="btn-primary">
+                            Add to Cart
+                        </button>
+                        <span *ngIf="cartService.isProductInCart(params) && _themeService.data.enableCart">
+                            <span class="btn-primary price-size" (click)="decrementProduct(data)">
+                                <i class="fa fa-minus"></i>
+                            </span>
+                            <span class="mx-2">{{cartService.isProductInCart(params)?.qty}}</span>
+                            <span class="btn-primary price-size" (click)="incrementProduct(data)">
+                                <i class="fa fa-plus"></i>
+                            </span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <h6> <strong> Description </strong> </h6>
+        <hr>
+        <div [innerHTML]="data?.itemDescription">
+
+        </div>
+    </div>
+
+    <!-- Desktop view -->
+    <div class="container d-none d-md-block mt-5">
+        <div class="row">
+            <div class="col-6">
+                <img [src]="data?.imgUrl" (load)="data.loaded = true" [hidden]="!data.loaded" alt="" class="shadow-sm">
+                <ng-container *ngIf="!data.loaded">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-banner">
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="col-6">
+                <strong class="price-size cursor-pointer">{{data?.itemName}}</strong> <br> <br>
+                <div class="row">
+                    <div class="col-4 my-auto">
+                        <span class="text-grey" *ngIf="_themeService.data.enableCart && data.itemPrice">
+                            <b class="price-size ">Rs. <del class="text-muted">{{data?.itemMrpPrice}} </del> &nbsp;
+                                {{data?.itemPrice}} </b>
+                        </span>
+                    </div>
+                    <div class="col-8 text-right">
+                        <span>
+                            <button *ngIf="!cartService.isProductInCart(params)" (click)="addToCart(data)"
+                                class="btn-primary">
+                                Add to Cart
+                            </button>
+                            <span *ngIf="cartService.isProductInCart(params) && _themeService.data.enableCart">
+                                <span class="btn-primary price-size"
+                                    (click)="decrementProduct(data)">
+                                    <i class="fa fa-minus"></i>
+                                </span>
+                                <span class="mx-2">{{cartService.isProductInCart(params)?.qty}}</span>
+                                <span class="btn-primary price-size"
+                                    (click)="incrementProduct(data)">
+                                    <i class="fa fa-plus"></i>
+                                </span>
+
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <br>
+                <h6> <strong> Description </strong> </h6>
+                <hr>
+                <div [innerHTML]="data?.itemDescription">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</ng-container>
+
+<ng-container *ngIf="skeleton">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 my-3">
+                <div class="p-skeleton">
+                    <div class="p-skeleton__body">
+                        <div class="p-skeleton__body--r-banner"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 my-3">
+                <div class="p-skeleton">
+                    <div class="p-skeleton__body">
+                        <div class="p-skeleton__body--r-text">
+                            <div class="p-skeleton__body--r-full"></div>
+                            <div class="p-skeleton__body--r-s"></div>
+                            <div class="p-skeleton__body--r-full"></div>
+                            <div class="p-skeleton__body--r-full"></div>
+                            <div class="p-skeleton__body--r-m"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<app-tab></app-tab>

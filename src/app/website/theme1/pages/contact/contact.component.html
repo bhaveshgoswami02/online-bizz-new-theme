@@ -1,0 +1,106 @@
+<!-- Cover Background -->
+<div class="jumbotron jumbotron-fluid my-0 cover__background" [ngStyle]="{'background-image': getCover()}">
+    <div class="container">
+        <div class="title__section" >
+            <h1 class="text-warning">Contact Us</h1>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid my-0 bg-transparent">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 col-md-4 mx-auto mb-4 border-right" *ngIf="_themeService?.data?.address?.area">
+                <p class="nav-link media text-secondary pb-1 mb-1">
+                    <span class="media">
+                        <span class="mr-3 font-20">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                              </svg>
+                        </span>
+                        <span class="media-body">
+                            <a class="media-body text-secondary paragraph__language font-20"  href="https://www.google.com/maps/search/?api=1&query={{latitude}},{{longitude}}" target="_blank">
+                                {{_themeService?.data?.address?.area}} <br>
+                                {{_themeService?.data?.address?.city}}, {{_themeService?.data?.address?.state}} -
+                                ({{_themeService?.data?.address?.zipCode}}).
+                                {{_themeService?.data?.address?.country}}
+                            </a>
+                        </span> 
+                    </span>
+                </p>
+            </div>
+            <div class="col-12 col-md-4 mx-auto mb-4 pl-md-5" [ngClass]="{'col-md-4': _themeService?.data?.address?.area, 'col-md-6': !_themeService?.data?.address?.area}">
+                <p class="nav-link media text-secondary pb-1 mb-1" *ngIf="_themeService?.data?.phoneNo">
+                    <span class="media">
+                        <span class="mr-3 font-20">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+                              </svg>
+                        </span>
+                        <a class="media-body text-secondary paragraph__language font-20" href="tel:{{_themeService?.data?.phoneNo}}">
+                            {{_themeService?.data?.phoneNo}}
+                        </a>
+                    </span>
+                </p>
+            </div>
+            <div class="col-12 col-md-4 mx-auto mb-4 pl-md-5 border-left" [ngClass]="{'col-md-4': _themeService?.data?.address?.area, 'col-md-6': !_themeService?.data?.address?.area}">
+                <p class="nav-link media text-secondary pb-1 mb-1" *ngIf="_themeService?.data?.email">
+                    <span class="media">
+                        <span class="mr-3 font-20">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+                              </svg>
+                        </span>
+                        <a class="media-body text-secondary paragraph__language font-20" href="mailto:{{_themeService?.data?.email}}">
+                            {{_themeService?.data?.email}}
+                        </a>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-3 mt-md-5" data-aos="zoom-in" data-aos-anchor-placement="top-bottom">
+            <div class="col-12 col-md-6 mb-4 mx-auto">
+
+                <div class="mb-4">
+                    <h5><b class="paragraph__language font-22">Send us a message</b></h5>
+                </div>
+                <!-- FORM -->
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" formControlName="fullName">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Phone Number" formControlName="mobileNumber">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" formControlName="email">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="message" id="message" cols="30" rows="5" placeholder="Enter Your Message"
+                            formControlName="message"></textarea>
+                    </div>
+
+                    <button class="btn btn-primary btn-lg px-5 shadow-sm" type="submit">Send</button>
+
+                </form>
+            </div>
+            <div class="col-12 col-md-6 map__container my-5 mx-auto" *ngIf="this._themeService?.data?.address?.latitude && this._themeService?.data?.address?.longitude">
+                <google-map *ngIf="center" height="87%" width="100%" [center]="center" [zoom]="zoom">
+                    <map-marker #marker="mapMarker" *ngFor="let markerPosition of markerPositions"
+                        [position]="markerPosition" [options]="markerOptions"></map-marker>
+                </google-map>
+
+                <div class="py-md-4 py-4 text-center">
+                    <a href="https://www.google.com/maps/search/?api=1&query={{latitude}},{{longitude}}" target="_blank" class="btn btn-outline-secondary px-5 shadow-sm rounded-lg"><svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-geo" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 4a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path d="M7.5 4h1v9a.5.5 0 0 1-1 0V4z"/>
+                        <path fill-rule="evenodd" d="M6.489 12.095a.5.5 0 0 1-.383.594c-.565.123-1.003.292-1.286.472-.302.192-.32.321-.32.339 0 .013.005.085.146.21.14.124.372.26.701.382.655.246 1.593.408 2.653.408s1.998-.162 2.653-.408c.329-.123.56-.258.701-.382.14-.125.146-.197.146-.21 0-.018-.018-.147-.32-.339-.283-.18-.721-.35-1.286-.472a.5.5 0 1 1 .212-.977c.63.137 1.193.34 1.61.606.4.253.784.645.784 1.182 0 .402-.219.724-.483.958-.264.235-.618.423-1.013.57-.793.298-1.855.472-3.004.472s-2.21-.174-3.004-.471c-.395-.148-.749-.336-1.013-.571-.264-.234-.483-.556-.483-.958 0-.537.384-.929.783-1.182.418-.266.98-.47 1.611-.606a.5.5 0 0 1 .595.383z"/>
+                      </svg> Get Direction</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<!-- <div class="container">
+    <form (ngSubmit)="OrderNow(orderForm)" #orderForm="ngForm">
+        <input ngModel required type="text" name="name" placeholder="name">
+        <input ngModel required type="text" name="phoneNumber" placeholder="phoneNumber">
+        <input ngModel required type="text" name="address" placeholder="address">
+        <input ngModel required type="text" name="comment" placeholder="comment">
+        <button type="submit" [disabled]="!orderForm.valid">Order On Whatsapp</button>
+    </form>
+</div> -->
+
+
+<div class="container">
+    <div class="container text-white pt-5 pb-3 text-center">
+        <h1 class="display-4">Complete Order</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-7 p-3">
+
+            <div class="shadow-sm p-3">
+                <h2>Order Summary</h2>
+                <div class="row" *ngFor="let item of cartService.cart">
+                    <div class="p-3 w-100">
+                        <img [src]="item.product.imgUrl" alt="" width="80"
+                            class="img-fluid rounded shadow-sm">
+                        <div class="ml-3 d-inline-block align-middle">
+                            <h5 class="mb-0"> <a href="#"
+                                    class="text-dark d-inline-block">{{item.product.itemName}}</a>
+                            </h5>
+                            <span class="text-muted font-weight-normal font-italic">Category:
+                                {{item.product.itemCategory}}
+                            </span><br>
+                            <span class="text-muted font-weight-normal font-italic">
+                                &#8377;{{item.product.itemPrice}} * {{item.qty}} units
+                            </span>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <h2 class="text-right">Order Total : &#8377;{{cartService.getCartTotal()}}</h2>
+            </div>
+        </div>
+        <div class="col-lg-5 p-3">
+            <div class="shadow-sm p-3">
+                <h2>Enter your Personal Information</h2>
+                <form (ngSubmit)="OrderNow(orderForm)" #orderForm="ngForm">
+                    <fieldset class="my-1">
+                        <label for="card-name">Name</label><br>
+                        <input ngModel required type='text'
+                            id='card-name' name='name' placeholder='Name'>
+                    </fieldset>
+                    <fieldset class="my-1">
+                        <label for="card-number">Phone Number</label><br>
+                        <input ngModel required type='text'
+                            id='card-number' name='phoneNumber' placeholder='+91XXXXXXXXXX'>
+                    </fieldset>
+                    <fieldset class="my-1">
+                        <label for="card-number">Email</label><br>
+                        <input ngModel required type='email'
+                            id='card-number' name='email' placeholder='abc@gmail.com'>
+                    </fieldset>
+                    <fieldset class="my-1">
+                        <label for="card-expiration">Address</label><br>
+                        <input ngModel required type='text'
+                            id='card-expiration' name='address' placeholder='Address'
+                            class="card-expiration">
+                    </fieldset>
+                    <fieldset class="my-1">
+                        <label for="comment">Comment</label><br>
+                        <input ngModel type='text'
+                            id='comment' name='comment' placeholder='Comment'
+                            class="card-expiration">
+                    </fieldset>
+                    <div class="text-center my-2">
+                        <button class="btn btn-primary" type="submit" [disabled]="!orderForm.valid">Order On Whatsapp</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

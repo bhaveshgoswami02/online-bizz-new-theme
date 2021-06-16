@@ -1,0 +1,44 @@
+<div (click)="onProductTitleSelect(product.id)" class="card card-height">
+    <div class="p-2">
+        <div>
+            <img [src]="product?.imgUrl" (load)="product.loaded = true" [hidden]="!product?.loaded" width="100%" alt="">
+            <ng-container *ngIf="!product?.loaded">
+                <div class="p-skeleton">
+                    <div class="p-skeleton__body">
+                        <div class="p-skeleton__body--r-image">
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <div class="card-text">
+                <strong class="price-size cursor-pointer">{{product?.itemName}}</strong>
+                
+                <h6 class="mt-2">
+                    <span class="text-grey">
+                        <b class="price-size ">Rs. <del class="text-muted">{{product?.itemMrpPrice}} </del> &nbsp;
+                            {{product?.itemPrice}} </b>
+                    </span>
+                </h6>
+
+                <ng-container *ngIf="!_themeService.data.enableCart && _themeService.data.enableEnquiryButton">
+                    <a target="_blank"
+                        href="https://wa.me/{{_themeService?.data?.whatsappNo}}?text=I%20am%20interested%20in%20your%20product%20{{product?.itemName}}"
+                        class="btn-primary mt-1">{{_themeService.data?.productButton ?
+                        _themeService.data?.productButton : "Enquiry Now"}}</a>
+                </ng-container>
+
+                <!-- <ng-container *ngIf="_themeService.data.enableCart && product.itemPrice">
+                    <a *ngIf="!cartService.isProductInCart(product)" class="btn-primary"
+                        (click)="addToCart(product)">Add To Cart</a>
+                </ng-container>
+                <ng-container *ngIf="cartService.isProductInCart(product)">
+                    <a class="btn-primary" (click)="decrementProduct(product)">-</a>
+                    <a class="btn-primary">{{cartService.isProductInCart(product).qty}}</a>
+                    <a class="btn-primary" (click)="incrementProduct(product)">+</a>
+                </ng-container> -->
+            </div>
+        </div>
+
+    </div>
+
+</div>

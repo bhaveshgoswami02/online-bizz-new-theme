@@ -1,0 +1,374 @@
+<!-- Laptop Screen Start -->
+<footer class="footer-area py-3 d-none d-md-block d-lg-block" *ngIf="_themeService?.data">
+    <div class="footer-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-12 order-4 order-lg-0">
+                    <div class="widget-item">
+                        <div class="about-widget">
+                            <a routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}">
+                                <img [src]="_themeService?.data?.brand_logo" width="50%" alt="Logo" />
+                            </a>
+                            <p>
+                                {{_themeService?.data?.metaTags?.description}}
+                            </p>
+
+                            <div *ngIf="!_themeService.customDomain" class="copyright-txt">
+                                <span>&copy; Copyright</span>&nbsp;
+                                <a href="{{domainUrl}}" class="secondary-color" target="_blank">{{domainName}}</a>
+                            </div>
+                            <div *ngIf="_themeService.customDomain" class="copyright-txt">
+                                <span>&copy; Copyright</span>&nbsp;
+                                <a href="{{'https://'+_themeService.customDomain}}" class="secondary-color"
+                                    target="_blank">{{_themeService.customDomain}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-2 ml-auto">
+                    <div class="widget-item">
+                        <h4 class="widget-title">Links</h4>
+                        <!-- If Menu Array -->
+                        <div class="widget-body" *ngIf="_themeService.data?.mainMenu?.length != 0">
+                            <ul class="widget-list">
+                                <li *ngFor="let menu of _themeService.data?.mainMenu">
+                                    <a *ngIf="!menu.url"
+                                        routerLink="{{_themeService.customDomain?menu.link:'/'+_themeService.domainName+menu.link}}">{{menu.title}}</a>
+                                    <a *ngIf="menu.url" href="{{menu?.url}}" target="_blank">{{menu.title}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Menu array end -->
+
+                        <div class="widget-body"
+                            *ngIf="_themeService.data?.mainMenu?.length == 0 || !_themeService.data?.mainMenu">
+                            <ul class="widget-list">
+                                <li *ngIf="_themeService?.data?.services?.length>0">
+                                    <a
+                                        routerLink="{{_themeService.customDomain?'/services':'/'+_themeService.domainName+'/services'}}">{{_themeService.data.serviceHeading
+                                        ? _themeService.data.serviceHeading : "Services"}}</a>
+                                </li>
+                                <li *ngIf="_themeService?.data?.products?.length>0">
+                                    <a
+                                        routerLink="{{_themeService.customDomain?'/products':'/'+_themeService.domainName+'/products'}}">{{_themeService.data.productHeading
+                                        ? _themeService.data.productHeading : "Products"}}</a>
+                                </li>
+                                <li *ngIf="_themeService?.data?.gallery?.length>0">
+                                    <a
+                                        routerLink="{{_themeService.customDomain?'/gallery':'/'+_themeService.domainName+'/gallery'}}">{{_themeService.data.galleryHeading
+                                        ? _themeService.data.galleryHeading : "Gallery"}}</a>
+                                </li>
+                                <li *ngIf="_themeService?.data.aboutUs?.title">
+                                    <a
+                                        routerLink="{{_themeService.customDomain?'/about':'/'+_themeService.domainName+'/about'}}">{{_themeService.data.aboutHeading
+                                        ? _themeService.data.aboutHeading : "About Us"}}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        routerLink="{{_themeService.customDomain?'/contact':'/'+_themeService.domainName+'/contact'}}">Contact
+                                        Us
+                                    </a>
+                                </li>
+                                <li
+                                    *ngIf="_themeService?.data._themeService?.data.payments && _themeService?.data?.payments?.googlePay || _themeService?.data?.payments?.paytm || _themeService?.data?.payments?.razorPay  || _themeService?.data?.payments?.phonePay || _themeService?.data?.payments?.razorPay || _themeService?.data?.payments?.upi  || _themeService?.data.acNo">
+                                    <a
+                                        routerLink="{{_themeService.customDomain?'/payments':'/'+_themeService.domainName+'/payments'}}">Payments</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-2 ml-auto">
+                    <div class="widget-item">
+                        <h4 class="widget-title">Quick Links</h4>
+                        <div class="widget-body">
+                            <ul class="widget-list">
+                                <li *ngIf="_themeService?.data?.socialMedia?.facebook">
+                                    <a href="{{_themeService?.data?.socialMedia?.facebook}}" target="_blank">
+                                        <i class="fa fa-facebook"></i> Facebook</a>
+                                </li>
+                                <li *ngIf="_themeService?.data?.socialMedia?.twitter">
+                                    <a href="{{_themeService?.data?.socialMedia?.twitter}}" target="_blank">
+                                        <i class="fa fa-twitter"></i> Twitter</a>
+                                </li>
+                                <li *ngIf="_themeService?.data?.socialMedia?.instagram">
+                                    <a href="{{_themeService?.data?.socialMedia?.instagram}}" target="_blank">
+                                        <i class="fa fa-instagram"></i> Instagram</a>
+                                </li>
+                                <li *ngIf="_themeService?.data?.socialMedia?.youtube">
+                                    <a href="{{_themeService?.data?.socialMedia?.youtube}}" target="_blank">
+                                        <i class="fa fa-youtube"></i> Youtube</a>
+                                </li>
+                                <li *ngIf="_themeService?.data?.socialMedia?.linkedin">
+                                    <a href="{{_themeService?.data?.socialMedia?.linkedin}}" target="_blank">
+                                        <i class="fa fa-linkedin"></i> Linkedin</a>
+                                </li>
+                                <li *ngIf="_themeService?.data?.socialMedia?.pinterest">
+                                    <a href="{{_themeService?.data?.socialMedia?.pinterest}}" target="_blank">
+                                        <i class="fa fa-pinterest"></i> Pinterest</a>
+                                </li>
+                                <li *ngIf="_themeService?.data?.socialMedia?.googleBusiness">
+                                    <a href="{{_themeService?.data?.socialMedia?.googleBusiness}}" target="_blank">
+                                        <svg width="17" height="17" version="1.1" id="Layer_1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                                            xml:space="preserve">
+                                            <g>
+                                                <g>
+                                                    <path
+                                                        d="M511.627,193.441l-45.481-155.74c-1.158-3.966-4.794-6.691-8.925-6.691H54.779c-4.132,0-7.767,2.726-8.925,6.691
+                                                       L0.373,193.441C0.125,194.287,0,195.165,0,196.046v4.473c0,23.511,11.729,44.321,29.632,56.929v185.384
+                                                       c0,21.04,17.118,38.158,38.158,38.158h376.42c21.04,0,38.158-17.118,38.158-38.158V257.448C500.27,244.841,512,224.032,512,200.52
+                                                       v-4.473C512,195.165,511.875,194.287,511.627,193.441z M265.298,49.606h88.591l17.346,142.324
+                                                       c1.84,15.1-2.888,30.29-12.972,41.678c-10.084,11.388-24.591,17.919-39.801,17.919c-29.314,0-53.164-23.85-53.164-53.164V49.606z
+                                                        M140.764,191.929L158.11,49.606h88.592v148.756c0,29.314-23.85,53.164-53.165,53.164c-15.211,0-29.717-6.531-39.801-17.919
+                                                       C143.653,222.219,138.924,207.029,140.764,191.929z M18.596,200.52v-3.144L61.75,49.606h77.627l-19.145,157.085
+                                                       c-3.115,25.56-24.881,44.835-50.631,44.835C41.477,251.526,18.596,228.645,18.596,200.52z M444.21,462.394H67.79
+                                                       c-10.787,0-19.563-8.776-19.563-19.563V266.749c6.739,2.181,13.918,3.372,21.374,3.372c26.271,0,49.499-14.705,61.328-36.704
+                                                       c2.486,4.442,5.455,8.644,8.885,12.519c13.611,15.37,33.192,24.185,53.723,24.185c26.758,0,50.125-14.731,62.463-36.498
+                                                       c12.338,21.768,35.705,36.498,62.461,36.498c20.531,0,40.112-8.816,53.723-24.185c3.43-3.874,6.399-8.076,8.885-12.519
+                                                       c11.828,21.999,35.058,36.704,61.328,36.704c7.456,0,14.635-1.191,21.374-3.372v176.082h0.001
+                                                       C463.773,453.618,454.997,462.394,444.21,462.394z M493.404,200.52c0,28.125-22.881,51.005-51.007,51.005
+                                                       c-25.75,0-47.516-19.275-50.631-44.835L372.623,49.606h77.627l43.154,147.771V200.52z" />
+                                                </g>
+                                            </g>
+                                            <g>
+                                                <g>
+                                                    <path
+                                                        d="M432.754,367.297H380.04c-5.135,0-9.298,4.163-9.298,9.298c0,5.135,4.163,9.298,9.298,9.298h42.414
+                                                       c-4.267,19.488-21.664,34.118-42.414,34.118c-23.94,0-43.416-19.476-43.416-43.416c0-23.94,19.476-43.417,43.416-43.417
+                                                       c11.597,0,22.499,4.516,30.7,12.717c3.632,3.631,9.518,3.63,13.15,0c3.631-3.631,3.631-9.518,0-13.15
+                                                       c-11.713-11.713-27.285-18.163-43.85-18.163c-34.194,0-62.012,27.819-62.012,62.013c0,34.194,27.818,62.012,62.012,62.012
+                                                       s62.011-27.818,62.011-62.012C442.052,371.46,437.889,367.297,432.754,367.297z" />
+                                                </g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                            <g>
+                                            </g>
+                                        </svg>
+                                        Google My Business</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-3">
+                    <div class="widget-item">
+                        <h4 class="widget-title">Contact</h4>
+                        <div class="widget-body">
+                            <address *ngIf="_themeService?.data?.address?.area">
+                                <i class="fa fa-map-marker"></i>&nbsp; {{_themeService?.data?.address?.area}}
+                                <br> {{_themeService?.data?.address?.city}}, {{_themeService?.data?.address?.state}}
+                                - {{_themeService?.data?.address?.zipCode}}
+                                {{_themeService?.data?.address?.country}}
+                                <br>
+                                <i class="fa fa-envelope"></i>&nbsp;
+                                <a class="static-primary hover"
+                                    href="mailto:{{_themeService?.data?.email}}">{{_themeService?.data?.email}}</a>
+                                <br>
+                                <i class="fa fa-phone"></i>&nbsp;
+                                <a class="static-primary hover"
+                                    href="tel:{{_themeService?.data?.phoneNo}}">{{_themeService?.data?.phoneNo}}</a>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Laptop Screen End -->
+
+
+
+
+
+<!-- Mobile Screen Start -->
+<div class="footer-area py-3 d-block d-md-none d-lg-none" *ngIf="!_themeService?.data?.enableEcommerce">
+    <div class="footer-widget-area">
+        <div class="container">
+            <div class="row d-block d-md-none d-lg-none">
+                <div class="col-12">
+                    <a routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}">
+                        <img [src]="_themeService?.data?.brand_logo" width="50%" alt="Logo" />
+                    </a>
+                    <p class="mt-2">
+                        {{_themeService?.data?.metaTags?.description}}
+                    </p>
+                </div>
+
+                <div class="col-12">
+                    <div class="widget-item">
+                        <h4 class="widget-title">Contact</h4>
+                        <div class="widget-body">
+                            <address *ngIf="_themeService?.data?.address?.area">
+                                <i class="fa fa-map-marker"></i>&nbsp; {{_themeService?.data?.address?.area}}
+                                <br> {{_themeService?.data?.address?.city}}, {{_themeService?.data?.address?.state}} -
+                                {{_themeService?.data?.address?.zipCode}}
+                                {{_themeService?.data?.address?.country}}
+                                <br>
+                                <i class="fa fa-envelope"></i>&nbsp;
+                                <a class="static-primary hover"
+                                    href="mailto:{{_themeService?.data?.email}}">{{_themeService?.data?.email}}</a>
+                                <br>
+                                <i class="fa fa-phone"></i>&nbsp;
+                                <a class="static-primary hover"
+                                    href="tel:{{_themeService?.data?.phoneNo}}">{{_themeService?.data?.phoneNo}}</a>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="widget-item">
+                        <h4 class="widget-title">Follow Us</h4>
+                        <div class="d-flex">
+                            <a class="static-primary" target="_blank"
+                                href="{{_themeService?.data?.socialMedia?.facebook}}"
+                                *ngIf="_themeService?.data?.socialMedia?.facebook">
+                                <i class="fa fa-facebook mx-2"></i>
+                            </a>
+                            <a class="static-primary" target="_blank"
+                                href="{{_themeService?.data?.socialMedia?.twitter}}"
+                                *ngIf="_themeService?.data?.socialMedia?.twitter">
+                                <i class="fa fa-twitter mx-2"></i>
+                            </a>
+                            <a class="static-primary" target="_blank"
+                                href="{{_themeService?.data?.socialMedia?.instagram}}"
+                                *ngIf="_themeService?.data?.socialMedia?.instagram">
+                                <i class="fa fa-instagram mx-2"></i>
+                            </a>
+                            <a class="static-primary" target="_blank"
+                                href="{{_themeService?.data?.socialMedia?.youtube}}"
+                                *ngIf="_themeService?.data?.socialMedia?.youtube">
+                                <i class="fa fa-youtube mx-2"></i>
+                            </a>
+                            <a class="static-primary" target="_blank"
+                                href="{{_themeService?.data?.socialMedia?.linkedin}}"
+                                *ngIf="_themeService?.data?.socialMedia?.linkedin">
+                                <i class="fa fa-linkedin mx-2"></i>
+                            </a>
+                            <a class="static-primary" target="_blank"
+                                href="{{_themeService?.data?.socialMedia?.pinterest}}"
+                                *ngIf="_themeService?.data?.socialMedia?.pinterest">
+                                <i class="fa fa-pinterest mx-2"></i> &nbsp;
+                            </a>
+                            <a class="static-primary" target="_blank"
+                                href="{{_themeService?.data?.socialMedia?.googleBusiness}}"
+                                *ngIf="_themeService?.data?.socialMedia?.googleBusiness">
+                                <svg width="17" height="17" version="1.1" id="Layer_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                                    xml:space="preserve">
+                                    <g>
+                                        <g>
+                                            <path d="M511.627,193.441l-45.481-155.74c-1.158-3.966-4.794-6.691-8.925-6.691H54.779c-4.132,0-7.767,2.726-8.925,6.691
+                L0.373,193.441C0.125,194.287,0,195.165,0,196.046v4.473c0,23.511,11.729,44.321,29.632,56.929v185.384
+                c0,21.04,17.118,38.158,38.158,38.158h376.42c21.04,0,38.158-17.118,38.158-38.158V257.448C500.27,244.841,512,224.032,512,200.52
+                v-4.473C512,195.165,511.875,194.287,511.627,193.441z M265.298,49.606h88.591l17.346,142.324
+                c1.84,15.1-2.888,30.29-12.972,41.678c-10.084,11.388-24.591,17.919-39.801,17.919c-29.314,0-53.164-23.85-53.164-53.164V49.606z
+                 M140.764,191.929L158.11,49.606h88.592v148.756c0,29.314-23.85,53.164-53.165,53.164c-15.211,0-29.717-6.531-39.801-17.919
+                C143.653,222.219,138.924,207.029,140.764,191.929z M18.596,200.52v-3.144L61.75,49.606h77.627l-19.145,157.085
+                c-3.115,25.56-24.881,44.835-50.631,44.835C41.477,251.526,18.596,228.645,18.596,200.52z M444.21,462.394H67.79
+                c-10.787,0-19.563-8.776-19.563-19.563V266.749c6.739,2.181,13.918,3.372,21.374,3.372c26.271,0,49.499-14.705,61.328-36.704
+                c2.486,4.442,5.455,8.644,8.885,12.519c13.611,15.37,33.192,24.185,53.723,24.185c26.758,0,50.125-14.731,62.463-36.498
+                c12.338,21.768,35.705,36.498,62.461,36.498c20.531,0,40.112-8.816,53.723-24.185c3.43-3.874,6.399-8.076,8.885-12.519
+                c11.828,21.999,35.058,36.704,61.328,36.704c7.456,0,14.635-1.191,21.374-3.372v176.082h0.001
+                C463.773,453.618,454.997,462.394,444.21,462.394z M493.404,200.52c0,28.125-22.881,51.005-51.007,51.005
+                c-25.75,0-47.516-19.275-50.631-44.835L372.623,49.606h77.627l43.154,147.771V200.52z" />
+                                        </g>
+                                    </g>
+                                    <g>
+                                        <g>
+                                            <path d="M432.754,367.297H380.04c-5.135,0-9.298,4.163-9.298,9.298c0,5.135,4.163,9.298,9.298,9.298h42.414
+                c-4.267,19.488-21.664,34.118-42.414,34.118c-23.94,0-43.416-19.476-43.416-43.416c0-23.94,19.476-43.417,43.416-43.417
+                c11.597,0,22.499,4.516,30.7,12.717c3.632,3.631,9.518,3.63,13.15,0c3.631-3.631,3.631-9.518,0-13.15
+                c-11.713-11.713-27.285-18.163-43.85-18.163c-34.194,0-62.012,27.819-62.012,62.013c0,34.194,27.818,62.012,62.012,62.012
+                s62.011-27.818,62.011-62.012C442.052,371.46,437.889,367.297,432.754,367.297z" />
+                                        </g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                    <g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 text-center pt-4 mb-0 pb-0">
+                    <div *ngIf="!_themeService.customDomain" class="copyright-txt">
+                        <span>&copy; Copyright</span>&nbsp;
+                        <a href="{{domainUrl}}" class="secondary-color" target="_blank">{{domainName}}</a>
+                    </div>
+                    <div *ngIf="_themeService.customDomain" class="copyright-txt">
+                        <span>&copy; Copyright</span>&nbsp;
+                        <a href="{{'https://'+_themeService.customDomain}}" class="secondary-color"
+                            target="_blank">{{_themeService.customDomain}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Mobile Screen End -->
