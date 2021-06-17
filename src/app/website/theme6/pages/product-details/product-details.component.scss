@@ -1,0 +1,86 @@
+:root {
+  --darkColor: #373738;
+  --darkerColor: #1e1e1f;
+  --lightColor: #8c9fb6;
+  --headingSize: 1.25rem;
+  --smallFontSize: 1rem;
+  --extraSmallFontSize: 10px;
+  --normalSmallFontSize: 14px;
+  --themeColor: #edb611;
+}
+
+.product-details {
+  h3 {
+    color: var(--darkColor);
+    font-weight: 600;
+    font-size: var(--headingSize);
+  }
+  p {
+    color: var(--lightColor);
+    font-size: var(--smallFontSize);
+  }
+  i {
+    color: var(--themeColor);
+  }
+
+  .ver-line {
+    border-left: 2px solid var(--lightColor);
+    height: var(--headingSize);
+  }
+  .rating {
+    color: var(--darkColor);
+    font-size: var(--smallFontSize);
+  }
+  .price {
+    h5 {
+      font-size: var(--headingSize);
+      font-weight: 600;
+      color: var(--darkColor);
+    }
+  }
+  .below-price {
+    font-size: var(--extraSmallFontSize);
+  }
+  .btn-dark {
+    font-weight: 500;
+    font-size: var(--smallFontSize);
+  }
+  .normal-bold-text {
+    font-weight: 600;
+    font-size: var(--normalSmallFontSize);
+  }
+  .offer-text {
+    font-size: var(--smallFontSize);
+    font-weight: 500;
+    span {
+      font-weight: 600;
+    }
+  }
+
+  .tabs-heading {
+    font-size: var(--normalSmallFontSize);
+    font-weight: 600;
+  }
+  .list-benefits {
+    padding-left: 2rem;
+    li {
+      list-style-type: disc;
+      font-size: var(--normalSmallFontSize);
+    }
+  }
+}
+.tab-content {
+  font-size: var(--normalSmallFontSize);
+}
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  button {
+    width: 30%;
+    font-size: var(--normalSmallFontSize);
+    margin-top: 10px;
+  }
+}

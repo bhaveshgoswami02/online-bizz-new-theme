@@ -1,8 +1,11 @@
-<app-navigation type=2 [title]="data?.itemName?.substring(0, 25)"></app-navigation>
+<app-navigation
+  type="2"
+  [title]="data?.itemName?.substring(0, 25)"
+></app-navigation>
 
-<ng-container *ngIf="!skeleton">
-    <!-- Mobile view -->
-    <div class="container d-block d-md-none my-5">
+<!-- <ng-container *ngIf="!skeleton"> -->
+<!-- Mobile view -->
+<!-- <div class="container d-block d-md-none my-5">
         <img [src]="data?.imgUrl" width="100%" (load)="data.loaded = true" [hidden]="!data.loaded" alt=""
             class="shadow-sm" min-height="400px" style="background-color: rgb(158, 158, 158)">
         <ng-container *ngIf="!data.loaded">
@@ -50,10 +53,10 @@
         <div [innerHTML]="data?.itemDescription">
 
         </div>
-    </div>
+    </div> -->
 
-    <!-- Desktop view -->
-    <div class="container d-none d-md-block mt-5">
+<!-- Desktop view -->
+<!-- <div class="container d-none d-md-block mt-5">
         <div class="row">
             <div class="col-6">
                 <img [src]="data?.imgUrl" (load)="data.loaded = true" [hidden]="!data.loaded" alt="" class="shadow-sm">
@@ -106,9 +109,9 @@
 
 
     </div>
-</ng-container>
+</ng-container> -->
 
-<ng-container *ngIf="skeleton">
+<!-- <ng-container *ngIf="skeleton">
     <div class="container">
         <div class="row">
             <div class="col-md-6 my-3">
@@ -133,6 +136,150 @@
             </div>
         </div>
     </div>
-</ng-container>
+</ng-container> -->
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-5 col-lg-5">
+      <p>Products images</p>
+    </div>
+    <div class="product-details col-12 col-md-7 col-lg-7">
+      <h3 class="text-uppercase">Lit liquid matte lipstic - slow fade</h3>
+      <p>Moringa Oil Enriched Matte Lipstick</p>
+      <div class="d-flex">
+        <h3 class="my-auto rating">4.9</h3>
+        <i class="fa fa-star fa-lg my-auto mx-2" aria-hidden="true"></i>
+        <div class="ver-line my-auto mx-2"></div>
+        <p class="my-auto rating">251</p>
+        <p class="my-auto mx-2 rating">ratings</p>
+      </div>
+      <div class="d-flex mt-4 price">
+        <h5>₹</h5>
+        <h5 class="mx-2">455</h5>
+      </div>
+      <div class="below-price">(MRP incl. of all taxes)</div>
+      <div class="row my-4 ml-1">
+        <button
+          class="
+            col-12 col-md-4 col-lg-4
+            btn-dark btn-lg
+            py-2
+            px-3
+            text-uppercase
+          "
+        >
+          <i class="fa fa-shopping-bag mr-3" aria-hidden="true"></i>Add to bag
+        </button>
+        <div
+          class="
+            normal-bold-text
+            my-auto
+            col-12 col-md-4 col-lg-4
+            text-uppercase
+          "
+        >
+          free gift on purchase!
+        </div>
+      </div>
+      <div class="bg-light offer-text p-1">
+        You will receive <span>cashback worth ₹50</span> as myglammPOINTS on
+        this purchase
+      </div>
+      <hr />
+      <div class="tabs-container mt-4">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <div class="nav-link tabs-heading text-uppercase">what it is</div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link tabs-heading text-uppercase">How to use</div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link tabs-heading text-uppercase">
+              Daniel bauer's tips
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link tabs-heading text-uppercase">what's in it</div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link tabs-heading text-uppercase">Faqs</div>
+          </li>
+        </ul>
+        <div class="tab-1-content p-3">
+          <div class="tab-content">
+            <em style="color: rgb(29, 29, 29)">Smash</em> is a warm pale
+            terracotta shade that'll get you action. It is also PETA Approved
+            cruelty-free and vegan.
+          </div>
+          <div class="tab-content my-4">
+            You found The One! Trust us, ladies, this liquid matte lipstick will
+            be your new love! The LIT Liquid Matte Lipstick by MyGlamm gives you
+            soft, kiss-proof lips, no smudges or transfers, just pure, intense
+            colour! Best of all, it's enriched with Moringa Oil that moisturises
+            and smoothens dry, damaged lips.
+          </div>
+          <div class="tab-content font-weight-bold">Benefits</div>
+          <ul class="list-benefits py-2">
+            <li>Matte finish</li>
+            <li>Smudge-proof and transfer-proof formula</li>
+            <li>Smooth, opaque application</li>
+            <li>Highly pigmented</li>
+            <li>Vegan-friendly</li>
+          </ul>
+          <div class="tab-content font-weight-bold mt-4">
+            Enhanced Properties
+          </div>
+          <ul class="list-benefits py-2">
+            <li>
+              Enriched with moringa oil that moisturises your lips, keeping them
+              soft and supple
+            </li>
+            <li>Long-lasting, up to 12 hours</li>
+            <li>Cruelty-free, not tested on animals</li>
+          </ul>
+          <div class="tab-content my-4">
+            The LIT Collection by MyGlamm features statement-making,
+            cruelty-free makeup, and is tried and tested on our favourite human,
+            Sidharth Malhotra.
+          </div>
+          <div class="d-flex my-4">
+            <div class="font-weight-bold tab-content">Net Weight:</div>
+            <div class="ml-1 tab-content">3 ml</div>
+          </div>
+          <div class="font-weight-bold tab-content">Manufacturer Detail</div>
+          <div class="tab-content">
+            VIVA Cosmetics, C1/1 to 6, Radheshyam Indl. Complex, Asangaon,
+            Shahapur, Thane- 421 601 M.L.No.:MKD/C/265.
+          </div>
+          <div class="font-weight-bold tab-content mt-4">Country of Origin</div>
+          <div class="tab-content">India</div>
+          <div class="d-flex my-4">
+            <div class="font-weight-bold tab-content">
+              <em>Disclaimer: </em>
+            </div>
+            <div class="ml-1 tab-content">
+              Colours of the makeup may vary due to the differences in computer
+              monitors and phone screens.
+            </div>
+          </div>
+          <div class="d-flex my-4">
+            <div class="font-weight-bold tab-content"><em>Important:</em></div>
+            <div class="ml-1 tab-content">
+              All products that will be shipped will have a shelf-life of
+              minimum 8 months to 12 months.
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="review-container bg-dar">
+        <div class="font-weight-bold tab-content">Review this product</div>
+        <div class="tab-content">Share your thoughts with everyone</div>
+        <button class="btn text-uppercase btn-md">Write a review</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <app-tab></app-tab>
