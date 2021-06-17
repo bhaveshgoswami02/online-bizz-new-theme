@@ -99,3 +99,47 @@ p:focus {
     color: #746F6D;
     font-size: 26px;
 }
+
+
+
+
+#steadyhead{
+  font-size: 10px;
+}
+
+.shoptext{
+  font-size: 12px;
+  font-weight: bold;
+}
+.store{
+  font-size: 10px;
+}
+.header{
+  background-color: #FFE49C;
+}
+#searchbar{
+  background-color: #f5f5f5;
+  width: 50%;
+  box-shadow: 0px 1px 1px 0.5px #ccc;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+}
+.navbar{
+  background-color: white;
+}
+.navbar-nav{
+  width: 100%;
+}
+.navbar-nav .nav-item .nav-link{
+  font-weight: bold;
+}
+a.nav-link{
+  color: black !important;
+}
+.headicon{
+  font-size: 30px;
+}
+.fa-user{
+  font-weight: lighter !important;
+}

@@ -11,3 +11,54 @@
 //     width: 155px!important;
 //     margin-right: 10px!important;
 // }
+
+.categoryimg{
+    border-radius: 50%;
+    border: 2px solid white;
+    height: 100px;
+    width: 100px;
+    
+}
+.shopmenu{
+    border-bottom: 2px solid var(--yellow);
+    font-weight: bold;
+}
+.serviceimg{
+    height: 300px;
+    width: 300px;
+    box-shadow: 2px 2px 2px 0.5px #ccc;
+}
+.servicecaption{
+    background-color: white;
+    opacity: 50%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 270px;
+}
+.servicerow{
+    position: relative;
+}
+.serviceline{
+    font-weight: bold;
+    background-color: none;
+}
+
+#carouselExampleControls{
+    position: relative;
+  }
+  .carousel-transition{
+    transition: transform 2s ease;
+  }
+
+  #productcard{
+      position: relative;
+  }
+  .arrowleft{
+      z-index: 99;
+      float: left !important;
+  }
+  .arrowright{
+    z-index: 99;
+    float: right !important;
+}

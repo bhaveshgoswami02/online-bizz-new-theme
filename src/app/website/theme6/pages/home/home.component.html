@@ -176,108 +176,114 @@
 <!-- Super categories section end -->
 
 <!-- Categories Section -->
-<section
-  class="jumbotron-fluid py-5 bg-white"
-  [ngClass]="{
-    'mt-sm-n':
-      _themeService?.data.aboutUs && !_themeService?.data?.isDisableAboutOnHome
-  }"
-  data-aos="fade-up"
-  *ngIf="
-    _themeService.data?.categories && _themeService.data?.categories?.length > 0
-  "
->
-  <div class="col-md-12 text-center">
-    <h4 class="primary-color">Categories</h4>
-  </div>
-  <div class="container my-3">
-    <div class="row" data-aos="zoom-in">
-      <div
-        class="col-lg-3 col-md-3 col-6 text-center p-2 cursor-pointer"
-        *ngFor="let category of _themeService.data?.categories"
-        (click)="onSelectCategory(category.slug)"
-      >
-        <img
-          [src]="category.imgUrl"
-          (load)="category.loaded = true"
-          [hidden]="!category.loaded"
-          alt=""
-        />
-        <ng-container *ngIf="!category.loaded">
-          <div class="p-skeleton">
-            <div class="p-skeleton__body">
-              <div class="p-skeleton__body--r-image"></div>
+<!-- <section class="jumbotron-fluid py-5 bg-white" [ngClass]="{'mt-sm-n': _themeService?.data.aboutUs && !_themeService?.data?.isDisableAboutOnHome}" data-aos="fade-up"
+    *ngIf="_themeService.data?.categories && _themeService.data?.categories?.length>0">
+    <div class="col-md-12 text-center">
+        <h4 class="primary-color">Categories</h4>
+    </div>
+    <div class="container my-3">
+        <div class="row" data-aos="zoom-in">
+            <div class="col-lg-3 col-md-3 col-6 text-center p-2 cursor-pointer"
+                *ngFor="let category of _themeService.data?.categories" (click)="onSelectCategory(category.slug)">
+                <img [src]="category.imgUrl" (load)="category.loaded = true" [hidden]="!category.loaded"
+                    alt="">
+                <ng-container *ngIf="!category.loaded">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image">
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <p>{{category.title}}</p>
             </div>
           </div>
         </ng-container>
         <p>{{ category.title }}</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-12 text-center">
-    <button class="btn-primary" (click)="viewAllCategories()">View More</button>
-  </div>
-</section>
+</section> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h4 ><span class="shopmenu">SHOP BY CATEGORY</span></h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 d-flex">
+            <div class="d-block mx-auto">
+                <img src="./../../../../../assets/Images/category/category (1).jpg" class="categoryimg" />
+                <p class="text-center">Eraser</p>
+            </div>
+            <div class="d-block mx-auto">
+                <img src="./../../../../../assets/Images/category/category (2).jpg" class="categoryimg"  />
+                <p class="text-center">Eraser</p>
+            </div>
+            <div class="d-block mx-auto">
+            <img src="./../../../../../assets/Images/category/category (3).jpg" class="categoryimg"  />
+            <p class="text-center">Eraser</p>
+            </div>
+            <div class="d-block mx-auto">
+            <img src="./../../../../../assets/Images/category/category (4).jpg" class="categoryimg" />
+            <p class="text-center">Eraser</p>
+            </div>
+            <div class="d-block mx-auto">
+            <img src="./../../../../../assets/Images/category/category (4).jpg" class="categoryimg"/>
+            <p class="text-center">Eraser</p>
+            </div>
+            <div class="d-block mx-auto">
+            <img src="./../../../../../assets/Images/category/category (6).jpg" class="categoryimg"/>
+            <p class="text-center">Eraser</p>
+           </div>
+           <div class="d-block mx-auto">
+           <img src="./../../../../../assets/Images/category/category (7).jpg" class="categoryimg"  />
+           <p class="text-center">Eraser</p>
+           </div>
+           <div class="d-block mx-auto"> 
+           <img src="./../../../../../assets/Images/category/category (8).jpg" class="categoryimg" />
+           <p class="text-center">Eraser</p>
+        </div>
+        </div>
+    </div>
+</div>
+
 <!-- Categories section end -->
 
 <!-- Product Section -->
-<section
-  class="jumbotron-fluid py-5 bg-secondary"
-  data-aos="fade-up"
-  *ngIf="
-    _themeService.data?.products && _themeService.data?.products?.length > 0
-  "
->
-  <div class="col-md-12 text-center">
-    <h4 class="primary-color">
-      {{
-        _themeService.data.productHeading
-          ? _themeService.data.productHeading
-          : "Latest
-            Products"
-      }}
-    </h4>
-    <h5
-      class="mb-0 primary-font-size"
-      *ngIf="_themeService.data.productTagLine"
-    >
-      {{ _themeService.data.productTagLine }}
-    </h5>
-  </div>
-  <div class="container my-3">
-    <div class="row" data-aos="zoom-in">
-      <div class="col-lg-12 col-md-12 col-12">
-        <!-- desktop view start -->
-        <div class="col-lg-12 col-md-12 col-12 mt-5 d-none d-md-block">
-          <swiper
-            [slidesPerView]="3"
-            [slidesPerGroup]="1"
-            [loop]="true"
-            [effect]="'Fade'"
-            [autoplay]="true"
-            [spaceBetween]="30"
-            [pagination]="true"
-          >
-            <ng-container
-              *ngFor="
-                let product of _themeService.data?.products?.slice(0, 8);
-                let i = index
-              "
-            >
-              <ng-template swiperSlide>
-                <div class="single-testimonial pb-5">
-                  <app-product-card [product]="product"></app-product-card>
-                </div>
+<section class="jumbotron-fluid py-5 bg-secondary" data-aos="fade-up"
+    *ngIf="_themeService.data?.products && _themeService.data?.products?.length>0">
+    <div class="col-md-12 text-center">
+        <h4 class="primary-color">{{_themeService.data.productHeading ? _themeService.data.productHeading : "Latest
+            Products"}}</h4>
+        <h5 class="mb-0 primary-font-size" *ngIf="_themeService.data.productTagLine">
+            {{_themeService.data.productTagLine}}</h5>
+    </div>
+    <div class="container my-3">
+        <div class="row" data-aos="zoom-in">
+            <div class="col-lg-12 col-md-12 col-12">
+                <div class="col-lg-12 col-md-12 col-12 mt-5 d-none d-md-block">
+                    <swiper [slidesPerView]="3" [slidesPerGroup]="1" [loop]="true" [effect]="'Fade'" [autoplay]="true"
+                        [spaceBetween]="30" [pagination]="true">
+                        <ng-container *ngFor="let product of _themeService.data?.products?.slice(0,8);let i = index">
+                            <ng-template swiperSlide>
+                                <div class="single-testimonial pb-5">
+                                    <app-product-card [product]="product"></app-product-card>
+                                </div>
+                                <div class="single-testimonial pb-5">
+                                    <app-product-card [product]="product"></app-product-card>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </swiper>
+                    </div>
                 <div class="single-testimonial pb-5">
                   <app-product-card [product]="product"></app-product-card>
                 </div>
                 <!-- <app-product-card [product]="_themeService.data?.products[i + _themeService.data?.products?.length/2]"></app-product-card> -->
                 <!-- <div class="single-testimonial pb-5">
                                 </div> -->
-              </ng-template>
-            </ng-container>
-          </swiper>
-        </div>
+        
         <!-- desktop view end -->
 
         <!-- mobile view start -->
@@ -333,34 +339,20 @@
 <!-- product section end -->
 
 <!-- Service Start -->
-<div
-  class="service-area-wrapper py-5 bg-white"
-  *ngIf="
-    _themeService.data?.services && _themeService.data?.services?.length > 0
-  "
->
-  <div
-    class="service-area-top parallax"
-    [ngStyle]="{ 'background-image': getCover() }"
-  >
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-xl-5 m-auto text-center">
-          <div class="section-title section-title--light">
-            <h4 class="text-white">
-              {{
-                _themeService.data.serviceHeading
-                  ? _themeService.data.serviceHeading
-                  : "OUR SERVICES"
-              }}
-            </h4>
-            <h5
-              class="mb-0 text-white primary-font-size"
-              *ngIf="_themeService.data.serviceTagLine"
-            >
-              {{ _themeService.data.serviceTagLine }}
-            </h5>
-          </div>
+<!-- <div class="service-area-wrapper py-5 bg-white"
+    *ngIf="_themeService.data?.services && _themeService.data?.services?.length>0">
+    <div class="service-area-top parallax" [ngStyle]="{'background-image': getCover()}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xl-5 m-auto text-center">
+                    <div class="section-title section-title--light">
+                        <h4 class="text-white">{{_themeService.data.serviceHeading ? _themeService.data.serviceHeading :
+                            "OUR SERVICES"}}</h4>
+                        <h5 class="mb-0 text-white primary-font-size" *ngIf="_themeService.data.serviceTagLine">
+                            {{_themeService.data.serviceTagLine}}</h5>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </div>
@@ -385,52 +377,67 @@
     </div>
   </div>
 
-  <div
-    class="col-md-12 text-center"
-    *ngIf="_themeService.data?.supercategories?.length > 3"
-  >
-    <button
-      class="btn-primary"
-      routerLink="{{
-        _themeService.customDomain
-          ? '/services'
-          : '/' + _themeService.domainName + '/services'
-      }}"
-    >
-      View More
-    </button>
-  </div>
+    <div class="col-md-12 text-center" *ngIf="_themeService.data?.supercategories?.length>3">
+        <button class="btn-primary"
+            routerLink="{{_themeService.customDomain?'/services':'/'+_themeService.domainName+'/services'}}">View
+            More</button>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h4 ><span class="shopmenu">OUR SERVICE</span></h4>
+        </div>
+    </div>
+    <div class="row servicerow">
+        <div class="col-md-3">
+            
+            <img src="./../../../../../assets/Images/service/service (1).jpg" class="serviceimg" />
+            <div class="servicecaption"><p class="serviceline my-2">Office supplies</p>
+                <p class="text-center my-2">
+            Get every office essential here at one place at the cheapest price. Best in quality product with long durability.
+                </p></div>
+      
+        </div>
+        <div class="col-md-3 mx-auto">
+            <img src="./../../../../../assets/Images/service/service (2).jpg" class="serviceimg" />
+            <div class="servicecaption"><p class="serviceline my-2">Kids supplies</p>
+                </div>
+        </div>
+        <div class="col-md-3">
+            <img src="./../../../../../assets/Images/service/service (3).jpg" class="serviceimg" />
+            <div class="servicecaption">
+            <p class="serviceline my-2">School</p></div>
+        </div>
+    </div>
 </div>
+
 <!-- Service End -->
 
 <!-- Feature Start -->
-<div
-  class="feature-area-wrapper py-5 bg-secondary"
-  *ngIf="_themeService?.data?.keypoints?.length != 0"
->
-  <div class="container py-3">
-    <div class="row">
-      <ng-container>
-        <div
-          class="col-md-4 my-3"
-          *ngFor="let keypoint of _themeService?.data?.keypoints"
-        >
-          <div class="row">
-            <div class="col-lg-3 col-md-3 col-4 mx-auto">
-              <img
-                [src]="keypoint.imgUrl"
-                (load)="keypoint.loaded = true"
-                [hidden]="!keypoint.loaded"
-                alt=""
-              />
-              <ng-container *ngIf="!keypoint.loaded">
-                <div class="p-skeleton">
-                  <div class="p-skeleton__body">
-                    <div
-                      class="p-skeleton__body--r-image"
-                      style="height: 50px"
-                    ></div>
-                  </div>
+<!-- <div class="feature-area-wrapper py-5 bg-secondary" *ngIf="_themeService?.data?.keypoints?.length != 0">
+    <div class="container py-3 ">
+        <div class="row">
+            <ng-container>
+                <div class="col-md-4 my-3" *ngFor="let keypoint of _themeService?.data?.keypoints">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-4 mx-auto">
+                            <img [src]="keypoint.imgUrl" (load)="keypoint.loaded = true" [hidden]="!keypoint.loaded"
+                                alt="">
+                            <ng-container *ngIf="!keypoint.loaded">
+                                <div class="p-skeleton">
+                                    <div class="p-skeleton__body">
+                                        <div class="p-skeleton__body--r-image" style="height: 50px;"></div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-12 mx-auto text-sm-center">
+                            <h5>{{keypoint.title}}</h5>
+                            <p>{{keypoint.message}}</p>
+                        </div>
+                    </div>
                 </div>
               </ng-container>
             </div>
@@ -442,8 +449,133 @@
         </div>
       </ng-container>
     </div>
-  </div>
+</div> -->
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h4 ><span class="shopmenu">OUR PRODUCTS</span></h4>
+    </div>
 </div>
+<div id="carouselExampleContro" class="carousel slide container" data-ride="carousel" data-interval="false" >
+    <div class="carousel-inner" >
+        
+        <div class="row">
+            <div class="col-md-12" style="z-index: 99;">
+                <p class="arrowleft "><a class="carousel-control-next" href="#carouselExampleContro" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-ico" aria-hidden="true"></span>
+                <button type="button" class="btn btn-primary " ><i class='fa fa-angle-left' ></i></button></a></p>
+             
+                <p class="arrowright">
+                    <a class="carousel-control-next" href="#carouselExampleContro" role="button" data-slide="next">
+                    <span class="carousel-control-next-ico" aria-hidden="true"></span>
+                <button type="button" class="btn btn-primary" ><i class='fa fa-angle-right' ></i></button></a></p>
+             
+            </div>
+        </div>
+        <div id="productcard" class="carousel-item active carousel-transition">
+            
+           
+            <div class="row"  >
+                
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem; ">
+                        <img src="./../../../../../assets/Images/service/service (3).jpg" class="card-img-top" height="200px" alt="thumb"/>
+                       
+                        <div class="card-body">
+                          <h5 class="card-title text-center">Eraser</h5>
+                          <p class="card-text text-center">school Stationary</p>
+                          <h5 class="card-title text-center">950</h5>
+                        </div>
+                      </div>
+                    
+                </div>
+                    <div class="col-md-3">
+                        <div class="card" style="width: 18rem; ">
+                            <img src="./../../../../../assets/Images/service/service (3).jpg" class="card-img-top" height="200px" alt="thumb"/>
+                           
+                            <div class="card-body">
+                              <h5 class="card-title text-center">Eraser</h5>
+                              <p class="card-text text-center">school Stationary</p>
+                              <h5 class="card-title text-center">950</h5>
+                            </div>
+                          </div>
+                </div>
+                    <div class="col-md-3">
+                        
+                        <div class="card" style="width: 18rem; ">
+                            <img src="./../../../../../assets/Images/service/service (3).jpg" class="card-img-top" height="200px" alt="thumb"/>
+                           
+                            <div class="card-body">
+                              <h5 class="card-title text-center">Eraser</h5>
+                              <p class="card-text text-center">school Stationary</p>
+                              <h5 class="card-title text-center">950</h5>
+                            </div>
+                          </div>
+                </div>
+                    <div class="col-md-3">
+                        <div class="card" style="width: 18rem; ">
+                            <img src="./../../../../../assets/Images/service/service (3).jpg" class="card-img-top" height="200px" alt="thumb"/>
+                           
+                            <div class="card-body">
+                              <h5 class="card-title text-center">Eraser</h5>
+                              <p class="card-text text-center">school Stationary</p>
+                              <h5 class="card-title text-center">950</h5>
+                            </div>
+                          </div>
+                </div>
+            </div>
+           
+        </div>
+        <div id="shopid"  class="carousel-item carousel-transition">
+            <div class="row "  >
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem; ">
+                        <img src="./../../../../../assets/Images/service/service (3).jpg" class="card-img-top" height="200px" alt="thumb"/>
+                       
+                        <div class="card-body">
+                          <h5 class="card-title text-center">Eraser</h5>
+                          <p class="card-text text-center">school Stationary</p>
+                          <h5 class="card-title text-center">950</h5>
+                        </div>
+                      </div>
+                </div>
+                    <div class="col-md-3">
+                        <div class="card" style="width: 18rem; ">
+                        <img src="./../../../../../assets/Images/service/service (3).jpg" class="card-img-top" height="200px" alt="thumb"/>
+                       
+                        <div class="card-body">
+                          <h5 class="card-title text-center">Eraser</h5>
+                          <p class="card-text text-center">school Stationary</p>
+                          <h5 class="card-title text-center">950</h5>
+                        </div>
+                      </div> 
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card" style="width: 18rem; ">
+                            <img src="./../../../../../assets/Images/service/service (3).jpg" class="card-img-top" height="200px" alt="thumb"/>
+                           
+                            <div class="card-body">
+                              <h5 class="card-title text-center">Eraser</h5>
+                              <p class="card-text text-center">school Stationary</p>
+                              <h5 class="card-title text-center">950</h5>
+                            </div>
+                          </div>
+                </div>
+                    <div class="col-md-3">
+                        <div class="card" style="width: 18rem; ">
+                            <img src="./../../../../../assets/Images/service/service (3).jpg" class="card-img-top" height="200px" alt="thumb"/>
+                           
+                            <div class="card-body">
+                              <h5 class="card-title text-center">Eraser</h5>
+                              <p class="card-text text-center">school Stationary</p>
+                              <h5 class="card-title text-center">950</h5>
+                            </div>
+                          </div>
+                </div>
+            </div>
+        </div>          
+      </div>
+    </div>
+
 <!-- Feature End -->
 
 <!-- Brands Section -->
