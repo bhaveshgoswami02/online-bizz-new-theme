@@ -1,49 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap");
 
 :root {
-    --blue: #007bff;
-    --indigo: #6610f2;
-    --purple: #6f42c1;
-    --pink: #e83e8c;
-    --red: #dc3545;
-    --orange: #fd7e14;
-    --yellow: #ffc107;
-    --green: #28a745;
-    --teal: #20c997;
-    --cyan: #17a2b8;
-    --white: #fff;
     --gray: #EAEAEA;
-    --gray-dark: #343a40;
-    --primary: #080b1a;
-    --primary-contrast: #fff;
-    --secondary: #151515;
-    --secondary-contrast: #f8f9fc;
-    --success: #28a745;
-    --info: #17a2b8;
-    // --warning: var(--primary-contrast);
-    --warning: var(--secondary);
-    --danger: #dc3545;
-    --light: #f8f9fa;
-    --dark: #222222;
-    --paragraph-color: rgb(19, 19, 19);
-    --text-hvr: var(--primary-contrast);
-    --font-22: 22px;
-    --font-20: 20px;
-    --font-18: 18px;
-    --font-16: 16px;
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    --primary-font-family: "Montserrat", sans-serif;
-    --secondary-font-family: "Playfair Display";
-    --primary-font: 16px;
-    --secondary-font: 16px;
-    --paragraph-font-size: 16px;
-    --heading-font-size: 1.5rem;
-
+    --yellow: #ffc107;
     --footer-bg: #F8F9FC;
+  
 }
 
 * {
@@ -54,17 +15,6 @@
     font-family: var(-primary-font-family) !important;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    font-size: var(--heading-font-size) !important;
-}
-
-/* p,
-a {
-    font-size: var(--primary-font) !important;
-} */
 
 .static-primary {
     color: #080b1a !important;
@@ -114,13 +64,6 @@ svg {
     font-size: var(--heading-font-size) !important;
 }
 
-/* a:active,
-a:focus,
-a:hover {
-    color: inherit;
-    outline: 0;
-    text-decoration: none;
-} */
 
 input:active,
 input:focus,

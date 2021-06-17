@@ -62,3 +62,94 @@
     z-index: 99;
     float: right !important;
 }
+.btnarrow{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    z-index: 99;
+}
+.carousel-control-next{
+    margin-right: 0 !important;
+    padding: 0 !important;
+    width: 5px;
+}
+
+.card-img-top{
+    width: 200px;
+}
+.productbtnl{
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px 30px 10px 15px;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px 0.5px #ccc;
+}
+.productbtnr{
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px 0.5px #ccc;
+    margin-right: 80px;
+    padding: 10px 30px 10px 20px;
+}
+
+.fa-caret-left {
+font-size: 30px;
+}
+.fa-caret-right{
+    font-size: 30px;
+}
+.card{
+    box-shadow: 2px 2px 2px 0.5px #ccc;
+}
+
+.labelcard{
+    height: 22rem;
+}
+#eraserimg{
+    height: 22rem;
+    width: 100%;
+}
+
+.erasebtnl{
+    background-color: white;
+    padding: 0;
+    border-top-right-radius: 30%;
+    border-bottom-right-radius: 30%;
+    border-right: 1px solid black;
+}
+.erasebtnr{
+    background-color: white;
+    padding: 0;
+    border-top-left-radius: 30%;
+    border-bottom-left-radius: 30%;
+}
+#caret{
+    font-size: 15px;
+}
+
+
+#offericon{
+  background-color: rgb(167, 166, 166); 
+   font-size: 50px;
+   color: black;
+   padding: 10px 10px 10px 10px;
+   
+}
+
+#offertext{
+    font-size: 10px;
+}
+.brandbtn{
+    background-color: white;
+    color: black;
+    padding: 10px 30px 10px 30px;
+    width: 70%;
+    text-align: center;
+    border-radius: 5px  ;
+}
+.branddiv{
+    text-align: center;
+    position: absolute;
+    bottom: -5%;
+}
