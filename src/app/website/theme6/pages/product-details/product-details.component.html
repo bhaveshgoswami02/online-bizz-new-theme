@@ -138,7 +138,8 @@
     </div>
 </ng-container> -->
 
-<div class="container py-5">
+<!-- Normal View -->
+<div class="container py-5 d-none d-md-block d-lg-block">
   <div class="row">
     <div class="col-12 col-md-5 col-lg-5">
       <p>Products images</p>
@@ -438,6 +439,210 @@
         <button class="btn text-uppercase btn-md">Write a review</button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Responsive design -->
+<div class="container-fluid d-block d-md-none d-lg-none">
+  <div class="col-12">
+    <swiper
+      [zoom]="true"
+      [autoplay]="true"
+      [navigation]="{
+        prevEl: '.swiper-navigation-prev',
+        nextEl: '.swiper-navigation-next'
+      }"
+      [pagination]="pagination"
+    >
+      <ng-template swiperSlide class="custom-class">
+        <img
+          src="../../../../../assets/Images/category/category (1).jpg"
+          alt="product-image"
+        />
+      </ng-template>
+      <ng-template swiperSlide>
+        <img
+          src="../../../../../assets/Images/category/category (3).jpg"
+          alt="product-image"
+        />
+      </ng-template>
+      <ng-template swiperSlide>
+        <img
+          src="../../../../../assets/Images/category/category (2).jpg"
+          alt="product-image"
+        />
+      </ng-template>
+    </swiper>
+  </div>
+
+  <div class="upper-section">
+    <h6 class="font-weight-bold title mt-2">Eraser</h6>
+    <p class="paragraph">School Stationary</p>
+    <div class="d-flex justify-content-between mt-1">
+      <div class="d-flex my-auto">
+        <h6 class="font-weight-bold title">₹</h6>
+        <h6 class="font-weight-bold title ml-1">445</h6>
+      </div>
+      <button class="btn">
+        Add to bag<i class="fa fa-shopping-bag ml-2" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="desc-section mt-4">
+    <h6 class="font-weight-bold sub-title">Description</h6>
+    <p class="paragraph">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quibusdam!
+      Repudiandae commodi blanditiis vero nemo.
+    </p>
+    <p class="paragraph">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quibusdam!
+      Repudiandae commodi blanditiis vero nemo. At sunt sapiente ipsam nemo, est
+      dolores itaque! Provident, sequi porro vel non debitis enim.
+    </p>
+    <h6 class="font-weight-bold sub-title mt-2">Benefits</h6>
+    <ol class="list-benefits-mobile">
+      <li>Matte finish</li>
+      <li>Smudge-proof and transfer-proof formula</li>
+      <li>Smooth, opaque application</li>
+      <li>Highly pigmented</li>
+      <li>Vegan-friendly</li>
+    </ol>
+  </div>
+
+  <div class="video-section mt-4">
+    <h5 class="text-uppercase font-weight-bold title">Watch & Learn</h5>
+    <iframe
+      height="240"
+      width="100%"
+      src="https://www.youtube.com/embed/il_t1WVLNxk"
+    >
+    </iframe>
+  </div>
+
+  <div class="related-products-section mt-4">
+    <h5 class="text-uppercase font-weight-bold title">Related Products</h5>
+    <swiper
+      [zoom]="true"
+      [autoplay]="true"
+      [navigation]="{
+        prevEl: '.swiper-navigation-prev',
+        nextEl: '.swiper-navigation-next'
+      }"
+      [pagination]="pagination"
+    >
+      <ng-template swiperSlide class="custom-class">
+        <div class="card" style="border: none">
+          <div class="card-body">
+            <img
+              src="../../../../../assets/Images/category/category (3).jpg"
+              alt="product-image"
+            />
+            <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
+            <p class="paragraph">Schoole Stationary</p>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="card" style="border: none">
+          <div class="card-body">
+            <img
+              src="../../../../../assets/Images/category/category (3).jpg"
+              alt="product-image"
+            />
+            <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
+            <p class="paragraph">Schoole Stationary</p>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="card" style="border: none">
+          <div class="card-body">
+            <img
+              src="../../../../../assets/Images/category/category (3).jpg"
+              alt="product-image"
+            />
+            <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
+            <p class="paragraph">Schoole Stationary</p>
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+
+  <div class="explore-section mt-4">
+    <h5 class="text-uppercase font-weight-bold title">Explore More</h5>
+    <img
+      height="150"
+      width="100%"
+      src="../../../../../assets/Images/category/category (3).jpg"
+      alt=""
+    />
+    <img
+      height="150"
+      class="mt-1"
+      width="100%"
+      src="../../../../../assets/Images/category/category (3).jpg"
+      alt=""
+    />
+    <img
+      height="150"
+      class="mt-1"
+      width="100%"
+      src="../../../../../assets/Images/category/category (3).jpg"
+      alt=""
+    />
+    <img
+      height="150"
+      class="mt-1"
+      width="100%"
+      src="../../../../../assets/Images/category/category (3).jpg"
+      alt=""
+    />
+    <img
+      height="150"
+      class="mt-1"
+      width="100%"
+      src="../../../../../assets/Images/category/category (3).jpg"
+      alt=""
+    />
+    <img
+      height="150"
+      width="100%"
+      class="mt-1"
+      src="../../../../../assets/Images/category/category (3).jpg"
+      alt=""
+    />
+  </div>
+
+  <div class="brand-section mt-4">
+    <h5 class="text-uppercase font-weight-bold title">Brands</h5>
+    <img src="../../../../../assets/Images/service/service (1).jpg" alt="" />
+    <div class="brand-name-section rounded sub-title font-weight-bold">
+      Brandit
+    </div>
+  </div>
+
+  <div class="images-section">
+    <swiper
+      [zoom]="true"
+      [autoplay]="true"
+      [navigation]="{
+        prevEl: '.swiper-navigation-prev',
+        nextEl: '.swiper-navigation-next'
+      }"
+      [pagination]="pagination"
+    >
+      <ng-template swiperSlide class="custom-class" [zoom]="false">
+        <img src=".../../../../../assets/Images/service/service (1).jpg" />
+      </ng-template>
+      <ng-template swiperSlide>
+        <img src="../../../../../assets/Images/service/service (1).jpg" />
+      </ng-template>
+      <ng-template swiperSlide [zoom]="true">
+        <img src=".../../../../../assets/Images/service/service (1).jpg" />
+      </ng-template>
+    </swiper>
   </div>
 </div>
 

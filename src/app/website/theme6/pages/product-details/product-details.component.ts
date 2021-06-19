@@ -15,6 +15,8 @@ export class ProductDetailsComponent implements OnInit {
   params: any = {}
   data: any = {}
   skeleton:boolean = true
+  pagination: any = false;
+
   constructor(public route: ActivatedRoute, public productService: ProductService, public cartService: CartService, public _themeService: ThemesManagerService) {
     // console.log("consrtuct")
     this.getParams()
