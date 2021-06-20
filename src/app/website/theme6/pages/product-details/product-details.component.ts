@@ -4,6 +4,7 @@ import { CartService } from 'src/app/website/services/cart.service';
 import { ProductService } from 'src/app/website/services/product.service';
 import { ThemesManagerService } from 'src/app/website/services/themes-manager.service';
 import Swal from 'sweetalert2'
+import { Swiper } from 'swiper';
 
 @Component({
   selector: 'app-product-details',
@@ -16,6 +17,7 @@ export class ProductDetailsComponent implements OnInit {
   data: any = {}
   skeleton:boolean = true
   pagination: any = false;
+  defaultImage = "../../../../../assets/Images/category/category (5).jpg"
 
   constructor(public route: ActivatedRoute, public productService: ProductService, public cartService: CartService, public _themeService: ThemesManagerService) {
     // console.log("consrtuct")
@@ -25,6 +27,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     // console.log("onit")
     this.getParams()
+    
   }
 
   getParams() {
@@ -75,5 +78,11 @@ export class ProductDetailsComponent implements OnInit {
   incrementProduct(product) {
     this.cartService.incrementProductQty(product)
   }
+
+  imagesClick(smallImg) {
+
+    this.defaultImage = smallImg.src;
+
+}
 
 }

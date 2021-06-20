@@ -143,8 +143,55 @@
 <div class="container py-5 d-none d-md-block d-lg-block">
   <div class="row">
     <div class="col-12 col-md-5 col-lg-5">
-      <p>Products images</p>
+      <div class="slider">
+        <div class="product d-flex flex-column mr-2">
+          <img
+            src="../../../../../assets/Images/category/category (1).jpg"
+            alt=""
+            (click)="imagesClick(this)"
+          />
+          <img
+            src="../../../../../assets/Images/category/category (2).jpg"
+            alt=""
+            (click)="imagesClick(this)"
+          />
+          <img
+            src="../../../../../assets/Images/category/category (3).jpg"
+            alt=""
+            (click)="imagesClick(this)"
+          />
+          <img
+            src="../../../../../assets/Images/category/category (4).jpg"
+            alt=""
+            (click)="imagesClick(this)"
+          />
+        </div>
+        <div>
+          <div class="preview">
+            <img [src]="defaultImage" id="imagebox" alt="" />
+          </div>
+          <div class="d-flex social-imgs justify-content-center my-3">
+            <img
+              height="22"
+              src="../../../../../assets/Images/icons/facebook.png"
+              alt=""
+            />
+            <img
+              class="mx-4"
+              height="22"
+              src="../../../../../assets/Images/icons/twitter.png"
+              alt=""
+            />
+            <img
+              height="22"
+              src="../../../../../assets/Images/icons/pinterest.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="product-details col-12 col-md-7 col-lg-7">
       <h3 class="text-uppercase">Lit liquid matte lipstic - slow fade</h3>
       <p>Moringa Oil Enriched Matte Lipstick</p>
