@@ -161,5 +161,10 @@ export class HomeComponent implements OnInit {
   // show(data) {
   //   console.log("data",data)
   // }
+
+  controlledSwiper: any;
+  setControlledSwiper(swiper) {
+    this.controlledSwiper = swiper;
+  }
   
 }

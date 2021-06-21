@@ -1,28 +1,4 @@
-<!-- Top bar Start -->
-<!-- <div class="top_bar d-none d-md-block">
-  <div class="container d-flex justify-content-between">
-    <div class="contact__info my-auto">
-      <span class="mr-3" *ngIf="_themeService?.data?.email">
-        <a class="text-primary-contrast font-12 my-auto">Welcome to {{_themeService?.data?.metaTags?.title}} ! </a>
-      </span>
-    </div>
-    <div class="social__links my-auto d-flex font-12">
-      <a href="mailto:{{_themeService?.data?.email}}" class="top__nav my-auto text-primary-contrast font-12 mx-3">
-        <i class="fa fa-envelope font-12"></i> {{_themeService?.data?.email}}</a>
-      <a href="tel:{{_themeService?.data?.phoneNo}}" class="top__nav my-auto text-primary-contrast font-12 mx-3">
-        <i class="fa fa-phone font-12"></i> {{_themeService?.data?.phoneNo}}</a>
-      <div class="dropdown my-auto mx-3" *ngIf="_themeService?.data?.multipleLanguage">
-        <a class="dropdown-toggle text-primary-contrast cursor-pointer font-12 my-auto" id="dropdownMenuButton"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change Language</a>
-        <div class="dropdown-menu font-12" style="z-index: 999999;" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item font-12" *ngFor="let language of languages"
-            (click)="changeLanguage(language.languageCode)">{{language.languageTitle}}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-<div class="sticky-top shadow pb-2 header-2">
+<div class=" shadow pb-2 header-2 d-none d-md-block d-lg-block">
   <div class="header col-12 d-none d-md-block d-lg-block">
     <div class="container">
       <div class="row mx-3 py-3">
@@ -44,10 +20,10 @@
 
   <div class="container d-none d-md-block d-lg-block">
     <div class="row my-3 mx-3">
-      <div class="col-md-2 my-auto">
+      <div class="col-md-3 my-auto">
         <img src="../../../../../assets/Images/logo.jpg" />
       </div>
-      <div class="col-md-8 my-auto">
+      <div class="col-md my-auto">
         <input
           type="text"
           id="searchbar"
@@ -63,7 +39,7 @@
       </div>
     </div>
   </div>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="sticky-top navbar navbar-expand-lg">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -108,433 +84,37 @@
   </nav>
 </div>
 
-<!-- Top bar End -->
+<!-- Mobile View -->
 
-<!-- Desktop navbar Start -->
-<!--  <header class="header-area sticky-top shadow d-none d-md-block" *ngIf="_themeService?.data">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-5 col-lg-2 mx-auto">
-        <div class="logo-area d-flex">
-
-          <a routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}"
-            *ngIf="!_themeService?.data?.brand_logo; else logoNotAvailable">
-            {{_themeService?.data?.shopName}}
-          </a>
-          <ng-template #logoNotAvailable>
-            <img routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}"
-              class="cursor-pointer" [src]="_themeService?.data?.brand_logo">
-          </ng-template>
-        </div>
-      </div>
-
-      <div class="col-lg-9 d-none d-lg-block mx-auto">
-        <div class="navigation-area my-auto">
-          <ul class="main-menu nav" *ngIf="_themeService.data?.mainMenu?.length != 0">
-            <li *ngFor="let menu of _themeService.data?.mainMenu"
-              [ngClass]="menu.subMenu.length != 0 ? 'has-submenu' : ''">
-              <a *ngIf="!menu.url"
-                routerLink="{{_themeService.customDomain?menu.link:'/'+_themeService.domainName+menu.link}}">{{menu.title}}</a>
-              <a *ngIf="menu.url" href="{{menu?.url}}" target="_blank">{{menu.title}}</a>
-              <ul class="submenu-nav" *ngFor="let subMenu of menu.subMenu">
-                <li>
-                  <a *ngIf="!subMenu.url"
-                    [routerLink]="_themeService.customDomain?subMenu.link:'/'+_themeService.domainName+subMenu.link">{{subMenu.title}}</a>
-                  <a *ngIf="subMenu.url" href="{{subMenu.url}}" target="_blank">{{subMenu.title}}</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="main-menu nav" *ngIf="_themeService.data?.mainMenu?.length == 0 || !_themeService.data?.mainMenu">
-            <li>
-              <a class="active" routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}"
-                routerLinkActive="active">HOME</a>
-            </li>
-            <li *ngIf="_themeService?.data?.services?.length>0">
-              <a routerLink="{{_themeService.customDomain?'/services':'/'+_themeService.domainName+'/services'}}"
-                routerLinkActive="active">
-                {{_themeService.data.serviceHeading ? _themeService.data.serviceHeading : "Services"}} </a>
-            </li>
-            <li *ngIf="_themeService?.data?.products?.length>0">
-              <a routerLink="{{_themeService.customDomain?'/products':'/'+_themeService.domainName+'/products'}}"
-                routerLinkActive="active">{{_themeService.data.productHeading ? _themeService.data.productHeading :
-                "Products"}}</a>
-            </li>
-            <li *ngIf="_themeService?.data?.gallery?.length>0">
-              <a routerLink="{{_themeService.customDomain?'/gallery':'/'+_themeService.domainName+'/gallery'}}"
-                routerLinkActive="active">{{_themeService.data.galleryHeading ? _themeService.data.galleryHeading :
-                "Gallery"}}</a>
-            </li>
-            <li
-              *ngIf="_themeService?.data._themeService?.data.payments && _themeService?.data?.payments?.googlePay || _themeService?.data?.payments?.paytm || _themeService?.data?.payments?.razorPay  || _themeService?.data?.payments?.phonePay || _themeService?.data?.payments?.razorPay || _themeService?.data?.payments?.upi  || _themeService?.data.acNo">
-              <a routerLink="{{_themeService.customDomain?'/payments':'/'+_themeService.domainName+'/payments'}}"
-                routerLinkActive="active">PAYMENT</a>
-            </li>
-            <li *ngIf="_themeService?.data.aboutUs.title || _themeService?.data.aboutUs.description">
-              <a routerLink="{{_themeService.customDomain?'/about':'/'+_themeService.domainName+'/about'}}"
-                routerLinkActive="active">{{_themeService.data.aboutHeading ? _themeService.data.aboutHeading : "About
-                Us"}}</a>
-            </li>
-            <li>
-              <a routerLink="{{_themeService.customDomain?'/contact':'/'+_themeService.domainName+'/contact'}}"
-                routerLinkActive="active">CONTACT US</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-
-      <div class="col-3 col-lg-1 d-lg-block d-md-bock d-none">
-        <li class="d-flex float-right text-right">
-          <div class="dropdown my-auto mx-3"
-            *ngIf="_themeService?.data?.enableCart && _themeService?.data?.enableEcommerce">
-            <a class="dropdown-toggle text-primary-contrast cursor-pointer font-18 my-auto"
-              style="color: #746F6D!important;" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              <i class="fa fa-user-circle-o user my-auto"></i>
-            </a>
-            <div class="dropdown-menu" style="z-index: 999999;" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" *ngIf="customerService.customerData"
-                routerLink="{{_themeService.customDomain?'/profile':'/'+_themeService.domainName+'/profile'}}">
-                <i class="fa fa-user primary-font-size"></i><span> Profile</span>
-              </a>
-              <a class="dropdown-item" *ngIf="customerService.customerData && _themeService?.data?.enableOrder"
-                routerLink="{{_themeService.customDomain?'/orders':'/'+_themeService.domainName+'/orders'}}">
-                <i class="fa fa-list primary-font-size"></i><span> My Orders</span>
-              </a>
-              <a class="dropdown-item" *ngIf="_themeService.data.enableEcommerce && _themeService?.data?.enableCart"
-                routerLink="{{_themeService.customDomain?'/cart':'/'+_themeService.domainName+'/cart'}}">
-                <span>
-                  <i class="fa fa-shopping-cart static-primary"></i> Cart
-                </span>
-                <span *ngIf="cartService.cart.length>0">({{cartService.cart.length}})</span>
-              </a>
-              <a class="dropdown-item" *ngIf="_themeService.data.enableEcommerce && _themeService?.data?.enableCart"
-                routerLink="{{_themeService.customDomain?'/search':'/'+_themeService.domainName+'/search'}}">
-                <span>
-                  <i class="fa fa-search static-primary"></i> Search
-                </span>
-              </a>
-              <a class="dropdown-item"
-                *ngIf="!customerService.customerData && _themeService?.data?.enableEcommerce && _themeService?.data?.enableCart"
-                routerLink="{{_themeService.customDomain?'/signin':'/'+_themeService.domainName+'/signin'}}">
-                <i class="fa fa-sign-in"></i> <span> SignIn/SignUp</span>
-              </a>
-              <a class="dropdown-item cursor-pointer"
-                *ngIf="customerService.customerData && _themeService?.data?.enableOrder" (click)="logout()">
-                <i class="fa fa-sign-out"></i> <span> Logout</span>
-              </a>
-            </div>
-          </div>
-          <a *ngIf="_themeService.products.length != 0 && cartService.cart.length>0 && _themeService.data.enableEcommerce && !_themeService?.data?.enableOrder"
-            class="static-primary my-auto"
-            routerLink="{{_themeService.customDomain?'/cart':'/'+_themeService.domainName+'/cart'}}"
-            routerLinkActive="active">
-            <span>({{cartService.cart.length}})</span>
-            <span>
-              <i class="fa fa-shopping-cart static-primary"></i> Cart
-            </span>
-          </a> &nbsp;
-        </li>
-      </div>
-
-    </div>
-  </div>
-
-</header> -->
-
-<header
-  class="mobile-header sticky-top shadow d-block d-md-none d-lg-none"
-  *ngIf="type == 1"
->
-  <div class="row mx-auto" *ngIf="type == 1">
-    <div class="col-3 py-2">
-      <span>
-        <button
+<div class="navbar d-block d-md-none d-lg-none d-flex">
+  <div class="flexlist my-2">
+    <button
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
-          (click)="showSidebar()"
-        >
-          <label #toggler class="my-auto">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#746F6D"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-            </svg>
-          </label>
-        </button>
-      </span>
-    </div>
-    <div class="col-6 text-center">
-      <span>
-        <a
-          routerLink="{{
-            _themeService.customDomain
-              ? '/home'
-              : '/' + _themeService.domainName + '/home'
-          }}"
-          *ngIf="!_themeService?.data?.brand_logo; else logoNotAvailable"
-        >
-          {{ _themeService?.data?.shopName }}
-        </a>
-        <ng-template #logoNotAvailable>
-          <img
-            routerLink="{{
-              _themeService.customDomain
-                ? '/home'
-                : '/' + _themeService.domainName + '/home'
-            }}"
-            class="cursor-pointer"
-            [src]="_themeService?.data?.brand_logo"
-          />
-        </ng-template>
-      </span>
-    </div>
-    <div class="col-3 share py-2">
-      <!-- <ng-container *ngIf="_themeService.data && this._themeService.ngNavigatorShareService.canShare()">
-        <button (click)="_themeService.share(file)" type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#746F6D">
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path
-              d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92zM18 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM6 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm12 7.02c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
-          </svg>
-        </button>
-      </ng-container> -->
-    </div>
+          class="togglebtn"
+          (click)="showSidebar()"> <i class="fa fa-bars "></i></button>
   </div>
-</header>
-<!-- Type 1 End -->
-
-<!-- Type 2 Start -->
-<header
-  class="mobile-header sticky-top shadow d-block d-md-none d-lg-none py-2"
-  *ngIf="type == 2"
->
-  <div class="row mx-auto">
-    <div class="col-10 py-2">
-      <span>
-        <button (click)="common.back()" type="button">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="30px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#746F6D"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path
-              d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21v-2z"
-            />
-          </svg>
-        </button>
-      </span>
-      &nbsp;&nbsp;
-      <span>{{ title }}</span>
-    </div>
-    <div class="col-2 share py-2">
-      <!-- <button (click)="_themeService.share(file)"
-        *ngIf="_themeService.data && this._themeService.ngNavigatorShareService.canShare()" type="button">
-
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#746F6D">
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path
-            d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92zM18 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM6 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm12 7.02c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
-        </svg>
-      </button> -->
-    </div>
+  <div class="flexlist text-center">
+    <img src="./../../../../../assets/Images/logo.jpg" class="px-3" width="150px" />
   </div>
-</header>
-<!-- Type 2 End -->
-
-<!-- Type 3 Start -->
-<header
-  class="container-fluid d-block d-md-none d-lg-none py-2 mobile-header-3"
-  *ngIf="type == 3"
->
-  <div class="row mx-auto">
-    <div class="col-9 py-2">
-      <span>
-        <button (click)="common.back()" type="button">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="30px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#746F6D"
-          >
-            <path d="M0 0h24v24H0V0z" fill="none" />
-            <path
-              d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21v-2z"
-            />
-          </svg>
-        </button>
-      </span>
-      &nbsp;&nbsp;
-    </div>
-    <div class="col-3 share py-2">
-      <!-- <button (click)="_themeService.share(file)"
-        *ngIf="_themeService.data && this._themeService.ngNavigatorShareService.canShare()" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#746F6D">
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path
-            d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92zM18 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM6 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm12 7.02c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
-        </svg>
-      </button> -->
-    </div>
-  </div>
-</header>
-<!-- Type 3 End -->
-
-<!-- Type 4 Start -->
-<header
-  class="mobile-header sticky-top shadow d-block d-md-none d-lg-none py-2"
-  *ngIf="type == 4"
->
-  <div class="row mx-auto" *ngIf="type == 4">
-    <div class="col-3 py-2">
-      <span>
-        <button
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          (click)="showSidebar()"
-        >
-          <label #toggler class="my-auto">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#746F6D"
-            >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-            </svg>
-          </label>
-        </button>
-      </span>
-    </div>
-    <div class="col-6 text-center">
-      <span>
-        <a
-          routerLink="{{
-            _themeService.customDomain
-              ? '/home'
-              : '/' + _themeService.domainName + '/home'
-          }}"
-          *ngIf="!_themeService?.data?.brand_logo; else logoNotAvailable"
-        >
-          {{ _themeService?.data?.shopName }}
-        </a>
-        <ng-template #logoNotAvailable>
-          <img
-            routerLink="{{
-              _themeService.customDomain
-                ? '/home'
-                : '/' + _themeService.domainName + '/home'
-            }}"
-            class="cursor-pointer"
-            [src]="_themeService?.data?.brand_logo"
-          />
-        </ng-template>
-      </span>
-    </div>
-    <div class="col-3 share py-2">
-      <!-- <button (click)="_themeService.share(file)"
-        *ngIf="_themeService.data && this._themeService.ngNavigatorShareService.canShare()" type="button">
-
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#746F6D">
-          <path d="M0 0h24v24H0V0z" fill="none" />
-          <path
-            d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92zM18 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM6 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm12 7.02c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
-        </svg>
-      </button> -->
-    </div>
+  <div class="flexlist">
+    <i class="fa fa-shopping-bag "></i>
   </div>
 
-  <div class="container d-block d-md-none d-lg-none">
-    <div class="mx-3 mt-3">
-      <div class="row search">
-        <div class="col-10 d-flex my-auto p-0">
-          <span class="fa fa-search my-auto search-icon"></span>
-          <input
-            type="text"
-            class="border-0 w-100"
-            name="keyWords"
-            #searchText
-            (keyup)="search($event)"
-            placeholder="Search"
-          />
-        </div>
-        <div
-          class="col-1 mx-auto text-right search-border-left"
-          *ngIf="searchText.value"
-        >
-          <!-- <span class="fa fa-times times my-auto"></span> -->
-          <svg
-            width="20px"
-            (click)="blankSearchField(searchText)"
-            height="20px"
-            version="1.1"
-            id="Capa_1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
-            viewBox="0 0 512.001 512.001"
-            style="enable-background: new 0 0 512.001 512.001"
-            xml:space="preserve"
-          >
-            <g>
-              <g>
-                <path
-                  d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
-                      L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
-                      c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
-                      l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
-                      L284.286,256.002z"
-                />
-              </g>
-            </g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-          </svg>
-        </div>
       </div>
-    </div>
-  </div>
-</header>
-<!-- Type 4 End -->
 
-<!-- Mobile navbar End -->
+      <div class="searchrow d-block d-md-none d-lg-none d-flex mx-3">
+        <input type="search" class="searchinput" placeholder="search for your fav product">
+      </div>
 
-<!-- Mobile Screen -->
-<!--Sidebar Start -->
+      <!-- MOBILE VIEW END -->
+
+<!-- SIDEBAR -->
+
 <div class="d-block d-md-block d-lg-block">
   <div class="body">
     <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)" id="sidebarMenu">
@@ -822,6 +402,5 @@
     </div>
   </div>
 </div>
-<!-- Top Navbar End -->
-<!-- <img *ngIf="_themeService.data?.metaTags?.imageUrl" style="display: none;" (load)="onImageLoad()" #share crossorigin
-    [src]="_themeService.data.metaTags.imageUrl" alt=""> -->
+
+<!-- SIDEBAR END -->

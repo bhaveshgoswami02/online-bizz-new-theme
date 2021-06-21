@@ -12,6 +12,7 @@
 //     margin-right: 10px!important;
 // }
 
+/* CATEGORY MENU */
 .categoryimg{
     border-radius: 50%;
     border: 2px solid white;
@@ -23,26 +24,29 @@
     border-bottom: 2px solid var(--yellow);
     font-weight: bold;
 }
+
+/* END */
+
 .serviceimg{
     height: 300px;
-    width: 300px;
-    box-shadow: 2px 2px 2px 0.5px #ccc;
+    width: 100%;
 }
 .servicecaption{
-    background-color: white;
-    opacity: 50%;
+    background-color: #ffffffb8;
     position: absolute;
     bottom: 0;
     text-align: center;
-    width: 270px;
+   width: 100%;
 }
-.servicerow{
-    position: relative;
-}
-.serviceline{
+
+/* .serviceline{
     font-weight: bold;
     background-color: none;
-}
+} */
+
+/* SERVICES END */
+
+/* PRODUCTS */
 
 #carouselExampleControls{
     position: relative;
@@ -54,7 +58,15 @@
   #productcard{
       position: relative;
   }
-  .arrowleft{
+
+  .productbtn{
+    width: 45px;
+    height: 38px;
+    position: absolute;
+    top: 50%;
+    background-color: green;
+  }
+  /* .arrowleft{
       z-index: 99;
       float: left !important;
   }
@@ -67,7 +79,7 @@
     width: 100%;
     top: 50%;
     z-index: 99;
-}
+} */
 .carousel-control-next{
     margin-right: 0 !important;
     padding: 0 !important;
@@ -77,7 +89,7 @@
 .card-img-top{
     width: 200px;
 }
-.productbtnl{
+/* .productbtnl{
     background-color: white;
     border-radius: 50%;
     padding: 10px 30px 10px 15px;
@@ -91,7 +103,7 @@
     box-shadow: 2px 2px 2px 0.5px #ccc;
     margin-right: 80px;
     padding: 10px 30px 10px 20px;
-}
+} */
 
 .fa-caret-left {
 font-size: 30px;
@@ -99,9 +111,7 @@ font-size: 30px;
 .fa-caret-right{
     font-size: 30px;
 }
-.card{
-    box-shadow: 2px 2px 2px 0.5px #ccc;
-}
+
 
 .labelcard{
     height: 22rem;
@@ -129,6 +139,8 @@ font-size: 30px;
 }
 
 
+/* OFFER SECTION */
+
 #offericon{
   background-color: rgb(167, 166, 166); 
    font-size: 50px;
@@ -140,6 +152,11 @@ font-size: 30px;
 #offertext{
     font-size: 10px;
 }
+
+/* END */
+
+/* BRAND SECTION */
+
 .brandbtn{
     background-color: white;
     color: black;
@@ -152,4 +169,57 @@ font-size: 30px;
     text-align: center;
     position: absolute;
     bottom: -5%;
+}
+
+/* END */
+
+
+/*     BANNER */
+
+.swiper-button-next , .swiper-button-prev {
+    color: #212529;
+    font-weight: bold;
+    background-color: white;
+    padding: 30px;
+    border-radius: 50%;
+}
+
+.swiper-wrapper{
+    height: 300px;
+}
+.swiper-button-next:after, .swiper-button-prev:after{
+    font-size: 30px;
+}
+
+@media (max-width: 700px){
+    .swiper-button-next , .swiper-button-prev {
+        color: #212529;
+        font-weight: bold;
+        background-color: white;
+        padding: 30px;
+        border-radius: 50%;
+    }
+    
+    .swiper-wrapper{
+        height: 200px;
+    }
+    .swiper-button-next:after, .swiper-button-prev:after{
+        font-size: 25px;
+    }
+}
+
+/* BANNER END */
+
+/* MOBILE CATEGORY VIEW */
+
+.imgdivblock{
+    background-color: rgba(0, 0, 0, 0.76);
+}
+.categoryimg1{
+    width: 100%;
+    height: 200px;
+}
+.imgdivblock p {
+    position: absolute;
+    top: 0px;
 }
