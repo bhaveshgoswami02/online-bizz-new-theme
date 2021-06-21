@@ -27,6 +27,9 @@
 
 /* END */
 
+
+/* SERVICE SECTION */
+
 .serviceimg{
     height: 300px;
     width: 100%;
@@ -59,13 +62,24 @@
       position: relative;
   }
 
-  .productbtn{
-    width: 45px;
+  .productbtnnext{
+    width: 45px !important;
+    height: 38px !important;
+    position: absolute !important;
+    top: 50% !important;
+    background-color: white !important;
+    border-radius: 50%;
+  }
+
+  .productbtnprev{
+    background-color: white;
     height: 38px;
+    width: 45px;
     position: absolute;
     top: 50%;
-    background-color: green;
+    border-radius: 50%;
   }
+
   /* .arrowleft{
       z-index: 99;
       float: left !important;
@@ -157,19 +171,7 @@ font-size: 30px;
 
 /* BRAND SECTION */
 
-.brandbtn{
-    background-color: white;
-    color: black;
-    padding: 10px 30px 10px 30px;
-    width: 70%;
-    text-align: center;
-    border-radius: 5px  ;
-}
-.branddiv{
-    text-align: center;
-    position: absolute;
-    bottom: -5%;
-}
+
 
 /* END */
 
@@ -185,7 +187,7 @@ font-size: 30px;
 }
 
 .swiper-wrapper{
-    height: 300px;
+    height: 400px;
 }
 .swiper-button-next:after, .swiper-button-prev:after{
     font-size: 30px;
