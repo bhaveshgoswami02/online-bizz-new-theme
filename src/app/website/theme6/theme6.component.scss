@@ -2,21 +2,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
 
 :root {
-  --gray: #eaeaea;
+  --white: #f5f5f5;
+  --gray: #eeeeee;
   --yellow: #ffc107;
   --footer-bg: #f8f9fc;
   --darkColor: #373738;
   --darkerColor: #1e1e1f;
   --lightColor: #8c9fb6;
-  --headingSize: 1.25rem;
-  --smallFontSize: 1rem;
-  --extraSmallFontSize: 10px;
-  --normalSmallFontSize: 14px;
   --themeColor: #edb611;
+  --primary-font-family: din-2014, sans-serif;
+  --font-12: 12px;
+  --font-10: 10px;
+  --font-bold: bold;
 }
 
 * {
   font-family: var(--primary-font-family);
+}
+
+body {
+  background-color: var(--white);
+}
+
+.fs-12 {
+  font-size: var(--font-12);
+}
+.fs-10 {
+  font-size: var(--font-10);
+}
+.fw-bold {
+  font-weight: var(--font-bold);
 }
 
 ul li {
@@ -24,4 +39,19 @@ ul li {
 }
 .clblack {
   color: black;
+}
+.clyellow {
+  color: var(--yellow);
+}
+.clwhite {
+  color: white;
+}
+.bg-yellow {
+  background-color: var(--yellow);
+}
+.bg-white {
+  background-color: white;
+}
+.yellow-text {
+  color: var(--themeColor);
 }
