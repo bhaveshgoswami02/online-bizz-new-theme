@@ -18,6 +18,10 @@ export class ProductDetailsComponent implements OnInit {
   skeleton:boolean = true
   pagination: any = false;
   defaultImage = "../../../../../assets/Images/category/category (5).jpg"
+  thumbsSwiper: any;
+  setThumbsSwiper(swiper) {
+    this.thumbsSwiper = swiper;
+  }
 
   constructor(public route: ActivatedRoute, public productService: ProductService, public cartService: CartService, public _themeService: ThemesManagerService) {
     // console.log("consrtuct")
@@ -80,8 +84,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   imagesClick(smallImg) {
-
-    this.defaultImage = smallImg.src;
+    this.defaultImage = smallImg;
 
 }
 

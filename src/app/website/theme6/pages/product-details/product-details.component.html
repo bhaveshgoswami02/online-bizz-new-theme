@@ -148,27 +148,43 @@
           <img
             src="../../../../../assets/Images/category/category (1).jpg"
             alt=""
-            (click)="imagesClick(this)"
+            (click)="
+              imagesClick(
+                '../../../../../assets/Images/category/category (1).jpg'
+              )
+            "
           />
           <img
             src="../../../../../assets/Images/category/category (2).jpg"
             alt=""
-            (click)="imagesClick(this)"
+            (click)="
+              imagesClick(
+                '../../../../../assets/Images/category/category (2).jpg'
+              )
+            "
           />
           <img
             src="../../../../../assets/Images/category/category (3).jpg"
             alt=""
-            (click)="imagesClick(this)"
+            (click)="
+              imagesClick(
+                '../../../../../assets/Images/category/category (3).jpg'
+              )
+            "
           />
           <img
             src="../../../../../assets/Images/category/category (4).jpg"
             alt=""
-            (click)="imagesClick(this)"
+            (click)="
+              imagesClick(
+                '../../../../../assets/Images/category/category (4).jpg'
+              )
+            "
           />
         </div>
         <div>
           <div class="preview">
-            <img [src]="defaultImage" id="imagebox" alt="" />
+            <img class="w-100" [src]="defaultImage" id="imagebox" alt="" />
           </div>
           <div class="d-flex social-imgs justify-content-center my-3">
             <img
@@ -211,7 +227,7 @@
         <button
           class="
             col-12 col-md-4 col-lg-4
-            btn-dark btn-lg
+            btn btn-dark btn-lg
             py-2
             px-3
             text-uppercase
@@ -484,46 +500,92 @@
       <div class="review-container bg-dar">
         <div class="font-weight-bold tab-content">Review this product</div>
         <div class="tab-content">Share your thoughts with everyone</div>
-        <button class="btn text-uppercase btn-md">Write a review</button>
+        <button class="btn btn-yellow text-uppercase btn-md">
+          Write a review
+        </button>
       </div>
     </div>
+  </div>
+  <hr />
+  <h4 class="text-uppercase d-flex justify-content-center font-weight-bold">
+    Watch & Learn
+  </h4>
+  <div class="row mt-2">
+    <div class="col-6 col-md-6 col-lg-6">
+      <iframe
+        width="100%"
+        height="350"
+        src="https://www.youtube.com/embed/il_t1WVLNxk"
+      >
+      </iframe>
+    </div>
+    <div class="col-6 col-md-6 col-lg-6 p-2">
+      <h4 class="text-uppercase font-weight-bold">
+        LIT LIQUID MATTE LIPSTICKS | HOW TO USE LIT LIQUID MATTE LIPSTICK |
+        MYGLAMM
+      </h4>
+      <p class="pt-2 pl-1">
+        Trust us, ladies, this liquid matte lipstick will be your new loveu0021
+        The LIT Liquid Matte Lipstick by MyGlamm gives you soft, kiss-proof
+        lips, no smudges or transfers, just pure, intense colouru0021 Website:
+        https://www.myglamm.com/ Or Download our app: https://appurl.io/jkdwjzfs
+        Subscribe to our channel: https://www.youtube.com/channel/UCrUx...
+        Follow us on: Facebook: https://www.facebook.com/myGlamm/ Instagram:
+        https://www.instagram.com/myglamm/ Twitter: https://twitter.com/myglamm
+      </p>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <iframe height="200" src="https://www.youtube.com/embed/il_t1WVLNxk">
+    </iframe>
+    <iframe
+      class="ml-4"
+      height="200"
+      src="https://www.youtube.com/embed/il_t1WVLNxk"
+    >
+    </iframe>
   </div>
 </div>
 
 <!-- Responsive design -->
-<div class="container-fluid d-block d-md-none d-lg-none">
+<div class="container-fluid d-block d-md-none d-lg-none mt-2">
   <div class="col-12">
     <swiper
       [zoom]="true"
       [autoplay]="true"
-      [navigation]="{
-        prevEl: '.swiper-navigation-prev',
-        nextEl: '.swiper-navigation-next'
-      }"
-      [pagination]="pagination"
+      [slidesPerView]="1"
+      [spaceBetween]="50"
+      [pagination]="{ clickable: true }"
+      [thumbs]="{ swiper: thumbsSwiper }"
+      (swiper)="setThumbsSwiper($event)"
+      [navigation]="{}"
+      [watchSlidesVisibility]="true"
     >
       <ng-template swiperSlide class="custom-class">
         <img
           src="../../../../../assets/Images/category/category (1).jpg"
+          class="img-mobile"
           alt="product-image"
         />
       </ng-template>
       <ng-template swiperSlide>
         <img
           src="../../../../../assets/Images/category/category (3).jpg"
+          class="img-mobile"
           alt="product-image"
         />
       </ng-template>
       <ng-template swiperSlide>
         <img
           src="../../../../../assets/Images/category/category (2).jpg"
+          class="img-mobile"
           alt="product-image"
         />
       </ng-template>
     </swiper>
   </div>
 
-  <div class="upper-section">
+  <div class="upper-section mt-4">
     <h6 class="font-weight-bold title mt-2">Eraser</h6>
     <p class="paragraph">School Stationary</p>
     <div class="d-flex justify-content-between mt-1">
@@ -531,13 +593,13 @@
         <h6 class="font-weight-bold title">₹</h6>
         <h6 class="font-weight-bold title ml-1">445</h6>
       </div>
-      <button class="btn">
+      <button class="btn btn-yellow">
         Add to bag<i class="fa fa-shopping-bag ml-2" aria-hidden="true"></i>
       </button>
     </div>
   </div>
 
-  <div class="desc-section mt-4">
+  <div class="desc-section mt-5">
     <h6 class="font-weight-bold sub-title">Description</h6>
     <p class="paragraph">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quibusdam!
@@ -558,7 +620,7 @@
     </ol>
   </div>
 
-  <div class="video-section mt-4">
+  <div class="video-section mt-5">
     <h5 class="text-uppercase font-weight-bold title">Watch & Learn</h5>
     <iframe
       height="240"
@@ -568,22 +630,24 @@
     </iframe>
   </div>
 
-  <div class="related-products-section mt-4">
+  <div class="related-products-section mt-5">
     <h5 class="text-uppercase font-weight-bold title">Related Products</h5>
     <swiper
-      [zoom]="true"
       [autoplay]="true"
-      [navigation]="{
-        prevEl: '.swiper-navigation-prev',
-        nextEl: '.swiper-navigation-next'
-      }"
-      [pagination]="pagination"
+      [slidesPerView]="1"
+      [spaceBetween]="50"
+      [pagination]="{ clickable: true }"
+      [thumbs]="{ swiper: thumbsSwiper }"
+      (swiper)="setThumbsSwiper($event)"
+      [navigation]="{}"
+      [watchSlidesVisibility]="true"
     >
       <ng-template swiperSlide class="custom-class">
         <div class="card" style="border: none">
           <div class="card-body">
             <img
               src="../../../../../assets/Images/category/category (3).jpg"
+              class="img-mobile"
               alt="product-image"
             />
             <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
@@ -596,6 +660,7 @@
           <div class="card-body">
             <img
               src="../../../../../assets/Images/category/category (3).jpg"
+              class="img-mobile"
               alt="product-image"
             />
             <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
@@ -608,6 +673,7 @@
           <div class="card-body">
             <img
               src="../../../../../assets/Images/category/category (3).jpg"
+              class="img-mobile"
               alt="product-image"
             />
             <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
@@ -618,65 +684,77 @@
     </swiper>
   </div>
 
-  <div class="explore-section mt-4">
+  <div class="explore-section mt-5">
     <h5 class="text-uppercase font-weight-bold title">Explore More</h5>
-    <img
+    <!-- <img
       height="150"
       width="100%"
       src="../../../../../assets/Images/category/category (3).jpg"
+      class="img-mobile"
       alt=""
-    />
-    <img
-      height="150"
-      class="mt-1"
-      width="100%"
-      src="../../../../../assets/Images/category/category (3).jpg"
-      alt=""
-    />
-    <img
-      height="150"
-      class="mt-1"
-      width="100%"
-      src="../../../../../assets/Images/category/category (3).jpg"
-      alt=""
-    />
-    <img
-      height="150"
-      class="mt-1"
-      width="100%"
-      src="../../../../../assets/Images/category/category (3).jpg"
-      alt=""
-    />
+    /> -->
+    <div class="position-relative">
+      <img
+        src="./../../../../../assets/Images/category/category (1).jpg"
+        class="categoryimg1"
+      />
+      <div class="imgdivblock">
+        <p>Eraser</p>
+      </div>
+    </div>
+    <div class="position-relative mt-1">
+      <img
+        src="./../../../../../assets/Images/category/category (5).jpg"
+        class="categoryimg1"
+      />
+      <div class="imgdivblock">
+        <p>Pencil</p>
+      </div>
+    </div>
+    <div class="position-relative mt-1">
+      <img
+        src="./../../../../../assets/Images/category/category (2).jpg"
+        class="categoryimg1"
+      />
+      <div class="imgdivblock">
+        <p>Calculator</p>
+      </div>
+    </div>
+    <div class="position-relative mt-1">
+      <img
+        src="./../../../../../assets/Images/category/category (3).jpg"
+        class="categoryimg1"
+      />
+      <div class="imgdivblock">
+        <p>Notebook</p>
+      </div>
+    </div>
+    <div class="position-relative mt-1">
+      <img
+        src="./../../../../../assets/Images/category/category (4).jpg"
+        class="categoryimg1"
+      />
+      <div class="imgdivblock">
+        <p>Eraser</p>
+      </div>
+    </div>
   </div>
 
-  <div class="brand-section mt-4">
+  <div class="brand-section mt-5">
     <h5 class="text-uppercase font-weight-bold title">Brands</h5>
     <img src="../../../../../assets/Images/service/service (1).jpg" alt="" />
     <div class="brand-name-section rounded sub-title font-weight-bold">
-      Brandit
+      Branditt
     </div>
   </div>
 
   <div class="images-section">
-    <swiper
-      [zoom]="true"
-      [autoplay]="true"
-      [navigation]="{
-        prevEl: '.swiper-navigation-prev',
-        nextEl: '.swiper-navigation-next'
-      }"
-      [pagination]="pagination"
-    >
-      <ng-template swiperSlide class="custom-class" [zoom]="false">
-        <img src=".../../../../../assets/Images/service/service (1).jpg" />
-      </ng-template>
-      <ng-template swiperSlide>
-        <img src="../../../../../assets/Images/service/service (1).jpg" />
-      </ng-template>
-      <ng-template swiperSlide [zoom]="true">
-        <img src=".../../../../../assets/Images/service/service (1).jpg" />
-      </ng-template>
-    </swiper>
+    <img src="../../../../../assets/Images/service/service (1).jpg" alt="" />
+    <img src="../../../../../assets/Images/service/service (2).jpg" alt="" />
+    <img src="../../../../../assets/Images/service/service (3).jpg" alt="" />
+    <img src="../../../../../assets/Images/service/service (1).jpg" alt="" />
+    <img src="../../../../../assets/Images/service/service (2).jpg" alt="" />
+    <img src="../../../../../assets/Images/service/service (3).jpg" alt="" />
   </div>
 </div>
 

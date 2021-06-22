@@ -1,4 +1,4 @@
-<div class=" shadow pb-2 header-2 d-none d-md-block d-lg-block">
+<div class="shadow pb-2 header-2 d-none d-md-block d-lg-block">
   <div class="header col-12 d-none d-md-block d-lg-block">
     <div class="container">
       <div class="row mx-3 py-3">
@@ -10,9 +10,9 @@
           <span class="text-danger shoptext">SHOP NOW</span>
         </div>
         <div class="col-md-8 my-auto">
-          <p class="float-right store">
+          <div class="float-right store">
             <i class="fa fa-gift pr-1 fa-lg"></i>Steady Store
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -32,10 +32,10 @@
         />
       </div>
       <div class="col-md-2 my-auto">
-        <p class="float-right">
+        <div class="float-right">
           <i class="fa fa-shopping-bag pr-4 headicon"></i
           ><i class="fas fa-user headicon"></i>
-        </p>
+        </div>
       </div>
     </div>
   </div>
@@ -89,29 +89,39 @@
 <div class="navbar d-block d-md-none d-lg-none d-flex">
   <div class="flexlist my-2">
     <button
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          class="togglebtn"
-          (click)="showSidebar()"> <i class="fa fa-bars "></i></button>
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      class="togglebtn"
+      (click)="showSidebar()"
+    >
+      <i class="fa fa-bars"></i>
+    </button>
   </div>
   <div class="flexlist text-center">
-    <img src="./../../../../../assets/Images/logo.jpg" class="px-3" width="150px" />
+    <img
+      src="./../../../../../assets/Images/logo.jpg"
+      class="px-3"
+      width="150px"
+    />
   </div>
   <div class="flexlist">
-    <i class="fa fa-shopping-bag "></i>
+    <i class="fa fa-shopping-bag"></i>
   </div>
+</div>
 
-      </div>
+<div class="searchrow d-block d-md-none d-lg-none d-flex mx-3">
+  <input
+    type="search"
+    class="searchinput"
+    placeholder="search for your fav product"
+  />
+</div>
 
-      <div class="searchrow d-block d-md-none d-lg-none d-flex mx-3">
-        <input type="search" class="searchinput" placeholder="search for your fav product">
-      </div>
-
-      <!-- MOBILE VIEW END -->
+<!-- MOBILE VIEW END -->
 
 <!-- SIDEBAR -->
 
