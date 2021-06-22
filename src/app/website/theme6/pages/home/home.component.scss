@@ -1,16 +1,3 @@
-@media only screen and (max-width:768px) {
-    .padding-top {
-        padding-top: 15px;
-    }
-    .mt-sm-n {
-        margin-top: -4.25rem!important;
-    }
-}
-
-// .swiper-slide-product {
-//     width: 155px!important;
-//     margin-right: 10px!important;
-// }
 
 /* CATEGORY MENU */
 .categoryimg{
@@ -42,10 +29,6 @@
    width: 100%;
 }
 
-/* .serviceline{
-    font-weight: bold;
-    background-color: none;
-} */
 
 /* SERVICES END */
 
@@ -80,45 +63,18 @@
     border-radius: 50%;
   }
 
-  /* .arrowleft{
-      z-index: 99;
-      float: left !important;
-  }
-  .arrowright{
-    z-index: 99;
-    float: right !important;
-}
-.btnarrow{
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    z-index: 99;
-} */
+
 .carousel-control-next{
     margin-right: 0 !important;
     padding: 0 !important;
     width: 5px;
 }
 
+/* ERASER */
+
 .card-img-top{
     width: 200px;
 }
-/* .productbtnl{
-    background-color: white;
-    border-radius: 50%;
-    padding: 10px 30px 10px 15px;
-    border: 1px solid black;
-    box-shadow: 2px 2px 2px 0.5px #ccc;
-}
-.productbtnr{
-    background-color: white;
-    border-radius: 50%;
-    border: 1px solid black;
-    box-shadow: 2px 2px 2px 0.5px #ccc;
-    margin-right: 80px;
-    padding: 10px 30px 10px 20px;
-} */
-
 .fa-caret-left {
 font-size: 30px;
 }
@@ -137,37 +93,83 @@ font-size: 30px;
 
 .erasebtnl{
     background-color: white;
-    padding: 0;
-    border-top-right-radius: 30%;
-    border-bottom-right-radius: 30%;
+    padding: 0px 15px;
     border-right: 1px solid black;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    position: absolute;
+    right: 38px;
 }
 .erasebtnr{
     background-color: white;
-    padding: 0;
-    border-top-left-radius: 30%;
-    border-bottom-left-radius: 30%;
+    padding: 0px 15px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    position: absolute;
+    right: 0px;
 }
+
 #caret{
     font-size: 15px;
 }
 
+/* ERASER END */
 
 /* OFFER SECTION */
 
 #offericon{
-  background-color: rgb(167, 166, 166); 
    font-size: 50px;
-   color: black;
    padding: 10px 10px 10px 10px;
    
 }
 
-#offertext{
-    font-size: 10px;
-}
+
 
 /* END */
+
+/* WATCH AND LEARN */
+
+.playbtn{
+        background-color: var(--yellow);
+    border-radius: 50%;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+    border: 8px solid white;
+    position: absolute;
+    bottom: 5%;
+    right: 7px;
+}
+
+.watchbtnprev{
+    background-color: white;
+    height: 38px;
+    width: 45px;
+    position: absolute;
+    top: 50%;
+    border-radius: 50%;
+}
+.watchbtnnext{
+    width: 45px !important;
+    height: 38px !important;
+    position: absolute !important;
+    top: 50% !important;
+    background-color: white !important;
+    border-radius: 50%;
+  }
+
+  /* TESTIMONIAL */
+
+  .testimonial{
+      border-left: 3px solid var(--yellow);
+  }
+  .profileimg{
+border-radius: 50%;
+border: 2px solid var(--yellow);
+  }
+
+  /* END */
+
 
 /* BRAND SECTION */
 
@@ -224,4 +226,12 @@ font-size: 30px;
 .imgdivblock p {
     position: absolute;
     top: 0px;
+}
+
+/* BANNER IMAGE */
+
+.bannercaption{
+    position: absolute;
+    top: 35%;
+    right: 10%;
 }
