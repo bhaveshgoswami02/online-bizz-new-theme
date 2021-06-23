@@ -13,6 +13,7 @@
   --primary-font-family: din-2014, sans-serif;
   --font-12: 12px;
   --font-10: 10px;
+  --font-13: 13px;
   --font-bold: bold;
 }
 
@@ -29,6 +30,9 @@ body {
 }
 .fs-10 {
   font-size: var(--font-10);
+}
+.fs-13 {
+  font-size: var(--font-13);
 }
 .fw-bold {
   font-weight: var(--font-bold);

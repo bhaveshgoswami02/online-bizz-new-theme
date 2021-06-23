@@ -35,20 +35,24 @@
 <!-- BANNER -->
 
 <swiper [slidesPerView]="1" [spaceBetween]="30" [navigation]="true" [pagination]="{ clickable: true }"
-[controller]="{ control: controlledSwiper }">
-<ng-template swiperSlide>
-  <img src="./../../../../../assets/Images/banner/banner-1 (2).jpg"></ng-template>
-<ng-template swiperSlide>
-  <img src="./../../../../../assets/Images/banner/banner-2 (1).jpg"></ng-template>
-<ng-template swiperSlide>
-  <img src="./../../../../../assets/Images/banner/banner-1 (2).jpg"></ng-template>
-<ng-template swiperSlide>
-  <img src="./../../../../../assets/Images/banner/banner-2 (1).jpg"></ng-template>
+  [controller]="{ control: controlledSwiper }" class="bannerclass">
+  <ng-template swiperSlide >
+    <img src="./../../../../../assets/Images/banner/banner-1 (2).jpg">
+  </ng-template>
+  <ng-template swiperSlide>
+    <img src="./../../../../../assets/Images/banner/banner-2 (1).jpg">
+  </ng-template>
+  <ng-template swiperSlide>
+    <img src="./../../../../../assets/Images/banner/banner-1 (2).jpg">
+  </ng-template>
+  <ng-template swiperSlide>
+    <img src="./../../../../../assets/Images/banner/banner-2 (1).jpg">
+  </ng-template>
 </swiper>
 <!-- END BANNER -->
 
 <!-- STRIP -->
-<div class="container my-5">
+<div class="container my-5 d-none d-md-block d-lg-block">
   <img src="./../../../../../assets/Images/banner/Strip-Desktop.jpg" height="100px" width="100%">
 </div>
 <!-- END STRIP -->
@@ -56,856 +60,730 @@
 <!-- SHOP BY CATEGORY -->
 
 <div class="container mt-3 d-none d-md-block d-lg-block">
-    <div class="row mb-2">
-        <div class="col-md-12 text-center">
-            <h4 ><span class="shopmenu">SHOP BY CATEGORY</span></h4>
-        </div>
+  <div class="row mb-2">
+    <div class="col-md-12 text-center">
+      <h4><span class="shopmenu">SHOP BY CATEGORY</span></h4>
     </div>
-    <div class="row">
-        <div class="col-md-12 d-flex flex-wrap">
-            <div class="d-block mx-auto">
-                <img src="./../../../../../assets/Images/category/category (1).jpg" class="categoryimg" />
-                <p class="text-center">Eraser</p>
-            </div>
-            <div class="d-block mx-auto">
-                <img src="./../../../../../assets/Images/category/category (2).jpg" class="categoryimg"  />
-                <p class="text-center">Eraser</p>
-            </div>
-            <div class="d-block mx-auto">
-            <img src="./../../../../../assets/Images/category/category (3).jpg" class="categoryimg"  />
-            <p class="text-center">Eraser</p>
-            </div>
-            <div class="d-block mx-auto">
-            <img src="./../../../../../assets/Images/category/category (4).jpg" class="categoryimg" />
-            <p class="text-center">Eraser</p>
-            </div>
-            <div class="d-block mx-auto">
-            <img src="./../../../../../assets/Images/category/category (4).jpg" class="categoryimg"/>
-            <p class="text-center">Eraser</p>
-            </div>
-            <div class="d-block mx-auto">
-            <img src="./../../../../../assets/Images/category/category (6).jpg" class="categoryimg"/>
-            <p class="text-center">Eraser</p>
-           </div>
-           <div class="d-block mx-auto">
-           <img src="./../../../../../assets/Images/category/category (7).jpg" class="categoryimg"  />
-           <p class="text-center">Eraser</p>
-           </div>
-           <div class="d-block mx-auto"> 
-           <img src="./../../../../../assets/Images/category/category (8).jpg" class="categoryimg" />
-           <p class="text-center">Eraser</p>
-        </div>
-        </div>
-    </div>
-</div>
-
-<!-- MOBILE VIEW -->
-
-<div class="container  d-block d-md-none d-lg-none ">
+  </div>
   <div class="row">
-      <div class="col-md-12 d-block position-relative">
-          <div class=" imgdivblock">
-              <img src="./../../../../../assets/Images/category/category (1).jpg" class="categoryimg1" />
-              <p>Eraser</p>
-          </div>
-          <div class="imgdivblock">
-              <img src="./../../../../../assets/Images/category/category (2).jpg" class="categoryimg1"  />
-              <p class="text-center">Eraser</p>
-          </div>
-          <div class="imgdivblock">
-          <img src="./../../../../../assets/Images/category/category (3).jpg" class="categoryimg1"  />
-          <p class="text-center">Eraser</p>
-          </div>
-          <div class="imgdivblock">
-          <img src="./../../../../../assets/Images/category/category (4).jpg" class="categoryimg1" />
-          <p class="text-center">Eraser</p>
-          </div>
-          <div class="imgdivblock">
-          <img src="./../../../../../assets/Images/category/category (4).jpg" class="categoryimg1"/>
-          <p class="text-center">Eraser</p>
-          </div>
-          <div class=" imgdivblock">
-          <img src="./../../../../../assets/Images/category/category (6).jpg" class="categoryimg1"/>
-          <p class="text-center">Eraser</p>
-         </div>
-         <div class="imgdivblock">
-         <img src="./../../../../../assets/Images/category/category (7).jpg" class="categoryimg1"  />
-         <p class="text-center">Eraser</p>
-         </div>
-         <div class="imgdivblock"> 
-         <img src="./../../../../../assets/Images/category/category (8).jpg" class="categoryimg1" />
-         <p class="text-center">Eraser</p>
+    <div class="col-md-12 d-flex flex-wrap">
+      <div class="d-block mx-auto">
+        <img src="./../../../../../assets/Images/category/category (1).jpg" alt="category" class="categoryimg" />
+        <p class="text-center">Pen</p>
       </div>
+      <div class="d-block mx-auto">
+        <img src="./../../../../../assets/Images/category/category (2).jpg" alt="category" class="categoryimg" />
+        <p class="text-center">Calculator</p>
       </div>
+      <div class="d-block mx-auto">
+        <img src="./../../../../../assets/Images/category/category (3).jpg" alt="category" class="categoryimg" />
+        <p class="text-center">Notebook</p>
+      </div>
+      <div class="d-block mx-auto">
+        <img src="./../../../../../assets/Images/category/category (4).jpg" alt="category" class="categoryimg" />
+        <p class="text-center">Stapler</p>
+      </div>
+      <div class="d-block mx-auto">
+        <img src="./../../../../../assets/Images/category/category (4).jpg" alt="category" class="categoryimg" />
+        <p class="text-center">Stapler</p>
+      </div>
+      <div class="d-block mx-auto">
+        <img src="./../../../../../assets/Images/category/category (6).jpg" alt="category" class="categoryimg" />
+        <p class="text-center">Sharpner</p>
+      </div>
+      <div class="d-block mx-auto">
+        <img src="./../../../../../assets/Images/category/category (7).jpg" alt="category" class="categoryimg" />
+        <p class="text-center">Marker</p>
+      </div>
+      <div class="d-block mx-auto">
+        <img src="./../../../../../assets/Images/category/category (8).jpg" alt="category" class="categoryimg" />
+        <p class="text-center">Eraser</p>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- END -->
 
 <!-- products Start -->
 
 <div class="container mt-5 d-none d-md-block d-lg-block">
-<div class="row mb-2">
-  <div class="col-md-12 text-center">
-      <h4 ><span class="shopmenu">OUR PRODUCTS</span></h4>
-  </div>
-</div>
-
-<div id="carouselExampleContro" class="carousel slide container" data-ride="carousel" data-interval="false" >
-  <div class="carousel-inner" >
-      
-      <div id="productcard" class="carousel-item active carousel-transition">      
-          <div class="row"  > 
-              <div class="col-md-3">
-                  <div class="card shadow" style="width: 15rem; ">
-                      <img src="./../../../../../assets/Images/product/thumb-4.jpg" class="card-img-top mx-auto my-3"  height="200px" alt="thumb"/>
-                     
-                      <div class="card-body">
-                        <h5 class="card-title text-center">Eraser</h5>
-                        <p class="card-text text-center">school Stationary</p>
-                        <h5 class="card-title text-center">950</h5>
-                      </div>
-                    </div>
-                  
-              </div>
-                  <div class="col-md-3">
-                      <div class="card shadow" style="width: 15rem; ">
-                          <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto my-3"  height="200px" alt="thumb"/>
-                         
-                          <div class="card-body">
-                            <h5 class="card-title text-center">Eraser</h5>
-                            <p class="card-text text-center">school Stationary</p>
-                            <h5 class="card-title text-center">950</h5>
-                          </div>
-                        </div>
-              </div>
-                  <div class="col-md-3"> 
-                      <div class="card shadow" style="width: 15rem; ">
-                          <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto my-3" height="200px" alt="thumb"/>
-                         
-                          <div class="card-body">
-                            <h5 class="card-title text-center">Eraser</h5>
-                            <p class="card-text text-center">school Stationary</p>
-                            <h5 class="card-title text-center">950</h5>
-                          </div>
-                        </div>
-              </div>
-                  <div class="col-md-3">
-                      <div class="card shadow" style="width: 15rem; ">
-                          <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto my-3" height="200px" alt="thumb"/>
-                         
-                          <div class="card-body">
-                            <h5 class="card-title text-center">Eraser</h5>
-                            <p class="card-text text-center">school Stationary</p>
-                            <h5 class="card-title text-center">950</h5>
-                          </div>
-                        </div>
-              </div>
-          </div>    
-      </div>
-      <div  class="carousel-item carousel-transition">
-          <div class="row "  >
-              <div class="col-md-3">
-                  <div class="card shadow" style="width: 15rem; ">
-                      <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto my-3" height="200px" alt="thumb"/>
-                     
-                      <div class="card-body">
-                        <h5 class="card-title text-center">Eraser</h5>
-                        <p class="card-text text-center">school Stationary</p>
-                        <h5 class="card-title text-center">950</h5>
-                      </div>
-                    </div>
-              </div>
-                  <div class="col-md-3">
-                      <div class="card shadow" style="width: 15rem; ">
-                      <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto my-3" height="200px" alt="thumb"/>
-                     
-                      <div class="card-body">
-                        <h5 class="card-title text-center">Eraser</h5>
-                        <p class="card-text text-center">school Stationary</p>
-                        <h5 class="card-title text-center">950</h5>
-                      </div>
-                    </div> 
-                  </div>
-                  <div class="col-md-3">
-                      <div class="card shadow" style="width: 15rem; ">
-                          <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto my-3" height="200px" alt="thumb"/>
-                         
-                          <div class="card-body">
-                            <h5 class="card-title text-center">Eraser</h5>
-                            <p class="card-text text-center">school Stationary</p>
-                            <h5 class="card-title text-center">950</h5>
-                          </div>
-                        </div>
-              </div>
-                  <div class="col-md-3">
-                      <div class="card shadow" style="width: 15rem; ">
-                          <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto my-3" height="200px" alt="thumb"/>
-                         
-                          <div class="card-body">
-                            <h5 class="card-title text-center">Eraser</h5>
-                            <p class="card-text text-center">school Stationary</p>
-                            <h5 class="card-title text-center">950</h5>
-                          </div>
-                        </div>
-              </div>
-          </div>
-      </div>  
-
+  <div class="row mb-2">
+    <div class="col-md-12 text-center">
+      <h4><span class="shopmenu">OUR PRODUCTS</span></h4>
     </div>
-    <a class="carousel-control-prev productbtnprev shadow" href="#carouselExampleContro" role="button" data-slide="prev">
-      <span  aria-hidden="true"><i class="fas fa-caret-left clblack"></i></span>
+  </div>
+
+  <div id="carouselExampleContro" class="carousel slide container" data-ride="carousel" data-interval="false">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active carousel-transition position-relative">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="./../../../../../assets/Images/product/thumb-4.jpg" class="card-img-top mx-auto my-3"
+                height="200px" alt="thumb" />
+              <div class="card-body">
+                <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                <p class="card-text text-center fs-13">School Stationary</p>
+                <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto my-3"
+                height="200px" alt="thumb" />
+              <div class="card-body">
+                <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                <p class="card-text text-center fs-13">School Stationary</p>
+                <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto my-3"
+                height="200px" alt="thumb" />
+              <div class="card-body">
+                <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                <p class="card-text text-center fs-13">School Stationary</p>
+                <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto my-3"
+                height="200px" alt="thumb" />
+
+              <div class="card-body">
+                <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                <p class="card-text text-center fs-13">School Stationary</p>
+                <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item carousel-transition">
+        <div class="row ">
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto my-3"
+                height="200px" alt="thumb" />
+              <div class="card-body">
+                <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                <p class="card-text text-center fs-13">School Stationary</p>
+                <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto my-3"
+                height="200px" alt="thumb" />
+              <div class="card-body">
+                <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                <p class="card-text text-center fs-13">School Stationary</p>
+                <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto my-3"
+                height="200px" alt="thumb" />
+              <div class="card-body">
+                <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                <p class="card-text text-center fs-13">School Stationary</p>
+                <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto my-3"
+                height="200px" alt="thumb" />
+              <div class="card-body">
+                <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                <p class="card-text text-center fs-13">School Stationary</p>
+                <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev productbtnprev shadow" href="#carouselExampleContro" role="button"
+      data-slide="prev">
+      <span aria-hidden="true"><i class="fas fa-caret-left clblack"></i></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next productbtnnext shadow" href="#carouselExampleContro" role="button" data-slide="next">
-      <span  aria-hidden="true"><i class="fas fa-caret-right clblack"></i></span>
+    <a class="carousel-control-next productbtnnext shadow" href="#carouselExampleContro" role="button"
+      data-slide="next">
+      <span aria-hidden="true"><i class="fas fa-caret-right clblack"></i></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-  </div>
+</div>
 
 <!-- products End -->
 
 <!-- OUR SERVICE -->
 
 <div class="container mt-5 d-none d-md-block d-lg-block">
-    <div class="row mb-2">
-        <div class="col-md-12 text-center">
-            <h4 ><span class="shopmenu">OUR SERVICE</span></h4>
-        </div>
-    </div>
-    <div class="row position-relative">
-        <div class="col-md mx-2 p-0 shadow">
-            <img src="./../../../../../assets/Images/service/service (1).jpg" class="serviceimg" />
-            <div class="servicecaption"><p class="fw-bold my-2">Office supplies</p>
-                <p class="text-center my-2">
-            Get every office essential here at one place at the cheapest price. Best in quality product with long durability.
-                </p></div>
-        </div>
-        <div class="col-md mx-2 p-0 shadow">
-            <img src="./../../../../../assets/Images/service/service (2).jpg" class="serviceimg" />
-            <div class="servicecaption"><p class="fw-bold my-2">Kids supplies</p>
-                </div>
-        </div>
-        <div class="col-md mx-2 p-0 shadow">
-            <img src="./../../../../../assets/Images/service/service (3).jpg" class="serviceimg" />
-            <div class="servicecaption">
-            <p class="fw-bold my-2">School</p></div>
-        </div>
-    </div>
-</div>
-
-<!-- MOBILE VIEW -->
-
-<!--  <div class="container">
-  <swiper [slidesPerView]="1" [spaceBetween]="30" [navigation]="true" [pagination]="{ clickable: true }"
-  [controller]="{ control: controlledSwiper }">
-  
-  <div class="row position-relative">
-    <ng-template swiperSlide>
-      <div class="col-md-3">
-          
-          <img src="./../../../../../assets/Images/service/service (1).jpg" class="serviceimg" />
-          <div class="servicecaption"><p class="serviceline my-2">Office supplies</p>
-              <p class="text-center my-2">
-          Get every office essential here at one place at the cheapest price. Best in quality product with long durability.
-              </p></div>
-    
-      </div></ng-template>
-      <ng-template swiperSlide>
-      <div class="col-md-3 mx-auto">
-          <img src="./../../../../../assets/Images/service/service (2).jpg" class="serviceimg" />
-          <div class="servicecaption"><p class="serviceline my-2">Kids supplies</p>
-              </div>
-      </div></ng-template>
-      <ng-template swiperSlide>
-      <div class="col-md-3">
-          <img src="./../../../../../assets/Images/service/service (3).jpg" class="serviceimg" />
-          <div class="servicecaption">
-          <p class="serviceline my-2">School</p></div>
-      </div></ng-template>
-  </div>
-</div>  -->
-
-<div class="container-fluid d-block d-md-none d-lg-none">
-  <div class="row">
+  <div class="row mb-2">
     <div class="col-md-12 text-center">
-        <h4 ><span class="shopmenu">OUR SERVICE</span></h4>
-    </div>
-</div>
-
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="col-md mx-2 p-0 shadow">
-        <img src="./../../../../../assets/Images/service/service (1).jpg" class="serviceimg" />
-        <div class="servicecaption"><p class="fw-bolder my-2">Office supplies</p>
-            <p class="text-center my-2">
-        Get every office essential here at one place at the cheapest price. Best in quality product with long durability.
-            </p></div>
-    </div>
-    </div>
-    <div class="carousel-item">
-      <div class="col-md mx-2 p-0 shadow">
-        <img src="./../../../../../assets/Images/service/service (2).jpg" class="serviceimg" />
-        <div class="servicecaption"><p class="fw-bolder my-2">Kids supplies</p>
-            </div>
-    </div>
-    </div>
-    <div class="carousel-item">
-      <div class="col-md mx-2 p-0 shadow">
-        <img src="./../../../../../assets/Images/service/service (3).jpg" class="serviceimg" />
-        <div class="servicecaption">
-        <p class="fw-bolder my-2">School</p></div>
-    </div>
+      <h4><span class="shopmenu">OUR SERVICE</span></h4>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
+  <div class="row position-relative">
+    <div class="col-md mx-2 p-0 shadow">
+      <img src="./../../../../../assets/Images/service/service (1).jpg" class="serviceimg" alt="services" />
+      <div class="servicecaption">
+        <p class="fw-bold my-2">Office supplies</p>
+        <p class="text-center my-2">
+          Get every office essential here at one place at the cheapest price. Best in quality product with long
+          durability.
+        </p>
+      </div>
+    </div>
+    <div class="col-md mx-2 p-0 shadow">
+      <img src="./../../../../../assets/Images/service/service (2).jpg" class="serviceimg" alt="services" />
+      <div class="servicecaption">
+        <p class="fw-bold my-2">Kids supplies</p>
+      </div>
+    </div>
+    <div class="col-md mx-2 p-0 shadow">
+      <img src="./../../../../../assets/Images/service/service (3).jpg" class="serviceimg" alt="services" />
+      <div class="servicecaption">
+        <p class="fw-bold my-2">School</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Service End -->
 
 
 <!-- STRIP -->
-<div class="container mt-5">
-  <img src="./../../../../../assets/Images/banner/Strip-Desktop.jpg" height="100px" width="100%">
+<div class="container mt-5 d-none d-md-block d-lg-block">
+  <img src="./../../../../../assets/Images/banner/Strip-Desktop.jpg" alt="stipbar" height="100px" width="100%">
 </div>
 <!-- END STRIP -->
 
 <!-- ERASER SECTION -->
 
-<div class="container mt-5">
-<div class="row mb-2">
+<div class="container mt-5 d-none d-md-block d-lg-block">
+  <div class="row mb-2">
     <div class="col-md-2"></div>
     <div class="col-md-8 text-center">
-        <h4 ><span class="shopmenu">Eraser</span></h4>
-       
+      <h4><span class="shopmenu">ERASER</span></h4>
     </div>
     <div class="col-md-2">
-        <div >
-            <a class="carousel-control-next" href="#carouselEraserControl" role="button" data-slide="prev" class="carousel-control-previous">
-                <span class="carousel-control-prev-ico" aria-hidden="true"></span>
-            <button type="button" class="btn erasebtnl shadow" ><i class='fas fa-caret-left' id="caret"></i></button></a>
-         
-          
-                <a class="carousel-control-next" href="#carouselEraserControl" role="button" data-slide="next" class="carousel-control-previous">
-                <span class="carousel-control-next-ico" aria-hidden="true"></span>
-            <button type="button" class="btn erasebtnr shadow" ><i class='fas fa-caret-right' id="caret"></i></button></a>
-        
-    </div>
-    </div>
-</div>
-
-
-<div class="row">
-  <div class="col-md-4">
-    <div class="row">
-      <div class="col-md-12 p-0">
-        <img src="./../../../../../assets/Images/service/service (1).jpg"  id="eraserimg" alt="thumb"/>
-        
-    </div>
+      <div>
+        <a class="carousel-control-next" href="#carouselEraserControl" role="button" data-slide="prev"
+          class="carousel-control-previous">
+          <span class="carousel-control-prev-ico" aria-hidden="true"></span>
+          <button type="button" class="btn erasebtnl shadow"><i class='fas fa-caret-left' id="caret"></i></button></a>
+        <a class="carousel-control-next" href="#carouselEraserControl" role="button" data-slide="next"
+          class="carousel-control-previous">
+          <span class="carousel-control-next-ico" aria-hidden="true"></span>
+          <button type="button" class="btn erasebtnr shadow"><i class='fas fa-caret-right' id="caret"></i></button></a>
+      </div>
     </div>
   </div>
-  <div class="col-md p-0">
-    
-      <div id="carouselEraserControl" class="carousel slide container shadow p-0" data-ride="carousel" data-interval="false" >
-        <div class="carousel-inner" >
-                  <div  class="carousel-item active carousel-transition">
-                    <div class="row">
-                        <div class="col-md-4 p-0">
-                            <div class="card labelcard" style="width: auto; ">
-                                <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto"  height="200px" alt="thumb"/>
-                               
-                                <div class="card-body">
-                                  <h5 class="card-title text-center">Eraser</h5>
-                                  <p class="card-text text-center">school Stationary</p>
-                                  <h5 class="card-title text-center">950</h5>
-                                </div>
-                              </div>
-                    </div>
-                        <div class="col-md-4 p-0">
-                            
-                            <div class="card labelcard" style="width: auto; ">
-                                <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                               
-                                <div class="card-body">
-                                  <h5 class="card-title text-center">Eraser</h5>
-                                  <p class="card-text text-center">school Stationary</p>
-                                  <h5 class="card-title text-center">950</h5>
-                                </div>
-                              </div>
-                    </div>
-                        <div class="col-md-4 p-0">
-                            <div class="card labelcard" style="width: auto; ">
-                                <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                               
-                                <div class="card-body">
-                                  <h5 class="card-title text-center">Eraser</h5>
-                                  <p class="card-text text-center">school Stationary</p>
-                                  <h5 class="card-title text-center">950</h5>
-                                </div>
-                              </div>
-                    </div>
-                
-               
-            </div></div>
-            <div   class="carousel-item carousel-transition">
-                <div class="row">
-                        <div class="col-md-4 p-0">
-                            <div class="card labelcard" style="width: auto; ">
-                            <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                           
-                            <div class="card-body">
-                              <h5 class="card-title text-center">Eraser</h5>
-                              <p class="card-text text-center">school Stationary</p>
-                              <h5 class="card-title text-center">950</h5>
-                            </div>
-                          </div> 
-                        </div>
-                        <div class="col-md-4 p-0">
-                            <div class="card labelcard" style="width: auto; ">
-                                <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                               
-                                <div class="card-body">
-                                  <h5 class="card-title text-center">Eraser</h5>
-                                  <p class="card-text text-center">school Stationary</p>
-                                  <h5 class="card-title text-center">950</h5>
-                                </div>
-                              </div>
-                    </div>
-                        <div class="col-md-4 p-0">
-                            <div class="card labelcard" style="width: auto; ">
-                                <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                               
-                                <div class="card-body">
-                                  <h5 class="card-title text-center">Eraser</h5>
-                                  <p class="card-text text-center">school Stationary</p>
-                                  <h5 class="card-title text-center">950</h5>
-                                </div>
-                              </div>
-                    </div>
-                  </div>
-            </div>              
-          
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-12 p-0">
+          <img src="./../../../../../assets/Images/service/service (1).jpg" id="eraserimg" alt="thumb" />
+
         </div>
+      </div>
+    </div>
+    <div class="col-md p-0">
+      <div id="carouselEraserControl" class="carousel slide container shadow p-0" data-ride="carousel"
+        data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active carousel-transition">
+            <div class="row">
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto"
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 p-0">
 
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item carousel-transition">
+            <div class="row">
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-  </div>
-<!--     END -->
+
 
 <!-- PENCIL -->
 
-<div class="container mt-5">
+<div class="container mt-5 d-none d-md-block d-lg-block">
   <div class="row mb-2">
-      <div class="col-md-2"></div>
-      <div class="col-md-8 text-center">
-          <h4 ><span class="shopmenu">Pencil</span></h4>
-         
+    <div class="col-md-2"></div>
+    <div class="col-md-8 text-center">
+      <h4><span class="shopmenu">PENCIL</span></h4>
+    </div>
+    <div class="col-md-2">
+      <div>
+        <a class="carousel-control-next" href="#carouselpencilControl" role="button" data-slide="prev"
+          class="carousel-control-previous">
+          <span class="carousel-control-prev-ico" aria-hidden="true"></span>
+          <button type="button" class="btn erasebtnl shadow"><i class='fas fa-caret-left' id="caret"></i></button></a>
+        <a class="carousel-control-next" href="#carouselpencilControl" role="button" data-slide="next"
+          class="carousel-control-previous">
+          <span class="carousel-control-next-ico" aria-hidden="true"></span>
+          <button type="button" class="btn erasebtnr shadow"><i class='fas fa-caret-right' id="caret"></i></button></a>
       </div>
-      <div class="col-md-2">
-          <div >
-              <a class="carousel-control-next" href="#carouselPencilControl" role="button" data-slide="prev" class="carousel-control-previous">
-                  <span class="carousel-control-prev-ico" aria-hidden="true"></span>
-              <button type="button" class="btn erasebtnl shadow" ><i class='fas fa-caret-left' id="caret"></i></button></a>
-           
-            
-                  <a class="carousel-control-next" href="#carouselPencilControl" role="button" data-slide="next" class="carousel-control-previous">
-                  <span class="carousel-control-next-ico" aria-hidden="true"></span>
-              <button type="button" class="btn erasebtnr shadow" ><i class='fas fa-caret-right' id="caret"></i></button></a>
-          
-      </div>
-      </div>
+    </div>
   </div>
-  
-  
+
   <div class="row">
     <div class="col-md-4">
       <div class="row">
         <div class="col-md-12 p-0">
-          <img src="./../../../../../assets/Images/service/service (1).jpg"  id="eraserimg" alt="thumb"/>
-          
-      </div>
+          <img src="./../../../../../assets/Images/service/service (1).jpg" id="eraserimg" alt="thumb" />
+        </div>
       </div>
     </div>
     <div class="col-md p-0">
-      
-        <div id="carouselPencilControl" class="carousel slide container shadow p-0" data-ride="carousel" data-interval="false" >
-          <div class="carousel-inner" >
-                    <div  class="carousel-item active carousel-transition">
-                      <div class="row">
-                          <div class="col-md-4 p-0">
-                              <div class="card labelcard" style="width: auto; ">
-                                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto"  height="200px" alt="thumb"/>
-                                 
-                                  <div class="card-body">
-                                    <h5 class="card-title text-center">Eraser</h5>
-                                    <p class="card-text text-center">school Stationary</p>
-                                    <h5 class="card-title text-center">950</h5>
-                                  </div>
-                                </div>
-                      </div>
-                          <div class="col-md-4 p-0">
-                              
-                              <div class="card labelcard" style="width: auto; ">
-                                  <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                                 
-                                  <div class="card-body">
-                                    <h5 class="card-title text-center">Eraser</h5>
-                                    <p class="card-text text-center">school Stationary</p>
-                                    <h5 class="card-title text-center">950</h5>
-                                  </div>
-                                </div>
-                      </div>
-                          <div class="col-md-4 p-0">
-                              <div class="card labelcard" style="width: auto; ">
-                                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                                 
-                                  <div class="card-body">
-                                    <h5 class="card-title text-center">Eraser</h5>
-                                    <p class="card-text text-center">school Stationary</p>
-                                    <h5 class="card-title text-center">950</h5>
-                                  </div>
-                                </div>
-                      </div>
-                  
-                 
-              </div></div>
-              <div   class="carousel-item carousel-transition">
-                  <div class="row">
-                          <div class="col-md-4 p-0">
-                              <div class="card labelcard" style="width: auto; ">
-                              <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                             
-                              <div class="card-body">
-                                <h5 class="card-title text-center">Eraser</h5>
-                                <p class="card-text text-center">school Stationary</p>
-                                <h5 class="card-title text-center">950</h5>
-                              </div>
-                            </div> 
-                          </div>
-                          <div class="col-md-4 p-0">
-                              <div class="card labelcard" style="width: auto; ">
-                                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                                 
-                                  <div class="card-body">
-                                    <h5 class="card-title text-center">Eraser</h5>
-                                    <p class="card-text text-center">school Stationary</p>
-                                    <h5 class="card-title text-center">950</h5>
-                                  </div>
-                                </div>
-                      </div>
-                          <div class="col-md-4 p-0">
-                              <div class="card labelcard" style="width: auto; ">
-                                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                                 
-                                  <div class="card-body">
-                                    <h5 class="card-title text-center">Eraser</h5>
-                                    <p class="card-text text-center">school Stationary</p>
-                                    <h5 class="card-title text-center">950</h5>
-                                  </div>
-                                </div>
-                      </div>
-                    </div>
-              </div>              
-            
+      <div id="carouselpencilControl" class="carousel slide container shadow p-0" data-ride="carousel"
+        data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active carousel-transition">
+            <div class="row">
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto"
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 p-0">
+
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-  
+          <div class="carousel-item carousel-transition">
+            <div class="row">
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  
-    </div>
+</div>
 
-  <!--   END PENCIL -->
+<!--   END PENCIL -->
 
- <!--  STAPLER -->
+<!--  STAPLER -->
 
- <div class="container mt-5">
+<div class="container mt-5 d-none d-md-block d-lg-block">
   <div class="row mb-2">
-      <div class="col-md-2"></div>
-      <div class="col-md-8 text-center">
-          <h4 ><span class="shopmenu">Stapler</span></h4>
-         
+    <div class="col-md-2"></div>
+    <div class="col-md-8 text-center">
+      <h4><span class="shopmenu">STAPLER</span></h4>
+    </div>
+    <div class="col-md-2">
+      <div>
+        <a class="carousel-control-next" href="#carouselstaplerControl" role="button" data-slide="prev"
+          class="carousel-control-previous">
+          <span class="carousel-control-prev-ico" aria-hidden="true"></span>
+          <button type="button" class="btn erasebtnl shadow"><i class='fas fa-caret-left' id="caret"></i></button></a>
+        <a class="carousel-control-next" href="#carouselstaplerControl" role="button" data-slide="next"
+          class="carousel-control-previous">
+          <span class="carousel-control-next-ico" aria-hidden="true"></span>
+          <button type="button" class="btn erasebtnr shadow"><i class='fas fa-caret-right' id="caret"></i></button></a>
+
       </div>
-      <div class="col-md-2">
-          <div >
-              <a class="carousel-control-next" href="#carouselStaplerControl" role="button" data-slide="prev" class="carousel-control-previous">
-                  <span class="carousel-control-prev-ico" aria-hidden="true"></span>
-              <button type="button" class="btn erasebtnl shadow" ><i class='fas fa-caret-left' id="caret"></i></button></a>
-           
-            
-                  <a class="carousel-control-next" href="#carouselStaplerControl" role="button" data-slide="next" class="carousel-control-previous">
-                  <span class="carousel-control-next-ico" aria-hidden="true"></span>
-              <button type="button" class="btn erasebtnr shadow" ><i class='fas fa-caret-right' id="caret"></i></button></a>
-          
-      </div>
-      </div>
+    </div>
   </div>
-  
-  
+
   <div class="row">
     <div class="col-md-4">
       <div class="row">
         <div class="col-md-12 p-0">
-          <img src="./../../../../../assets/Images/service/service (1).jpg"  id="eraserimg" alt="thumb"/>
-          
-      </div>
+          <img src="./../../../../../assets/Images/service/service (1).jpg" id="eraserimg" alt="thumb" />
+
+        </div>
       </div>
     </div>
     <div class="col-md p-0">
-      
-        <div id="carouselStaplerControl" class="carousel slide container shadow p-0" data-ride="carousel" data-interval="false" >
-          <div class="carousel-inner" >
-                    <div  class="carousel-item active carousel-transition">
-                      <div class="row">
-                          <div class="col-md-4 p-0">
-                              <div class="card labelcard" style="width: auto; ">
-                                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto"  height="200px" alt="thumb"/>
-                                 
-                                  <div class="card-body">
-                                    <h5 class="card-title text-center">Eraser</h5>
-                                    <p class="card-text text-center">school Stationary</p>
-                                    <h5 class="card-title text-center">950</h5>
-                                  </div>
-                                </div>
-                      </div>
-                          <div class="col-md-4 p-0">
-                              
-                              <div class="card labelcard" style="width: auto; ">
-                                  <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                                 
-                                  <div class="card-body">
-                                    <h5 class="card-title text-center">Eraser</h5>
-                                    <p class="card-text text-center">school Stationary</p>
-                                    <h5 class="card-title text-center">950</h5>
-                                  </div>
-                                </div>
-                      </div>
-                          <div class="col-md-4 p-0">
-                              <div class="card labelcard" style="width: auto; ">
-                                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                                 
-                                  <div class="card-body">
-                                    <h5 class="card-title text-center">Eraser</h5>
-                                    <p class="card-text text-center">school Stationary</p>
-                                    <h5 class="card-title text-center">950</h5>
-                                  </div>
-                                </div>
-                      </div>
-                  
-                 
-              </div></div>
-              <div   class="carousel-item carousel-transition">
-                  <div class="row">
-                          <div class="col-md-4 p-0">
-                              <div class="card labelcard" style="width: auto; ">
-                              <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                             
-                              <div class="card-body">
-                                <h5 class="card-title text-center">Eraser</h5>
-                                <p class="card-text text-center">school Stationary</p>
-                                <h5 class="card-title text-center">950</h5>
-                              </div>
-                            </div> 
-                          </div>
-                          <div class="col-md-4 p-0">
-                              <div class="card labelcard" style="width: auto; ">
-                                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                                 
-                                  <div class="card-body">
-                                    <h5 class="card-title text-center">Eraser</h5>
-                                    <p class="card-text text-center">school Stationary</p>
-                                    <h5 class="card-title text-center">950</h5>
-                                  </div>
-                                </div>
-                      </div>
-                          <div class="col-md-4 p-0">
-                              <div class="card labelcard" style="width: auto; ">
-                                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px" alt="thumb"/>
-                                 
-                                  <div class="card-body">
-                                    <h5 class="card-title text-center">Eraser</h5>
-                                    <p class="card-text text-center">school Stationary</p>
-                                    <h5 class="card-title text-center">950</h5>
-                                  </div>
-                                </div>
-                      </div>
-                    </div>
-              </div>              
-            
+      <div id="carouselstaplerControl" class="carousel slide container shadow p-0" data-ride="carousel"
+        data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active carousel-transition">
+            <div class="row">
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto"
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 p-0">
+
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-  
+          <div class="carousel-item carousel-transition">
+            <div class="row">
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 p-0">
+                <div class="card labelcard" style="width: auto; ">
+                  <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto "
+                    height="200px" alt="thumb" />
+                  <div class="card-body">
+                    <p class="card-title text-center p-0 m-0 fw-bold">Eraser</p>
+                    <p class="card-text text-center fs-13">School Stationary</p>
+                    <h5 class="card-title text-center fw-bold">&#8377; 950</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  
-    </div>
+</div>
 
-  <!--   END STAPLER -->
+<!--   END STAPLER -->
 
 <!-- Offers Section -->
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="row">
-            <div class="col-3">
-                <i class='fa fa-truck' id="offericon"></i>
-            </div>
-            <div class="col-9">
-                <h4 class="my-2" >Free Shipping</h4><p  class="fs-12">For all orders above $100</p>
-            </div>
+<div class="container mt-5 d-none d-md-block d-lg-block">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-3">
+          <i class='fa fa-truck' id="offericon"></i>
         </div>
+        <div class="col-9">
+          <h4 class="my-2">Free Shipping</h4>
+          <p class="fs-12">For all orders above $100</p>
         </div>
-
-        <div class="col-md-4 mx-auto">
-            <div class="row">
-                <div class="col-3">
-                    <i class='fa fa-money' id="offericon"></i>
-                </div>
-                <div class="col-9">
-                    <h4 class="my-2" >Cash On Delivery</h4><p  class="fs-12">100% money back</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="row">
-                <div class="col-3">
-                    <i class='fa fa-headphones' id="offericon"></i>
-                </div>
-                <div class="col-9">
-                    <h4 class="my-2" >24/7 Support</h4><p  class="fs-12">Answer for question</p>
-                </div>
-            </div>
-        </div>
-
+      </div>
     </div>
+
+    <div class="col-md-4 mx-auto">
+      <div class="row">
+        <div class="col-3">
+          <i class='fa fa-money' id="offericon"></i>
+        </div>
+        <div class="col-9">
+          <h4 class="my-2">Cash On Delivery</h4>
+          <p class="fs-12">100% money back</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-3">
+          <i class='fa fa-headphones' id="offericon"></i>
+        </div>
+        <div class="col-9">
+          <h4 class="my-2">24/7 Support</h4>
+          <p class="fs-12">Answer for question</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <!-- Offers section end -->
 
 <!-- banner image -->
 
-<div class="container-fluid position-relative my-5 p-0">
-<img src="./../../../../../assets/Images/banner/banner-1 (2).jpg" height="500px" width="100%">
-<div class="bannercaption">
-  <h4 class="clyellow" style="float: right;">Great Deal On</h4>
-  <h2 class="clwhite " style="letter-spacing: 1px;">STATIONARY</h2>
-  <p class="fs-12 clwhite">best online store for art & craft supplies</p>
-</div>
+<div class="container-fluid position-relative my-5 p-0 d-none d-md-block d-lg-block">
+  <img src="./../../../../../assets/Images/banner/banner-1 (2).jpg" height="500px" width="100%">
+  <div class="bannercaption">
+    <h4 class="clyellow" style="float: right;">Great Deal On</h4>
+    <h2 class="clwhite " style="letter-spacing: 1px;">STATIONARY</h2>
+    <p class="fs-12 clwhite">best online store for art & craft supplies</p>
+  </div>
 </div>
 
 <!-- END -->
 
 <!-- WATCH AND LEARN -->
 
-<div class="container mt-5">
+<div class="container mt-5 d-none d-md-block d-lg-block">
   <div class="row">
     <div class="col-md-12 text-center">
-        <h4 ><span class="shopmenu">WATCH AND LEARN</span></h4>
+      <h4><span class="shopmenu">WATCH AND LEARN</span></h4>
     </div>
-</div>
+  </div>
 
-<div id="carouselvideoControl" class="carousel slide container m-0 p-0" data-ride="carousel" data-interval="false" >
-  <div class="carousel-inner" >
-      
-      <div  class="carousel-item active carousel-transition">      
-          <div class="row"  > 
-              <div class="col-md-4">
-                  <div class="card shadow" style="width: 20rem; ">
-                    <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                      <div class="card-body p-2 pb-3">
-                        <span>Unboxing Beautiful Pencil
-                          <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
-                        
-                      </div>
-                    </div>
-                  
+  <div id="carouselvideoControl" class="carousel slide container m-0 p-0" data-ride="carousel" data-interval="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active carousel-transition">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card shadow" style="width: 20rem; ">
+              <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+              <div class="card-body p-2 pb-3">
+                <span>Unboxing Beautiful Pencil
+                  <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
               </div>
-                  <div class="col-md-4">
-                    <div class="card shadow" style="width: 20rem; ">
-                      <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <div class="card-body p-2 pb-3">
-                          <span>Unboxing Beautiful Pencil
-                            <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
-                          
-                        </div>
-                      </div>
-              </div>
-                  <div class="col-md-4"> 
-                    <div class="card shadow" style="width: 20rem; ">
-                      <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <div class="card-body p-2 pb-3">
-                          <span>Unboxing Beautiful Pencil
-                            <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
-                          
-                        </div>
-                      </div>
-              </div>
-          </div>    
-      </div>
-      <div  class="carousel-item carousel-transition">
-          <div class="row "  >
-              <div class="col-md-4">
-                <div class="card shadow" style="width: 20rem; ">
-                  <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="card-body p-2 pb-3">
-                      <span>Unboxing Beautiful Pencil
-                        <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
-                      
-                    </div>
-                  </div>
-              </div>
-                  <div class="col-md-4">
-                    <div class="card shadow" style="width: 20rem; ">
-                      <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <div class="card-body p-2 pb-3">
-                          <span>Unboxing Beautiful Pencil
-                            <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
-                          
-                        </div>
-                      </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card shadow" style="width: 20rem; ">
-                      <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <div class="card-body p-2 pb-3">
-                          <span>Unboxing Beautiful Pencil
-                            <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
-                          
-                        </div>
-                      </div>
-              </div>
-                
+            </div>
           </div>
-      </div>  
+          <div class="col-md-4">
+            <div class="card shadow mx-auto" style="width: 20rem; ">
+              <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+              <div class="card-body p-2 pb-3">
+                <span>Unboxing Beautiful Pencil
+                  <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow" style="width: 20rem; float: right; ">
+              <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+              <div class="card-body p-2 pb-3">
+                <span>Unboxing Beautiful Pencil
+                  <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item carousel-transition">
+        <div class="row ">
+          <div class="col-md-4">
+            <div class="card shadow" style="width: 20rem; ">
+              <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+              <div class="card-body p-2 pb-3">
+                <span>Unboxing Beautiful Pencil
+                  <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow mx-auto" style="width: 20rem; ">
+              <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+              <div class="card-body p-2 pb-3">
+                <span>Unboxing Beautiful Pencil
+                  <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow" style="width: 20rem; float: right; ">
+              <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+              <div class="card-body p-2 pb-3">
+                <span>Unboxing Beautiful Pencil
+                  <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
     </div>
     <a class="carousel-control-prev watchbtnprev shadow" href="#carouselvideoControl" role="button" data-slide="prev">
-      <span  aria-hidden="true"><i class="fas fa-caret-left clblack"></i></span>
+      <span aria-hidden="true"><i class="fas fa-caret-left clblack"></i></span>
       <span class="sr-only">Previous</span>
     </a>
     <a class="carousel-control-next watchbtnnext shadow" href="#carouselvideoControl" role="button" data-slide="next">
-      <span  aria-hidden="true"><i class="fas fa-caret-right clblack"></i></span>
+      <span aria-hidden="true"><i class="fas fa-caret-right clblack"></i></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
@@ -915,65 +793,72 @@
 <!-- WATCH AND LEARN END -->
 
 <!-- TESTIMONIALS -->
-<div class="container d-none d-md-block d-lg-block mt-5">
+<div class="container  mt-5 d-none d-md-block d-lg-block">
   <div class="row">
     <div class="col-md-12 text-center">
-        <h4 ><span class="shopmenu">TESTIMONIALS</span></h4>
+      <h4><span class="shopmenu">TESTIMONIALS</span></h4>
     </div>
-</div>
+  </div>
 
-<div id="carouseltestiControl" class="carousel slide container shadow bg-white mt-3 px-5 m-0 py-3 p-0" data-ride="carousel" data-interval="false" >
-  <div class="carousel-inner" >
-      
-      <div  class="carousel-item active carousel-transition">      
-          <div class="d-flex shadow"  > 
-              <div class="profile p-3">
-                <img src="./../../../../../assets/Images/testimonial/sample-2.png" class="profileimg" />
-              </div>
-              <div class="nameprofile p-3 pr-5 d-flex align-items-center">
-                Harvy
-              </div>
-                 <div class="testimonial px-5 p-3">
-                  <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
-          </div>    
+  <div id="carouseltestiControl" class="carousel slide container shadow bg-white mt-3 px-5 m-0 py-3 p-0"
+    data-ride="carousel" data-interval="false">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active carousel-transition">
+        <div class="d-md-flex d-lg-flex d-none ">
+          <div class="profile p-3">
+            <img src="./../../../../../assets/Images/testimonial/sample-2.png" class="profileimg" />
+          </div>
+          <div class="nameprofile p-3 pr-5 d-md-flex d-lg-flex d-block align-items-center">
+            Harvy
+          </div>
+          <div class="testimonial px-5 p-3">
+            <p class="pt-3 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.</p>
+          </div>
+        </div>
       </div>
-      <div  class="carousel-item carousel-transition">
-        <div class="d-flex shadow"  > 
+      <div class="carousel-item carousel-transition">
+        <div class="d-md-flex d-lg-flex d-none">
           <div class="profile p-3">
             <img src="./../../../../../assets/Images/testimonial/sample-1.png" class="profileimg" />
           </div>
-          <div class="nameprofile p-3 pr-5 d-flex align-items-center">
+          <div class="nameprofile p-3 pr-5 d-md-flex d-lg-flex d-block align-items-center">
             Jessica
           </div>
-             <div class="testimonial px-5 p-3">
-              <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-             </div>
-      </div>  
-      </div>  
-      <div  class="carousel-item carousel-transition">
-        <div class="d-flex shadow"  > 
+          <div class="testimonial px-5 p-3">
+            <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item carousel-transition">
+        <div class="d-md-flex d-lg-flex d-none">
           <div class="profile p-3">
             <img src="./../../../../../assets/Images/testimonial/sample-3.png" class="profileimg" />
           </div>
-          <div class="nameprofile p-3 pr-5 d-flex align-items-center">
+          <div class="nameprofile p-3 pr-5 d-md-flex d-lg-flex d-block align-items-center">
             Martin
           </div>
-             <div class="testimonial px-5 p-3">
-              <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-             </div>
-      </div>  
-      </div>  
+          <div class="testimonial px-5 p-3">
+            <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.</p>
+          </div>
+        </div>
+      </div>
     </div>
     <a class="carousel-control-prev watchbtnprev shadow" href="#carouseltestiControl" role="button" data-slide="prev">
-      <span  aria-hidden="true"><i class="fas fa-caret-left clblack"></i></span>
+      <span aria-hidden="true"><i class="fas fa-caret-left clblack"></i></span>
       <span class="sr-only">Previous</span>
     </a>
     <a class="carousel-control-next watchbtnnext shadow" href="#carouseltestiControl" role="button" data-slide="next">
-      <span  aria-hidden="true"><i class="fas fa-caret-right clblack"></i></span>
+      <span aria-hidden="true"><i class="fas fa-caret-right clblack"></i></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
@@ -984,8 +869,630 @@
 
 <!-- Brand -->
 
+<div class="container mt-5 d-none d-md-block d-lg-block">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h4><span class="shopmenu">BRANDS</span></h4>
+    </div>
+  </div>
 
+  <div id="carouselbrandControl" class="carousel slide container m-0 p-0" data-ride="carousel" data-interval="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active carousel-transition">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
+              <div class="brand-caption">
+                Brandit
+              </div>
+            </div>
+          </div>
 
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
+              <div class="brand-caption">
+                Brandit
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
+              <div class="brand-caption">
+                Brandit
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
+              <div class="brand-caption">
+                Brandit
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item carousel-transition">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
+              <div class="brand-caption">
+                Brandit
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
+              <div class="brand-caption">
+                Brandit
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
+              <div class="brand-caption">
+                Brandit
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card shadow" style="width: 15rem; ">
+              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
+              <div class="brand-caption">
+                Brandit
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <a class="carousel-control-prev watchbtnprev shadow" href="#carouselbrandControl" role="button" data-slide="prev">
+      <span aria-hidden="true"><i class="fas fa-caret-left clblack"></i></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next watchbtnnext shadow" href="#carouselbrandControl" role="button" data-slide="next">
+      <span aria-hidden="true"><i class="fas fa-caret-right clblack"></i></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+</div>
 <!-- Brands section end -->
+
+
+<!-- RESPONSIVE MOBILE VIEW -->
+
+<!-- STRIP -->
+<div class="W-100 my-5 d-block d-md-none d-lg-none">
+  <img src="./../../../../../assets/Images/banner/Strip-Desktop.jpg" alt="strip" height="70px" width="100%">
+</div>
+<!-- END -->
+
+<!-- OUR PRODUCTS -->
+
+<div class="related-products-section mt-5  d-block d-md-none d-lg-none">
+  <h5 class="text-uppercase font-weight-bold title">Related Products</h5>
+  <swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
+    [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" [navigation]="{}"
+    [watchSlidesVisibility]="true">
+    <ng-template swiperSlide class="custom-class">
+      <div class="card" style="border: none">
+        <div class="card-body">
+          <img src="../../../../../assets/Images/category/category (3).jpg" class="img-mobile" alt="product-image" />
+          <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
+          <p class="paragraph">Schoole Stationary</p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card" style="border: none">
+        <div class="card-body">
+          <img src="../../../../../assets/Images/category/category (3).jpg" class="img-mobile" alt="product-image" />
+          <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
+          <p class="paragraph">Schoole Stationary</p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card" style="border: none">
+        <div class="card-body">
+          <img src="../../../../../assets/Images/category/category (3).jpg" class="img-mobile" alt="product-image" />
+          <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
+          <p class="paragraph">Schoole Stationary</p>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+</div>
+
+
+<!-- END -->
+
+<!-- STRIP -->
+<div class="W-100 my-5 d-block d-md-none d-lg-none">
+  <img src="./../../../../../assets/Images/banner/Strip-Desktop.jpg" height="70px" width="100%">
+</div>
+<!-- END -->
+
+<!-- CATEGORY -->
+<div class="explore-section mt-5 d-block d-md-none d-lg-none">
+  <h5 class="text-uppercase font-weight-bold title">Explore More</h5>
+  <!-- <img
+    height="150"
+    width="100%"
+    src="../../../../../assets/Images/category/category (3).jpg"
+    class="img-mobile"
+    alt=""
+  /> -->
+  <div class="position-relative">
+    <img src="./../../../../../assets/Images/category/category (1).jpg" class="categoryimg1" />
+    <div class="imgdivblock">
+      <p>Eraser</p>
+    </div>
+  </div>
+  <div class="position-relative mt-1">
+    <img src="./../../../../../assets/Images/category/category (5).jpg" class="categoryimg1" />
+    <div class="imgdivblock">
+      <p>Pencil</p>
+    </div>
+  </div>
+  <div class="position-relative mt-1">
+    <img src="./../../../../../assets/Images/category/category (2).jpg" class="categoryimg1" />
+    <div class="imgdivblock">
+      <p>Calculator</p>
+    </div>
+  </div>
+  <div class="position-relative mt-1">
+    <img src="./../../../../../assets/Images/category/category (3).jpg" class="categoryimg1" />
+    <div class="imgdivblock">
+      <p>Notebook</p>
+    </div>
+  </div>
+  <div class="position-relative mt-1">
+    <img src="./../../../../../assets/Images/category/category (4).jpg" class="categoryimg1" />
+    <div class="imgdivblock">
+      <p>Eraser</p>
+    </div>
+  </div>
+</div>
+
+<!-- END -->
+
+<!-- FEATURED product -->
+
+<div class="related-products-section mt-5  d-block d-md-none d-lg-none">
+  <h5 class="text-uppercase font-weight-bold title">Featured Products</h5>
+  <swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
+    [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" 
+    [watchSlidesVisibility]="true">
+    <ng-template swiperSlide class="custom-class">
+      <div class="card" style="border: none">
+        <div class="card-body">
+          <img src="../../../../../assets/Images/category/category (3).jpg" class="img-mobile" alt="product-image" />
+          <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
+          <p class="paragraph">Schoole Stationary</p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card" style="border: none">
+        <div class="card-body">
+          <img src="../../../../../assets/Images/category/category (3).jpg" class="img-mobile" alt="product-image" />
+          <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
+          <p class="paragraph">Schoole Stationary</p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card" style="border: none">
+        <div class="card-body">
+          <img src="../../../../../assets/Images/category/category (3).jpg" class="img-mobile" alt="product-image" />
+          <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
+          <p class="paragraph">Schoole Stationary</p>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+</div>
+
+
+<!-- END -->
+
+<!-- OUR SERVICE  -->
+
+<div class="d-block d-md-none d-lg-none">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h4><span class="shopmenu">OUR SERVICE</span></h4>
+    </div>
+  </div>
+  <swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
+    [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" 
+    [watchSlidesVisibility]="true" style="height: 300px">
+    <ng-template swiperSlide>
+      <div class="col-md mx-2 p-0 shadow">
+        <img src="./../../../../../assets/Images/service/service (1).jpg" class="serviceimg" />
+        <div class="servicecaption">
+          <p class="fw-bold my-2">Office supplies</p>
+          <p class="text-center my-2">
+            Get every office essential here at one place at the cheapest price. Best in quality product with long
+            durability.
+          </p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide class="custom-class">
+      <div class="col-md mx-2 p-0 shadow">
+        <img src="./../../../../../assets/Images/service/service (2).jpg" class="serviceimg" />
+        <div class="servicecaption">
+          <p class="fw-bold my-2">Kids supplies</p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide class="custom-class">
+      <div class="col-md mx-2 p-0 shadow">
+        <img src="./../../../../../assets/Images/service/service (3).jpg" class="serviceimg" />
+        <div class="servicecaption">
+          <p class="fw-bold my-2">School</p>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+</div>
+<!-- END -->
+
+<!-- ERASER -->
+<div class="d-block d-md-none d-lg-none">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h4><span class="shopmenu">ERASER</span></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 p-0">
+      <img src="./../../../../../assets/Images/service/service (1).jpg" id="eraserimg" alt="thumb" />
+    </div>
+  </div>
+  <swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
+    [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" 
+    [watchSlidesVisibility]="true">
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto" height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Eraser</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto " height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Eraser</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Eraser</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto" height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Eraser</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto " height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Eraser</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Eraser</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+</div>
+<!-- END -->
+
+<!-- PENCIL -->
+<div class="d-block d-md-none d-lg-none">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h4><span class="shopmenu">PENCIL</span></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 p-0">
+      <img src="./../../../../../assets/Images/service/service (1).jpg" id="eraserimg" alt="thumb" />
+    </div>
+  </div>
+  <swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
+    [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" 
+    [watchSlidesVisibility]="true">
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto" height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Pencil</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto " height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Pencil</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Pencil</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto" height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Pencil</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto " height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Pencil</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Pencil</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+</div>
+<!-- END -->
+
+<!-- STAPLER -->
+<div class="d-block d-md-none d-lg-none">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h4><span class="shopmenu">STAPLER</span></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 p-0">
+      <img src="./../../../../../assets/Images/service/service (1).jpg" id="eraserimg" alt="thumb" />
+    </div>
+  </div>
+  <swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
+    [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" 
+    [watchSlidesVisibility]="true">
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto" height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Stapler</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto " height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Stapler</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Stapler</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto" height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Stapler</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto " height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Stapler</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="card labelcard" style="width: auto; ">
+        <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto " height="200px"
+          alt="thumb" />
+        <div class="card-body">
+          <p class="p-0 m-0 fw-bold">Stapler</p>
+          <p class="fs-13">School Stationary</p>
+          <h5 class="fw-bold">&#8377; 950</h5>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+</div>
+<!-- END -->
+
+<!-- TESTIMONIALS -->
+<div class="mt-5 d-block d-md-none d-lg-none">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h4><span class="shopmenu">TESTIMONIALS</span></h4>
+    </div>
+  </div>
+
+  <swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
+    [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" 
+    [watchSlidesVisibility]="true">
+    <ng-template swiperSlide class="custom-class">
+      <div class="d-md-flex d-lg-flex d-block ">
+        <div class="profile p-3">
+          <img src="./../../../../../assets/Images/testimonial/sample-2.png" class="profileimg" />
+        </div>
+        <div class="nameprofile p-3 pr-5 d-md-flex d-lg-flex d-block align-items-center">
+          Harvy
+        </div>
+        <div class="testimonial px-5 p-3">
+          <p class="pt-3 px-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="d-md-flex d-lg-flex d-block">
+        <div class="profile p-3">
+          <img src="./../../../../../assets/Images/testimonial/sample-1.png" class="profileimg" />
+        </div>
+        <div class="nameprofile p-3 pr-5 d-md-flex d-lg-flex d-block align-items-center">
+          Jessica
+        </div>
+        <div class="testimonial px-5 p-3">
+          <p class="pt-3 px-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="d-md-flex d-lg-flex d-block">
+        <div class="profile p-3">
+          <img src="./../../../../../assets/Images/testimonial/sample-3.png" class="profileimg" />
+        </div>
+        <div class="nameprofile p-3 pr-5 d-md-flex d-lg-flex d-block align-items-center">
+          Martin
+        </div>
+        <div class="testimonial px-5 p-3">
+          <p class="pt-3 px-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+
+</div>
+
+<!-- END -->
+
+<!-- banner image -->
+
+<div class="container-fluid position-relative my-5 p-0 d-block d-md-none d-lg-none">
+  <img src="./../../../../../assets/Images/banner/banner-1 (2).jpg" height="300px" width="100%">
+</div>
+
+<!-- END -->
+
+<!-- BRANDS  -->
+
+<div class="brand-section mt-5 d-block d-md-none d-lg-none">
+  <h5 class="text-uppercase font-weight-bold title">Brands</h5>
+  <img src="../../../../../assets/Images/service/service (1).jpg" width="100%" alt="" />
+  <div class="brand-name-section rounded sub-title font-weight-bold">
+    Branditt
+  </div>
+</div>
+
+<!-- END -->
 
 <app-tab></app-tab>

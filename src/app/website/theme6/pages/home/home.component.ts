@@ -166,5 +166,8 @@ export class HomeComponent implements OnInit {
   setControlledSwiper(swiper) {
     this.controlledSwiper = swiper;
   }
-  
+  thumbsSwiper: any;
+  setThumbsSwiper(swiper) {
+    this.thumbsSwiper = swiper;
+  }
 }
