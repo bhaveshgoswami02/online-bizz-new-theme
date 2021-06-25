@@ -14,7 +14,7 @@
 </div> -->
 <app-navigation type=2 title="Register"></app-navigation>
 
-<div class="container">
+<!-- <div class="container">
     <div class="col-lg-4 text-center col-md-4 col-10 mx-auto mt-5 mb-0">
         <a routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}" *ngIf="!_themeService?.data?.brand_logo; else logoNotAvailable">
             {{_themeService?.data?.shopName}}
@@ -66,4 +66,63 @@
             </form>
         </div>
     </div>
+</div> -->
+
+
+
+<!-- 
+<div class="container my-3">
+    <div class="flex-row">
+        <p class="text-center fs-14">OTP has been sent on your mobile phone</p>
+        <p class="text-center fw-bold">9929229092 <i class="fas fa-edit"></i></p>
+        <p class="text-center pt-4">Enter OTP</p>
+        <div class="d-flex align-items-center mx-5 justify-content-between">
+            <input type="number" placeholder="•" class="border p-2 rounded text-center" style="width: 50px;">
+            <input type="number" placeholder="•" class="border p-2 rounded text-center" style="width: 50px;">
+            <input type="number" placeholder="•" class="border p-2 rounded text-center" style="width: 50px;">
+            <input type="number" placeholder="•" class="border p-2 rounded text-center" style="width: 50px;">
+        </div>
+        <button class="btn-dark fw-bold w-100 fs-14 my-3 p-3 border-0  p-3 loginbtn">VERIFY</button>
+        <p class="d-flex flex-row-reverse fs-12 pt-3"><a>RESEND</a></p>
+    </div>
+</div> -->
+
+<div class="container">
+    <p class="text-center fs-14">VERIFY YOUR MOBILE NUMBER TO COMPLETE YOUR REGISTRATION</p>
+    <p class="text-center fs-14">ENTER OTP SENT ON
+    <span class="fs-12 fw-bold ">+91 8987898789<i class="fa fa-edit pl-1"></i></span></p>
+    <div class="d-flex align-items-center mx-5 justify-content-between">
+        <input type="number"  class="form-control p-2  text-center" style="width: 50px;">
+        <input type="number"  class="form-control p-2  text-center" style="width: 50px;">
+        <input type="number" class="form-control p-2  text-center" style="width: 50px;">
+        <input type="number"  class="form-control p-2 text-center" style="width: 50px;">
+    </div>
+    <p class="text-center mt-3 text-uppercase fw-bold fs-12"><i class="far fa-envelope mr-2"></i>resend otp</p>
+    <form>
+    <div class="row form">  
+        <div class="col-6">
+            <label class="fw-bold">Name</label>
+            <input type="text" placeholder="*Full Name" class="form-control p-2 w-100">
+        </div>
+        <div class="col-6">
+            <label class="fw-bold">Email</label>
+            <input type="text" placeholder="*Email Address" class="form-control p-2 w-100">
+        </div>
+     
+    </div>
+    <div class="row">
+        <div class="col-6 my-4">
+           <label class="fw-bold">Have a referral code?</label>
+           <i class="fas fa-caret-down " style="float: right;" data-toggle="collapse" href="#collapse1"></i>
+           <div id="collapse1" class="panel-collapse collapse" >
+              <input type="text" placeholder="Referral code"  class="form-control p-2 w-100">
+            </div>
+        </div>   
+    </div>
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <button class="btn-dark fw-bold w-100 fs-14 my-3 p-3 border-0  p-3 loginbtn">VERIFY</button>
+        </div>
+    </div>
+</form>
 </div>

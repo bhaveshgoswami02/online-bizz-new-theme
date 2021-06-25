@@ -61,6 +61,36 @@ a.nav-link {
   color: black !important;
 }
 
+.submenu{
+  display: none;
+}
+.navbar-collapse ul li:hover {
+  /* border-left: 1px groove gray;
+  border-right: 1px groove gray; */
+  border-top: 2px solid black;
+  transition: all ease-in-out;
+}
+.navbar-collapse ul li:hover .submenu{
+  display: block;
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 5px;
+  background-color: white;
+}
+.navbar-collapse ul li:hover .submenu ul li:hover{
+  border-bottom: 2px solid black;
+  border-top: none;
+  transition: all ease-in-out;
+} 
+
+.navbar-collapse ul li{
+  margin-right: 100px;
+}
+.navbar-collapse ul {
+  margin-left: 0px;
+  padding: 10px;
+}
+
 /* END */
 
 /* TOOGLE BUTTON */
@@ -84,3 +114,9 @@ a.nav-link {
   border-radius: 2px;
   border: 1px solid black;
 }
+
+/* MODEL */
+
+/* #signinmodel{
+z-index: 999;
+} */

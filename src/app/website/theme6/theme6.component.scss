@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
 
 :root {
-  --white: #f5f5f5;
+  --bg-color: #f5f5f5;
   --gray: #eeeeee;
   --yellow: #ffc107;
   --footer-bg: #f8f9fc;
@@ -14,7 +14,11 @@
   --font-12: 12px;
   --font-10: 10px;
   --font-13: 13px;
+  --font-14: 14px;
+  --font-16: 16px;
+  --font-20: 20px;
   --font-bold: bold;
+  --secondary-text-color: #666;
 }
 
 * {
@@ -22,7 +26,12 @@
 }
 
 body {
-  background-color: var(--white);
+  background-color: var(--bg-color);
+}
+@media (max-width: 700px) {
+  body {
+    background-color: white;
+  }
 }
 
 .fs-12 {
@@ -34,12 +43,24 @@ body {
 .fs-13 {
   font-size: var(--font-13);
 }
+.fs-14 {
+  font-size: var(--font-14);
+}
+.fw-16 {
+  font-size: var(--font-16);
+}
+.fs-20 {
+  font-size: var(--font-20);
+}
 .fw-bold {
   font-weight: var(--font-bold);
 }
 
 ul li {
   list-style-type: none;
+}
+a, a:active, a:hover, a:focus{
+  color: none;
 }
 .clblack {
   color: black;
@@ -50,6 +71,9 @@ ul li {
 .clwhite {
   color: white;
 }
+.clsecondarytext{
+  color: #666;
+}
 .bg-yellow {
   background-color: var(--yellow);
 }
@@ -58,4 +82,7 @@ ul li {
 }
 .yellow-text {
   color: var(--themeColor);
+}
+.modal-backdrop.show{
+  z-index: 9;
 }
