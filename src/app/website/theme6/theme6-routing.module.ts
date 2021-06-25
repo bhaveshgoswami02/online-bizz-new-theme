@@ -51,7 +51,7 @@ const routes:Routes=[
         {path:'my-shippments',component:MyShippmentsComponent,canActivate:[AuthGuardService]},
         {path:'orders',component:MyOrdersComponent,canActivate:[AuthGuardService]},
         {path:'order',component:OrderDetailComponent,canActivate:[AuthGuardService]},
-        {path:'profile',component:ProfileComponent,canActivate:[AuthGuardService]},
+        {path:'profile',component:ProfileComponent},
         {path:'edit-profile',component:EditProfileComponent,canActivate:[AuthGuardService]},
         {path:"all-address",component:AllAddressComponent,canActivate:[AuthGuardService]},
         {path:"single-address",component:SingleAddressComponent},

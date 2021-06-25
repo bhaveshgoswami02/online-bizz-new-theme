@@ -1,5 +1,5 @@
-<app-navigation type=2 title="Orders"></app-navigation>
-
+<app-navigation type="2" title="Orders"></app-navigation>
+<!-- 
 <div class="container my-5">
     <div class="row border-bottom">
         <div class="col-md-6 col-6">
@@ -32,7 +32,7 @@
                             <div class="p-skeleton__header--circle"></div>
                         </div>
                     </div> -->
-                    <div class="blank_img"></div>
+<!-- <div class="blank_img"></div>
                 </ng-container>
             </div>
             <div class="col-lg-8 col-md-8 col-9 my-auto">
@@ -179,7 +179,90 @@
                 <h5>No Orders Found</h5>
                 <a class="btn-primary cursor-pointer" (click)="onContinueShoping()">Continue Shopping</a>
             </div>
-        </div>
-    </ng-container>
+        </div> -->
+<!-- </ng-container> -->
 
-    <app-tab></app-tab>
+<div class="container">
+  <div class="col-12">
+    <nav aria-label="breadcrumb" class="mx-auto my-2">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/test8">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">My orders</li>
+      </ol>
+    </nav>
+    <hr />
+    <div class="tabs-container mt-4">
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a
+            class="nav-link active tabs-heading text-uppercase"
+            id="nav-first-tab"
+            data-toggle="tab"
+            href="#nav-first"
+            role="tab"
+            aria-controls="nav-first"
+            aria-selected="true"
+            >Live</a
+          >
+          <a
+            class="nav-link tabs-heading text-uppercase"
+            id="nav-second-tab"
+            data-toggle="tab"
+            href="#nav-second"
+            role="tab"
+            aria-controls="nav-second"
+            aria-selected="false"
+            >Completed</a
+          >
+          <a
+            class="nav-link tabs-heading text-uppercase"
+            id="nav-third-tab"
+            data-toggle="tab"
+            href="#nav-third"
+            role="tab"
+            aria-controls="nav-third"
+            aria-selected="false"
+            >Cancelled</a
+          >
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="nav-first"
+          role="tabpanel"
+          aria-labelledby="nav-first-tab"
+        >
+          <div class="tab-1-content p-3 d-flex">
+            There are no orders, We have some recommended product for you click
+            <p class="yellow-text ml-1 btn-link">click!</p>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="nav-second"
+          role="tabpanel"
+          aria-labelledby="nav-second-tab"
+        >
+          <div class="tab-1-content p-3 d-flex">
+            There are no orders, We have some recommended product for you click
+            <p class="yellow-text ml-1 btn-link">click!</p>
+          </div>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="nav-third"
+          role="tabpanel"
+          aria-labelledby="nav-third-tab"
+        >
+          <div class="tab-1-content p-3 d-flex">
+            There are no orders, We have some recommended product for you click
+            <p class="yellow-text ml-1 btn-link">click!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-tab></app-tab>

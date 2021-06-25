@@ -37,29 +37,50 @@
         <div class="float-right">
           <div class="col-md my-auto">
             <p class="float-right my-auto">
-              <i class="fa fa-shopping-bag pr-4 headicon"></i
-              ><i class="fas fa-user headicon" data-toggle="modal" data-target="#signinmodel"></i></p>
-              <!-- SIGNUP MODEL --> 
-              <div class="modal fade" id="signinmodel" tabindex="-1" role="dialog" aria-labelledby="signinmodelLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span class="float-right mr-2 mt-2" aria-hidden="true">&times;</span>
-                      </button>
-                    
-                    <div class="modal-body">
-                      <app-signin></app-signin>
-                    </div>
+              <i
+                class="fa fa-shopping-bag pr-4 headicon"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              ></i
+              ><i
+                class="fas fa-user headicon"
+                data-toggle="modal"
+                data-target="#signinmodel"
+              ></i>
+            </p>
+            <!-- SIGNUP MODEL -->
+            <div
+              class="modal fade"
+              id="signinmodel"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="signinmodelLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span class="float-right mr-2 mt-2" aria-hidden="true"
+                      >&times;</span
+                    >
+                  </button>
+
+                  <div class="modal-body">
+                    <app-signin></app-signin>
                   </div>
                 </div>
               </div>
-<!-- END -->
-            
+            </div>
+            <!-- END -->
           </div>
         </div>
       </div>
     </div>
-
 
     <nav class="navbar pb-0 navbar-expand-lg">
       <div class="container-fluid">
@@ -115,6 +136,70 @@
   </div>
 </div>
 
+<!-- modal bag -->
+<div
+  class="modal model-cart fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog h-100" role="document">
+    <div class="modal-content h-100">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="my-3 mx-2">
+          <div class="d-flex">
+            <img
+              src="../../../../../assets/Images/category/category (1).jpg"
+              height="75"
+              alt=""
+            />
+            <div>
+              <p class="text-uppercase mobile-product-name ml-2 my-auto">
+                MOLTEN MATTE METALLIC LIQUID LIPSTICK - APHRODITE
+              </p>
+              <div class="d-flex float-right mt-4 mr-4">
+                <input
+                  class="
+                    form-control
+                    mx-3
+                    bg-light
+                    mobile-product-quantity
+                    text-center
+                  "
+                  type="number"
+                  name="product-quantity"
+                  value="1"
+                  id="number"
+                />
+                <h6 class="my-auto">₹ 645</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Go to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Mobile View -->
 
 <div class="navbar d-block d-md-none d-lg-none d-flex">
@@ -140,15 +225,28 @@
     />
   </div>
   <div class="flexlist">
-    <i class="fa fa-shopping-bag"></i>
+    <i
+      class="fa fa-shopping-bag"
+      data-toggle="modal"
+      data-target="#exampleModal"
+    ></i>
   </div>
-  <div class="container searchrow w-100 border-1 p-0 d-block d-md-none d-lg-none d-flex mt-2">
+  <div
+    class="
+      container
+      searchrow
+      w-100
+      border-1
+      p-0
+      d-block d-md-none d-lg-none d-flex
+      mt-2
+    "
+  >
     <!-- <input type="search" class="searchinput" placeholder="search for your fav product"> -->
     <div class="searchmobilebox px-1 py-2 d-flex">
-      
       <input
         type="text"
-        class="w-100 border-0 "
+        class="w-100 border-0"
         placeholder="search for your fav products"
       />
       <i class="fas fa-search p-2 clblack bg-white"></i>
@@ -156,13 +254,11 @@
   </div>
 </div>
 
-
-
 <!-- MOBILE VIEW END -->
 
 <!-- SIDEBAR -->
 
- <div class="d-block d-md-block d-lg-block">
+<div class="d-block d-md-block d-lg-block">
   <div class="body">
     <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)" id="sidebarMenu">
       <div class="row">
@@ -201,20 +297,24 @@
                 <br />
               </div> -->
               <div class="row">
-                <div class="col"> <img src="./../../../../../assets/Images/testimonial/sample-1.png" height="50px" width="50" class="circle">
+                <div class="col">
+                  <img
+                    src="./../../../../../assets/Images/testimonial/sample-1.png"
+                    height="50px"
+                    width="50"
+                    class="circle"
+                  />
                 </div>
                 <div class="col">
                   <p>WELCOME</p>
-              <p>Login/SignUp</p>
+                  <p>Login/SignUp</p>
                 </div>
-              
-            </div>
+              </div>
             </div>
           </div>
 
           <hr class="m-0" />
           <ul class="p-0">
-           
             <ng-container *ngIf="_themeService.data?.mainMenu?.length != 0">
               <ng-container *ngFor="let menu of _themeService.data?.mainMenu">
                 <hr class="m-0" />
@@ -241,7 +341,6 @@
               </ng-container>
             </ng-container>
 
-           
             <ng-container
               *ngIf="
                 _themeService.data?.mainMenu?.length == 0 ||
@@ -416,7 +515,7 @@
             </ng-container>
 
             <hr class="m-0" />
-           
+
             <div
               class="dropdown py-3 pl-4 ml-1"
               *ngIf="_themeService?.data?.multipleLanguage"
@@ -454,9 +553,6 @@
       </div>
     </div>
   </div>
-</div> 
-
-
-
+</div>
 
 <!-- SIDEBAR END -->
