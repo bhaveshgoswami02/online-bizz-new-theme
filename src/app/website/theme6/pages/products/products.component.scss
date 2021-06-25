@@ -3,3 +3,26 @@
         padding:3px !important;
     }
 }
+
+/* .img-hover-zoom  {
+    width: 100%;
+    transition: 0.5s all ease-in-out;
+    overflow: hidden;
+    height: 200px;
+}
+
+.img-hover-zoom:hover .card-img-top {
+    transform: scale(1.5);
+}
+.img-hover-zoom .card-img-top {
+    transition: transform .5s ease;
+  } */
+  .card-img-top {
+    width: 80%;
+    transition: 0.5s all ease-in-out;
+    overflow: hidden;
+    height: 180px;
+}
+.card-img-top:hover {
+    transform: scale(1.2);
+}

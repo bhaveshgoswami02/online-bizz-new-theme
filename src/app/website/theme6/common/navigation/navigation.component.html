@@ -38,13 +38,30 @@
           <div class="col-md my-auto">
             <p class="float-right my-auto">
               <i class="fa fa-shopping-bag pr-4 headicon"></i
-              ><i class="fas fa-user headicon"></i>
-            </p>
+              ><i class="fas fa-user headicon" data-toggle="modal" data-target="#signinmodel"></i></p>
+              <!-- SIGNUP MODEL --> 
+              <div class="modal fade" id="signinmodel" tabindex="-1" role="dialog" aria-labelledby="signinmodelLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="float-right mr-2 mt-2" aria-hidden="true">&times;</span>
+                      </button>
+                    
+                    <div class="modal-body">
+                      <app-signin></app-signin>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<!-- END -->
+            
           </div>
         </div>
       </div>
     </div>
-    <nav class="navbar navbar-expand-lg">
+
+
+    <nav class="navbar pb-0 navbar-expand-lg">
       <div class="container-fluid">
         <button
           class="navbar-toggler"
@@ -58,12 +75,20 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav p-0">
             <li class="nav-item mx-auto">
               <a class="nav-link">Home</a>
             </li>
             <li class="nav-item mx-auto">
               <a class="nav-link" href="#">Services</a>
+              <div class="submenu shadow">
+                <ul>
+                  <li><a class="nav-link" href="#">Eraser</a></li>
+                  <li><a class="nav-link" href="#">Pencil</a></li>
+                  <li><a class="nav-link" href="#">Stapler</a></li>
+                  <li><a class="nav-link" href="#">Notebook</a></li>
+                </ul>
+              </div>
             </li>
             <li class="nav-item mx-auto">
               <a
@@ -137,7 +162,7 @@
 
 <!-- SIDEBAR -->
 
-<div class="d-block d-md-block d-lg-block">
+ <div class="d-block d-md-block d-lg-block">
   <div class="body">
     <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)" id="sidebarMenu">
       <div class="row">
@@ -159,7 +184,7 @@
               </svg>
             </div>
             <div class="col-8 pl-3">
-              <div>
+              <!-- <div>
                 <br />
                 <img
                   (click)="toggle()"
@@ -174,13 +199,22 @@
                 />
                 <br />
                 <br />
-              </div>
+              </div> -->
+              <div class="row">
+                <div class="col"> <img src="./../../../../../assets/Images/testimonial/sample-1.png" height="50px" width="50" class="circle">
+                </div>
+                <div class="col">
+                  <p>WELCOME</p>
+              <p>Login/SignUp</p>
+                </div>
+              
+            </div>
             </div>
           </div>
 
           <hr class="m-0" />
           <ul class="p-0">
-            <!-- Dynamic Menu -->
+           
             <ng-container *ngIf="_themeService.data?.mainMenu?.length != 0">
               <ng-container *ngFor="let menu of _themeService.data?.mainMenu">
                 <hr class="m-0" />
@@ -207,7 +241,7 @@
               </ng-container>
             </ng-container>
 
-            <!-- Static Menu -->
+           
             <ng-container
               *ngIf="
                 _themeService.data?.mainMenu?.length == 0 ||
@@ -382,10 +416,7 @@
             </ng-container>
 
             <hr class="m-0" />
-            <!-- <li (click)="toggle()" style="list-style-type: none;" class="py-2 px-4">
-              <p class="pl-1 py-2 mb-0">
-                Close
-            </li> -->
+           
             <div
               class="dropdown py-3 pl-4 ml-1"
               *ngIf="_themeService?.data?.multipleLanguage"
@@ -423,6 +454,9 @@
       </div>
     </div>
   </div>
-</div>
+</div> 
+
+
+
 
 <!-- SIDEBAR END -->

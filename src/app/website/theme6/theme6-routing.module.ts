@@ -54,7 +54,7 @@ const routes:Routes=[
         {path:'profile',component:ProfileComponent,canActivate:[AuthGuardService]},
         {path:'edit-profile',component:EditProfileComponent,canActivate:[AuthGuardService]},
         {path:"all-address",component:AllAddressComponent,canActivate:[AuthGuardService]},
-        {path:"single-address",component:SingleAddressComponent,canActivate:[AuthGuardService]},
+        {path:"single-address",component:SingleAddressComponent},
         {path:'super-categories',component:SuperCategoriesComponent},
         {path:'categories',component:CategoriesComponent},
         {path:'subCategories',component:SubCategoriesComponent},
