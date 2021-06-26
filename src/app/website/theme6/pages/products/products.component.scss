@@ -23,6 +23,14 @@
     overflow: hidden;
     height: 180px;
 }
-.card-img-top:hover {
+
+.productcard:hover {.card-img-top {
     transform: scale(1.2);
+}
+}
+.productcard{
+    transition: box-shadow 1s;
+}
+.productcard:hover{
+    box-shadow: 0 0 6px 0 hsl(0deg 0% 48% / 33%);
 }

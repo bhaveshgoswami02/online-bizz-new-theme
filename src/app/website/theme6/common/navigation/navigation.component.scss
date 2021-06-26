@@ -7,16 +7,39 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0);
   z-index: 9999 !important;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0);
+  /* background-color: rgba(247, 247, 247, 0); */
+  background-color: white;
   transform: translateX(-110%);
   transition: transform 250ms ease-in-out;
   z-index: -1;
   overflow-y: scroll;
 }
 
+.referbanner{
+  justify-content: center;
+    background-color: #fee2e2;
+}
+.referbtn{
+ border: none;
+ background-color: white;
+}
+
+ul li p{
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .user {
   color: #746f6d;
   font-size: 26px;
+}
+
+.sidebar li .submenu{ 
+	list-style: none; 
+	margin: 0; 
+	padding: 0; 
+	padding-left: 1rem; 
+	padding-right: 1rem;
 }
 
 .header {
@@ -120,3 +143,9 @@ a.nav-link {
 /* #signinmodel{
 z-index: 999;
 } */
+
+.sidebardropmenu{
+  margin-left: 15px;
+  padding: 2px;
+  padding-left: 20px;
+}
