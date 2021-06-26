@@ -1,6 +1,6 @@
-<app-navigation type=2 title="Order Detail"></app-navigation>
+<app-navigation type="2" title="Order Detail"></app-navigation>
 
-<ng-container *ngIf="singleOrder">
+<!-- <ng-container *ngIf="singleOrder">
     <div class="p-2">
         <div class="container mt-5 mb-4">
             <div class="row border-bottom">
@@ -234,6 +234,154 @@
             </div>
         </div>
     </div>
-</ng-container>
+</ng-container> -->
+
+<div class="container d-none d-lg-block d-md-block">
+  <nav aria-label="breadcrumb" class="mx-auto my-2">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/test8">Home</a></li>
+      <li class="breadcrumb-item">
+        <a routerLink="/test8/profile">My orders</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Order <span class="ml-2">#123456</span>
+      </li>
+    </ol>
+  </nav>
+  <p class="my-4">
+    Order placed on<span class="mx-1">Jun 20, 2020</span>at<span class="ml-1"
+      >11:24AM</span
+    >
+  </p>
+  <div class="order-details-green px-4">
+    <p class="py-3">
+      Your order has been sent. Track the shipment with number<span class="mx-1"
+        >123456789</span
+      >or by clicking here:
+      <span class="mx-1"><u>link-of-order-tracking</u></span>
+    </p>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-9">
+      <div class="d-flex col-12">
+        <p class="text-uppercase col-7 small-text">Product</p>
+        <div class="d-flex col-5">
+          <p class="text-uppercase small-text col-6 text-center">Quantity</p>
+          <p class="text-uppercase small-text col-6 text-center">total</p>
+        </div>
+      </div>
+      <hr />
+      <div class="d-flex col-12">
+        <div class="d-flex col-7">
+          <img
+            src="../../../../../assets/Images/category/category (1).jpg"
+            height="70"
+            alt=""
+          />
+          <p class="text-uppercase normal-text font-weight-bold col-6 my-auto">
+            Product name
+          </p>
+        </div>
+        <div class="d-flex col-5 my-auto">
+          <p
+            class="
+              text-uppercase
+              normal-text
+              font-weight-bold
+              col-6
+              text-center
+            "
+          >
+            1
+          </p>
+          <p
+            class="
+              text-uppercase
+              normal-text
+              font-weight-bold
+              col-6
+              text-center
+            "
+          >
+            <span class="mr-1">₹</span>622
+          </p>
+        </div>
+      </div>
+      <hr />
+      <div class="col-6 float-right">
+        <div class="d-flex justify-content-between">
+          <p class="col-6 text-uppercase small-text">
+            DISCOUNT<span class="ml-1">(LSRV27DC7CSG)</span>
+          </p>
+          <p class="text-center col-6 small-text font-weight-bold">
+            <span class="mr-1">₹</span>622
+          </p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="col-6 text-uppercase small-text">Subtotal</p>
+          <p class="text-center col-6 small-text font-weight-bold">
+            <span class="mr-1">₹</span>622
+          </p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="col-6 text-uppercase small-text">
+            Shipping<span class="ml-1"
+              >(ATTENTION: We are now shipping in all zones (expect shipping
+              delays). Containment zones will resume when govt allows.)</span
+            >
+          </p>
+          <p class="text-center col-6 small-text font-weight-bold">
+            <span class="mr-1">₹</span>0
+          </p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="col-6 text-uppercase small-text">
+            tax<span class="ml-1">(CGST 18.0%)</span>
+          </p>
+          <p class="text-center col-6 small-text font-weight-bold">
+            <span class="mr-1">₹</span>213
+          </p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="col-6 text-uppercase small-text">TOTAL</p>
+          <p class="text-center col-6 small-text font-weight-bold">
+            <span class="mr-1">₹</span>633
+          </p>
+        </div>
+        <button
+          class="
+            btn-dark
+            mt-2
+            w-50
+            py-2
+            small-text
+            font-weight-bold
+            text-uppercase
+          "
+        >
+          Order again
+        </button>
+      </div>
+    </div>
+    <div class="col-3">
+      <p class="normal-text text-uppercase mb-0">Shipping address</p>
+      <hr />
+      <p class="small-text my-3">User-name</p>
+      <p class="small-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero omnis
+        deleniti. adipisicing elit. Libero omnis deleniti. India1991
+      </p>
+
+      <p class="normal-text text-uppercase mt-5 mb-0">Billing address</p>
+      <hr />
+      <p class="small-text my-3">User-name</p>
+      <p class="small-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero omnis
+        deleniti. elit. Libero omnis deleniti. India1991
+      </p>
+    </div>
+  </div>
+</div>
 
 <app-tab></app-tab>

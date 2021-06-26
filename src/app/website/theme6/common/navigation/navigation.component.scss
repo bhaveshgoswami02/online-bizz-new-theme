@@ -15,16 +15,16 @@
   overflow-y: scroll;
 }
 
-.referbanner{
+.referbanner {
   justify-content: center;
-    background-color: #fee2e2;
+  background-color: #fee2e2;
 }
-.referbtn{
- border: none;
- background-color: white;
+.referbtn {
+  border: none;
+  background-color: white;
 }
 
-ul li p{
+ul li p {
   font-size: 14px;
   font-weight: 700;
 }
@@ -34,12 +34,12 @@ ul li p{
   font-size: 26px;
 }
 
-.sidebar li .submenu{ 
-	list-style: none; 
-	margin: 0; 
-	padding: 0; 
-	padding-left: 1rem; 
-	padding-right: 1rem;
+.sidebar li .submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .header {
@@ -143,7 +143,7 @@ a.nav-link {
 z-index: 999;
 } */
 
-.sidebardropmenu{
+.sidebardropmenu {
   margin-left: 15px;
   padding: 2px;
   padding-left: 20px;
@@ -151,19 +151,19 @@ z-index: 999;
 .model-cart {
   height: 100vh;
   position: absolute;
-  top: 0;
   right: 0;
-  bottom: 0;
   overflow: auto;
   overflow-y: auto;
+  float: right;
 }
 
 .mobile-product-quantity {
   width: 60px;
   height: 50px;
 }
-.bagmodel{   height: 100vh !important;
-position: absolute;
-top: -5%;
-left: 87%;
+.bagmodel {
+  height: 100vh !important;
+  position: absolute;
+  top: -5%;
+  left: 100%;
 }

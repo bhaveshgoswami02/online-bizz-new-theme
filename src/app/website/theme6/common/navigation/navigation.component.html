@@ -42,11 +42,7 @@
                 data-toggle="modal"
                 data-target="#exampleModal"
               ></i
-              ><i
-                class="fas fa-user headicon"
-                data-toggle="modal"
-                data-target="#signinmodel"
-              ></i>
+              ><i class="fas fa-user headicon"></i>
             </p>
             <!-- SIGNUP MODEL -->
             <div
@@ -137,8 +133,12 @@
 </div>
 
 <!-- modal bag -->
+<!-- <div
+  class="modal model-cart fade" -->
+
+<!-- modal bag -->
 <div
-  class="modal model-cart fade"
+  class="modal fade"
   id="exampleModal"
   tabindex="-1"
   role="dialog"
@@ -264,22 +264,27 @@
       <div class="row">
         <div class="col-9 bg-white p-0" style="height: 100vh">
           <div class="row">
-            
             <div class="col-10 pt-2 pl-5">
               <div class="d-flex">
-                <div class="d-flex align-items-center"> 
-                  <img src="./../../../../../assets/Images/testimonial/sample-1.png" 
-                  height="50px" width="50" class="rounded-circle">
+                <div class="d-flex align-items-center">
+                  <img
+                    src="./../../../../../assets/Images/testimonial/sample-1.png"
+                    height="50px"
+                    width="50"
+                    class="rounded-circle"
+                  />
                 </div>
                 <div class="d-block align-items-center pl-2">
-                  <p class="fs-13 pt-3" style="color: #9CA3AF;">Welcome,<br>
-                    <b class="fs-16 fw-bold text-uppercase" style="color: #BF9B30;">Login/SignUp</b>
+                  <p class="fs-13 pt-3" style="color: #9ca3af">
+                    Welcome,<br />
+                    <b
+                      class="fs-16 fw-bold text-uppercase"
+                      style="color: #bf9b30"
+                      >Login/SignUp</b
+                    >
                   </p>
-              
                 </div>
-              
-            </div>
-
+              </div>
             </div>
             <div (click)="toggle()" class="col-2 text-center p-2">
               <br />
@@ -298,92 +303,71 @@
             </div>
           </div>
 
-
-<div class=" d-flex referbanner">
-<div class="d-flex align-items-center px-2"><i class="fas fa-gift"></i></div>
-<div class="d-block align-items-center fw-bold px-2 pt-2"><span class="fs-12">Refer A Friend</span>
-<p class="fs-10 fw-bold">Whatever your friend buys,<br>
-you get FREE</p>
-</div>
-<div class="d-flex align-items-start pt-3 px-2">
-  <button class="bgwhite clblack p-1 fs-10 referbtn px-3" style="font-size: 7px;">REFER NOW</button>
-</div>
-</div>
-
+          <div class="d-flex referbanner">
+            <div class="d-flex align-items-center px-2">
+              <i class="fas fa-gift"></i>
+            </div>
+            <div class="d-block align-items-center fw-bold px-2 pt-2">
+              <span class="fs-12">Refer A Friend</span>
+              <p class="fs-10 fw-bold">
+                Whatever your friend buys,<br />
+                you get FREE
+              </p>
+            </div>
+            <div class="d-flex align-items-start pt-3 px-2">
+              <button
+                class="bgwhite clblack p-1 fs-10 referbtn px-3"
+                style="font-size: 7px"
+              >
+                REFER NOW
+              </button>
+            </div>
+          </div>
 
           <hr class="m-0" />
-  <ul class="p-0">
-                       
-                <hr class="m-0" />
-                <li
-                  style="list-style-type: none"
-                  class="py-2 px-4 fw-bold"
-                >
-                  <p
-                    class="pl-1 py-2 mb-0 fw-bold"
-                  >
-                    Home
-                  </p>
-                </li>
-                
-                <hr class="m-0" />
-                <li
-                data-toggle="collapse" href="#collapse1"
-                  style="list-style-type: none"
-                  class="py-2 px-4 fw-bold"
-                >
-                  <p
-                    class="pl-1 py-2 mb-0 fw-bold"
-                    data-toggle="collapse" href="#collapse1"
-                  >
-                    Services<i class="fa fa-chevron-right float-right"></i>
-                  </p>
-                  
-                </li>
-                <div  id="collapse1" class="panel-collapse collapse sidebardropmenu" >
-                  <p class="d-block pl-1 py-2 mb-0">Link 1</p>
-                  <p class="d-block pl-1 py-2 mb-0">Link 2</p>
-                  <p class="d-block pl-1 py-2 mb-0">Link 3</p>
-                </div>
-              
+          <ul class="p-0">
+            <hr class="m-0" />
+            <li style="list-style-type: none" class="py-2 px-4 fw-bold">
+              <p class="pl-1 py-2 mb-0 fw-bold">Home</p>
+            </li>
+
             <hr class="m-0" />
             <li
-                  style="list-style-type: none"
-                  class="py-2 px-4 fw-bold"
-                >
-                  <p
-                    class="pl-1 py-2 mb-0 fw-bold"
-                  >
-                    Shop by collection
-                  </p>
-                </li>
-                
-                <hr class="m-0" />
-                <li
-                  style="list-style-type: none"
-                  class="py-2 px-4 fw-bold"
-                >
-                  <p
-                    class="pl-1 py-2 mb-0 fw-bold"
-                  >
-                    Contact Us
-                  </p>
-                </li>
-                
-                <hr class="m-0" />
-                <li
-                  style="list-style-type: none"
-                  class="py-2 px-4 fw-bold"
-                >
-                  <p
-                    class="pl-1 py-2 mb-0 fw-bold"
-                  >
-                    About Us
-                  </p>
-                </li>
-                
-              
-                <hr class="m-0" />
+              data-toggle="collapse"
+              href="#collapse1"
+              style="list-style-type: none"
+              class="py-2 px-4 fw-bold"
+            >
+              <p
+                class="pl-1 py-2 mb-0 fw-bold"
+                data-toggle="collapse"
+                href="#collapse1"
+              >
+                Services<i class="fa fa-chevron-right float-right"></i>
+              </p>
+            </li>
+            <div id="collapse1" class="panel-collapse collapse sidebardropmenu">
+              <p class="d-block pl-1 py-2 mb-0">Link 1</p>
+              <p class="d-block pl-1 py-2 mb-0">Link 2</p>
+              <p class="d-block pl-1 py-2 mb-0">Link 3</p>
+            </div>
+
+            <hr class="m-0" />
+            <li style="list-style-type: none" class="py-2 px-4 fw-bold">
+              <p class="pl-1 py-2 mb-0 fw-bold">Shop by collection</p>
+            </li>
+
+            <hr class="m-0" />
+            <li style="list-style-type: none" class="py-2 px-4 fw-bold">
+              <p class="pl-1 py-2 mb-0 fw-bold">Contact Us</p>
+            </li>
+
+            <hr class="m-0" />
+            <li style="list-style-type: none" class="py-2 px-4 fw-bold">
+              <p class="pl-1 py-2 mb-0 fw-bold">About Us</p>
+            </li>
+
+            <hr class="m-0" />
             <li class="fixed-bottom"></li>
           </ul>
         </div>
@@ -396,7 +380,5 @@ you get FREE</p>
     </div>
   </div>
 </div>
-
-
 
 <!-- SIDEBAR END -->
