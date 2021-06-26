@@ -1,22 +1,22 @@
-<app-navigation type=2 title="Profile"></app-navigation>
+<app-navigation type="2" title="Profile"></app-navigation>
 
-<div class="container my-5">
+<!-- <div class="container my-5">
     <div class="row">
         <div class="col-md-12 text-center">
             <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" width="80px" height="80px" class="rounded-circle" alt="">
             <h4 class="mb-2">{{customerService?.customerData?.name}}</h4>
         </div>
-    </div>
-    <!-- <h4 class="text-center mb-2">Manage Profile</h4> -->
-    <div class="row mt-3" *ngIf="customerService.customerData">
+    </div> -->
+<!-- <h4 class="text-center mb-2">Manage Profile</h4> -->
+<!-- <div class="row mt-3" *ngIf="customerService.customerData">
         <div class="col-md-6 mx-auto">
             <div class="container">
                 <div class="row border-bottom py-2 outline-0 cursor-pointer" routerLink="{{_themeService.customDomain?'/edit-profile':'/'+_themeService.domainName+'/edit-profile'}}">
-                    <div class="col-lg-10 col-md-10 col-10">
-                        <!-- <span>
+                    <div class="col-lg-10 col-md-10 col-10"> -->
+<!-- <span>
                             <i class="fa fa-user"></i>
                         </span>&nbsp;&nbsp; -->
-                        <span>My Profile</span>
+<!-- <span>My Profile</span>
                     </div>
                     <div class="col-lg-2 col-md-2 col-2 text-right">
                         <span>
@@ -25,12 +25,12 @@
                     </div>
                 </div>
                 <div class="row border-bottom py-2 outline-0 cursor-pointer" routerLink="{{_themeService.customDomain?'/orders':'/'+_themeService.domainName+'/orders'}}" *ngIf="_themeService?.data?.enableOrder">
-                    <div class="col-lg-10 col-md-10 col-10">
-                        <!-- <span>
+                    <div class="col-lg-10 col-md-10 col-10"> -->
+<!-- <span>
                             <i class="fa fa-archive"></i>
                         </span>&nbsp;&nbsp; -->
-                        <span>My Orders</span>
-                    </div>
+<!-- <span>My Orders</span> -->
+<!-- </div>
                     <div class="col-lg-2 col-md-2 col-2 text-right">
                         <span>
                             <i class="fa fa-chevron-right"></i>
@@ -38,11 +38,11 @@
                     </div>
                 </div>
                 <div class="row border-bottom py-2 outline-0 cursor-pointer" routerLink="{{_themeService.customDomain?'/my-shippments':'/'+_themeService.domainName+'/my-shippments'}}" *ngIf="_themeService?.data?.enableOrder">
-                    <div class="col-lg-10 col-md-10 col-10">
-                        <!-- <span>
+                    <div class="col-lg-10 col-md-10 col-10"> -->
+<!-- <span>
                             <i class="fa fa-archive"></i>
                         </span>&nbsp;&nbsp; -->
-                        <span>My Shipments</span>
+<!-- <span>My Shipments</span>
                     </div>
                     <div class="col-lg-2 col-md-2 col-2 text-right">
                         <span>
@@ -51,11 +51,11 @@
                     </div>
                 </div>
                 <div class="row border-bottom py-2 outline-0 cursor-pointer" routerLink="{{_themeService.customDomain?'/all-address':'/'+_themeService.domainName+'/all-address'}}">
-                    <div class="col-lg-10 col-md-10 col-10">
-                        <!-- <span>
+                    <div class="col-lg-10 col-md-10 col-10"> -->
+<!-- <span>
                             <i class="fa fa-list-alt"></i>
                         </span>&nbsp;&nbsp; -->
-                        <span>Manage Address</span>
+<!-- <span>Manage Address</span>
                     </div>
                     <div class="col-lg-2 col-md-2 col-2 text-right">
                         <span>
@@ -64,11 +64,11 @@
                     </div>
                 </div>
                 <div class="row border-bottom py-2 outline-0 cursor-pointer" routerLink="{{_themeService.customDomain?'/search':'/'+_themeService.domainName+'/search'}}">
-                    <div class="col-lg-10 col-md-10 col-10">
-                        <!-- <span>
+                    <div class="col-lg-10 col-md-10 col-10"> -->
+<!-- <span>
                             <i class="fa fa-search"></i>
                         </span>&nbsp;&nbsp; -->
-                        <span>Search</span>
+<!-- <span>Search</span>
                     </div>
                     <div class="col-lg-2 col-md-2 col-2 text-right">
                         <span>
@@ -77,19 +77,18 @@
                     </div>
                 </div>
                 <div class="row border-bottom py-2 outline-0 cursor-pointer">
-                    <div class="col-lg-12 col-md-12 col-12" (click)="logout()">
-                        <!-- <span>
+                    <div class="col-lg-12 col-md-12 col-12" (click)="logout()"> -->
+<!-- <span>
                             <i class="fa fa-sign-out"></i>
                         </span>&nbsp;&nbsp; -->
-                        <span>Logout</span>
+<!-- <span>Logout</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
-
-    <div class="row" *ngIf="!customerService.customerData">
+<!-- <div class="row" *ngIf="!customerService.customerData">
         <div class="col-md-6">
             <div class="container">
                 <div class="row border-bottom py-2" routerLink="{{_themeService.customDomain?'/signin':'/'+_themeService.domainName+'/signin'}}">
@@ -108,6 +107,343 @@
             </div>
         </div>
     </div>
+</div> -->
+
+<div class="container d-none d-lg-block d-md-block">
+  <nav aria-label="breadcrumb" class="mx-auto my-1">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/test8">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">My Profile</li>
+    </ol>
+  </nav>
+  <div class="background-top-profile">
+    <div class="profile-top-container px-5">
+      <div class="h-100 my-auto d-flex justify-content-between">
+        <div class="d-flex my-auto">
+          <img
+            class="user-profile rounded-circle my-auto"
+            src="../../../../../assets/Images/testimonial/sample-3.png"
+            height="75"
+            alt=""
+          />
+          <h5 class="text-white my-auto mx-2">User-Name</h5>
+        </div>
+        <div class="d-flex my-auto">
+          <div class="text-center my-auto">
+            <i class="fas fa-tachometer-alt fa-lg text-white"></i>
+            <h6 class="text-uppercase text-white mt-2">silver</h6>
+            <p class="text-white small-text">Rewarded Level</p>
+          </div>
+          <div class="ver-line mx-5 my-auto"></div>
+          <div class="text-center my-auto">
+            <i class="fas fa-gem fa-lg text-white"></i>
+            <h6 class="text-uppercase text-white mt-2">15</h6>
+            <p class="text-white small-text">Reward Points</p>
+          </div>
+          <div class="ver-line mx-5 my-auto"></div>
+          <div class="text-center my-auto">
+            <i class="fas fa-user-friends fa-lg text-white"></i>
+            <h6 class="text-uppercase text-white mt-2">0</h6>
+            <p class="text-white small-text">My Network</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex px-5 my-2">
+      <p class="small-text my-auto">9445632112</p>
+      <div class="ver-line-sm my-auto mx-3"></div>
+      <p class="small-text my-auto">abc@gmail.com</p>
+    </div>
+  </div>
+  <div class="tabs-container mt-4">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a
+          class="
+            nav-link
+            active
+            tabs-heading
+            text-uppercase text-normal text-center
+            my-auto
+          "
+          id="nav-first-tab"
+          data-toggle="tab"
+          href="#nav-first"
+          role="tab"
+          aria-controls="nav-first"
+          aria-selected="true"
+          >my addresses</a
+        >
+        <a
+          class="
+            nav-link
+            tabs-heading
+            text-uppercase text-normal text-center
+            my-auto
+          "
+          id="nav-second-tab"
+          data-toggle="tab"
+          href="#nav-second"
+          role="tab"
+          aria-controls="nav-second"
+          aria-selected="false"
+          >personal info</a
+        >
+        <a
+          class="
+            nav-link
+            tabs-heading
+            text-uppercase text-normal text-center
+            my-auto
+          "
+          id="nav-third-tab"
+          data-toggle="tab"
+          href="#nav-third"
+          role="tab"
+          aria-controls="nav-third"
+          aria-selected="false"
+          >my orders</a
+        >
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="nav-first"
+        role="tabpanel"
+        aria-labelledby="nav-first-tab"
+      >
+        <div class="tab-1-content pt-3">
+          <div class="add-address-container">
+            <h5>+</h5>
+            <h5 class="text-uppercase">Add new Address</h5>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-second"
+        role="tabpanel"
+        aria-labelledby="nav-second-tab"
+      >
+        <div class="tab-1-content pt-3">
+          <div class="d-flex mt-3">
+            <img
+              class="rounded-circle"
+              src="../../../../../assets/Images/testimonial/sample-1.png"
+              height="120"
+              alt=""
+            />
+            <div class="ml-5 w-100 profile-form d-flex flex-column">
+              <input
+                class="p-2"
+                type="text"
+                name="name"
+                placeholder="Name"
+                id="name"
+              />
+              <input
+                class="p-2"
+                type="number"
+                name="mobile-number"
+                id="mobile-number"
+                placeholder="Mobile Number"
+              />
+              <input
+                class="p-2"
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                id="email"
+              />
+              <button class="btn-dark text-uppercase py-2">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-third"
+        role="tabpanel"
+        aria-labelledby="nav-third-tab"
+      >
+        <div class="tab-1-content pt-3">
+          <ul class="list-benefits">
+            <li>
+              Always exfoliate and moisturise your lips before applying matte
+              lipstick.
+            </li>
+            <li>Apply lip balm, and then apply your liquid matte lipstick.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-tab></app-tab>
 </div>
 
-<app-tab></app-tab>
+<!-- mobile responsive -->
+<div class="container mt-3 d-block d-lg-none d-md-none">
+  <div class="main-back-mobile">
+    <div class="background-profile-mobile">
+      <div class="d-flex justify-content-center h-100 my-auto mx-3">
+        <div class="text-center my-auto">
+          <i class="fas fa-tachometer-alt fa-lg text-white"></i>
+          <h6 class="text-uppercase text-white mt-2">silver</h6>
+          <p class="text-white small-text">Rewarded Level</p>
+        </div>
+        <div class="ver-line mx-auto my-auto"></div>
+        <div class="text-center mx-auto my-auto">
+          <i class="fas fa-gem fa-lg text-white"></i>
+          <h6 class="text-uppercase text-white mt-2">15</h6>
+          <p class="text-white small-text">Reward Points</p>
+        </div>
+        <div class="ver-line mx-auto my-auto"></div>
+        <div class="text-center my-auto">
+          <i class="fas fa-user-friends fa-lg text-white"></i>
+          <h6 class="text-uppercase text-white mt-2">0</h6>
+          <p class="text-white small-text">My Network</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center py-2">
+      <img
+        class="rounded-circle"
+        src="../../../../../assets/Images/testimonial/sample-1.png"
+        height="60"
+        alt="test"
+      />
+      <h6 class="font-weight-bold">User-name</h6>
+    </div>
+    <div class="d-flex justify-content-center">
+      <p>abc@gmail.com</p>
+      <div class="ver-line-sm mx-2"></div>
+      <p>9665544111</p>
+    </div>
+  </div>
+  <div class="tabs-container my-4">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a
+          class="
+            nav-link
+            active
+            tabs-heading
+            text-uppercase text-normal text-center
+            my-auto
+          "
+          id="nav-first-tab-sm"
+          data-toggle="tab"
+          href="#nav-first-sm"
+          role="tab"
+          aria-controls="nav-first-sm"
+          aria-selected="true"
+          >my addresses</a
+        >
+        <a
+          class="
+            nav-link
+            tabs-heading
+            text-uppercase text-normal text-center
+            my-auto
+          "
+          id="nav-second-tab-sm"
+          data-toggle="tab"
+          href="#nav-second-sm"
+          role="tab"
+          aria-controls="nav-second-sm"
+          aria-selected="false"
+          >personal info</a
+        >
+        <a
+          class="
+            nav-link
+            tabs-heading
+            text-uppercase text-normal text-center
+            my-auto
+          "
+          id="nav-third-tab-sm"
+          data-toggle="tab"
+          href="#nav-third-sm"
+          role="tab"
+          aria-controls="nav-third-sm"
+          aria-selected="false"
+          >my orders</a
+        >
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="nav-first-sm"
+        role="tabpanel"
+        aria-labelledby="nav-first-tab-sm"
+      >
+        <div class="tab-1-content pt-3">
+          <div class="add-address-container-sm">
+            <h5>+</h5>
+            <h5 class="text-uppercase">Add new Address</h5>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-second-sm"
+        role="tabpanel"
+        aria-labelledby="nav-second-tab-sm"
+      >
+        <div class="tab-1-content pt-3">
+          <div class="d-flex mt-3">
+            <img
+              class="rounded-circle"
+              src="../../../../../assets/Images/testimonial/sample-1.png"
+              height="75"
+              alt=""
+            />
+            <div class="ml-3 w-100 profile-form-sm d-flex flex-column">
+              <input
+                class="p-2"
+                type="text"
+                name="name"
+                placeholder="Name"
+                id="name"
+              />
+              <input
+                class="p-2"
+                type="number"
+                name="mobile-number"
+                id="mobile-number"
+                placeholder="Mobile Number"
+              />
+              <input
+                class="p-2"
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                id="email"
+              />
+              <button class="btn-dark text-uppercase py-2">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-third-sm"
+        role="tabpanel"
+        aria-labelledby="nav-third-tab-sm"
+      >
+        <div class="tab-1-content pt-3">
+          <ul class="list-benefits">
+            <li>
+              Always exfoliate and moisturise your lips before applying matte
+              lipstick.
+            </li>
+            <li>Apply lip balm, and then apply your liquid matte lipstick.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

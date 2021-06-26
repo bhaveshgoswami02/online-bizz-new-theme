@@ -1,20 +1,20 @@
-<app-navigation type=2 title="Cart"></app-navigation>
+<app-navigation type="2" title="Cart"></app-navigation>
 
-<div class="px-4 px-lg-0">
-    <!-- For demo purpose -->
-    <div class="container text-white pt-5 pb-3 text-center">
+<!-- <div class="px-4 px-lg-0"> -->
+<!-- For demo purpose -->
+<!-- <div class="container text-white pt-5 pb-3 text-center">
         <h4>Shopping Cart</h4>
-    </div>
-    <!-- End -->
+    </div> -->
+<!-- End -->
 
-    <div class="pb-5">
+<!-- <div class="pb-5">
         <div class="container">
             <!-- Large Screen -->
-            <div class="row d-none d-lg-block">
-                <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-3">
+<!-- <div class="row d-none d-lg-block">
+                <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-3"> -->
 
-                    <!-- Shopping cart table -->
-                    <div class="table-responsive">
+<!-- Shopping cart table -->
+<!-- <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -87,13 +87,13 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <!-- End -->
-                </div>
-            </div>
+                    </div> -->
+<!-- End -->
+<!-- </div>
+            </div> -->
 
-            <!-- Small Screen -->
-            <div class="row d-block d-lg-none">
+<!-- Small Screen -->
+<!-- <div class="row d-block d-lg-none">
                 <div class="col-12 shadow-sm bg-white" *ngFor="let item of cartService.cart">
                     <div class="row">
                         <div class="col-4">
@@ -129,19 +129,19 @@
                 <p class="text-center text-muted d-none d-md-block d-lg-block" *ngIf="cartService.cart.length==0">
                     No item Present in cart
                 </p>
-            </div>
+            </div> -->
 
-            <div *ngIf="cartService.cart.length!=0" class="row py-3 p-1 bg-white">
+<!-- <div *ngIf="cartService.cart.length!=0" class="row py-3 p-1 bg-white">
                 <div class="col-lg-6">
 
                 </div>
                 <div class="col-lg-6 rounded">
                     <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold text-center">Order
                         summary </div>
-                    <div class="p-4">
-                        <!-- <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you
+                    <div class="p-4"> -->
+<!-- <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you
                                 have entered.</p> -->
-                        <!-- <div class="row" *ngIf="!cartService.appliedCouponcode">
+<!-- <div class="row" *ngIf="!cartService.appliedCouponcode">
                             <div class="col-lg-10 col-md-10 col-9 px-0">
                                 <input type="text" class="form-control rounded-0" placeholder="Enter Coupon Code" [(ngModel)]="couponCode">
                             </div>
@@ -163,12 +163,12 @@
                                 </div>
                             </div>
                         </div> -->
-                        <ul class="list-unstyled mb-4">
+<!-- <ul class="list-unstyled mb-4">
 
                             <li class="d-flex justify-content-between py-3 border-bottom">
                                 <strong class="text-muted">SubTotal</strong>
-                                <p class="font-weight-bold">&#8377;{{cartService.getCartTotal()}}</p>
-                                <!-- </li>
+                                <p class="font-weight-bold">&#8377;{{cartService.getCartTotal()}}</p> -->
+<!-- </li>
                             <li class="d-flex justify-content-between py-3 border-bottom">
                                 <strong class="text-muted">Discount</strong>
                                 <p class="font-weight-bold">&#8377;{{cartService.discount}}</p>
@@ -177,7 +177,7 @@
                                 <strong class="text-muted">Total</strong>
                                 <p class="font-weight-bold">&#8377;{{cartService.getCartTotal() - cartService.discount}}</p>
                             </li> -->
-                        </ul>
+<!-- </ul>
                         <div class="text-center" *ngIf="_themeService.data.enableOrder">
                             <a (click)="onCheckout()" class="btn-primary w-100">Procceed to checkout</a>
                         </div>
@@ -196,8 +196,125 @@
                     Shopping</a>
             </app-empty-view>
 
-        </div>
+        </div> -->
+<!-- </div> 
+</div> -->
+
+<div class="container-fluid d-none d-md-block d-lg-block">
+  <div class="container mx-auto">
+    <div class="col-12">
+      <h4
+        class="
+          text-uppercase
+          font-weight-bold
+          d-flex
+          justify-content-center
+          mt-5
+          mb-2
+        "
+      >
+        my bag<span>(1)</span>
+      </h4>
+      <div class="products-cart">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="cart-tr">
+              <th scope="row">
+                <img
+                  src="../../../../../assets/Images/category/category (1).jpg"
+                  height="60"
+                  alt=""
+                />
+              </th>
+              <td class="product-name normal-font-size">
+                Produt name - subname
+              </td>
+              <td class="normal-font-size">
+                <span class="normal-font-size">₹</span>233
+              </td>
+              <td class="normal-font-size input-field-size">
+                <input
+                  class="form-control bg-light text-center"
+                  type="number"
+                  name="product-quantity"
+                  value="1"
+                  id="number"
+                />
+              </td>
+              <td class="normal-font-size">
+                <span class="normal-font-size">₹</span>211
+              </td>
+              <td class="normal-font-size">
+                <i class="fas fa-times normal-font-size"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
+  <div class="background-light my-3">
+    <div class="container mx-auto py-3">
+      <div class="d-flex justify-content-between">
+        <div class="d-flex">
+          You will earn
+          <div class="font-weight-bold mx-2">₹ 82 MyGlammXO Points</div>
+          as cashback on this order.
+        </div>
+        <div class="d-flex text-uppercase">
+          GRAND TOTAL
+          <div class="font-weight-bold mx-2">₹ 645</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn-dark text-uppercase px-5 py-2 d-block mx-auto my-3">
+    Proceed to checkout
+  </button>
+</div>
+
+<!-- mobile responsive -->
+<div class="container-fluid d-block d-md-none d-lg-none">
+  <h5 class="d-flex mt-3 justify-content-center text-uppercase">
+    My bag<span>(1)</span>
+  </h5>
+  <div class="d-flex my-3 justify-content-between mx-2">
+    <img
+      src="../../../../../assets/Images/category/category (1).jpg"
+      height="40"
+      alt=""
+    />
+    <div class="d-flex flex-column">
+      <p class="text-uppercase mobile-product-name">
+        MOLTEN MATTE METALLIC LIQUID LIPSTICK - APHRODITE
+      </p>
+      <input
+        class="form-control bg-light mobile-product-quantity text-center"
+        type="number"
+        name="product-quantity"
+        value="1"
+        id="number"
+      />
+    </div>
+    <h6>₹ 645</h6>
+  </div>
+  <div class="d-flex background-light">
+    <div class="d-flex">
+      You will earn
+      <div class="font-weight-bold mx-2">₹ 82 MyGlammXO Points</div>
+      as cashback on this order.
+    </div>
+  </div>
 </div>
 
 <app-tab></app-tab>

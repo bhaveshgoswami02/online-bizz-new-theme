@@ -622,12 +622,49 @@
 
   <div class="video-section mt-5">
     <h5 class="text-uppercase font-weight-bold title">Watch & Learn</h5>
-    <iframe
-      height="240"
-      width="100%"
-      src="https://www.youtube.com/embed/il_t1WVLNxk"
+    <swiper
+      [autoplay]="true"
+      [slidesPerView]="1"
+      [spaceBetween]="50"
+      [pagination]="{ clickable: true }"
+      [thumbs]="{ swiper: thumbsSwiper }"
+      (swiper)="setThumbsSwiper($event)"
+      [navigation]="{}"
+      [watchSlidesVisibility]="true"
     >
-    </iframe>
+      <ng-template swiperSlide class="custom-class">
+        <iframe
+          height="240"
+          width="100%"
+          src="https://www.youtube.com/embed/il_t1WVLNxk"
+        >
+        </iframe>
+      </ng-template>
+      <ng-template swiperSlide class="custom-class">
+        <iframe
+          height="240"
+          width="100%"
+          src="https://www.youtube.com/embed/il_t1WVLNxk"
+        >
+        </iframe>
+      </ng-template>
+      <ng-template swiperSlide class="custom-class">
+        <iframe
+          height="240"
+          width="100%"
+          src="https://www.youtube.com/embed/il_t1WVLNxk"
+        >
+        </iframe>
+      </ng-template>
+      <ng-template swiperSlide class="custom-class">
+        <iframe
+          height="240"
+          width="100%"
+          src="https://www.youtube.com/embed/il_t1WVLNxk"
+        >
+        </iframe>
+      </ng-template>
+    </swiper>
   </div>
 
   <div class="related-products-section mt-5">
@@ -758,4 +795,4 @@
   </div>
 </div>
 
-<app-tab></app-tab>
+<!-- <app-tab></app-tab> -->

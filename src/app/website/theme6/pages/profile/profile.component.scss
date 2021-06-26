@@ -1,0 +1,97 @@
+.background-top-profile {
+  background-color: rgb(226, 226, 226);
+  height: 160px;
+  width: 100%;
+}
+
+.profile-top-container {
+  width: 100%;
+  height: 120px;
+  background-color: cadetblue;
+  //   background-image: url("../../../../../assets/Images/service/service\ \(2\).jpg");
+  //   background-repeat: no-repeat;
+  //   filter: blur(1px);
+}
+
+.small-text {
+  font-size: 12px;
+}
+
+.ver-line {
+  border-left: 1px solid rgb(240, 240, 240);
+  height: 60px;
+}
+
+.ver-line-sm {
+  border-left: 0.75px solid rgb(117, 117, 117);
+  height: 20px;
+}
+.text-normal {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.add-address-container {
+  width: 500px;
+  height: 400px;
+  border: 1px solid #929191;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h5 {
+    font-weight: 600;
+  }
+}
+
+.add-address-container-sm {
+  width: 200px;
+  height: 180px;
+  border: 0.75px solid #929191;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h5 {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+}
+
+.profile-form {
+  input {
+    width: 325px;
+    margin-bottom: 12px;
+    background-color: #dfdfdf;
+    border: none;
+    color: rgb(29, 29, 29);
+  }
+  button {
+    width: 325px;
+    font-size: 0.8rem;
+  }
+}
+
+.profile-form-sm {
+  input {
+    margin-bottom: 8px;
+    background-color: #dfdfdf;
+    border: none;
+    color: rgb(29, 29, 29);
+  }
+  button {
+    font-size: 0.8rem;
+  }
+}
+
+.background-profile-mobile {
+  width: 100%;
+  height: 140px;
+  background-color: cadetblue;
+}
+
+.main-back-mobile {
+  background-color: rgb(226, 226, 226);
+  width: 100%;
+}
