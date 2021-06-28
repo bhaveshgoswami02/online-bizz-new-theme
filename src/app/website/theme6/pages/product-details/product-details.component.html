@@ -140,6 +140,7 @@
 </ng-container> -->
 
 <!-- Normal View -->
+
 <div class="container py-5 d-none d-md-block d-lg-block">
   <div class="row">
     <div class="col-12 col-md-5 col-lg-5">
@@ -184,7 +185,14 @@
         </div>
         <div>
           <div class="preview">
-            <img class="w-100" [src]="defaultImage" id="imagebox" alt="" />
+            <img
+              [src]="data?.imgUrl"
+              width="100%"
+              (load)="data.loaded = true"
+              [hidden]="!data.loaded"
+              class="shadow-sm w-100"
+              style="background-color: rgb(158, 158, 158)"
+            />
           </div>
           <div class="d-flex social-imgs justify-content-center my-3">
             <img
@@ -209,7 +217,7 @@
     </div>
 
     <div class="product-details col-12 col-md-7 col-lg-7">
-      <h3 class="text-uppercase">Lit liquid matte lipstic - slow fade</h3>
+      <h3 class="text-uppercase">{{ data?.itemName }}</h3>
       <p>Moringa Oil Enriched Matte Lipstick</p>
       <div class="d-flex">
         <h3 class="my-auto rating">4.9</h3>
@@ -219,12 +227,23 @@
         <p class="my-auto mx-2 rating">ratings</p>
       </div>
       <div class="d-flex mt-4 price">
-        <h5>₹</h5>
-        <h5 class="mx-2">455</h5>
+        <!-- <h5>₹</h5>
+        <h5 class="mx-2">455</h5> -->
+        <span
+          class="text-grey"
+          *ngIf="_themeService.data.enableCart && data.itemPrice"
+        >
+          <b class="price-size"
+            >Rs. <del class="text-muted">{{ data?.itemMrpPrice }} </del> &nbsp;
+            {{ data?.itemPrice }}
+          </b>
+        </span>
       </div>
       <div class="below-price">(MRP incl. of all taxes)</div>
       <div class="row my-4 ml-1">
         <button
+          *ngIf="!cartService.isProductInCart(params)"
+          (click)="addToCart(data)"
           class="
             col-12 col-md-4 col-lg-4
             btn btn-dark btn-lg
@@ -235,6 +254,29 @@
         >
           <i class="fa fa-shopping-bag mr-3" aria-hidden="true"></i>Add to bag
         </button>
+        <span
+          *ngIf="
+            cartService.isProductInCart(params) && _themeService.data.enableCart
+          "
+        >
+          <!-- <span class="btn-primary price-size" (click)="decrementProduct(data)">
+            <i class="fa fa-minus"></i>
+          </span> -->
+          <i
+            class="fas fa-minus-circle ml-1 my-auto"
+            (click)="decrementProduct(data)"
+          ></i>
+          <span class="mx-2">{{
+            cartService.isProductInCart(params)?.qty
+          }}</span>
+          <!-- <span class="btn-primary price-size" (click)="incrementProduct(data)">
+            <i class="fa fa-plus"></i>
+          </span> -->
+          <i
+            class="fas fa-plus-circle my-auto"
+            (click)="incrementProduct(data)"
+          ></i>
+        </span>
         <div
           class="
             normal-bold-text
@@ -548,251 +590,269 @@
 </div>
 
 <!-- Responsive design -->
-<div class="container-fluid d-block d-md-none d-lg-none mt-2">
-  <div class="col-12">
-    <swiper
-      [zoom]="true"
-      [autoplay]="true"
-      [slidesPerView]="1"
-      [spaceBetween]="50"
-      [pagination]="{ clickable: true }"
-      [thumbs]="{ swiper: thumbsSwiper }"
-      (swiper)="setThumbsSwiper($event)"
-      [navigation]="{}"
-      [watchSlidesVisibility]="true"
-    >
-      <ng-template swiperSlide class="custom-class">
-        <img
-          src="../../../../../assets/Images/category/category (1).jpg"
-          class="img-mobile"
-          alt="product-image"
-        />
-      </ng-template>
-      <ng-template swiperSlide>
-        <img
-          src="../../../../../assets/Images/category/category (3).jpg"
-          class="img-mobile"
-          alt="product-image"
-        />
-      </ng-template>
-      <ng-template swiperSlide>
-        <img
-          src="../../../../../assets/Images/category/category (2).jpg"
-          class="img-mobile"
-          alt="product-image"
-        />
-      </ng-template>
-    </swiper>
-  </div>
-
-  <div class="upper-section mt-4">
-    <h6 class="font-weight-bold title mt-2">Eraser</h6>
-    <p class="paragraph">School Stationary</p>
-    <div class="d-flex justify-content-between mt-1">
-      <div class="d-flex my-auto">
-        <h6 class="font-weight-bold title">₹</h6>
-        <h6 class="font-weight-bold title ml-1">445</h6>
-      </div>
-      <button class="btn btn-yellow">
-        Add to bag<i class="fa fa-shopping-bag ml-2" aria-hidden="true"></i>
-      </button>
+<ng-container *ngIf="!skeleton">
+  <div class="container-fluid d-block d-md-none d-lg-none mt-2">
+    <div class="col-12">
+      <swiper
+        [zoom]="true"
+        [autoplay]="true"
+        [slidesPerView]="1"
+        [spaceBetween]="50"
+        [pagination]="{ clickable: true }"
+        [thumbs]="{ swiper: thumbsSwiper }"
+        (swiper)="setThumbsSwiper($event)"
+        [navigation]="{}"
+        [watchSlidesVisibility]="true"
+      >
+        <ng-template swiperSlide class="custom-class">
+          <img
+            [src]="data?.imgUrl"
+            (load)="data.loaded = true"
+            [hidden]="!data.loaded"
+            alt=""
+            class="shadow-sm img-mobile"
+          />
+        </ng-template>
+        <ng-template swiperSlide>
+          <img
+            src="../../../../../assets/Images/category/category (3).jpg"
+            class="img-mobile"
+            alt="product-image"
+          />
+        </ng-template>
+        <ng-template swiperSlide>
+          <img
+            src="../../../../../assets/Images/category/category (2).jpg"
+            class="img-mobile"
+            alt="product-image"
+          />
+        </ng-template>
+      </swiper>
     </div>
-  </div>
 
-  <div class="desc-section mt-5">
-    <h6 class="font-weight-bold sub-title">Description</h6>
-    <p class="paragraph">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quibusdam!
-      Repudiandae commodi blanditiis vero nemo.
-    </p>
-    <p class="paragraph">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quibusdam!
-      Repudiandae commodi blanditiis vero nemo. At sunt sapiente ipsam nemo, est
-      dolores itaque! Provident, sequi porro vel non debitis enim.
-    </p>
-    <h6 class="font-weight-bold sub-title mt-2">Benefits</h6>
-    <ol class="list-benefits-mobile">
-      <li>Matte finish</li>
-      <li>Smudge-proof and transfer-proof formula</li>
-      <li>Smooth, opaque application</li>
-      <li>Highly pigmented</li>
-      <li>Vegan-friendly</li>
-    </ol>
-  </div>
-
-  <div class="video-section mt-5">
-    <h5 class="text-uppercase font-weight-bold title">Watch & Learn</h5>
-    <swiper
-      [autoplay]="true"
-      [slidesPerView]="1"
-      [spaceBetween]="50"
-      [pagination]="{ clickable: true }"
-      [thumbs]="{ swiper: thumbsSwiper }"
-      (swiper)="setThumbsSwiper($event)"
-      [navigation]="{}"
-      [watchSlidesVisibility]="true"
-    >
-      <ng-template swiperSlide class="custom-class">
-        <iframe
-          height="240"
-          width="100%"
-          src="https://www.youtube.com/embed/il_t1WVLNxk"
-        >
-        </iframe>
-      </ng-template>
-      <ng-template swiperSlide class="custom-class">
-        <iframe
-          height="240"
-          width="100%"
-          src="https://www.youtube.com/embed/il_t1WVLNxk"
-        >
-        </iframe>
-      </ng-template>
-      <ng-template swiperSlide class="custom-class">
-        <iframe
-          height="240"
-          width="100%"
-          src="https://www.youtube.com/embed/il_t1WVLNxk"
-        >
-        </iframe>
-      </ng-template>
-      <ng-template swiperSlide class="custom-class">
-        <iframe
-          height="240"
-          width="100%"
-          src="https://www.youtube.com/embed/il_t1WVLNxk"
-        >
-        </iframe>
-      </ng-template>
-    </swiper>
-  </div>
-
-  <div class="related-products-section mt-5">
-    <h5 class="text-uppercase font-weight-bold title">Related Products</h5>
-    <swiper
-      [autoplay]="true"
-      [slidesPerView]="1"
-      [spaceBetween]="50"
-      [pagination]="{ clickable: true }"
-      [thumbs]="{ swiper: thumbsSwiper }"
-      (swiper)="setThumbsSwiper($event)"
-      [navigation]="{}"
-      [watchSlidesVisibility]="true"
-    >
-      <ng-template swiperSlide class="custom-class">
-        <div class="card" style="border: none">
-          <div class="card-body">
-            <img
-              src="../../../../../assets/Images/category/category (3).jpg"
-              class="img-mobile"
-              alt="product-image"
-            />
-            <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
-            <p class="paragraph">Schoole Stationary</p>
-          </div>
+    <div class="upper-section mt-4">
+      <h6 class="font-weight-bold title mt-2">{{ data?.itemName }}</h6>
+      <p class="paragraph">School Stationary</p>
+      <div class="d-flex justify-content-between mt-1">
+        <div class="d-flex my-auto">
+          <span
+            class="text-grey"
+            *ngIf="_themeService.data.enableCart && data.itemPrice"
+          >
+            <b class="price-size"
+              >Rs.
+              <del class="text-muted">{{ data?.itemMrpPrice }} </del> &nbsp;
+              {{ data?.itemPrice }}
+            </b>
+          </span>
         </div>
-      </ng-template>
-      <ng-template swiperSlide>
-        <div class="card" style="border: none">
-          <div class="card-body">
-            <img
-              src="../../../../../assets/Images/category/category (3).jpg"
-              class="img-mobile"
-              alt="product-image"
-            />
-            <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
-            <p class="paragraph">Schoole Stationary</p>
-          </div>
-        </div>
-      </ng-template>
-      <ng-template swiperSlide>
-        <div class="card" style="border: none">
-          <div class="card-body">
-            <img
-              src="../../../../../assets/Images/category/category (3).jpg"
-              class="img-mobile"
-              alt="product-image"
-            />
-            <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
-            <p class="paragraph">Schoole Stationary</p>
-          </div>
-        </div>
-      </ng-template>
-    </swiper>
-  </div>
+        <button
+          class="btn btn-yellow"
+          *ngIf="!cartService.isProductInCart(params)"
+          (click)="addToCart(data)"
+        >
+          Add to bag<i class="fa fa-shopping-bag ml-2" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
 
-  <div class="explore-section mt-5">
-    <h5 class="text-uppercase font-weight-bold title">Explore More</h5>
-    <!-- <img
+    <div class="desc-section mt-5">
+      <h6 class="font-weight-bold sub-title">Description</h6>
+      <!-- <p class="paragraph">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
+        quibusdam! Repudiandae commodi blanditiis vero nemo.
+      </p>
+      <p class="paragraph">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla,
+        quibusdam! Repudiandae commodi blanditiis vero nemo. At sunt sapiente
+        ipsam nemo, est dolores itaque! Provident, sequi porro vel non debitis
+        enim.
+      </p>
+      <h6 class="font-weight-bold sub-title mt-2">Benefits</h6>
+      <ol class="list-benefits-mobile">
+        <li>Matte finish</li>
+        <li>Smudge-proof and transfer-proof formula</li>
+        <li>Smooth, opaque application</li>
+        <li>Highly pigmented</li>
+        <li>Vegan-friendly</li>
+      </ol> -->
+      <div [innerHTML]="data?.itemDescription"></div>
+    </div>
+
+    <div class="video-section mt-5">
+      <h5 class="text-uppercase font-weight-bold title">Watch & Learn</h5>
+      <swiper
+        [autoplay]="true"
+        [slidesPerView]="1"
+        [spaceBetween]="50"
+        [pagination]="{ clickable: true }"
+        [thumbs]="{ swiper: thumbsSwiper }"
+        (swiper)="setThumbsSwiper($event)"
+        [navigation]="{}"
+        [watchSlidesVisibility]="true"
+      >
+        <ng-template swiperSlide class="custom-class">
+          <iframe
+            height="240"
+            width="100%"
+            src="https://www.youtube.com/embed/il_t1WVLNxk"
+          >
+          </iframe>
+        </ng-template>
+        <ng-template swiperSlide class="custom-class">
+          <iframe
+            height="240"
+            width="100%"
+            src="https://www.youtube.com/embed/il_t1WVLNxk"
+          >
+          </iframe>
+        </ng-template>
+        <ng-template swiperSlide class="custom-class">
+          <iframe
+            height="240"
+            width="100%"
+            src="https://www.youtube.com/embed/il_t1WVLNxk"
+          >
+          </iframe>
+        </ng-template>
+        <ng-template swiperSlide class="custom-class">
+          <iframe
+            height="240"
+            width="100%"
+            src="https://www.youtube.com/embed/il_t1WVLNxk"
+          >
+          </iframe>
+        </ng-template>
+      </swiper>
+    </div>
+
+    <div class="related-products-section mt-5">
+      <h5 class="text-uppercase font-weight-bold title">Related Products</h5>
+      <swiper
+        [autoplay]="true"
+        [slidesPerView]="1"
+        [spaceBetween]="50"
+        [pagination]="{ clickable: true }"
+        [thumbs]="{ swiper: thumbsSwiper }"
+        (swiper)="setThumbsSwiper($event)"
+        [navigation]="{}"
+        [watchSlidesVisibility]="true"
+      >
+        <ng-template swiperSlide class="custom-class">
+          <div class="card" style="border: none">
+            <div class="card-body">
+              <img
+                src="../../../../../assets/Images/category/category (3).jpg"
+                class="img-mobile"
+                alt="product-image"
+              />
+              <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
+              <p class="paragraph">Schoole Stationary</p>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="card" style="border: none">
+            <div class="card-body">
+              <img
+                src="../../../../../assets/Images/category/category (3).jpg"
+                class="img-mobile"
+                alt="product-image"
+              />
+              <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
+              <p class="paragraph">Schoole Stationary</p>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="card" style="border: none">
+            <div class="card-body">
+              <img
+                src="../../../../../assets/Images/category/category (3).jpg"
+                class="img-mobile"
+                alt="product-image"
+              />
+              <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
+              <p class="paragraph">Schoole Stationary</p>
+            </div>
+          </div>
+        </ng-template>
+      </swiper>
+    </div>
+
+    <div class="explore-section mt-5">
+      <h5 class="text-uppercase font-weight-bold title">Explore More</h5>
+      <!-- <img
       height="150"
       width="100%"
       src="../../../../../assets/Images/category/category (3).jpg"
       class="img-mobile"
       alt=""
     /> -->
-    <div class="position-relative">
-      <img
-        src="./../../../../../assets/Images/category/category (1).jpg"
-        class="categoryimg1"
-      />
-      <div class="imgdivblock">
-        <p>Eraser</p>
+      <div class="position-relative">
+        <img
+          src="./../../../../../assets/Images/category/category (1).jpg"
+          class="categoryimg1"
+        />
+        <div class="imgdivblock">
+          <p>Eraser</p>
+        </div>
+      </div>
+      <div class="position-relative mt-1">
+        <img
+          src="./../../../../../assets/Images/category/category (5).jpg"
+          class="categoryimg1"
+        />
+        <div class="imgdivblock">
+          <p>Pencil</p>
+        </div>
+      </div>
+      <div class="position-relative mt-1">
+        <img
+          src="./../../../../../assets/Images/category/category (2).jpg"
+          class="categoryimg1"
+        />
+        <div class="imgdivblock">
+          <p>Calculator</p>
+        </div>
+      </div>
+      <div class="position-relative mt-1">
+        <img
+          src="./../../../../../assets/Images/category/category (3).jpg"
+          class="categoryimg1"
+        />
+        <div class="imgdivblock">
+          <p>Notebook</p>
+        </div>
+      </div>
+      <div class="position-relative mt-1">
+        <img
+          src="./../../../../../assets/Images/category/category (4).jpg"
+          class="categoryimg1"
+        />
+        <div class="imgdivblock">
+          <p>Eraser</p>
+        </div>
       </div>
     </div>
-    <div class="position-relative mt-1">
-      <img
-        src="./../../../../../assets/Images/category/category (5).jpg"
-        class="categoryimg1"
-      />
-      <div class="imgdivblock">
-        <p>Pencil</p>
-      </div>
-    </div>
-    <div class="position-relative mt-1">
-      <img
-        src="./../../../../../assets/Images/category/category (2).jpg"
-        class="categoryimg1"
-      />
-      <div class="imgdivblock">
-        <p>Calculator</p>
-      </div>
-    </div>
-    <div class="position-relative mt-1">
-      <img
-        src="./../../../../../assets/Images/category/category (3).jpg"
-        class="categoryimg1"
-      />
-      <div class="imgdivblock">
-        <p>Notebook</p>
-      </div>
-    </div>
-    <div class="position-relative mt-1">
-      <img
-        src="./../../../../../assets/Images/category/category (4).jpg"
-        class="categoryimg1"
-      />
-      <div class="imgdivblock">
-        <p>Eraser</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="brand-section mt-5">
-    <h5 class="text-uppercase font-weight-bold title">Brands</h5>
-    <img src="../../../../../assets/Images/service/service (1).jpg" alt="" />
-    <div class="brand-name-section rounded sub-title font-weight-bold">
-      Branditt
+    <div class="brand-section mt-5">
+      <h5 class="text-uppercase font-weight-bold title">Brands</h5>
+      <img src="../../../../../assets/Images/service/service (1).jpg" alt="" />
+      <div class="brand-name-section rounded sub-title font-weight-bold">
+        Branditt
+      </div>
+    </div>
+
+    <div class="images-section">
+      <img src="../../../../../assets/Images/service/service (1).jpg" alt="" />
+      <img src="../../../../../assets/Images/service/service (2).jpg" alt="" />
+      <img src="../../../../../assets/Images/service/service (3).jpg" alt="" />
+      <img src="../../../../../assets/Images/service/service (1).jpg" alt="" />
+      <img src="../../../../../assets/Images/service/service (2).jpg" alt="" />
+      <img src="../../../../../assets/Images/service/service (3).jpg" alt="" />
     </div>
   </div>
-
-  <div class="images-section">
-    <img src="../../../../../assets/Images/service/service (1).jpg" alt="" />
-    <img src="../../../../../assets/Images/service/service (2).jpg" alt="" />
-    <img src="../../../../../assets/Images/service/service (3).jpg" alt="" />
-    <img src="../../../../../assets/Images/service/service (1).jpg" alt="" />
-    <img src="../../../../../assets/Images/service/service (2).jpg" alt="" />
-    <img src="../../../../../assets/Images/service/service (3).jpg" alt="" />
-  </div>
-</div>
+</ng-container>
 
 <!-- <app-tab></app-tab> -->

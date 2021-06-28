@@ -17,7 +17,8 @@ export class NavigationComponent implements OnInit {
   @Input() type: number = 1
   @Input() title: string = ""
 
-  constructor(public _themeService: ThemesManagerService, public cartService: CartService, public customerService: ManageCustomerService, public common: CommonService) { }
+  constructor(public _themeService: ThemesManagerService, public cartService: CartService, public customerService: ManageCustomerService, public common: CommonService
+    ) { }
 
   ngOnInit(): void {
     if(this._themeService.isBrowser){
@@ -80,6 +81,20 @@ export class NavigationComponent implements OnInit {
 
   blankSearchField(searchText) {
     searchText.value = null
+  }
+
+  removeItemFromCart(product){
+    this.cartService.removeProductFromCart(product)
+  }
+
+  onCheckout() {
+    if(this.customerService.getCustomerData()) {
+      this._themeService.navigateTo("/checkout")
+    }
+    else
+    {
+      this._themeService.navigateTo("/signin",{id:"cart-signin"})
+    }
   }
 
 }

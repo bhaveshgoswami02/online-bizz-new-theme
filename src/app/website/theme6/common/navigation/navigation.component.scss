@@ -164,6 +164,16 @@ z-index: 999;
 .bagmodel {
   height: 100vh !important;
   position: absolute;
-  top: -5%;
-  left: 100%;
+  top: -4%;
+  left: 114%;
+  right: 0px;
+  overflow-y: auto;
+  width: 440px;
+}
+.btn-modal-bag-checkout {
+  position: absolute;
+  width: auto;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
 }

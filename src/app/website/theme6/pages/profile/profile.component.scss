@@ -33,8 +33,8 @@
   font-weight: 600;
 }
 .add-address-container {
-  width: 500px;
-  height: 400px;
+  width: 380px;
+  height: 300px;
   border: 1px solid #929191;
   cursor: pointer;
   display: flex;
@@ -96,4 +96,10 @@
 .main-back-mobile {
   background-color: rgb(226, 226, 226);
   width: 100%;
+}
+.dropdown {
+  i,
+  p {
+    cursor: pointer;
+  }
 }

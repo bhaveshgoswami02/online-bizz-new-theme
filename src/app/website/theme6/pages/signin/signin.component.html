@@ -66,68 +66,176 @@
     </div>
 </div> -->
 <div class="d-none d-md-block d-lg-block">
-<div class="container mb-3">
-  <p class="text-center fs-14">Get 15% MyGlammXO Points back on every order</p>
-  <div class="text-center my-2">
-    <img src="./../../../../../assets/Images/logo.jpg" />
+  <div class="container mb-3">
+    <p class="text-center fs-14">
+      Get 15% MyGlammXO Points back on every order
+    </p>
+    <div class="text-center my-2">
+      <img src="./../../../../../assets/Images/logo.jpg" />
+    </div>
   </div>
-</div>
-<ul class="border-bottom">
-  <li class="active ml-3">
-    <span class="fw-bold fs-14 mobiletext">Mobile Number</span>
-  </li>
-</ul>
-<div class="container">
-  <div class="form">
-    <form>
-      <div class="row mb-3">
-        <div class="col-4">
-          <label class="fs-10 m-0 p-0 label clsecondarytext">COUNTRY CODE</label
-          ><br />
-          <input
-            type="number"
-            class="w-100 p-2 border rounded fw-bold"
-            placeholder="IND +91"
-          />
-          <!--  <select class="w-100 p-2 border rounded fs-14 fw-bold">
+  <ul class="border-bottom text-center" *ngIf="!isOtpSent">
+    <li class="active">
+      <span class="fw-bold fs-14 mobiletext">Mobile Number</span>
+    </li>
+  </ul>
+  <div class="container" *ngIf="!isOtpSent">
+    <div class="form">
+      <form
+        #formData="ngForm"
+        autocomplete="off"
+        class="border p-3"
+        (ngSubmit)="sendOtp(formData)"
+      >
+        <div class="row mb-3">
+          <div class="col-4">
+            <label class="fs-10 m-0 p-0 label clsecondarytext"
+              >COUNTRY CODE</label
+            ><br />
+            <input
+              type="number"
+              class="w-100 p-2 border rounded fw-bold"
+              placeholder="IND +91"
+            />
+            <!--  <select class="w-100 p-2 border rounded fs-14 fw-bold">
              <option>IND +91</option>
              <option>GEM +49</option>
              <option>NTH +31</option>
          </select> -->
-                </div>
-                <div class="col-8">
-                    <label class="fs-10 m-0 p-0 label clsecondarytext">*MOBILE NUMBER</label><br>
-         <input type="number" class="w-100 p-2 border rounded" >
-                </div>
-         
-            </div>
-            
-         <button class="btn-dark fw-bold w-100 fs-14 my-3 p-3 border-0  p-3 loginbtn " data-toggle="modal" data-target="#exampleModalCenter">CONTINUE</button>
-         
-        </form> </div>
-        <!--  REGISTER MODEL  -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-               <!--  <app-register></app-register> -->
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+          </div>
+          <div class="col-8">
+            <label class="fs-10 m-0 p-0 label clsecondarytext"
+              >*MOBILE NUMBER</label
+            ><br />
+            <input
+              type="number"
+              name="mobileNumber"
+              class="w-100 p-2 border rounded"
+              #mobileNumber="ngModel"
+              ngModel
+              required
+            />
+            <p
+              class="text-danger"
+              *ngIf="
+                mobileNumber.invalid &&
+                (mobileNumber.dirty || mobileNumber.touched)
+              "
+            >
+              Please Enter Mobile Number
+            </p>
+          </div>
+        </div>
+
+        <button
+          class="btn-dark fw-bold w-100 fs-14 my-3 p-3 border-0 p-3 loginbtn"
+          data-toggle="modal"
+          data-target="#exampleModalCenter"
+        >
+          CONTINUE
+        </button>
+      </form>
+    </div>
+    <!--  REGISTER MODEL  -->
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <h5 class="modal-title" id="exampleModalLongTitle">
+              Please put the OPT!
+            </h5> -->
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="col-md-6 mx-auto mb-5" *ngIf="isOtpSent">
+              <div class="col-md-12 text-center">
+                <h4>Verify</h4>
               </div>
+              <form
+                #otpFormData="ngForm"
+                class="border p-3"
+                (ngSubmit)="vertifyOtp(otpFormData)"
+              >
+                <div class="row">
+                  <div class="col-12">
+                    <div class="single-input-item">
+                      <label>
+                        <input
+                          type="number"
+                          #otp="ngModel"
+                          name="otp"
+                          placeholder="Enter OTP"
+                          ngModel
+                          required
+                        />
+                        <p
+                          class="text-danger"
+                          *ngIf="otp.invalid && (otp.dirty || otp.touched)"
+                        >
+                          Please Enter OTP
+                        </p>
+                        <a
+                          (click)="changeNumber()"
+                          class="font-12 text-secondary cursor-pointer"
+                          >Do you want to change number?</a
+                        >
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  class="btn-primary w-100"
+                  type="submit"
+                  [disabled]="otpFormData.invalid"
+                  *ngIf="!loader"
+                >
+                  Verify OTP
+                </button>
+                <button
+                  class="btn-primary w-100"
+                  type="button"
+                  disabled
+                  *ngIf="loader"
+                >
+                  <span
+                    class="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  Loading...
+                </button>
+              </form>
             </div>
           </div>
-          
-   
-   <!--   <div class="position-relative">
+          <!-- <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <!--   <div class="position-relative">
         <hr>
     <span class="bg-white signintext fs-12">or continue with</span>
     </div>
@@ -143,11 +251,12 @@
             height="20px" width="20px" class="d-flex" alt="google">
             <span class="ml-2 fw-bold my-auto d-flex">Connect with Google</span></button>
     </div>  -->
- 
- 
- 
+
     <div class="text-center my-3">
-        <p class="fs-12 fw-bold py-3"><span class="clsecondarytext">By signing up I agree to the</span> Terms & Conditions.</p>
+      <p class="fs-12 fw-bold py-3">
+        <span class="clsecondarytext">By signing up I agree to the</span> Terms
+        & Conditions.
+      </p>
     </div>
   </div>
 </div>
@@ -190,9 +299,8 @@
     </p>
   </div>  -->
 
-
 <!-- MOBILE DESIGN -->
- <!-- <div class="d-block d-md-none d-lg-none">
+<!-- <div class="d-block d-md-none d-lg-none">
  <app-navigation></app-navigation>
 <div class="container px-4 mt-4">
     <p class="text-center fw-bold fs-12"> WELCOME TO</p>

@@ -126,9 +126,11 @@
             height="75"
             alt=""
           />
-          <h5 class="text-white my-auto mx-2">User-Name</h5>
+          <h5 class="text-white my-auto mx-2">
+            {{ customerService?.customerData?.name }}
+          </h5>
         </div>
-        <div class="d-flex my-auto">
+        <!-- <div class="d-flex my-auto">
           <div class="text-center my-auto">
             <i class="fas fa-tachometer-alt fa-lg text-white"></i>
             <h6 class="text-uppercase text-white mt-2">silver</h6>
@@ -146,13 +148,17 @@
             <h6 class="text-uppercase text-white mt-2">0</h6>
             <p class="text-white small-text">My Network</p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="d-flex px-5 my-2">
-      <p class="small-text my-auto">9445632112</p>
+      <p class="small-text my-auto">
+        {{ customerService?.customerData?.mobileNumber }}
+      </p>
       <div class="ver-line-sm my-auto mx-3"></div>
-      <p class="small-text my-auto">abc@gmail.com</p>
+      <p class="small-text my-auto">
+        {{ customerService?.customerData?.email }}
+      </p>
     </div>
   </div>
   <div class="tabs-container mt-4">
@@ -244,12 +250,14 @@
                 type="text"
                 name="name"
                 placeholder="Name"
+                value="{{ customerService?.customerData?.name }}"
                 id="name"
               />
               <input
                 class="p-2"
                 type="number"
                 name="mobile-number"
+                value="{{ customerService?.customerData?.mobileNumber }}"
                 id="mobile-number"
                 placeholder="Mobile Number"
               />
@@ -258,6 +266,7 @@
                 type="email"
                 name="email"
                 placeholder="E-mail"
+                value="{{ customerService?.customerData?.email }}"
                 id="email"
               />
               <button class="btn-dark text-uppercase py-2">Save</button>
@@ -271,92 +280,132 @@
         role="tabpanel"
         aria-labelledby="nav-third-tab"
       >
-        <div class="tab-1-content pt-3">
-          <div class="col-12">
-            <nav aria-label="breadcrumb" class="mx-auto my-2">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a routerLink="/test8">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">
-                  My orders
-                </li>
-              </ol>
-            </nav>
-            <hr />
-            <div class="tabs-container mt-4">
-              <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <div class="tab-1-content pt-3 pl-3 mr-4">
+          <div class="d-flex justify-content-between">
+            <p class="font-weight-bold my-auto"></p>
+            <div class="d-flex">
+              <!-- <i class="fas fa-filter my-auto"></i> -->
+              <!-- <p class="ml-1 my-auto">Filter</p> -->
+              <span class="dropdown d-flex">
+                <i
+                  class="fa fa-filter my-auto"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                ></i>
+                <p
+                  class="ml-1 my-auto"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Filter
+                </p>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a
-                    class="nav-link active tabs-heading text-uppercase"
-                    id="nav-first-tab"
-                    data-toggle="tab"
-                    href="#nav-first"
-                    role="tab"
-                    aria-controls="nav-first"
-                    aria-selected="true"
-                    >Live</a
+                    class="dropdown-item cursor-pointer"
+                    (click)="onFilter('pending')"
+                    >Pending</a
                   >
                   <a
-                    class="nav-link tabs-heading text-uppercase"
-                    id="nav-second-tab"
-                    data-toggle="tab"
-                    href="#nav-second"
-                    role="tab"
-                    aria-controls="nav-second"
-                    aria-selected="false"
-                    >Completed</a
+                    class="dropdown-item cursor-pointer"
+                    (click)="onFilter('processing')"
+                    >Processing</a
                   >
                   <a
-                    class="nav-link tabs-heading text-uppercase"
-                    id="nav-third-tab"
-                    data-toggle="tab"
-                    href="#nav-third"
-                    role="tab"
-                    aria-controls="nav-third"
-                    aria-selected="false"
-                    >Cancelled</a
+                    class="dropdown-item cursor-pointer"
+                    (click)="onFilter('complete')"
+                    >Complete</a
+                  >
+                  <a
+                    class="dropdown-item cursor-pointer"
+                    (click)="onFilter('cancel')"
+                    >Cancel</a
                   >
                 </div>
-              </nav>
-              <div class="tab-content" id="nav-tabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="nav-first"
-                  role="tabpanel"
-                  aria-labelledby="nav-first-tab"
-                >
-                  <div class="tab-1-content p-3 d-flex">
-                    There are no orders, We have some recommended product for
-                    you click
-                    <p class="yellow-text ml-1 btn-link">click!</p>
-                  </div>
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="nav-second"
-                  role="tabpanel"
-                  aria-labelledby="nav-second-tab"
-                >
-                  <div class="tab-1-content p-3 d-flex">
-                    There are no orders, We have some recommended product for
-                    you click
-                    <p class="yellow-text ml-1 btn-link">click!</p>
-                  </div>
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="nav-third"
-                  role="tabpanel"
-                  aria-labelledby="nav-third-tab"
-                >
-                  <div class="tab-1-content p-3 d-flex">
-                    There are no orders, We have some recommended product for
-                    you click
-                    <p class="yellow-text ml-1 btn-link">click!</p>
-                  </div>
-                </div>
-              </div>
+              </span>
             </div>
           </div>
+          <ng-container *ngIf="allData.length > 0 && !skeleton">
+            <div *ngFor="let data of allData">
+              <div class="d-flex my-2 border p-2 rounded">
+                <img
+                  class="my-auto"
+                  height="80"
+                  [src]="data.items[0].product.imgUrl"
+                  (load)="data.items[0].loaded = true"
+                  [hidden]="!data.items[0].loaded"
+                />
+                <div class="ml-3 my-auto">
+                  <p class="font-weight-bold small-text my-auto">
+                    Order ID:<span class="ml-1 font-weight-normal">{{
+                      data?.orderId
+                    }}</span>
+                  </p>
+                  <p class="font-weight-bold small-text my-auto">
+                    Status:<span class="ml-1 font-weight-normal">{{
+                      data.status
+                    }}</span>
+                  </p>
+                  <p class="font-weight-bold small-text my-auto">
+                    Date:<span class="ml-1 font-weight-normal">{{
+                      data.timestamp.toDate() | date
+                    }}</span>
+                  </p>
+                </div>
+                <i
+                  class="fas fa-chevron-circle-right fa-lg ml-auto mr-2 my-auto"
+                  (click)="goToOrderDetails(data.id)"
+                ></i>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="allData.length == 0">
+            <div class="row">
+              <div class="col-md-12 text-center my-5">
+                <h5>No Orders Found</h5>
+                <a
+                  class="btn-primary cursor-pointer"
+                  (click)="onContinueShoping()"
+                  >Continue Shopping</a
+                >
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="exampleModalCenter"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">...</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -367,8 +416,8 @@
 
 <!-- mobile responsive -->
 <div class="container mt-3 d-block d-lg-none d-md-none">
-  <div class="main-back-mobile">
-    <div class="background-profile-mobile">
+  <div class="main-back-mobile pt-2">
+    <!-- <div class="background-profile-mobile">
       <div class="d-flex justify-content-center h-100 my-auto mx-3">
         <div class="text-center my-auto">
           <i class="fas fa-tachometer-alt fa-lg text-white"></i>
@@ -388,7 +437,7 @@
           <p class="text-white small-text">My Network</p>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="text-center py-2">
       <img
         class="rounded-circle"
@@ -396,258 +445,225 @@
         height="60"
         alt="test"
       />
-      <h6 class="font-weight-bold">User-name</h6>
+      <h6 class="font-weight-bold">
+        {{ customerService?.customerData?.name }}
+      </h6>
     </div>
     <div class="d-flex justify-content-center">
-      <p>abc@gmail.com</p>
+      <p>{{ customerService?.customerData?.email }}</p>
       <div class="ver-line-sm mx-2"></div>
-      <p>9665544111</p>
+      <p>{{ customerService?.customerData?.mobileNumber }}</p>
     </div>
   </div>
   <div class="tabs-container my-4">
-    <div class="container d-none d-lg-block d-md-block">
-      <nav aria-label="breadcrumb" class="mx-auto my-1">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a routerLink="/test8">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">My Profile</li>
-        </ol>
-      </nav>
-      <div class="background-top-profile">
-        <div class="profile-top-container px-5">
-          <div class="h-100 my-auto d-flex justify-content-between">
-            <div class="d-flex my-auto">
-              <img
-                class="user-profile rounded-circle my-auto"
-                src="../../../../../assets/Images/testimonial/sample-3.png"
-                height="75"
-                alt=""
-              />
-              <h5 class="text-white my-auto mx-2">User-Name</h5>
-            </div>
-            <div class="d-flex my-auto">
-              <div class="text-center my-auto">
-                <i class="fas fa-tachometer-alt fa-lg text-white"></i>
-                <h6 class="text-uppercase text-white mt-2">silver</h6>
-                <p class="text-white small-text">Rewarded Level</p>
-              </div>
-              <div class="ver-line mx-5 my-auto"></div>
-              <div class="text-center my-auto">
-                <i class="fas fa-gem fa-lg text-white"></i>
-                <h6 class="text-uppercase text-white mt-2">15</h6>
-                <p class="text-white small-text">Reward Points</p>
-              </div>
-              <div class="ver-line mx-5 my-auto"></div>
-              <div class="text-center my-auto">
-                <i class="fas fa-user-friends fa-lg text-white"></i>
-                <h6 class="text-uppercase text-white mt-2">0</h6>
-                <p class="text-white small-text">My Network</p>
-              </div>
-            </div>
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a
+          class="
+            nav-link
+            active
+            tabs-heading
+            text-uppercase text-normal text-center
+            my-auto
+          "
+          id="nav-first-tab-sm"
+          data-toggle="tab"
+          href="#nav-first-sm"
+          role="tab"
+          aria-controls="nav-first-sm"
+          aria-selected="true"
+          >my addresses</a
+        >
+        <a
+          class="
+            nav-link
+            tabs-heading
+            text-uppercase text-normal text-center
+            my-auto
+          "
+          id="nav-second-tab-sm"
+          data-toggle="tab"
+          href="#nav-second-sm"
+          role="tab"
+          aria-controls="nav-second-sm"
+          aria-selected="false"
+          >personal info</a
+        >
+        <a
+          class="
+            nav-link
+            tabs-heading
+            text-uppercase text-normal text-center
+            my-auto
+          "
+          id="nav-third-tab-sm"
+          data-toggle="tab"
+          href="#nav-third-sm"
+          role="tab"
+          aria-controls="nav-third-sm"
+          aria-selected="false"
+          >my orders</a
+        >
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="nav-first-sm"
+        role="tabpanel"
+        aria-labelledby="nav-first-tab-sm"
+      >
+        <div class="tab-1-content pt-3">
+          <div class="add-address-container-sm">
+            <h5>+</h5>
+            <h5 class="text-uppercase">Add new Address</h5>
           </div>
-        </div>
-        <div class="d-flex px-5 my-2">
-          <p class="small-text my-auto">9445632112</p>
-          <div class="ver-line-sm my-auto mx-3"></div>
-          <p class="small-text my-auto">abc@gmail.com</p>
         </div>
       </div>
-      <div class="tabs-container mt-4">
-        <nav>
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a
-              class="
-                nav-link
-                active
-                tabs-heading
-                text-uppercase text-normal text-center
-                my-auto
-              "
-              id="nav-first-tab-sm"
-              data-toggle="tab"
-              href="#nav-first-sm"
-              role="tab"
-              aria-controls="nav-first-sm"
-              id="nav-first-tab"
-              data-toggle="tab"
-              href="#nav-first"
-              role="tab"
-              aria-controls="nav-first"
-              aria-selected="true"
-              >my addresses</a
-            >
-            <a
-              class="
-                nav-link
-                tabs-heading
-                text-uppercase text-normal text-center
-                my-auto
-              "
-              id="nav-second-tab-sm"
-              data-toggle="tab"
-              href="#nav-second-sm"
-              role="tab"
-              aria-controls="nav-second-sm"
-              id="nav-second-tab"
-              data-toggle="tab"
-              href="#nav-second"
-              role="tab"
-              aria-controls="nav-second"
-              aria-selected="false"
-              >personal info</a
-            >
-            <a
-              class="
-                nav-link
-                tabs-heading
-                text-uppercase text-normal text-center
-                my-auto
-              "
-              id="nav-third-tab-sm"
-              data-toggle="tab"
-              href="#nav-third-sm"
-              role="tab"
-              aria-controls="nav-third-sm"
-              id="nav-third-tab"
-              data-toggle="tab"
-              href="#nav-third"
-              role="tab"
-              aria-controls="nav-third"
-              aria-selected="false"
-              >my orders</a
-            >
+      <div
+        class="tab-pane fade"
+        id="nav-second-sm"
+        role="tabpanel"
+        aria-labelledby="nav-second-tab-sm"
+      >
+        <div class="tab-1-content pt-3">
+          <div class="d-flex mt-3">
+            <img
+              class="rounded-circle"
+              src="../../../../../assets/Images/testimonial/sample-1.png"
+              height="75"
+              alt=""
+            />
+            <div class="ml-3 w-100 profile-form-sm d-flex flex-column">
+              <input
+                class="p-2"
+                type="text"
+                name="name"
+                placeholder="Name"
+                id="name"
+                value="{{ customerService?.customerData?.name }}"
+              />
+              <input
+                class="p-2"
+                type="number"
+                name="mobile-number"
+                id="mobile-number"
+                placeholder="Mobile Number"
+                value="{{ customerService?.customerData?.mobileNumber }}"
+              />
+              <input
+                class="p-2"
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                id="email"
+                value="{{ customerService?.customerData?.email }}"
+              />
+              <button class="btn-dark text-uppercase py-2">Save</button>
+            </div>
           </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-          <div
-            class="tab-pane fade show active"
-            id="nav-first-sm"
-            role="tabpanel"
-            aria-labelledby="nav-first-tab-sm"
-          >
-            <div class="tab-1-content pt-3">
-              <div class="add-address-container-sm">
-                id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab" >
-                <div class="tab-1-content pt-3">
-                  <div class="add-address-container">
-                    <h5>+</h5>
-                    <h5 class="text-uppercase">Add new Address</h5>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="nav-second-sm"
-                role="tabpanel"
-                aria-labelledby="nav-second-tab-sm"
-                id="nav-second"
-                role="tabpanel"
-                aria-labelledby="nav-second-tab"
-              >
-                <div class="tab-1-content pt-3">
-                  <div class="d-flex mt-3">
-                    <img
-                      class="rounded-circle"
-                      src="../../../../../assets/Images/testimonial/sample-1.png"
-                      height="75"
-                      alt=""
-                    />
-                    <div class="ml-3 w-100 profile-form-sm d-flex flex-column">
-                      height="120" alt="" />
-                      <div class="ml-5 w-100 profile-form d-flex flex-column">
-                        <input
-                          class="p-2"
-                          type="text"
-                          name="name"
-                          placeholder="Name"
-                          id="name"
-                        />
-                        <input
-                          class="p-2"
-                          type="number"
-                          name="mobile-number"
-                          id="mobile-number"
-                          placeholder="Mobile Number"
-                        />
-                        <input
-                          class="p-2"
-                          type="email"
-                          name="email"
-                          placeholder="E-mail"
-                          id="email"
-                        />
-                        <button class="btn-dark text-uppercase py-2">
-                          Save
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="tab-pane fade"
-                  id="nav-third-sm"
-                  role="tabpanel"
-                  aria-labelledby="nav-third-tab-sm"
-                  id="nav-third"
-                  role="tabpanel"
-                  aria-labelledby="nav-third-tab"
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-third-sm"
+        role="tabpanel"
+        aria-labelledby="nav-third-tab-sm"
+      >
+        <div class="tab-1-content pt-3 pl-3 mr-4">
+          <div class="d-flex justify-content-between">
+            <p class="font-weight-bold my-auto"></p>
+            <div class="d-flex">
+              <!-- <i class="fas fa-filter my-auto"></i> -->
+              <!-- <p class="ml-1 my-auto">Filter</p> -->
+              <span class="dropdown d-flex">
+                <i
+                  class="fa fa-filter my-auto"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                ></i>
+                <p
+                  class="ml-1 my-auto"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
                 >
-                  <div class="tab-1-content pt-3">
-                    <ul class="list-benefits">
-                      <li>
-                        Always exfoliate and moisturise your lips before
-                        applying matte lipstick.
-                      </li>
-                      <li>
-                        Apply lip balm, and then apply your liquid matte
-                        lipstick.
-                      </li>
-                    </ul>
-                  </div>
+                  Filter
+                </p>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a
+                    class="dropdown-item cursor-pointer"
+                    (click)="onFilter('pending')"
+                    >Pending</a
+                  >
+                  <a
+                    class="dropdown-item cursor-pointer"
+                    (click)="onFilter('processing')"
+                    >Processing</a
+                  >
+                  <a
+                    class="dropdown-item cursor-pointer"
+                    (click)="onFilter('complete')"
+                    >Complete</a
+                  >
+                  <a
+                    class="dropdown-item cursor-pointer"
+                    (click)="onFilter('cancel')"
+                    >Cancel</a
+                  >
                 </div>
-              </div>
+              </span>
             </div>
           </div>
-          <div
-            class="modal fade"
-            id="exampleModalCenter"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">
-                    Modal title
-                  </h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+          <ng-container *ngIf="allData.length > 0 && !skeleton">
+            <div *ngFor="let data of allData">
+              <div class="d-flex my-2 border p-2 rounded">
+                <img
+                  class="my-auto"
+                  height="80"
+                  [src]="data.items[0].product.imgUrl"
+                  (load)="data.items[0].loaded = true"
+                  [hidden]="!data.items[0].loaded"
+                />
+                <div class="ml-3 my-auto">
+                  <p class="font-weight-bold small-text my-auto">
+                    Order ID:<span class="ml-1 font-weight-normal">{{
+                      data?.orderId
+                    }}</span>
+                  </p>
+                  <p class="font-weight-bold small-text my-auto">
+                    Status:<span class="ml-1 font-weight-normal">{{
+                      data.status
+                    }}</span>
+                  </p>
+                  <p class="font-weight-bold small-text my-auto">
+                    Date:<span class="ml-1 font-weight-normal">{{
+                      data.timestamp.toDate() | date
+                    }}</span>
+                  </p>
                 </div>
-                <div class="modal-body">...</div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" class="btn btn-primary">
-                    Save changes
-                  </button>
-                </div>
+                <i
+                  class="fas fa-chevron-circle-right fa-lg ml-auto mr-2 my-auto"
+                  (click)="goToOrderDetails(data.id)"
+                ></i>
               </div>
             </div>
-
-            <app-tab></app-tab>
-          </div>
+          </ng-container>
+          <ng-container *ngIf="allData.length == 0">
+            <div class="row">
+              <div class="col-md-12 text-center my-5">
+                <h5>No Orders Found</h5>
+                <a
+                  class="btn-primary cursor-pointer"
+                  (click)="onContinueShoping()"
+                  >Continue Shopping</a
+                >
+              </div>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>
