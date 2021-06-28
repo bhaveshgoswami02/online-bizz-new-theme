@@ -29,6 +29,7 @@ import { SubCategoriesComponent } from "./pages/sub-categories/sub-categories.co
 import { BrandsComponent } from "./pages/brands/brands.component";
 import { SearchComponent } from "./pages/search/search.component";
 import { AuthGuardService } from "./common/services/auth-guard.service";
+import { ProductCardComponent } from "../theme1/common/product-card/product-card.component";
 
 const routes:Routes=[
     {path:"",component:Theme6Component,children:[
@@ -43,7 +44,7 @@ const routes:Routes=[
         {path:'product',component:ProductDetailsComponent},
         {path:'contact',component:ContactComponent},
         {path:'cart',component:CartComponent},
-        {path:'checkout',component:CheckoutComponent,canActivate:[AuthGuardService]},
+        {path:'checkout',component:CheckoutComponent},
         {path:'order-successful',component:OrderSuccessfulComponent},
         {path:'page/:page',component:CustomPageComponent},
         {path:"signin",component:SigninComponent},

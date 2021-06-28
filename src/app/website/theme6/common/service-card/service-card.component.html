@@ -1,4 +1,4 @@
-<div class="service-item">
+<!-- <div class="service-item">
     <figure class="service-thumb">
         <img [src]="service?.imgUrl" (load)="service.loaded = true" [hidden]="!service.loaded" class="w-100" alt="" />
         <ng-container *ngIf="!service.loaded">
@@ -18,15 +18,22 @@
         <div class="service-content-inner">
             <h5 class="stretched-link text-center">{{service?.title}}</h5>
             <p [innerHTML]="service?.desc"></p>
-            <!-- <a class="btn btn-primary px-3 py-1">VIEW DETAILS</a> -->
             <a *ngIf="service.content"
                 routerLink="{{_themeService.customDomain? '/services/'+service.slug : '/'+_themeService.domainName+'/services/'+service.slug}}"
                 class="btn-about cursor-pointer text-primary-contrast">MORE DETAILS
                 <i class="fa fa-angle-double-right text-secondary"></i>
             </a><br>
-            <!-- <a *ngIf="service.content"
-            routerLink="{{_themeService.customDomain? '/services/'+service.slug : '/'+_themeService.domainName+'/services/'+service.slug}}"
-            class="btn btn-primary px-3 py-1 w-100 mt-3">VIEW DETAILS</a> -->
         </div>
     </div>
+</div> -->
+
+<div class="service-card">
+    <img [src]="service?.imgUrl" (load)="service.loaded = true" [hidden]="!service.loaded" class="serviceimg" alt="services" />
+      <div class="servicecaption">
+        <p class="fw-bold my-2">Office supplies</p>
+        <p class="text-center my-2">
+          Get every office essential here at one place at the cheapest price. Best in quality product with long
+          durability.
+        </p>
+      </div>
 </div>

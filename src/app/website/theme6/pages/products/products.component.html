@@ -1,22 +1,6 @@
 <app-navigation type=2 title="Products"></app-navigation>
 
-<!-- <ng-container *ngIf="!skeleton">
-    <div class="service-area-wrapper bg-secondary d-none d-md-block d-lg-block">
-        <div class="service-area-top parallax" [ngStyle]="{'background-image': getCover()}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-xl-5 m-auto text-center">
-                        <div class="section-title section-title--light">
-                            <h4 class="text-white">{{_themeService.data.productHeading ?
-                                _themeService.data.productHeading : "Our Best Products"}}</h4>
-                            <h5 class="mb-0 text-white primary-font-size" *ngIf="_themeService.data.productTagLine">
-                                {{_themeService.data.productTagLine}}</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--  <ng-container *ngIf="!skeleton">
 
     <section class="jumbotron jumbotron-fluid my-0 bg-transparent" data-aos="fade-up" *ngIf="products.length!=0">
         <div class="container">
@@ -27,18 +11,11 @@
             </div>
         </div>
     </section>
-</ng-container>
+</ng-container> -->
 
-<ng-container *ngIf="products.length==0 && !skeleton">
-    <section class="jumbotron jumbotron-fluid bg-transparent mt-5" data-aos="fade-up">
-        <app-empty-view>
-            <img src="https://udaipurites.com/assets/imgs/price-tag.svg" width="100%" alt="">
-            <p class="font-weight-bold text-muted">No results found</p>
-        </app-empty-view>
-    </section>
-</ng-container>
 
-<ng-container *ngIf="skeleton">
+
+<!-- <ng-container *ngIf="skeleton">
     <div class="container">
         <div class="row my-5">
             <div class="col-md-12 text-center mb-5">
@@ -103,28 +80,34 @@
             </div>
         </div>
     </div>
-</ng-container> -->
+</ng-container>  -->
+
+
+
+
+
 <div class="bg-white">
 <div class="container mt-5 d-none d-md-block d-lg-block">
     <div class="row mb-2">
       <div class="col-md-12 text-center">
-        <h4><span class="shopmenu fw-bold">ALL PRODUCTS</span></h4>
+        <h4><span class="shopmenu fw-bold " style="font-size: 48px;">ALL PRODUCTS</span></h4>
       </div>
     </div>
-    <div class="d-flex justify-content-between mt-5">
-        <div class="d-flex">
-          <div class="card border productcard" style="width: 20rem; height:26rem">
+    <div class="row d-flex justify-content-between mt-5" *ngIf="products.length!=0">
+        <div class="d-flex my-2" *ngFor="let product of products;">
+          <!-- <div class="card border productcard" style="width: 20rem; height:auto">
             <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto p-2 my-3"
                alt="thumb" />
                <div class="card-body">
                 <p class="card-title fs-20 p-0 m-0 fw-bold pt-4"> Manish Malhotra Kesar</p>
-                <p class="card-text  fs-13 pb-4">Rosehip Oil-infused Brightening </p>
+                <p class="card-text  fs-20 pb-4">Rosehip Oil-infused Brightening </p>
                 <h5 class="card-title  fw-bold pt-4">&#8377; 950</h5>
               </div>
-          </div>
+          </div> -->
+          <app-product-card [product]="product"></app-product-card>
         </div>
-        <div class="d-flex">
-          <div class="card border productcard" style="width: 20rem; height:26rem">
+       <!--  <div class="d-flex">
+          <div class="card border productcard" style="width: 20rem; height:auto">
             <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto p-2 my-3"
               alt="thumb" />
               <div class="card-body">
@@ -135,7 +118,7 @@
           </div>
         </div>
         <div class="d-flex">
-          <div class="card border productcard" style="width: 20rem; height:26rem">
+          <div class="card border productcard" style="width: 20rem; height:auto">
             
             <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto p-2 my-3"
                alt="thumb" />
@@ -150,7 +133,7 @@
       </div>
       <div class="d-flex justify-content-between mt-5">
         <div class="d-flex">
-          <div class="card border productcard" style="width: 20rem; height:26rem">
+          <div class="card border productcard" style="width: 20rem; height:auto">
             <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto p-2 my-3"
                alt="thumb" />
                <div class="card-body">
@@ -161,7 +144,7 @@
           </div>
         </div>
         <div class="d-flex">
-          <div class="card border productcard" style="width: 20rem; height:26rem">
+          <div class="card border productcard" style="width: 20rem; height:auto">
             <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto p-2 my-3"
               alt="thumb" />
               <div class="card-body">
@@ -172,7 +155,7 @@
           </div>
         </div>
         <div class="d-flex">
-          <div class="card border productcard" style="width: 20rem; height:26rem">
+          <div class="card border productcard" style="width: 20rem; height:auto">
             
             <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto p-2 my-3"
                alt="thumb" />
@@ -187,7 +170,7 @@
       </div>
       <div class="d-flex justify-content-between mt-5">
         <div class="d-flex">
-          <div class="card border productcard" style="width: 20rem; height:26rem">
+          <div class="card border productcard" style="width: 20rem; height:auto">
             <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto p-2 my-3"
                alt="thumb" />
                <div class="card-body">
@@ -198,7 +181,7 @@
           </div>
         </div>
         <div class="d-flex">
-          <div class="card border productcard" style="width: 20rem; height:26rem">
+          <div class="card border productcard" style="width: 20rem; height:auto">
             <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="card-img-top mx-auto p-2 my-3"
               alt="thumb" /> 
               <div class="card-body">
@@ -209,7 +192,7 @@
           </div>
         </div>
         <div class="d-flex">
-          <div class="card border productcard" style="width: 20rem; height:26rem">
+          <div class="card border productcard" style="width: 20rem; height:auto">
             
             <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto p-2 my-3"
                alt="thumb" />
@@ -221,29 +204,27 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       </div>
     </div>
+
 <!-- RESPONSIVE -->
 
 <div class="container mt-5 d-block d-md-none d-lg-none">
-    <!-- <div class="row mb-2">
-      <div class="col-md-12 text-center">
-        <h4><span class="shopmenu">ALL PRODUCTS</span></h4>
-      </div>
-    </div> -->
-    <div class="row d-flex justify-content-between mt-3 px-1">
-        <div class="col-6 d-flex p-0 m-0 px-1">
-          <div class="card border " style="width: auto; ">
+   
+    <div class="row d-flex justify-content-between mt-3 px-1" *ngIf="products.length!=0">
+        <div class="col-6 d-flex p-0 m-0 px-1" *ngFor="let product of _themeService.data?.products?.slice(0,8);let i = index">
+          <!-- <div class="card border " style="width: auto; ">
             <img src="./../../../../../assets/Images/product/thumb-2.jpg" class=" mx-auto p-2 "
                alt="thumb" />
                <div class="card-body pb-1">
                 <p class="card-title fs-12 p-0 m-0 fw-bold pb-4"> Manish Malhotra Kesar</p>
                 <h5 class="card-title fs-16 fw-bold">&#8377; 950</h5>
               </div>
-          </div>
+          </div> -->
+          <app-product-card [product]="product"></app-product-card>
         </div>
-        <div class="col-6 d-flex p-0 m-0 px-1">
+       <!--  <div class="col-6 d-flex p-0 m-0 px-1">
           <div class="card border" style="width: auto; ">
             <img src="./../../../../../assets/Images/product/thumb-3.jpg" class="mx-auto p-2 "
               alt="thumb" />
@@ -252,10 +233,10 @@
                 <h5 class="card-title fs-16 fw-bold">&#8377; 950</h5>
               </div>
           </div>
-        </div>
+        </div> -->
         
       </div>
-      <div class="row d-flex justify-content-between mt-2 px-1">
+     <!--  <div class="row d-flex justify-content-between mt-2 px-1">
         <div class="col-6 d-flex p-0 m-0 px-1">
           <div class="card border" style="width: auto; ">
             <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="mx-auto p-2"
@@ -299,7 +280,7 @@
               </div>
           </div>
         </div>
-      </div>
+      </div> -->
       </div>
 
 <app-tab></app-tab>

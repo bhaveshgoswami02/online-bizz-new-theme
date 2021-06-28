@@ -42,7 +42,9 @@
                 data-toggle="modal"
                 data-target="#exampleModal"
               ></i
-              ><i class="fas fa-user headicon"></i>
+              ><i class="fas fa-user headicon"
+              data-toggle="modal"
+                data-target="#signinmodel"></i>
             </p>
             <!-- SIGNUP MODEL -->
             <div
@@ -97,7 +99,9 @@
               <a class="nav-link">Home</a>
             </li>
             <li class="nav-item mx-auto">
-              <a class="nav-link" href="#">Services</a>
+              <a class="nav-link" 
+              [routerLink]="['/test8/services']" routerLinkActive="router-link-active" 
+              >Services</a>
               <div class="submenu shadow">
                 <ul>
                   <li><a class="nav-link" href="#">Eraser</a></li>
@@ -110,9 +114,8 @@
             <li class="nav-item mx-auto">
               <a
                 class="nav-link"
-                [routerLink]="['/products']"
+                [routerLink]="['/test8/products']"
                 routerLinkActive="router-link-active"
-                href="#"
                 >Product</a
               >
             </li>
@@ -120,7 +123,11 @@
               <a class="nav-link">Gallery</a>
             </li>
             <li class="nav-item mx-auto">
-              <a class="nav-link">Categories</a>
+              <a class="nav-link"
+              [routerLink]="['/test8/categories']"
+                routerLinkActive="router-link-active"
+              
+              >Categories</a>
             </li>
             <li class="nav-item mx-auto">
               <a class="nav-link">Contact Us</a>
@@ -303,7 +310,7 @@
             </div>
           </div>
 
-          <div class="d-flex referbanner">
+         <!--  <div class="d-flex referbanner">
             <div class="d-flex align-items-center px-2">
               <i class="fas fa-gift"></i>
             </div>
@@ -322,7 +329,7 @@
                 REFER NOW
               </button>
             </div>
-          </div>
+          </div> -->
 
           <hr class="m-0" />
           <ul class="p-0">

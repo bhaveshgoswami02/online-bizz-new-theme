@@ -1,14 +1,16 @@
 <!-- normal footer -->
-<div class="footer d-none d-md-block d-lg-block">
+<div class="footer d-none d-md-block d-lg-block" *ngIf="_themeService?.data">
   <div class="container pt-5">
     <div class="row">
       <div class="col-md-3">
-        <img src="../../../../../assets/Images/app__logo.png" height="40px" />
+        <a routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}">
+          <img [src]="_themeService?.data?.brand_logo" width="50%" alt="Logo" />
+      </a>
         <p>
-          euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
-          wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.
+          {{_themeService?.data?.metaTags?.description}}
         </p>
-        <p>&#169; copyright <span id="onlinebizz">onlinebizz</span></p>
+        <p *ngIf="!_themeService.customDomain" >&#169; copyright
+          <a href="{{domainUrl}}" id="onlinebizz" target="_blank">{{domainName}}</a></p>
         <span
           >Stay Connected |
           <i class="fa fa-facebook"></i>
@@ -16,26 +18,40 @@
           <i class="fa fa-instagram"></i>
         </span>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2" *ngIf="_themeService.data?.mainMenu?.length != 0">
         <h5>Links</h5>
         <ul class="mt-3 p-0">
-          <li>Home</li>
-          <li>Service</li>
-          <li>Product</li>
-          <li>Gallery</li>
-          <li>Contact Us</li>
+          <li *ngFor="let menu of _themeService.data?.mainMenu">
+            <a *ngIf="!menu.url"
+                routerLink="{{_themeService.customDomain?menu.link:'/'+_themeService.domainName+menu.link}}">{{menu.title}}</a>
+            <a *ngIf="menu.url" href="{{menu?.url}}" target="_blank">{{menu.title}}</a>
+        </li>
         </ul>
       </div>
       <div class="col-md-3">
         <h5>Contacts</h5>
-        <ul class="mt-3 p-0">
+        <!-- <ul class="mt-3 p-0">
           <li>
             <i class="fa fa-map-marker pr-2"></i>14 navkar complex university
             road <br />Udaipur, Gujarat -313001 India
           </li>
           <li><i class="fa fa-envelope-open pr-2"></i>demo@gmail.com</li>
           <li><i class="fa fa-phone pr-2"></i>88888888</li>
-        </ul>
+        </ul> -->
+        <address class="mt-3 p-0" *ngIf="_themeService?.data?.address?.area">
+          <i class="fa fa-map-marker"></i>&nbsp; {{_themeService?.data?.address?.area}}
+          <br> {{_themeService?.data?.address?.city}}, {{_themeService?.data?.address?.state}}
+          - {{_themeService?.data?.address?.zipCode}}
+          {{_themeService?.data?.address?.country}}
+          <br>
+          <i class="fa fa-envelope"></i>&nbsp;
+          <a class="static-primary hover"
+              href="mailto:{{_themeService?.data?.email}}">{{_themeService?.data?.email}}</a>
+          <br>
+          <i class="fa fa-phone"></i>&nbsp;
+          <a class="static-primary hover"
+              href="tel:{{_themeService?.data?.phoneNo}}">{{_themeService?.data?.phoneNo}}</a>
+      </address>
       </div>
       <div class="col-md-2">
         <h5>Category</h5>

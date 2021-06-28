@@ -34,19 +34,11 @@
 
 <!-- BANNER -->
 
-<swiper [slidesPerView]="1" [spaceBetween]="30" [navigation]="true" [pagination]="{ clickable: true }"
+<swiper [slidesPerView]="1" [spaceBetween]="30" [autoplay]="true" [navigation]="true" [pagination]="{ clickable: true }"
   [controller]="{ control: controlledSwiper }" class="bannerclass">
-  <ng-template swiperSlide >
-    <img src="./../../../../../assets/Images/banner/banner-1 (2).jpg">
-  </ng-template>
-  <ng-template swiperSlide>
-    <img src="./../../../../../assets/Images/banner/banner-2 (1).jpg">
-  </ng-template>
-  <ng-template swiperSlide>
-    <img src="./../../../../../assets/Images/banner/banner-1 (2).jpg">
-  </ng-template>
-  <ng-template swiperSlide>
-    <img src="./../../../../../assets/Images/banner/banner-2 (1).jpg">
+  <ng-template swiperSlide *ngFor="let slide of _themeService?.data?.carousel; first as i">
+    <img [src]="slide?.imgUrl" (load)="slide.loaded = true" class="w-100"
+    [ngClass]="{'cursor-pointer':slide?.redirectPath}" [hidden]="!slide.loaded">
   </ng-template>
 </swiper>
 <!-- END BANNER -->
@@ -59,7 +51,8 @@
 
 <!-- SHOP BY CATEGORY -->
 
-<div class="container mt-3 d-none d-md-block d-lg-block">
+<div class="container mt-3 d-none d-md-block d-lg-block" [ngClass]="{'mt-sm-n': _themeService?.data.aboutUs && !_themeService?.data?.isDisableAboutOnHome}"
+*ngIf="_themeService.data?.categories && _themeService.data?.categories?.length>0">
   <div class="row mb-2">
     <div class="col-md-12 text-center">
       <h4><span class="shopmenu">SHOP BY CATEGORY</span></h4>
@@ -67,11 +60,11 @@
   </div>
   <div class="row">
     <div class="col-md-12 d-flex flex-wrap">
-      <div class="d-block mx-auto">
-        <img src="./../../../../../assets/Images/category/category (1).jpg" alt="category" class="categoryimg" />
-        <p class="text-center">Pen</p>
+      <div class="d-block mx-auto"  *ngFor="let category of _themeService.data?.categories">
+        <img [src]="category.imgUrl" (load)="category.loaded = true" [hidden]="!category.loaded" alt="category" class="categoryimg" />
+        <p class="text-center">{{category.title}}</p>
       </div>
-      <div class="d-block mx-auto">
+     <!--  <div class="d-block mx-auto">
         <img src="./../../../../../assets/Images/category/category (2).jpg" alt="category" class="categoryimg" />
         <p class="text-center">Calculator</p>
       </div>
@@ -98,15 +91,41 @@
       <div class="d-block mx-auto">
         <img src="./../../../../../assets/Images/category/category (8).jpg" alt="category" class="categoryimg" />
         <p class="text-center">Eraser</p>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
 
-
+<!-- <section class="jumbotron-fluid py-5 bg-white" [ngClass]="{'mt-sm-n': _themeService?.data.aboutUs && !_themeService?.data?.isDisableAboutOnHome}" data-aos="fade-up"
+    *ngIf="_themeService.data?.categories && _themeService.data?.categories?.length>0">
+    <div class="col-md-12 text-center">
+        <h4 class="primary-color">Categories</h4>
+    </div>
+    <div class="container my-3">
+        <div class="row" data-aos="zoom-in">
+            <div class="col-lg-3 col-md-3 col-6 text-center p-2 cursor-pointer"
+                *ngFor="let category of _themeService.data?.categories" (click)="onSelectCategory(category.slug)">
+                <img [src]="category.imgUrl" (load)="category.loaded = true" [hidden]="!category.loaded"
+                    alt="">
+                <ng-container *ngIf="!category.loaded">
+                    <div class="p-skeleton">
+                        <div class="p-skeleton__body">
+                            <div class="p-skeleton__body--r-image">
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <p>{{category.title}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 text-center">
+        <button class="btn-primary" (click)="viewAllCategories()">View More</button>
+    </div>
+</section> -->
 <!-- products Start -->
 
-<div class="container mt-5 d-none d-md-block d-lg-block">
+<!-- <div class="container mt-5 d-none d-md-block d-lg-block">
   <div class="row mb-2">
     <div class="col-md-12 text-center">
       <h4><span class="shopmenu">OUR PRODUCTS</span></h4>
@@ -226,13 +245,41 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
+</div> -->
 
+ <div class="container mt-5 d-none d-md-block d-lg-block"
+  *ngIf="_themeService.data?.products && _themeService.data?.products?.length>0">
+  <div class="row mb-2">
+    <div class="col-md-12 text-center">
+      <h4><span class="shopmenu">OUR PRODUCTS</span></h4>
+    </div>
+  </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <swiper [slidesPerView]="3" [slidesPerGroup]="1" [loop]="true" [effect]="'Fade'" [autoplay]="true"
+                                [spaceBetween]="30" [pagination]="true">
+                                <ng-container *ngFor="let product of _themeService.data?.products?.slice(0,8);let i = index">
+                                    <ng-template swiperSlide>
+                                        <div class="single-testimonial pb-5">
+                                            <app-product-card [product]="product"></app-product-card>
+                                        </div>
+                                        <!-- <app-product-card [product]="_themeService.data?.products[i + _themeService.data?.products?.length/2]"></app-product-card> -->
+                                        <!-- <div class="single-testimonial pb-5">
+                                        </div> -->
+                                    </ng-template>
+                                </ng-container>
+                            </swiper>
+            </div>
+            </div>
+            </div>
+
+            
 <!-- products End -->
 
 <!-- OUR SERVICE -->
 
-<div class="container mt-5 d-none d-md-block d-lg-block">
+<!-- <div class="container mt-5 d-none d-md-block d-lg-block">
   <div class="row mb-2">
     <div class="col-md-12 text-center">
       <h4><span class="shopmenu">OUR SERVICE</span></h4>
@@ -262,8 +309,23 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
+<div class="service-area-wrapper py-5 bg-white"
+    *ngIf="_themeService.data?.services && _themeService.data?.services?.length>0">
+    <br>
+    <br class="d-block d-md-none d-lg-none"><br class="d-block d-md-none d-lg-none">
+    <div class="service-content-area" data-aos="zoom-in">
+        <div class="container my-3">
+            <div class="row">
+                <div class="col-sm-6 col-lg-4"
+                    *ngFor="let service of _themeService.data?.services?.slice(0,3); let i = index">
+                    <app-service-card [service]="service"></app-service-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Service End -->
 
 
@@ -388,7 +450,6 @@
     </div>
   </div>
 </div>
-
 
 
 <!-- PENCIL -->
@@ -629,21 +690,23 @@
 
 <!-- Offers Section -->
 
-<div class="container mt-5 d-none d-md-block d-lg-block">
+<div class="container mt-5 d-none d-md-block d-lg-block" *ngIf="_themeService?.data?.keypoints?.length != 0">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" *ngFor="let keypoint of _themeService?.data?.keypoints">
       <div class="row">
-        <div class="col-3">
-          <i class='fa fa-truck' id="offericon"></i>
+        <div class="col-3 mx-auto">
+          <!-- <i class='fa fa-truck' id="offericon"></i> -->
+          <img [src]="keypoint.imgUrl" (load)="keypoint.loaded = true" [hidden]="!keypoint.loaded"
+          id="offericon"          alt="">
         </div>
         <div class="col-9">
-          <h4 class="my-2">Free Shipping</h4>
-          <p class="fs-12">For all orders above $100</p>
+          <h4 class="my-2">{{keypoint.title}}</h4>
+          <p class="fs-12">{{keypoint.message}}</p>
         </div>
       </div>
     </div>
 
-    <div class="col-md-4 mx-auto">
+  <!--   <div class="col-md-4 mx-auto">
       <div class="row">
         <div class="col-3">
           <i class='fa fa-money' id="offericon"></i>
@@ -665,7 +728,7 @@
           <p class="fs-12">Answer for question</p>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 </div>
@@ -801,11 +864,11 @@
   </div>
 
   <div id="carouseltestiControl" class="carousel slide container shadow bg-white mt-3 px-5 m-0 py-3 p-0"
-    data-ride="carousel" data-interval="false">
+    data-ride="carousel" data-interval="false" *ngIf="_themeService.data?.testimonials && _themeService.data?.testimonials.length>0">
     <div class="carousel-inner">
-
-      <div class="carousel-item active carousel-transition">
-        <div class="d-md-flex d-lg-flex d-none ">
+      <ng-container *ngFor="let testimonial_person of _themeService?.data?.testimonials; first as i">
+      <div class="carousel-item carousel-transition" [ngClass]="i?'active':''">
+       <!--  <div class="d-md-flex d-lg-flex d-none ">
           <div class="profile p-3">
             <img src="./../../../../../assets/Images/testimonial/sample-2.png" class="profileimg" />
           </div>
@@ -818,9 +881,11 @@
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
               consequat.</p>
           </div>
-        </div>
+        </div> -->
+        <app-testimonial-card [testimonial_person]="testimonial_person"></app-testimonial-card>
       </div>
-      <div class="carousel-item carousel-transition">
+      </ng-container>
+   <!--    <div class="carousel-item carousel-transition">
         <div class="d-md-flex d-lg-flex d-none">
           <div class="profile p-3">
             <img src="./../../../../../assets/Images/testimonial/sample-1.png" class="profileimg" />
@@ -851,7 +916,7 @@
               consequat.</p>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <a class="carousel-control-prev watchbtnprev shadow" href="#carouseltestiControl" role="button" data-slide="prev">
       <span aria-hidden="true"><i class="fas fa-caret-left clblack"></i></span>
@@ -865,11 +930,44 @@
 
 </div>
 
+
+
+<!--  <div class="testimonial-area py-5 bg-white"
+    *ngIf="_themeService.data?.testimonials && _themeService.data?.testimonials.length>0">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="section-title mb-0 text-center">
+                    <h4 class="primary-color">{{_themeService.data.testimonialHeading ?
+                        _themeService.data.testimonialHeading : "Testimonials" }}</h4>
+                    <h5 class="mb-0 primary-font-size" *ngIf="_themeService.data.testimonialTagLine">
+                        {{_themeService.data.testimonialTagLine}}</h5>
+                </div>
+                <div class="testimonial-carousel-dots"></div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-12">
+              <swiper [slidesPerView]="1" [slidesPerGroup]="1" [loop]="true" [effect]="'Fade'" [autoplay]="true"
+                  [spaceBetween]="30" [pagination]="true">
+                  <ng-container *ngFor="let testimonial_person of _themeService.data?.testimonials;">
+                      <ng-template swiperSlide>
+                          <div class="single-testimonial pb-5">
+                              <div class="testimonials-wrapper">
+                                  <app-testimonial-card [testimonial_person]="testimonial_person">
+                                  </app-testimonial-card>
+                              </div>
+                          </div>
+                      </ng-template>
+                  </ng-container>
+              </swiper>
+          </div> 
+      </div>
+  </div>
+</div> -->
 <!-- END -->
 
 <!-- Brand -->
 
-<div class="container mt-5 d-none d-md-block d-lg-block">
+<div class="container mt-5 d-none d-md-block d-lg-block" *ngIf="_themeService.data?.brands && _themeService.data?.brands?.length>0">
   <div class="row">
     <div class="col-md-12 text-center">
       <h4><span class="shopmenu">BRANDS</span></h4>
@@ -880,16 +978,16 @@
     <div class="carousel-inner">
       <div class="carousel-item active carousel-transition" style="height: 20rem;">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-3" *ngFor="let brand of _themeService.data?.brands" (click)="onSelectBrand(brand.slug)">
             <div class="card shadow" style="width: 15rem; ">
-              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">        
+              <img [src]="brand.imgUrl" (load)="brand.loaded = true" [hidden]="!brand.loaded" alt="">       
             </div>
             <div class="brand-caption shadow">
-              Brandit
+              {{brand.title}}
             </div>
           </div>
 
-          <div class="col-md-3">
+         <!--  <div class="col-md-3">
             <div class="card shadow" style="width: 15rem; ">
               <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">     
             </div>
@@ -913,10 +1011,10 @@
             <div class="brand-caption shadow">
               Brandit
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
-      <div class="carousel-item carousel-transition">
+      <!-- <div class="carousel-item carousel-transition">
         <div class="row">
           <div class="col-md-3">
             <div class="card shadow" style="width: 15rem; ">
@@ -956,7 +1054,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
     <a class="carousel-control-prev watchbtnprev shadow" href="#carouselbrandControl" role="button" data-slide="prev">
@@ -1073,7 +1171,7 @@
 
 <!-- FEATURED product -->
 
-<div class="related-products-section mt-5  d-block d-md-none d-lg-none">
+ <div class="related-products-section mt-5  d-block d-md-none d-lg-none">
   <h5 class="text-uppercase font-weight-bold title">Featured Products</h5>
   <swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
     [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" 
@@ -1106,9 +1204,9 @@
       </div>
     </ng-template>
   </swiper>
-</div>
+</div> 
 
-
+    
 <!-- END -->
 
 <!-- OUR SERVICE  -->
@@ -1416,7 +1514,7 @@
 <!-- END -->
 
 <!-- TESTIMONIALS -->
-<div class="mt-5 d-block d-md-none d-lg-none">
+<div class="mt-5 d-block d-md-none d-lg-none" *ngIf="_themeService.data?.testimonials && _themeService.data?.testimonials.length>0">
   <div class="row">
     <div class="col-md-12 text-center">
       <h4><span class="shopmenu">TESTIMONIALS</span></h4>
@@ -1425,9 +1523,12 @@
 
   <swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
     [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" 
+     *ngFor="let testimonial_person of _themeService.data?.testimonials;"
     [watchSlidesVisibility]="true">
     <ng-template swiperSlide class="custom-class">
-      <div class="d-md-flex d-lg-flex d-block ">
+      <app-testimonial-card [testimonial_person]="testimonial_person">
+      </app-testimonial-card>
+      <!-- <div class="d-md-flex d-lg-flex d-block ">
         <div class="profile p-3">
           <img src="./../../../../../assets/Images/testimonial/sample-2.png" class="profileimg" />
         </div>
@@ -1440,9 +1541,9 @@
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
         </div>
-      </div>
+      </div> -->
     </ng-template>
-    <ng-template swiperSlide>
+    <!-- <ng-template swiperSlide>
       <div class="d-md-flex d-lg-flex d-block">
         <div class="profile p-3">
           <img src="./../../../../../assets/Images/testimonial/sample-1.png" class="profileimg" />
@@ -1473,7 +1574,7 @@
           </p>
         </div>
       </div>
-    </ng-template>
+    </ng-template> -->
   </swiper>
 
 </div>

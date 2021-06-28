@@ -19,6 +19,11 @@ display: block !important;
     }
 }
 
+.card-img-top{
+    width: 200px;
+}
+
+
 
 
 @media(min-width:768px) {
@@ -30,4 +35,29 @@ display: block !important;
     .price-size {
         font-size: medium;
     }
+}
+
+.card-img-top {
+    width: 80%;
+    transition: 0.5s all ease-in-out;
+    overflow: hidden;
+    height: 180px;
+}
+
+.productcard:hover {.card-img-top {
+    transform: scale(1.2);
+}
+}
+.productcard{
+    transition: box-shadow 1s;
+}
+.productcard:hover{
+    box-shadow: 0 0 6px 0 hsl(0deg 0% 48% / 33%);
+}
+.card-text{
+    opacity: .7;
+    font-size: 20px !important;
+}
+.card-title{
+    font-size: 27px;
 }

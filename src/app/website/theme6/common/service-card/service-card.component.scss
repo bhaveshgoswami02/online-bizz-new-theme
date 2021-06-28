@@ -1,0 +1,29 @@
+.serviceimg{
+    height: 300px;
+    width: 100%;
+}
+.service-card:hover {.servicecaption{
+    /* background-color: #ffffffb8;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+   width: 100%; */
+   background-color: #ffffffb8;
+    color: var(--primary-contrast);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    position: absolute;
+    transition: .4s;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    opacity: .95;
+}
+}
+.servicecaption{
+    display: none;
+}

@@ -2,7 +2,7 @@
 /* CATEGORY MENU */
 .categoryimg{
     border-radius: 50%;
-    border: 3px solid white;
+    border: 3px solid #ccc;
     height: 100px;
     width: 100px;
     
@@ -205,6 +205,29 @@ border: 2px solid var(--yellow);
     border-radius: 2px;
     z-index: 99;
 }
+.brandbtn{
+    position: absolute;
+    padding: 20px 60px;
+    bottom: -20px;
+    left: 38px;
+}
+
+.brandbtnprev{
+    background-color: white;
+    height: 38px;
+    width: 45px;
+    position: absolute;
+    top: 50%;
+    border-radius: 50%;
+}
+.brandbtnnext{
+    width: 45px !important;
+    height: 38px !important;
+    position: absolute !important;
+    top: 50% !important;
+    background-color: white !important;
+    border-radius: 50%;
+  }
 
 /* END */
 

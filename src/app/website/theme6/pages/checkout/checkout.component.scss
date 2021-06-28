@@ -52,3 +52,19 @@
 .small-text {
   font-size: 0.75rem;
 }
+.checkboxmark{
+  height: 25px;
+  width: 25px;
+}
+@media (max-width: 500px) {
+  .offer-code-container {
+    width: 100%;
+    i {
+      height: 60px;
+    }
+    input {
+      height: 60px;
+    }
+  }
+  
+}
