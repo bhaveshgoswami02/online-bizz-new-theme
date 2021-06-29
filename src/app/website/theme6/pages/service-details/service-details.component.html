@@ -70,14 +70,15 @@
 
     <div class="row d-flex ">
         <div class="col-md-6 d-flex">
-            <img src="./../../../../../assets/Images/service/service (1).jpg" height="300px" width="100%"/>
-
+            <!-- <img src="./../../../../../assets/Images/service/service (1).jpg" height="300px" width="100%"/> -->
+            <img [src]="serviceDetails?.imgUrl" (load)="serviceDetails.loaded = true" height="300px" width="100%"
+            [hidden]="!serviceDetails.loaded" class="serviceimg" alt="services" />
         </div>
         <div class="col-md-6">
-            <h3 class="text-center">Service Details</h3>
-            <p class="mx-3">Deep and dusky skin can pull off just about any shade. Use that to your advantage with jewel tones like ruby, amethyst and emerald, 
-                as well as radiant contrasting hues like cool aquas and snowy whites to make you stand out.</p>
-        </div>
+            <h3 class="text-center">{{serviceDetails?.title}}</h3>
+            <p class="text-center my-2" [innerHTML]="serviceDetails?.desc">
+              
+            </div>
     </div>
 
     <div class="row">

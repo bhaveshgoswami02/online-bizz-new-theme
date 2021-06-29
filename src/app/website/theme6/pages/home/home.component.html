@@ -60,7 +60,7 @@
   </div>
   <div class="row">
     <div class="col-md-12 d-flex flex-wrap">
-      <div class="d-block mx-auto"  *ngFor="let category of _themeService.data?.categories">
+      <div class="d-block mx-auto"  *ngFor="let category of _themeService.data?.categories" (click)="onSelectCategory(category.slug)">
         <img [src]="category.imgUrl" (load)="category.loaded = true" [hidden]="!category.loaded" alt="category" class="categoryimg" />
         <p class="text-center">{{category.title}}</p>
       </div>
@@ -279,24 +279,18 @@
 
 <!-- OUR SERVICE -->
 
-<!-- <div class="container mt-5 d-none d-md-block d-lg-block">
+ <div class="container mt-5 d-none d-md-block d-lg-block" *ngIf="_themeService.data?.services && _themeService.data?.services?.length>0">
   <div class="row mb-2">
     <div class="col-md-12 text-center">
       <h4><span class="shopmenu">OUR SERVICE</span></h4>
     </div>
   </div>
-  <div class="row position-relative">
-    <div class="col-md mx-2 p-0 shadow">
-      <img src="./../../../../../assets/Images/service/service (1).jpg" class="serviceimg" alt="services" />
-      <div class="servicecaption">
-        <p class="fw-bold my-2">Office supplies</p>
-        <p class="text-center my-2">
-          Get every office essential here at one place at the cheapest price. Best in quality product with long
-          durability.
-        </p>
+  <div class="row position-relative" >
+    <div class="col-md mx-2 p-0 shadow" *ngFor="let service of _themeService.data?.services?.slice(0,3); let i = index">
+      <app-service-card [service]="service"></app-service-card>
       </div>
     </div>
-    <div class="col-md mx-2 p-0 shadow">
+    <!-- <div class="col-md mx-2 p-0 shadow">
       <img src="./../../../../../assets/Images/service/service (2).jpg" class="serviceimg" alt="services" />
       <div class="servicecaption">
         <p class="fw-bold my-2">Kids supplies</p>
@@ -307,11 +301,12 @@
       <div class="servicecaption">
         <p class="fw-bold my-2">School</p>
       </div>
-    </div>
+    </div> -->
   </div>
-</div> -->
 
-<div class="service-area-wrapper py-5 bg-white"
+
+
+<!-- <div class="service-area-wrapper py-5 bg-white"
     *ngIf="_themeService.data?.services && _themeService.data?.services?.length>0">
     <br>
     <br class="d-block d-md-none d-lg-none"><br class="d-block d-md-none d-lg-none">
@@ -325,7 +320,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Service End -->
 
 
@@ -759,19 +754,20 @@
 
   <div id="carouselvideoControl" class="carousel slide container m-0 p-0" data-ride="carousel" data-interval="false">
     <div class="carousel-inner">
-      <div class="carousel-item active carousel-transition">
+      <div class="carousel-item  active carousel-transition" >
         <div class="row">
           <div class="col-md-4">
-            <div class="card shadow" style="width: 20rem; ">
+            <div class="card shadow mx-auto" style="width: 20rem; ">
               <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
               <div class="card-body p-2 pb-3">
                 <span>Unboxing Beautiful Pencil
                   <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
-              </div>
-            </div>
-          </div>
+</div>
+        </div>
+        
+      </div>
           <div class="col-md-4">
             <div class="card shadow mx-auto" style="width: 20rem; ">
               <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0"
@@ -795,10 +791,11 @@
 
               </div>
             </div>
-          </div>
+          </div> 
         </div>
       </div>
-      <div class="carousel-item carousel-transition">
+    </div>
+     <!--  <div class="carousel-item carousel-transition">
         <div class="row ">
           <div class="col-md-4">
             <div class="card shadow" style="width: 20rem; ">
@@ -838,9 +835,9 @@
           </div>
 
         </div>
-      </div>
+      </div> -->
 
-    </div>
+  
     <a class="carousel-control-prev watchbtnprev shadow" href="#carouselvideoControl" role="button" data-slide="prev">
       <span aria-hidden="true"><i class="fas fa-caret-left clblack"></i></span>
       <span class="sr-only">Previous</span>
@@ -852,6 +849,7 @@
   </div>
 
 </div>
+
 
 <!-- WATCH AND LEARN END -->
 
@@ -987,75 +985,9 @@
             </div>
           </div>
 
-         <!--  <div class="col-md-3">
-            <div class="card shadow" style="width: 15rem; ">
-              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">     
-            </div>
-            <div class="brand-caption shadow">
-              Brandit
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card shadow" style="width: 15rem; ">
-              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
-            </div>
-            <div class="brand-caption shadow">
-              Brandit
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card shadow" style="width: 15rem; ">
-              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
-              
-            </div>
-            <div class="brand-caption shadow">
-              Brandit
-            </div>
-          </div> -->
         </div>
       </div>
-      <!-- <div class="carousel-item carousel-transition">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="card shadow" style="width: 15rem; ">
-              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
-              
-            </div>
-            <div class="brand-caption shadow">
-              Brandit
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="card shadow" style="width: 15rem; ">
-              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
-              
-            </div>
-            <div class="brand-caption shadow">
-              Brandit
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card shadow" style="width: 15rem; ">
-              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
-              
-            </div>
-            <div class="brand-caption shadow">
-              Brandit
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card shadow" style="width: 15rem; ">
-              <img src="../../../../../assets/Images/service/service (1).jpg" alt="brands">
-              
-            </div>
-            <div class="brand-caption shadow">
-              Brandit
-            </div>
-          </div>
-        </div>
-      </div> -->
-
+     
     </div>
     <a class="carousel-control-prev watchbtnprev shadow" href="#carouselbrandControl" role="button" data-slide="prev">
       <span aria-hidden="true"><i class="fas fa-caret-left clblack"></i></span>
@@ -1086,7 +1018,12 @@
   <swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
     [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" [navigation]="{}"
     [watchSlidesVisibility]="true">
+    <ng-container *ngFor="let product of _themeService.data?.products?.slice(0,8);let i = index">
     <ng-template swiperSlide class="custom-class">
+    
+              <app-product-card [product]="product"></app-product-card>
+    </ng-template></ng-container>
+   <!--  <ng-template swiperSlide>
       <div class="card" style="border: none">
         <div class="card-body">
           <img src="../../../../../assets/Images/category/category (3).jpg" class="img-mobile" alt="product-image" />
@@ -1103,16 +1040,7 @@
           <p class="paragraph">Schoole Stationary</p>
         </div>
       </div>
-    </ng-template>
-    <ng-template swiperSlide>
-      <div class="card" style="border: none">
-        <div class="card-body">
-          <img src="../../../../../assets/Images/category/category (3).jpg" class="img-mobile" alt="product-image" />
-          <h6 class="font-weight-bold sub-title mt-1">Calculator</h6>
-          <p class="paragraph">Schoole Stationary</p>
-        </div>
-      </div>
-    </ng-template>
+    </ng-template> -->
   </swiper>
 </div>
 
@@ -1126,22 +1054,20 @@
 <!-- END -->
 
 <!-- CATEGORY -->
-<div class="explore-section mt-5 d-block d-md-none d-lg-none">
+<div class="explore-section mt-5 d-block d-md-none d-lg-none" [ngClass]="{'mt-sm-n': _themeService?.data.aboutUs && !_themeService?.data?.isDisableAboutOnHome}"
+*ngIf="_themeService.data?.categories && _themeService.data?.categories?.length>0">
   <h5 class="text-uppercase font-weight-bold title">Explore More</h5>
-  <!-- <img
-    height="150"
-    width="100%"
-    src="../../../../../assets/Images/category/category (3).jpg"
-    class="img-mobile"
-    alt=""
-  /> -->
-  <div class="position-relative">
-    <img src="./../../../../../assets/Images/category/category (1).jpg" class="categoryimg1" />
+ 
+  <div class="position-relative mt-1" 
+  *ngFor="let category of _themeService.data?.categories" (click)="onSelectCategory(category.slug)">
+    <img [src]="category.imgUrl" (load)="category.loaded = true" [hidden]="!category.loaded" alt="category" class="categoryimg1" />
     <div class="imgdivblock">
-      <p>Eraser</p>
+      <p>{{category.title}}</p>
     </div>
   </div>
-  <div class="position-relative mt-1">
+  
+  
+  <!-- <div class="position-relative mt-1">
     <img src="./../../../../../assets/Images/category/category (5).jpg" class="categoryimg1" />
     <div class="imgdivblock">
       <p>Pencil</p>
@@ -1164,7 +1090,7 @@
     <div class="imgdivblock">
       <p>Eraser</p>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <!-- END -->
@@ -1220,8 +1146,10 @@
   <swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
     [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" 
     [watchSlidesVisibility]="true" style="height: 300px">
+    <ng-container *ngFor="let service of _themeService.data?.services?.slice(0,3); let i = index">
+      
     <ng-template swiperSlide>
-      <div class="col-md mx-2 p-0 shadow">
+     <!--  <div class="col-md mx-2 p-0 shadow">
         <img src="./../../../../../assets/Images/service/service (1).jpg" class="serviceimg" />
         <div class="servicecaption">
           <p class="fw-bold my-2">Office supplies</p>
@@ -1230,24 +1158,8 @@
             durability.
           </p>
         </div>
-      </div>
-    </ng-template>
-    <ng-template swiperSlide class="custom-class">
-      <div class="col-md mx-2 p-0 shadow">
-        <img src="./../../../../../assets/Images/service/service (2).jpg" class="serviceimg" />
-        <div class="servicecaption">
-          <p class="fw-bold my-2">Kids supplies</p>
-        </div>
-      </div>
-    </ng-template>
-    <ng-template swiperSlide class="custom-class">
-      <div class="col-md mx-2 p-0 shadow">
-        <img src="./../../../../../assets/Images/service/service (3).jpg" class="serviceimg" />
-        <div class="servicecaption">
-          <p class="fw-bold my-2">School</p>
-        </div>
-      </div>
-    </ng-template>
+      </div> --><app-service-card [service]="service"></app-service-card>
+    </ng-template></ng-container>
   </swiper>
 </div>
 <!-- END -->
@@ -1523,8 +1435,9 @@
 
   <swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
     [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" 
-     *ngFor="let testimonial_person of _themeService.data?.testimonials;"
+     
     [watchSlidesVisibility]="true">
+    <ng-container *ngFor="let testimonial_person of _themeService.data?.testimonials;">
     <ng-template swiperSlide class="custom-class">
       <app-testimonial-card [testimonial_person]="testimonial_person">
       </app-testimonial-card>
@@ -1542,7 +1455,7 @@
           </p>
         </div>
       </div> -->
-    </ng-template>
+    </ng-template></ng-container>
     <!-- <ng-template swiperSlide>
       <div class="d-md-flex d-lg-flex d-block">
         <div class="profile p-3">
@@ -1591,14 +1504,28 @@
 
 <!-- BRANDS  -->
 
-<div class="brand-section mt-5 d-block d-md-none d-lg-none">
+<!-- <div class="brand-section mt-5 d-block d-md-none d-lg-none">
   <h5 class="text-uppercase font-weight-bold title">Brands</h5>
   <img src="../../../../../assets/Images/service/service (1).jpg" width="100%" alt="" />
   <div class="brand-name-section rounded sub-title font-weight-bold">
     Branditt
   </div>
-</div>
+</div> -->
+
+<swiper [autoplay]="true" [slidesPerView]="1" [spaceBetween]="50" [pagination]="{ clickable: true }"
+    [thumbs]="{ swiper: thumbsSwiper }" (swiper)="setThumbsSwiper($event)" 
+    [watchSlidesVisibility]="true" >
+    <ng-container *ngFor="let brand of _themeService.data?.brands">
+    <ng-template swiperSlide>
+      
+<div class="text-center"  (click)="onSelectBrand(brand.slug)">
+  <div class="card shadow" style="width: auto; ">
+    <img [src]="brand.imgUrl" (load)="brand.loaded = true" [hidden]="!brand.loaded" alt="">       
+  </div>
+  <div class="brand-caption shadow">
+    {{brand.title}}
+  </div>
+</div></ng-template></ng-container></swiper>
 
 <!-- END -->
 
-<app-tab></app-tab>

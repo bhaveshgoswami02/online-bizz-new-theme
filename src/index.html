@@ -63,7 +63,13 @@
   <!-- Lading page end -->
   <script>
     AOS.init();
-    
+    $("input").bind("input", function() {
+        var $this = $(this);
+        setTimeout(function() {
+            if ( $this.val().length >= parseInt($this.attr("maxlength"),10) )
+                $this.next("input").focus();
+        },0);
+    });
   </script>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>

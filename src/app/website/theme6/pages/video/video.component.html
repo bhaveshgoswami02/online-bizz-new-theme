@@ -1,8 +1,18 @@
-<div class="container text-center my-5" *ngIf="secureVideoLinks.length>0">
+<!-- <div class="container text-center my-5" *ngIf="secureVideoLinks.length>0">
     <h3>Videos</h3>
     <div class="row my-3">
         <div class="col-lg-4 my-2" *ngFor="let video of secureVideoLinks;">
             <iframe class="video-player" [width]="videoPlayerwidthSize" [height]="videoPlayerheightSize" [src]="video" allowfullscreen></iframe>
         </div>
     </div>
-</div>
+</div> -->
+
+<div class="card shadow" style="width: 20rem; " *ngIf="secureVideoLinks.length>0">
+    <iframe src="https://www.youtube.com/embed/2_-6dgpRwe4" title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    <div class="card-body p-2 pb-3">
+      <span>Unboxing Beautiful Pencil
+        <span class="float-right"><button class="playbtn"><i class="fas fa-play "></i></button></span></span>
+    </div>
+  </div>

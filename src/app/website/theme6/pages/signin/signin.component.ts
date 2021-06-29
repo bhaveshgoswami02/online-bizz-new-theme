@@ -16,12 +16,14 @@ export class SigninComponent implements OnInit {
   sessionId = null
   loader: boolean = false
   params:any = {}
+  
 
   constructor(public cart: CartService, public common: CommonService, public customerService: ManageCustomerService, public _themeService: ThemesManagerService,public route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getParams()
   }
+
 
   getParams() {
     this.route.queryParams.subscribe(res=>{
@@ -56,6 +58,11 @@ export class SigninComponent implements OnInit {
 
   vertifyOtp(data: NgForm) {
     this.loader = true
+    console.log("otpdata",data.value)
+    /* var otpdata = data.value.otp1.concat(data.value.otp2).concat(data.value.otp3).concat(data.value.otp4).concat(data.value.otp5).concat(data.value.otp6);
+    console.log("concateotpdata",otpdata)
+    var otpvalue = { otp: otpdata} */
+    console.log("otpdata",data.value)
     data.value.sessionId = this.sessionId
     this.cart.verifyOtp(data.value).toPromise().then((res: any) => {
       // console.log("verify otp response", res)
@@ -77,5 +84,18 @@ export class SigninComponent implements OnInit {
   changeNumber() {
     this.isOtpSent = false
   }
+
+  
+ 
+  movetoNext(current, nextFieldID) {  
+    let data = current.value.maxLength
+    let data2 = current.maxLength
+    console.log("running", data,nextFieldID)
+    console.log("running22", data2,nextFieldID)
+    if (1 >= 1) {  
+      console.log("runningifff")
+    document.getElementById(nextFieldID).focus();  
+    }  
+    } 
 
 }

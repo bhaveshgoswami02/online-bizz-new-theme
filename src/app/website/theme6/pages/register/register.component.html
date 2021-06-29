@@ -88,25 +88,27 @@
 </div> -->
 
 <div class="container">
-    <p class="text-center fs-14">VERIFY YOUR MOBILE NUMBER TO COMPLETE YOUR REGISTRATION</p>
+   <!--  <p class="text-center fs-14">VERIFY YOUR MOBILE NUMBER TO COMPLETE YOUR REGISTRATION</p>
     <p class="text-center fs-14">ENTER OTP SENT ON
     <span class="fs-12 fw-bold ">+91 8987898789<i class="fa fa-edit pl-1"></i></span></p>
-    <div class="d-flex align-items-center mx-5 justify-content-between">
+     <div class="d-flex align-items-center mx-5 justify-content-between">
         <input type="number"  class="form-control p-2  text-center" style="width: 50px;">
         <input type="number"  class="form-control p-2  text-center" style="width: 50px;">
         <input type="number" class="form-control p-2  text-center" style="width: 50px;">
         <input type="number"  class="form-control p-2 text-center" style="width: 50px;">
-    </div>
-    <p class="text-center mt-3 text-uppercase fw-bold fs-12"><i class="far fa-envelope mr-2"></i>resend otp</p>
-    <form>
+    </div> 
+          
+    
+    <p class="text-center mt-3 text-uppercase fw-bold fs-12"><i class="far fa-envelope mr-2"></i>resend otp</p> -->
+    <form #formData="ngForm" (ngSubmit)="register(formData)">
     <div class="row form">  
         <div class="col-6">
             <label class="fw-bold">Name</label>
-            <input type="text" placeholder="*Full Name" class="form-control p-2 w-100">
+            <input type="text" #name="ngModel" name="name" ngModel required placeholder="*Full Name" class="form-control p-2 w-100">
         </div>
         <div class="col-6">
             <label class="fw-bold">Email</label>
-            <input type="text" placeholder="*Email Address" class="form-control p-2 w-100">
+            <input type="email" #email="ngModel" name="email" ngModel required placeholder="*Email Address" class="form-control p-2 w-100">
         </div>
      
     </div>
@@ -121,7 +123,8 @@
     </div>
     <div class="row">
         <div class="col-6 mx-auto">
-            <button class="btn-dark fw-bold w-100 fs-14 my-3 p-3 border-0  p-3 loginbtn">VERIFY</button>
+            <button class="btn-dark fw-bold w-100 fs-14 my-3 p-3 border-0  p-3 loginbtn" [routerLink]="['/home']" routerLinkActive="router-link-active" 
+            type="submit" [disabled]="formData.invalid" *ngIf="!loader">VERIFY</button>
         </div>
     </div>
 </form>

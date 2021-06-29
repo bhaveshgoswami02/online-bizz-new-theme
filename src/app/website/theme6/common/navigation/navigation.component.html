@@ -1,4 +1,4 @@
-<div class="sticky-top shadow pb-2 header-2 d-none d-md-block d-lg-block">
+<div class="sticky-top shadow pb-2 header-2 d-none d-md-block d-lg-block" *ngIf="_themeService?.data">
   <div class="header col-12 d-none d-md-block d-lg-block">
     <div class="container">
       <div class="row mx-3 py-2">
@@ -20,7 +20,7 @@
   <div class="container">
     <div class="row my-3 mx-3">
       <div class="col-md my-auto">
-        <img src="../../../../../assets/Images/logo.jpg" />
+        <img src="../../../../../assets/Images/logo.jpg" routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}"/>
       </div>
       <div class="col-md-7 my-auto">
         <div class="searchbox p-1 d-flex">
@@ -33,7 +33,7 @@
           />
         </div>
       </div>
-      <div class="col-md-2 my-auto">
+      <div class="col-md-2 my-auto d-flex">
         <div class="float-right">
           <div class="col-md my-auto">
             <p class="float-right my-auto">
@@ -44,8 +44,67 @@
               ></i
               ><i class="fas fa-user headicon"
               data-toggle="modal"
-                data-target="#signinmodel"></i>
+                data-target="#signinmodel"
+                *ngIf="!customerService.customerData && _themeService?.data?.enableEcommerce && _themeService?.data?.enableCart"
+                ></i>
             </p>
+            <!-- dropdown -->
+            <li class="d-flex float-right text-right" *ngIf="customerService.customerData">
+              <div class="dropdown my-auto mx-3"
+                *ngIf="_themeService?.data?.enableCart && _themeService?.data?.enableEcommerce">
+                <a class="dropdown-toggle text-primary-contrast cursor-pointer font-18 my-auto"
+                  style="color: #746F6D!important;" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  <!-- <img src="https://cdn.luxe.digital/media/2019/09/12090457/business-professional-dress-code-men-james-bond-suit-style-luxe-digital.jpg"
+                    style="width: 100%;height: 100%;border-radius: 50%;" alt=""> -->
+                  <i class="fa fa-user-circle-o user my-auto"></i>
+                  <!-- <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                    width="100%" style="border-radius: 50%" alt=""> -->
+                </a>
+                <div class="dropdown-menu" style="z-index: 999999;" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item" *ngIf="customerService.customerData"
+                    routerLink="{{_themeService.customDomain?'/profile':'/'+_themeService.domainName+'/profile'}}">
+                    <i class="fa fa-user primary-font-size"></i><span> Profile</span>
+                  </a>
+                  <a class="dropdown-item" *ngIf="customerService.customerData && _themeService?.data?.enableOrder"
+                    routerLink="{{_themeService.customDomain?'/orders':'/'+_themeService.domainName+'/orders'}}">
+                    <i class="fa fa-list primary-font-size"></i><span> My Orders</span>
+                  </a>
+                  <a class="dropdown-item" *ngIf="_themeService.data.enableEcommerce && _themeService?.data?.enableCart"
+                    routerLink="{{_themeService.customDomain?'/cart':'/'+_themeService.domainName+'/cart'}}">
+                    <span>
+                      <i class="fa fa-shopping-cart static-primary"></i> Cart
+                    </span>
+                    <span *ngIf="cartService.cart.length>0">({{cartService.cart.length}})</span>
+                  </a>
+                  <a class="dropdown-item" *ngIf="_themeService.data.enableEcommerce && _themeService?.data?.enableCart"
+                    routerLink="{{_themeService.customDomain?'/search':'/'+_themeService.domainName+'/search'}}">
+                    <span>
+                      <i class="fa fa-search static-primary"></i> Search
+                    </span>
+                  </a>
+                  <a class="dropdown-item"
+                    *ngIf="!customerService.customerData && _themeService?.data?.enableEcommerce && _themeService?.data?.enableCart"
+                    routerLink="{{_themeService.customDomain?'/signin':'/'+_themeService.domainName+'/signin'}}">
+                    <i class="fa fa-sign-in"></i> <span> SignIn/SignUp</span>
+                  </a>
+                  <a class="dropdown-item cursor-pointer"
+                    *ngIf="customerService.customerData && _themeService?.data?.enableOrder" (click)="logout()">
+                    <i class="fa fa-sign-out"></i> <span> Logout</span>
+                  </a>
+                </div>
+              </div>
+              <a *ngIf="_themeService.products.length != 0 && cartService.cart.length>0 && _themeService.data.enableEcommerce && !_themeService?.data?.enableOrder"
+                class="static-primary my-auto"
+                routerLink="{{_themeService.customDomain?'/cart':'/'+_themeService.domainName+'/cart'}}"
+                routerLinkActive="active">
+                <span>({{cartService.cart.length}})</span>
+                <span>
+                  <i class="fa fa-shopping-cart static-primary"></i> Cart
+                </span>
+              </a> &nbsp;
+            </li>
+            <!-- end -->
             <!-- SIGNUP MODEL -->
             <div
               class="modal fade"
@@ -77,6 +136,63 @@
             <!-- END -->
           </div>
         </div>
+
+
+        <!-- <div class="col-3 col-lg-1 d-lg-block d-md-bock d-none">
+          <li class="d-flex float-right text-right">
+            <div class="dropdown my-auto mx-3"
+              *ngIf="_themeService?.data?.enableCart && _themeService?.data?.enableEcommerce">
+              <a class="dropdown-toggle text-primary-contrast cursor-pointer font-18 my-auto"
+                style="color: #746F6D!important;" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fa fa-user-circle-o user my-auto"></i>
+              </a>
+              <div class="dropdown-menu" style="z-index: 999999;" aria-labelledby="profileDropdown">
+                <a class="dropdown-item" *ngIf="customerService.customerData"
+                  routerLink="{{_themeService.customDomain?'/profile':'/'+_themeService.domainName+'/profile'}}">
+                  <i class="fa fa-user primary-font-size"></i><span> Profile</span>
+                </a>
+                <a class="dropdown-item" *ngIf="customerService.customerData && _themeService?.data?.enableOrder"
+                  routerLink="{{_themeService.customDomain?'/orders':'/'+_themeService.domainName+'/orders'}}">
+                  <i class="fa fa-list primary-font-size"></i><span> My Orders</span>
+                </a>
+                <a class="dropdown-item" *ngIf="_themeService.data.enableEcommerce && _themeService?.data?.enableCart"
+                  routerLink="{{_themeService.customDomain?'/cart':'/'+_themeService.domainName+'/cart'}}">
+                  <span>
+                    <i class="fa fa-shopping-cart static-primary"></i> Cart
+                  </span>
+                  <span *ngIf="cartService.cart.length>0">({{cartService.cart.length}})</span>
+                </a>
+                <a class="dropdown-item" *ngIf="_themeService.data.enableEcommerce && _themeService?.data?.enableCart"
+                  routerLink="{{_themeService.customDomain?'/search':'/'+_themeService.domainName+'/search'}}">
+                  <span>
+                    <i class="fa fa-search static-primary"></i> Search
+                  </span>
+                </a>
+                <a class="dropdown-item"
+                  *ngIf="!customerService.customerData && _themeService?.data?.enableEcommerce && _themeService?.data?.enableCart"
+                  routerLink="{{_themeService.customDomain?'/signin':'/'+_themeService.domainName+'/signin'}}">
+                  <i class="fa fa-sign-in"></i> <span> SignIn/SignUp</span>
+                </a>
+                <a class="dropdown-item cursor-pointer"
+                  *ngIf="customerService.customerData && _themeService?.data?.enableOrder" (click)="logout()">
+                  <i class="fa fa-sign-out"></i> <span> Logout</span>
+                </a>
+              </div>
+            </div>
+            <a *ngIf="_themeService.products.length != 0 && cartService.cart.length>0 && _themeService.data.enableEcommerce && !_themeService?.data?.enableOrder"
+              class="static-primary my-auto"
+              routerLink="{{_themeService.customDomain?'/cart':'/'+_themeService.domainName+'/cart'}}"
+              routerLinkActive="active">
+              <span>({{cartService.cart.length}})</span>
+              <span>
+                <i class="fa fa-shopping-cart static-primary"></i> Cart
+              </span>
+            </a> &nbsp;
+          </li>
+        </div> -->
+
+
       </div>
     </div>
 
@@ -94,14 +210,16 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav p-0">
+          <ul class="navbar-nav p-0" >
             <li class="nav-item mx-auto">
-              <a class="nav-link">Home</a>
+              <a class="nav-link"  routerLink="{{_themeService.customDomain?'/home':'/'+_themeService.domainName+'/home'}}"
+              routerLinkActive="active">Home</a>
             </li>
-            <li class="nav-item mx-auto">
+            <li class="nav-item mx-auto" *ngIf="_themeService?.data?.services?.length>0">
               <a class="nav-link" 
-              [routerLink]="['/test8/services']" routerLinkActive="router-link-active" 
-              >Services</a>
+              routerLink="{{_themeService.customDomain?'/services':'/'+_themeService.domainName+'/services'}}"
+              routerLinkActive="active">
+              {{_themeService.data.serviceHeading ? _themeService.data.serviceHeading : "Services"}}</a>
               <div class="submenu shadow">
                 <ul>
                   <li><a class="nav-link" href="#">Eraser</a></li>
@@ -111,16 +229,19 @@
                 </ul>
               </div>
             </li>
-            <li class="nav-item mx-auto">
+            <li class="nav-item mx-auto" *ngIf="_themeService?.data?.products?.length>0">
               <a
                 class="nav-link"
-                [routerLink]="['/test8/products']"
-                routerLinkActive="router-link-active"
-                >Product</a
+                routerLink="{{_themeService.customDomain?'/products':'/'+_themeService.domainName+'/products'}}"
+                routerLinkActive="active">{{_themeService.data.productHeading ? _themeService.data.productHeading :
+                "Products"}}</a
               >
             </li>
-            <li class="nav-item mx-auto">
-              <a class="nav-link">Gallery</a>
+            <li class="nav-item mx-auto"  *ngIf="_themeService?.data?.gallery?.length>0">
+              <a class="nav-link"
+              routerLink="{{_themeService.customDomain?'/gallery':'/'+_themeService.domainName+'/gallery'}}"
+                routerLinkActive="active">{{_themeService.data.galleryHeading ? _themeService.data.galleryHeading :
+                "Gallery"}}</a>
             </li>
             <li class="nav-item mx-auto">
               <a class="nav-link"
@@ -130,7 +251,8 @@
               >Categories</a>
             </li>
             <li class="nav-item mx-auto">
-              <a class="nav-link">Contact Us</a>
+              <a class="nav-link"  routerLink="{{_themeService.customDomain?'/contact':'/'+_themeService.domainName+'/contact'}}"
+              routerLinkActive="active">Contact Us</a>
             </li>
           </ul>
         </div>

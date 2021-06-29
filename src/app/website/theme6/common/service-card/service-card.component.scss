@@ -10,13 +10,12 @@
    width: 100%; */
    background-color: #ffffffb8;
     color: var(--primary-contrast);
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     padding: 15px 30px;
     position: absolute;
     transition: .4s;
-    left: -100%;
     top: 0;
     height: 100%;
     width: 100%;
