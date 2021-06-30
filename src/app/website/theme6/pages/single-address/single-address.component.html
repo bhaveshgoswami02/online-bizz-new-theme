@@ -1,4 +1,4 @@
-<app-navigation type=2 title="Add Address"></app-navigation>
+<app-navigation type="2" title="Add Address"></app-navigation>
 
 <!-- <div class="container">
     <div class="row">
@@ -55,64 +55,149 @@
 </div> -->
 
 <div class="container bg-white">
-    <div class="row">
-        <div class="col-12">
-            <p class="text-center fw-bold fw-16">Shipping Address</p>
-        </div>
-        
+  <div class="row">
+    <div class="col-12 my-3">
+      <p class="text-center fw-bold fw-16">Shipping Address</p>
     </div>
+  </div>
+  <form #formData="ngForm" (ngSubmit)="submit(formData)">
     <div class="row mt-3">
-        <div class="col-md-4">
-            <input type="text" placeholder="Name*" class="p-3 addressinput" />
-        </div>
-        <div class="col-md-3">
-            <input type="text" placeholder="Mobile No" class="p-3 addressinput" />
-        </div>
-       <div class="col-md-5">
+      <div class="col-md-4">
+        <input type="text" placeholder="Name*" class="p-3 addressinput" />
+      </div>
+      <div class="col-md-3">
+        <input type="text" placeholder="Mobile No" class="p-3 addressinput" />
+      </div>
+      <div class="col-md-5">
         <input type="text" placeholder="Email" class="p-3 addressinput" />
-       </div>
+      </div>
     </div>
     <div class="row mt-3">
-        <div class="col-md-3">
-            <select class="p-3 addressinput">
-                <option>Home</option>
-                <option>Office</option>
-                <option selected>Others</option>
-            </select>
-        </div>
-        <div class="col-md-3">
-            <input type="text" placeholder="Flat No./House No.*" class="p-3 addressinput" />
-        </div>
-        <div class="col-md-3">
-            <input type="text" placeholder="Street Name*" class="p-3 addressinput" />
-        </div>
-        <div class="col-md-3">
-            <input type="text" placeholder="Neighbourhood*" class="p-3 addressinput" />
-        </div>
+      <div class="col-md-3">
+        <select class="p-3 addressinput">
+          <option>Home</option>
+          <option>Office</option>
+          <option selected>Others</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <input
+          type="text"
+          placeholder="Flat No./House No.*"
+          class="p-3 addressinput"
+        />
+      </div>
+      <div class="col-md-3">
+        <!-- <input type="text" placeholder="Street Name*" class="p-3 addressinput" /> -->
+        <input
+          type="text"
+          #street="ngModel"
+          name="street"
+          class="p-3 addressinput"
+          placeholder="Street Name*"
+          ngModel
+          required
+        />
+        <p
+          class="text-danger"
+          *ngIf="street.invalid && (street.dirty || street.touched)"
+        >
+          Please Enter Your Street
+        </p>
+      </div>
+      <div class="col-md-3">
+        <input
+          type="text"
+          placeholder="Neighbourhood*"
+          class="p-3 addressinput"
+        />
+      </div>
     </div>
     <div class="row mt-3">
-        <div class="col-md-3">
-            <input type="text" placeholder="Pincode*" class="p-3 addressinput" />
-        </div>
-        <div class="col-md-3">
-            <input type="text" placeholder="City*" class="p-3 addressinput" />
-        </div>
-        <div class="col-md-3">
-            <input type="text" placeholder="State" class="p-3 addressinput" />
-        </div>
-        <div class="col-md-3">
-            <input type="text" placeholder="Landmark" class="p-3 addressinput" />
-        </div>
+      <div class="col-md-3">
+        <!-- <input type="text" placeholder="Pincode*" class="p-3 addressinput" /> -->
+        <input
+          type="number"
+          #pincode="ngModel"
+          name="pincode"
+          placeholder="Pincode*"
+          class="p-3 addressinput"
+          ngModel
+          required
+        />
+        <p
+          class="text-danger"
+          *ngIf="pincode.invalid && (pincode.dirty || pincode.touched)"
+        >
+          Please Enter Your Pincode
+        </p>
+      </div>
+      <div class="col-md-3">
+        <!-- <input type="text" placeholder="City*" class="p-3 addressinput" /> -->
+        <input
+          type="text"
+          #city="ngModel"
+          name="city"
+          placeholder="City*"
+          class="p-3 addressinput"
+          ngModel
+          required
+        />
+        <p
+          class="text-danger"
+          *ngIf="city.invalid && (city.dirty || city.touched)"
+        >
+          Please Enter Your City
+        </p>
+      </div>
+      <div class="col-md-3">
+        <input type="text" placeholder="State" class="p-3 addressinput" />
+      </div>
+      <div class="col-md-3">
+        <!-- <input type="text" placeholder="Landmark" class="p-3 addressinput" /> -->
+        <input
+          type="text"
+          name="landmark"
+          placeholder="Landmark"
+          class="p-3 addressinput"
+          ngModel
+        />
+      </div>
     </div>
     <div class="d-flex justify-content-end mt-3">
-        
-            <label class="i-checks d-flex" >
-                <input type="checkbox" class="pt-1 checkboxmark"> <span class="fw-bold pt-1 ml-2">Mark as default</span>
-            </label>
-       
+      <label class="i-checks d-flex">
+        <input type="checkbox" class="pt-1 checkboxmark" />
+        <span class="fw-bold pt-1 ml-2">Mark as default</span>
+      </label>
     </div>
     <div class="d-flex justify-content-end">
-        <button class="btn-dark fw-bold  fs-14 my-3 p-3 border-0 mx-2 p-3  addressbtnback">BACK</button>
-        <button class="btn-dark fw-bold fs-14 my-3 p-3 border-0  p-3 addressbtnsave">SAVE</button>
+      <button
+        class="btn-dark fw-bold fs-14 my-3 p-3 border-0 mx-2 p-3 addressbtnback"
+        routerLink="/test8"
+      >
+        BACK
+      </button>
+      <button
+        class="btn-dark fw-bold fs-14 my-3 p-3 border-0 p-3 addressbtnsave"
+        type="submit"
+        [disabled]="formData.invalid"
+        *ngIf="!loader"
+      >
+        SAVE
+      </button>
+      <button
+        class="btn-dark fw-bold fs-14 my-3 p-3 border-0 p-3 addressbtnsave"
+        type="button"
+        disabled
+        *ngIf="loader"
+      >
+        <span
+          class="spinner-border spinner-border-sm"
+          role="status"
+          aria-hidden="true"
+        ></span>
+        Loading...
+      </button>
     </div>
+  </form>
 </div>

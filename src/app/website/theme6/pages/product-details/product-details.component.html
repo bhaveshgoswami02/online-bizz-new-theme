@@ -244,6 +244,8 @@
         <button
           *ngIf="!cartService.isProductInCart(params)"
           (click)="addToCart(data)"
+          data-toggle="modal"
+          data-target="#cartModal"
           class="
             col-12 col-md-4 col-lg-4
             btn btn-dark btn-lg
@@ -854,5 +856,102 @@
     </div>
   </div>
 </ng-container>
+
+<div
+  class="modal right fade"
+  id="cartModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="cartModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog bagmodel h-100" role="document">
+    <div class="modal-content h-100">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-bold" id="cartModalLabel">
+          <i class="fas fa-shopping-bag"></i>
+          My Bag<span>({{ cartService.cart.length }})</span>
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let item of cartService.cart">
+          <div class="card p-3">
+            <div class="d-flex col-12">
+              <img
+                [src]="item.product.imgUrl"
+                (load)="item.loaded = true"
+                [hidden]="!item.loaded"
+                alt=""
+                width="100"
+                height="100"
+                class="img-fluid rounded shadow-sm"
+              />
+              <ng-container *ngIf="!item.loaded">
+                <div style="width: 100px; height: 100px">
+                  <div class="blank_img"></div>
+                </div>
+              </ng-container>
+              <h6 class="ml-2">{{ item.product.itemName }}</h6>
+              <i
+                class="fas fa-times ml-auto mt-1 text-dark"
+                (click)="removeItemFromCart(item.product)"
+              ></i>
+            </div>
+            <div class="d-flex col-12 justify-content-between mt-3 mx-1">
+              <p class="font-weight-bold my-auto">
+                ₹<span class="ml-1"
+                  >{{ item.product.itemPrice }} X {{ item.qty }} = &#8377;{{
+                    item.product.itemPrice * item.qty
+                  }}</span
+                >
+              </p>
+              <div class="d-flex my-auto">
+                <p class="my-auto">QTY.</p>
+                <i
+                  class="fas fa-minus-circle ml-1 my-auto"
+                  (click)="cartService.decrementProductQty(item.product)"
+                ></i>
+                <p class="font-weight-bold mx-2 my-auto">{{ item.qty }}</p>
+                <i
+                  class="fas fa-plus-circle my-auto"
+                  (click)="cartService.incrementProductQty(item.product)"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="cartService.cart.length == 0">
+          <h6>No Item Present in Cart</h6>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="d-flex col-12 mb-5 justify-content-between mx-2">
+          <p>Total Amount</p>
+          <p class="font-weight-bold">
+            ₹<span class="ml-1">{{ cartService.getCartTotal() }}</span>
+          </p>
+        </div>
+        <div *ngIf="_themeService.data.enableOrder">
+          <div
+            class="bg-dark btn-modal-bag-checkout col-12 py-3"
+            (click)="onCheckout()"
+          >
+            <h6 class="ml-1 font-weight-bold text-white my-auto ml-2">
+              Checkout
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- <app-tab></app-tab> -->

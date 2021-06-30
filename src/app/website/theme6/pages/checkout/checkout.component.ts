@@ -28,7 +28,8 @@ export class CheckoutComponent implements OnInit {
   constructor(
     public http: HttpClient,
     public zone: NgZone,
-    public cartService: CartService, public theme: ThemesManagerService, public router: Router, public activatedRoute: ActivatedRoute, public common: CommonService, public customerService: ManageCustomerService, public addressService: ManageAddressService) { }
+    public cartService: CartService, public theme: ThemesManagerService, public router: Router, public activatedRoute: ActivatedRoute, public common: CommonService, public customerService: ManageCustomerService, public addressService: ManageAddressService
+    ) { }
 
   ngOnInit(): void {
     this.WindowRef = this.WindowReference

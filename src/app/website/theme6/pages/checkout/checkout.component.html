@@ -217,64 +217,206 @@
 <!-- </div>
 </div> -->
 
- <div class="container d-none d-md-block d-lg-block">
+<div class="container d-none d-md-block d-lg-block">
   <h4 class="d-flex justify-content-center my-3">Checkout</h4>
   <div class="row">
-    <div class="col-7 mt-4">
-      <div class="d-flex justify-content-center">
-        <h6 class="my-auto">Already have an Account?</h6>
-        <button
-          class="py-2 px-4 text-uppercase ml-4 small-text font-weight-bold"
-        >
-          Sign in
-        </button>
-      </div>
-      <div class="d-flex my-4">
-        <div class="hor-line my-auto"></div>
-        <h6 class="my-auto mx-2">OR</h6>
-        <div class="hor-line my-auto"></div>
-      </div>
-      <h6 class="d-flex justify-content-center font-weight-bold">
-        Checkout without sign in
-      </h6>
-      <div class="checkout-form mt-3">
-        <input type="text" placeholder="Name" class="w-100 p-2" />
-        <input type="number" placeholder="Mobile" class="w-100 p-2 my-4" />
-        <input type="email" placeholder="Email" class="w-100 p-2" />
-        <div class="d-flex inputs my-3">
-          <input type="number" placeholder="Pincode" class="p-2" />
-          <input type="text" placeholder="City" class="p-2" />
-          <input type="text" placeholder="State" class="p-2" />
+    <ng-container *ngIf="!customerService.getCustomerData()">
+      <div class="col-7 mt-4">
+        <div class="d-flex justify-content-center">
+          <h6 class="my-auto">Already have an Account?</h6>
+          <button
+            class="py-2 px-4 text-uppercase ml-4 small-text font-weight-bold"
+          >
+            Sign in
+          </button>
+        </div>
+        <div class="d-flex my-4">
+          <div class="hor-line my-auto"></div>
+          <h6 class="my-auto mx-2">OR</h6>
+          <div class="hor-line my-auto"></div>
+        </div>
+        <h6 class="d-flex justify-content-center font-weight-bold">
+          Checkout without sign in
+        </h6>
+        <div class="checkout-form mt-3">
+          <input type="text" placeholder="Name" class="w-100 p-2" />
+          <input type="number" placeholder="Mobile" class="w-100 p-2 my-4" />
+          <input type="email" placeholder="Email" class="w-100 p-2" />
+          <div class="d-flex inputs my-3">
+            <input type="number" placeholder="Pincode" class="p-2" />
+            <input type="text" placeholder="City" class="p-2" />
+            <input type="text" placeholder="State" class="p-2" />
+          </div>
         </div>
       </div>
-    </div>
+    </ng-container>
+    <ng-container *ngIf="customerService.getCustomerData()">
+      <div class="col-7 p-3 mx-auto">
+        <div class="shadow-sm p-3">
+          <h4>Select Address</h4>
+          <div
+            class="row mb-2 pb-2 border-bottom cursor-pointer"
+            *ngFor="let address of allAddress"
+            (click)="selectAddress(address)"
+          >
+            <div class="col-10">
+              <p class="text-muted m-0"><b>Street: </b>{{ address?.street }}</p>
+              <p class="text-muted m-0"><b>City: </b>{{ address?.city }}</p>
+              <p class="text-muted m-0">
+                <b>Pincode: </b>{{ address?.pincode }}
+              </p>
+              <p class="text-muted m-0" *ngIf="address?.landmark">
+                <b>Landmark: </b>{{ address?.landmark }}
+              </p>
+            </div>
+            <div class="col-2 text-right my-auto">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  [checked]="addressId == address.id"
+                  type="radio"
+                  name="address"
+                  (click)="selectAddress(address)"
+                />
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="add-address-btn border-dotted w-100 mb-2 mx-auto"
+            (click)="onAddAddress()"
+          >
+            Add Address
+          </button>
+        </div>
+
+        <div class="row my-2" *ngIf="this.theme.data.enableOrder">
+          <div class="col-md-6 col-lg-6 col-6">
+            <button
+              class="btn-primary rounded-0 w-100"
+              [ngClass]="{ 'btn-active': paymentMode == 'cash' }"
+              (click)="changesPaymentMode('cash')"
+            >
+              COD
+            </button>
+          </div>
+          <div class="col-md-6 col-lg-6 col-6">
+            <button
+              class="btn-primary rounded-0 w-100"
+              [ngClass]="{ 'btn-active': paymentMode == 'online' }"
+              (click)="changesPaymentMode('online')"
+            >
+              Online
+            </button>
+          </div>
+        </div>
+        <div class="text-right my-3" *ngIf="this.theme.data.enableOrder">
+          <button
+            *ngIf="
+              this.theme.data.enableOrder &&
+              paymentMode &&
+              !submitted &&
+              address
+            "
+            class="btn-primary w-100 mx-auto"
+            type="button"
+            (click)="placeOrder()"
+          >
+            Order Now
+          </button>
+          <button
+            *ngIf="this.theme.data.enableOrder && paymentMode && submitted"
+            class="btn-primary w-100"
+            type="button"
+            disabled
+          >
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            Please Wait...
+          </button>
+        </div>
+        <div class="text-right my-3" *ngIf="!this.theme.data.enableOrder">
+          <button
+            *ngIf="!this.theme.data.enableOrder && !submitted && address"
+            class="btn-primary w-100 mx-auto"
+            type="button"
+            (click)="OrderNow()"
+          >
+            Order On Whatsapp
+          </button>
+          <button
+            *ngIf="this.theme.data.enableOrder && paymentMode && submitted"
+            class="btn-primary w-100"
+            type="button"
+            disabled
+          >
+            <span
+              class="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            Please Wait...
+          </button>
+        </div>
+      </div>
+    </ng-container>
     <div class="col-5 background-light p-3">
       <h6 class="font-weight-bold">Apply Promo Code</h6>
-      <div class="d-flex offer-code-container my-2">
+      <div
+        class="d-flex offer-code-container my-2"
+        *ngIf="!cartService.appliedCouponcode"
+      >
         <i class="fas fa-tags text-danger"></i>
         <input
           type="text"
           name="offercode"
           id="offercode"
           placeholder="PROMO CODE"
+          [(ngModel)]="couponCode"
           class="text-uppercase"
         />
-        <button class="btn-dark text-uppercase small-text px-4 ml-1">
+        <button
+          class="btn-dark text-uppercase small-text px-4 ml-1"
+          (click)="applyCoupon()"
+        >
           Apply
         </button>
       </div>
+      <div
+        class="d-flex offer-code-container my-2"
+        *ngIf="cartService.appliedCouponcode"
+      >
+        <div class="col-md-12 p-0">
+          <div class="alert alert-success w-100" role="alert">
+            <div class="row">
+              <div class="col-md-10 col-10">
+                <p>{{ couponCode }} applied successfully!</p>
+              </div>
+              <div class="col-md-2 col-2 text-right">
+                <i class="fa fa-times" (click)="removeAppliedCoupon()"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-success" *ngIf="cartService.appliedCouponcode">
+        You get a discount of RS {{ cartService.discount }}
+      </p>
       <h6 class="font-weight-bold my-4">Order Summery</h6>
       <div class="d-flex justify-content-between">
         <p>Actual Amount</p>
         <div class="d-flex">
           <p>₹</p>
-          <p class="ml-1">750.00</p>
+          <p class="ml-1">{{ cartService.getCartTotal() }}</p>
         </div>
       </div>
       <div class="d-flex justify-content-between">
         <p>Shipping Charges</p>
         <div class="d-flex">
-         
+          <!-- <p>₹</p> -->
           <p class="ml-1">Free</p>
         </div>
       </div>
@@ -285,103 +427,213 @@
         </div>
         <div class="d-flex font-weight-bold">
           <p>₹</p>
-          <p class="ml-1">750.00</p>
+          <p class="ml-1">
+            {{ cartService.getCartTotal() - cartService.discount }}
+          </p>
         </div>
       </div>
-      <button class="btn-dark text-uppercase w-100 my-3 py-2">
-        proceed to payment
-      </button>
+      <div *ngIf="this.theme.data.enableOrder">
+        <button
+          class="
+            btn-dark
+            text-uppercase
+            w-100
+            my-3
+            py-2
+            small-text
+            font-weight-bold
+          "
+          *ngIf="
+            this.theme.data.enableOrder && paymentMode && !submitted && address
+          "
+        >
+          proceed to payment
+        </button>
+        <button
+          *ngIf="this.theme.data.enableOrder && paymentMode && submitted"
+          class="
+            btn-dark
+            text-uppercase
+            w-100
+            my-3
+            py-2
+            small-text
+            font-weight-bold
+          "
+          type="button"
+          disabled
+        >
+          <span
+            class="spinner-border spinner-border-sm"
+            role="status"
+            aria-hidden="true"
+          ></span>
+          Please Wait...
+        </button>
+      </div>
+    </div>
+    <h5 class="mt-4 mb-1 mx-3 font-weight-bold">Order Details</h5>
+    <div class="col-12" *ngFor="let item of cartService.cart">
+      <div class="p-3 w-100 d-flex">
+        <img
+          [src]="item.product.imgUrl"
+          (load)="item.loaded = true"
+          [hidden]="!item.loaded"
+          alt=""
+          width="80"
+          class="img-fluid rounded shadow-sm"
+        />
+        <ng-container *ngIf="!item.loaded">
+          <div style="width: 80px; height: 80px">
+            <div class="blank_img"></div>
+          </div>
+        </ng-container>
+        <div class="ml-3 d-flex my-auto w-50 justify-content-between">
+          <p class="mb-0">
+            <a class="text-dark d-inline-block small-text font-weight-bold">{{
+              item.product.itemName
+            }}</a>
+          </p>
+          <span
+            class="text-muted small-text font-weight-bold"
+            *ngIf="item.product.itemCategory"
+            >Category: {{ item.product.itemCategory }}
+          </span>
+          <br />
+          <span class="text-muted small-text font-weight-bold">
+            &#8377;{{ item.product.itemPrice }} * {{ item.qty }} units
+          </span>
+        </div>
+        <hr />
+      </div>
+      <hr />
     </div>
   </div>
-</div> 
-
+</div>
 
 <!-- MOBILE RESPONSIVE -->
 
-<div class="container d-block d-md-none d-lg-none " style="background-color: #F7F7F7;">
-    <div class="row">
-        <div class="col-12"><p class="fs-20">Order Summary</p></div>
-        </div>
-    <div class="row">
-        <div class="col-6"><p class="fs-14">Total amount</p></div>
-        <div class="col-6"><p class="float-right fs-14">950</p></div>
+<div
+  class="container d-block d-md-none d-lg-none"
+  style="background-color: #f7f7f7"
+>
+  <div class="row">
+    <div class="col-12"><p class="fs-20">Order Summary</p></div>
+  </div>
+  <div class="row">
+    <div class="col-6"><p class="fs-14">Total amount</p></div>
+    <div class="col-6"><p class="float-right fs-14">950</p></div>
+  </div>
+  <div class="row">
+    <div class="col-6"><p class="fs-14">Shipping charges</p></div>
+    <div class="col-6"><p class="float-right fs-14">Free</p></div>
+  </div>
+  <div class="row">
+    <div class="col-6"><p class="fs-14">Discount</p></div>
+    <div class="col-6"><p class="float-right fs-14">0</p></div>
+  </div>
+  <div class="row">
+    <div class="col-12"><p class="fs-16 fw-bold">Apply Promo Code</p></div>
+  </div>
+  <div class="d-flex offer-code-container my-2">
+    <i class="fas fa-tags text-danger p-3"></i>
+    <input
+      type="text"
+      name="offercode"
+      id="offercode"
+      placeholder="PROMO CODE"
+      class="text-uppercase"
+    />
+    <button class="btn-dark text-uppercase small-text px-4">Apply</button>
+  </div>
+  <div class="row my-5">
+    <div class="col-12">
+      <label class="i-checks d-flex">
+        <input type="checkbox" class="pt-1 checkboxmark" />
+        <span class="pt-1 fs-13 ml-2">Redeem Myglamm points</span>
+      </label>
     </div>
-    <div class="row">
-        <div class="col-6"><p class="fs-14">Shipping charges</p></div>
-        <div class="col-6"><p class="float-right fs-14">Free</p></div>
-    </div>
-    <div class="row">
-        <div class="col-6"><p class="fs-14">Discount</p></div>
-        <div class="col-6"><p class="float-right fs-14">0</p></div>
-    </div>
-    <div class="row">
-        <div class="col-12"><p class="fs-16 fw-bold">Apply Promo Code</p></div>
-    </div>
-        <div class="d-flex offer-code-container my-2">
-            <i class="fas fa-tags text-danger p-3"></i>
-            <input
-              type="text"
-              name="offercode"
-              id="offercode"
-              placeholder="PROMO CODE"
-              class="text-uppercase"
-            />
-            <button class="btn-dark text-uppercase small-text px-4 ">
-              Apply
-            </button>
-          </div>
-      <div class="row my-5">
-          <div class="col-12">
-               <label class="i-checks d-flex" >
-            <input type="checkbox" class="pt-1 checkboxmark"> <span class="pt-1 fs-13 ml-2">Redeem Myglamm points</span>
-        </label></div>
-       
-      </div>
+  </div>
 
-      <div class="row">
-          <div class="col-9"><p class="fs-20 fw-bold" >Amount Payable</p></div>
-          <div class="col-3"><p class="float-right fw-bold fs-20">950</p></div>
-      </div>
-      <div class="row">
-          <div class="col-6">
-            <p class="fs-14">you saved</p>
-          </div>
-          <div class="col-6"><p class="float-right fs-14">00</p></div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-            <p class="fs-14">you will earn</p>
-        </div>
-        <div class="col-6">
-            <p class="float-right fs-14">121</p></div>
+  <div class="row">
+    <div class="col-9"><p class="fs-20 fw-bold">Amount Payable</p></div>
+    <div class="col-3"><p class="float-right fw-bold fs-20">950</p></div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <p class="fs-14">you saved</p>
     </div>
-    <button class="btn-dark fw-bold w-100 fs-14 my-3 p-3 border-0  p-3 loginbtn text-uppercase " >proceed to payment</button>
-</div>
-<div class="container mt-5">
+    <div class="col-6"><p class="float-right fs-14">00</p></div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <p class="fs-14">you will earn</p>
+    </div>
+    <div class="col-6">
+      <p class="float-right fs-14">121</p>
+    </div>
+  </div>
+  <button
+    class="
+      btn-dark
+      fw-bold
+      w-100
+      fs-14
+      my-3
+      p-3
+      border-0
+      p-3
+      loginbtn
+      text-uppercase
+    "
+  >
+    proceed to payment
+  </button>
+  <div class="container mt-5">
     <div class="row">
-        <div class="col-12 fw-bold">Shipping address</div>
+      <div class="col-12 fw-bold">Shipping address</div>
     </div>
-    <hr>
-    <div class="d-block ">
-<p class="fw-bold fs-16">vishal yadav</p>
-<p class="p-0 m-0 fs-14">dc, 133 andheri, kkb</p>
-<p class="p-0 fs-14">Bhilwara, Rajasthan, 311001</p>
+    <hr />
+    <div class="d-block">
+      <p class="fw-bold fs-16">vishal yadav</p>
+      <p class="p-0 m-0 fs-14">dc, 133 andheri, kkb</p>
+      <p class="p-0 fs-14">Bhilwara, Rajasthan, 311001</p>
     </div>
     <div class="d-block fs-14 mt-2">
-        <p><i class="fas fa-phone "></i><span class="pl-2">7876787578</span></p>
-        <p><i class="fas fa-envelope"></i> <span class="pl-2">myglamm@gmail.com</span></p>
+      <p><i class="fas fa-phone"></i><span class="pl-2">7876787578</span></p>
+      <p>
+        <i class="fas fa-envelope"></i>
+        <span class="pl-2">myglamm@gmail.com</span>
+      </p>
     </div>
-    <button class="btn-dark fw-bold fs-14 my-3 px-5 py-2 border-0  loginbtn text-uppercase " >Change</button>
+    <button
+      class="
+        btn-dark
+        fw-bold
+        fs-14
+        my-3
+        px-5
+        py-2
+        border-0
+        loginbtn
+        text-uppercase
+      "
+    >
+      Change
+    </button>
 
     <div class="d-flex justify-content-start mt-4">
-        <div ><i class="fas fa-truck"></i></div>
-        <div ><p class="fs-14 pl-4">Expected Delivery Date</p></div>
-        <div ><p class="fs-16 pl-4">2-july-2021</p></div>
+      <div><i class="fas fa-truck"></i></div>
+      <div><p class="fs-14 pl-4">Expected Delivery Date</p></div>
+      <div><p class="fs-16 pl-4">2-july-2021</p></div>
     </div>
-    <div class="row ">
-        <div class="col-12"><p class="text-uppercase fs-14 fw-bold">your orders</p></div>
+    <div class="row">
+      <div class="col-12">
+        <p class="text-uppercase fs-14 fw-bold">your orders</p>
+      </div>
     </div>
-    <hr>
+    <hr />
+  </div>
 </div>
 
 <app-tab></app-tab>

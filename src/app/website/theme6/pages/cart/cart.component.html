@@ -9,7 +9,7 @@
 
 <!-- <div class="pb-5">
         <div class="container">
-            <!-- Large Screen -->
+             Large Screen -->
 <!-- <div class="row d-none d-lg-block">
                 <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-3"> -->
 
@@ -213,7 +213,7 @@
           mb-2
         "
       >
-        my bag<span>(1)</span>
+        my bag<span>({{ cartService.cart.length }})</span>
       </h4>
       <div class="products-cart">
         <table class="table table-borderless">
@@ -228,34 +228,52 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="cart-tr">
+            <tr class="cart-tr" *ngFor="let item of cartService.cart">
               <th scope="row">
                 <img
-                  src="../../../../../assets/Images/category/category (1).jpg"
                   height="60"
                   alt=""
+                  [src]="item.product.imgUrl"
+                  (load)="item.loaded = true"
+                  [hidden]="!item.loaded"
+                  alt=""
+                  class="img-fluid rounded shadow-sm"
                 />
+                <ng-container *ngIf="!item.loaded">
+                  <div style="width: 100px; height: 100px">
+                    <div class="blank_img"></div>
+                  </div>
+                </ng-container>
               </th>
               <td class="product-name normal-font-size">
-                Produt name - subname
+                {{ item.product.itemName }}
               </td>
               <td class="normal-font-size">
-                <span class="normal-font-size">₹</span>233
+                <span class="normal-font-size">₹</span
+                >{{ item.product.itemPrice }}
               </td>
               <td class="normal-font-size input-field-size">
-                <input
-                  class="form-control bg-light text-center"
-                  type="number"
-                  name="product-quantity"
-                  value="1"
-                  id="number"
-                />
+                <i
+                  class="fas fa-minus-circle ml-1 my-auto"
+                  (click)="cartService.decrementProductQty(item.product)"
+                ></i>
+                <span class="mx-2">{{ item.qty }}</span>
+                <i
+                  class="fas fa-plus-circle ml-1 my-auto"
+                  (click)="cartService.incrementProductQty(item.product)"
+                ></i>
               </td>
               <td class="normal-font-size">
-                <span class="normal-font-size">₹</span>211
+                <strong
+                  >&#8377;{{ item.product.itemPrice }} X {{ item.qty }} =
+                  &#8377;{{ item.product.itemPrice * item.qty }}
+                </strong>
               </td>
               <td class="normal-font-size">
-                <i class="fas fa-times normal-font-size"></i>
+                <i
+                  class="fas fa-times normal-font-size"
+                  (click)="removeItemFromCart(item.product)"
+                ></i>
               </td>
             </tr>
           </tbody>
@@ -278,9 +296,15 @@
       </div>
     </div>
   </div>
-  <button class="btn-dark text-uppercase px-5 py-2 d-block mx-auto my-3">
-    Proceed to checkout
-  </button>
+  <div class="text-center" *ngIf="_themeService.data.enableOrder">
+    <!-- <a (click)="onCheckout()" class="btn-primary w-100">Procceed to checkout</a> -->
+    <button
+      class="btn-dark text-uppercase px-5 py-2 d-block mx-auto my-3"
+      (click)="onCheckout()"
+    >
+      Proceed to checkout
+    </button>
+  </div>
 </div>
 
 <!-- mobile responsive -->

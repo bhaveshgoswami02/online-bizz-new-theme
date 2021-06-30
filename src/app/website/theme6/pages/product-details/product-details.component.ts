@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/website/services/cart.service';
+import { ManageCustomerService } from 'src/app/website/services/manage-customer.service';
 import { ProductService } from 'src/app/website/services/product.service';
 import { ThemesManagerService } from 'src/app/website/services/themes-manager.service';
 import Swal from 'sweetalert2'
@@ -23,7 +24,7 @@ export class ProductDetailsComponent implements OnInit {
     this.thumbsSwiper = swiper;
   }
 
-  constructor(public route: ActivatedRoute, public productService: ProductService, public cartService: CartService, public _themeService: ThemesManagerService) {
+  constructor(public route: ActivatedRoute, public customerService: ManageCustomerService, public productService: ProductService, public cartService: CartService, public _themeService: ThemesManagerService) {
     // console.log("consrtuct")
     this.getParams()
   }
@@ -86,6 +87,15 @@ export class ProductDetailsComponent implements OnInit {
   imagesClick(smallImg) {
     this.defaultImage = smallImg;
 
+}
+onCheckout() {
+  if(this.customerService.getCustomerData()) {
+    this._themeService.navigateTo("/checkout")
+  }
+  else
+  {
+    this._themeService.navigateTo("/signin",{id:"cart-signin"})
+  }
 }
 
 }

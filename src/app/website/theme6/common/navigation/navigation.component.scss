@@ -44,6 +44,7 @@ ul li p {
 
 .header {
   background-color: #ffe49c;
+  z-index: 2;
 }
 
 /* SEARCHBAR */
@@ -73,6 +74,7 @@ ul li p {
 .navbar,
 .header-2 {
   background-color: white;
+  z-index: 2;
 }
 .navbar-nav {
   width: 100%;
@@ -165,15 +167,24 @@ z-index: 999;
   height: 100vh !important;
   position: absolute;
   top: -4%;
-  left: 114%;
-  right: 0px;
+  right: 0 !important;
+  padding: 0;
   overflow-y: auto;
-  width: 440px;
+  width: 420px;
+  z-index: 99999;
 }
 .btn-modal-bag-checkout {
   position: absolute;
-  width: auto;
+  width: 100%;
   bottom: 0;
+  padding: 0;
+  margin: 0;
   right: 0;
   cursor: pointer;
+}
+// .cartItemScroll {
+//   overflow-y: scroll;
+// }
+.modal-body {
+  overflow-y: scroll;
 }
