@@ -11,7 +11,11 @@
     border-bottom: 2px solid var(--yellow);
     font-weight: bold;
 }
-
+@media (max-width: 768px){
+    .shopmenu{
+        font-size: 22px;
+    }
+}
 /* END */
 
 
@@ -232,6 +236,7 @@ border: 2px solid var(--yellow);
   @media (max-width: 700px) {
     .brand-caption{
         left: 17% ;
+        bottom: 12px;
     }
   }
 
@@ -260,7 +265,7 @@ border: 2px solid var(--yellow);
         color: #212529;
         font-weight: bold;
         background-color: white;
-        padding: 30px;
+        padding: 20px;
         border-radius: 50%;
     }
     
@@ -268,8 +273,14 @@ border: 2px solid var(--yellow);
         height: 200px;
     }
     .swiper-button-next:after, .swiper-button-prev:after{
-        font-size: 25px;
+        font-size: 20px;
     }
+    .bannerimage{
+        height: 200px;
+    }
+   .swiper-pagination-bullets{
+       bottom: 0px;
+   }
 }
 
 /* BANNER END */

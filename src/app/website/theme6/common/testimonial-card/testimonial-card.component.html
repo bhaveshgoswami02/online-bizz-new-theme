@@ -106,15 +106,16 @@
     </div>
   </div> 
 
+
   <div class="d-md-none d-lg-none d-block ">
     <div class="profile p-3">
         <img [src]="testimonial_person.imgUrl" (load)="testimonial_person.loaded = true"
         [hidden]="!testimonial_person.loaded" width="50px" height="50px" class="profileimg" />
       </div>
-      <div class="nameprofile p-3 pr-5 d-md-flex d-lg-flex d-block align-items-center">
+      <div class="nameprofile p-3  d-md-flex d-lg-flex d-block align-items-center">
           {{testimonial_person.name}}
       </div>
-      <div class="testimonial px-5 p-3">
+      <div class="testimonial mx-3 p-3">
         <p class="pt-3 " [innerHTML]="testimonial_person.message"></p>
       </div>
   </div>

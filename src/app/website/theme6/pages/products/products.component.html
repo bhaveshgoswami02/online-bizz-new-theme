@@ -94,7 +94,7 @@
       </div>
     </div>
     <div class="row d-flex justify-content-between mt-5" *ngIf="products.length!=0">
-        <div class="d-flex my-2" *ngFor="let product of products;">
+        <div class="d-flex mb-4" *ngFor="let product of products;">
           <!-- <div class="card border productcard" style="width: 20rem; height:auto">
             <img src="./../../../../../assets/Images/product/thumb-2.jpg" class="card-img-top mx-auto p-2 my-3"
                alt="thumb" />
@@ -213,7 +213,7 @@
 <div class="container mt-5 d-block d-md-none d-lg-none">
    
     <div class="row d-flex justify-content-between mt-3 px-1" *ngIf="products.length!=0">
-        <div class="col-6 d-flex p-0 m-0 px-1" *ngFor="let product of _themeService.data?.products?.slice(0,8);let i = index">
+        <div class="col-6 d-flex p-0 m-0 px-1 my-2" *ngFor="let product of _themeService.data?.products?.slice(0,8);let i = index">
           <!-- <div class="card border " style="width: auto; ">
             <img src="./../../../../../assets/Images/product/thumb-2.jpg" class=" mx-auto p-2 "
                alt="thumb" />
@@ -283,4 +283,3 @@
       </div> -->
       </div>
 
-<app-tab></app-tab>
