@@ -59,11 +59,12 @@ export class SigninComponent implements OnInit {
   vertifyOtp(data: NgForm) {
     this.loader = true
     console.log("otpdata",data.value)
-    /* var otpdata = data.value.otp1.concat(data.value.otp2).concat(data.value.otp3).concat(data.value.otp4).concat(data.value.otp5).concat(data.value.otp6);
+    var otpdata = data.value.otp1.concat(data.value.otp2).concat(data.value.otp3).concat(data.value.otp4).concat(data.value.otp5).concat(data.value.otp6);
     console.log("concateotpdata",otpdata)
-    var otpvalue = { otp: otpdata} */
+    var otpvalue = { otp: otpdata}
     console.log("otpdata",data.value)
     data.value.sessionId = this.sessionId
+    data.value.otp = otpdata
     this.cart.verifyOtp(data.value).toPromise().then((res: any) => {
       // console.log("verify otp response", res)
       if (res.Status == 'Success') {
@@ -88,9 +89,10 @@ export class SigninComponent implements OnInit {
   
  
   movetoNext(current, nextFieldID) {  
-    let data = current.value.maxLength
+   /*  let data = current.value.maxLength */
+   console.log("running", current)
     let data2 = current.maxLength
-    console.log("running", data,nextFieldID)
+    console.log("running", nextFieldID)
     console.log("running22", data2,nextFieldID)
     if (1 >= 1) {  
       console.log("runningifff")

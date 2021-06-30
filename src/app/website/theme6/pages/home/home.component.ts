@@ -121,6 +121,7 @@ export class HomeComponent implements OnInit {
     if (!this._themeService.data?.categories && this._themeService.data?.categories?.length > 0) {
       this.categoryService.getAll("").subscribe(res => {
         this._themeService.data.categories = res
+        console.log("category data", this._themeService.data?.categories)
       })
     }
   }
